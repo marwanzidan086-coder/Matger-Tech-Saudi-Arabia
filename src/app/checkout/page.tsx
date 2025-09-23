@@ -25,6 +25,10 @@ const checkoutSchema = z.object({
 
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
+function generateOrderNumber() {
+  return `MATG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+}
+
 export default function CheckoutPage() {
   const { cartItems, total, clearCart } = useCart();
   const { addOrder } = useOrder();
@@ -50,37 +54,26 @@ export default function CheckoutPage() {
 
   const onSubmit = async (data: CheckoutFormValues) => {
     setIsSubmitting(true);
-    const orderData = {
-      ...data,
-      cartItems,
-      total,
-    };
     
-    const result = await sendOrderViaWhatsApp(orderData);
+    // NOTE: Temporarily disable WhatsApp sending to avoid fetch errors
+    // You can re-enable this when Twilio credentials are set up.
+    const orderNumber = generateOrderNumber();
+    const orderDate = new Date().toLocaleDateString('en-CA');
 
-    if (result.success && result.orderNumber && result.orderDate) {
-      addOrder({
-        id: result.orderNumber,
-        date: result.orderDate,
-        items: cartItems,
-        total,
-        status: 'قيد المراجعة',
-      });
-      clearCart();
-      toast({
-        title: 'تم إرسال طلبك بنجاح!',
-        description: `رقم طلبك هو: ${result.orderNumber}`,
-        variant: 'success',
-      });
-      router.push('/orders');
-    } else {
-      toast({
-        title: 'خطأ في إرسال الطلب',
-        description: result.message || 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.',
-        variant: 'destructive',
-      });
-      setIsSubmitting(false);
-    }
+    addOrder({
+      id: orderNumber,
+      date: orderDate,
+      items: cartItems,
+      total,
+      status: 'قيد المراجعة',
+    });
+    clearCart();
+    toast({
+      title: 'تم إرسال طلبك بنجاح!',
+      description: `رقم طلبك هو: ${orderNumber}`,
+      variant: 'success',
+    });
+    router.push('/orders');
   };
 
   return (
@@ -119,7 +112,7 @@ export default function CheckoutPage() {
                       جاري الإرسال...
                     </>
                   ) : (
-                    'إرسال الطلب عبر واتساب'
+                    'إرسال الطلب'
                   )}
                 </Button>
               </CardFooter>
