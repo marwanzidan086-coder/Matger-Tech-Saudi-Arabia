@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { AddToCartButton } from '@/components/AddToCartButton';
 import { AddToWishlistButton } from '@/components/AddToWishlistButton';
-import FeatureIcons from '@/components/FeatureIcons';
+import { OrderNowButton } from '@/components/OrderNowButton';
 
 type ProductPageProps = {
   params: {
@@ -48,6 +48,7 @@ export default function ProductPage({ params }: ProductPageProps) {
           </div>
           
           <div className="flex flex-col gap-4 pt-4">
+            <OrderNowButton product={product} />
             <AddToCartButton product={product} />
             <AddToWishlistButton product={product} />
           </div>

@@ -15,18 +15,19 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useIsMounted } from '@/hooks/use-is-mounted';
+import { sendOrderViaWhatsApp } from '@/app/actions';
 
 const checkoutSchema = z.object({
   name: z.string().min(3, 'يجب أن يكون الاسم 3 أحرف على الأقل'),
+  phone: z.string().min(10, 'رقم الهاتف غير صالح').regex(/^[\d+]{10,}$/, 'رقم الهاتف يجب أن يحتوي على أرقام فقط'),
+  phone2: z.string().optional(),
+  governorate: z.string().min(2, 'المحافظة مطلوبة'),
+  city: z.string().min(2, 'المدينة مطلوبة'),
   address: z.string().min(10, 'يجب أن يكون العنوان 10 أحرف على الأقل'),
   notes: z.string().optional(),
 });
 
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
-
-function generateOrderNumber() {
-  return `MATG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
-}
 
 export default function CheckoutPage() {
   const { cartItems, total, clearCart } = useCart();
@@ -57,27 +58,24 @@ export default function CheckoutPage() {
   const onSubmit = async (data: CheckoutFormValues) => {
     setIsSubmitting(true);
     
-    // The WhatsApp sending is disabled until the .env variables are set.
-    // To re-enable, add your TWILIO_* credentials to .env and uncomment the code below.
-    
-    // const result = await sendOrderViaWhatsApp({
-    //   ...data,
-    //   cartItems,
-    //   total,
-    // });
+    const result = await sendOrderViaWhatsApp({
+      ...data,
+      cartItems,
+      total,
+    });
 
-    // if (!result.success) {
-    //   toast({
-    //     title: 'خطأ في إرسال الطلب',
-    //     description: result.message,
-    //     variant: 'destructive',
-    //   });
-    //   setIsSubmitting(false);
-    //   return;
-    // }
+    if (!result.success) {
+      toast({
+        title: 'خطأ في إرسال الطلب',
+        description: result.message,
+        variant: 'destructive',
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
-    const orderNumber = generateOrderNumber();
-    const orderDate = new Date().toLocaleDateString('en-CA');
+    const orderNumber = result.orderNumber!;
+    const orderDate = result.orderDate!;
 
     addOrder({
       id: orderNumber,
@@ -93,7 +91,6 @@ export default function CheckoutPage() {
       variant: 'success',
     });
     router.push('/orders');
-    // setIsSubmitting(false); // This is not strictly necessary as we are navigating away
   };
 
   return (
@@ -114,8 +111,28 @@ export default function CheckoutPage() {
                   <Input id="name" {...register('name')} />
                   {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
                 </div>
+                 <div>
+                  <Label htmlFor="phone">رقم الهاتف</Label>
+                  <Input id="phone" {...register('phone')} />
+                  {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>}
+                </div>
+                 <div>
+                  <Label htmlFor="phone2">رقم هاتف إضافي (اختياري)</Label>
+                  <Input id="phone2" {...register('phone2')} />
+                  {errors.phone2 && <p className="text-sm text-destructive mt-1">{errors.phone2.message}</p>}
+                </div>
+                 <div>
+                  <Label htmlFor="governorate">المحافظة</Label>
+                  <Input id="governorate" {...register('governorate')} />
+                  {errors.governorate && <p className="text-sm text-destructive mt-1">{errors.governorate.message}</p>}
+                </div>
+                 <div>
+                  <Label htmlFor="city">المدينة / المركز</Label>
+                  <Input id="city" {...register('city')} />
+                  {errors.city && <p className="text-sm text-destructive mt-1">{errors.city.message}</p>}
+                </div>
                 <div>
-                  <Label htmlFor="address">العنوان الكامل</Label>
+                  <Label htmlFor="address">باقي العنوان (القرية، الشارع، علامة مميزة...)</Label>
                   <Textarea id="address" {...register('address')} />
                   {errors.address && <p className="text-sm text-destructive mt-1">{errors.address.message}</p>}
                 </div>

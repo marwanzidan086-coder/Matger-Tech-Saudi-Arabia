@@ -5,6 +5,10 @@ import { siteConfig } from '@/config/site';
 
 const orderSchema = z.object({
   name: z.string().min(1, 'الاسم مطلوب'),
+  phone: z.string().min(1, 'رقم الهاتف مطلوب'),
+  phone2: z.string().optional(),
+  governorate: z.string().min(1, 'المحافظة مطلوبة'),
+  city: z.string().min(1, 'المدينة مطلوبة'),
   address: z.string().min(1, 'العنوان مطلوب'),
   notes: z.string().optional(),
   cartItems: z.array(z.any()),
@@ -25,6 +29,8 @@ function buildOrderMessage(
     )
     .join('\n');
 
+  const fullAddress = `${orderData.address}, ${orderData.city}, ${orderData.governorate}`;
+
   return `
 طلب جديد من *${siteConfig.name}*
 
@@ -33,7 +39,9 @@ function buildOrderMessage(
 
 *بيانات العميل:*
 *الاسم:* ${orderData.name}
-*العنوان:* ${orderData.address}
+*رقم الهاتف:* ${orderData.phone}
+*هاتف إضافي:* ${orderData.phone2 || 'لا يوجد'}
+*العنوان:* ${fullAddress}
 *ملاحظات:* ${orderData.notes || 'لا يوجد'}
 
 *المنتجات:*
@@ -50,8 +58,6 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     return { success: false, message: 'بيانات غير صالحة.' };
   }
 
-  const { name, address, notes, cartItems, total } = validation.data;
-
   const orderNumber = generateOrderNumber();
   const orderDate = new Date().toLocaleDateString('en-CA');
 
@@ -61,12 +67,13 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     orderDate,
   });
 
-  const SID = process.env.TWILIO_ACCOUNT_SID || process.env.NEXT_PUBLIC_TWILIO_ACCOUNT_SID;
-  const TOKEN = process.env.TWILIO_AUTH_TOKEN || process.env.NEXT_PUBLIC_TWILIO_AUTH_TOKEN;
-  const FROM = process.env.TWILIO_PHONE_NUMBER || process.env.NEXT_PUBLIC_TWILIO_PHONE_NUMBER;
+  const SID = process.env.TWILIO_ACCOUNT_SID;
+  const TOKEN = process.env.TWILIO_AUTH_TOKEN;
+  const FROM = process.env.TWILIO_PHONE_NUMBER;
 
   if (!SID || !TOKEN || !FROM) {
-    return { success: false, message: 'بيانات اعتماد Twilio غير مكتملة.' };
+    console.warn("Twilio credentials are not set. Skipping WhatsApp notification.");
+    return { success: true, orderNumber, orderDate };
   }
   
   const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${SID}/Messages.json`;
