@@ -74,8 +74,20 @@ export default function CheckoutPage() {
       return;
     }
 
-    const orderNumber = result.orderNumber!;
-    const orderDate = result.orderDate!;
+    // هذا الجزء سيعمل فقط إذا كانت بيانات Twilio غير موجودة أو نجح الإرسال
+    const orderNumber = result.orderNumber;
+    const orderDate = result.orderDate;
+
+    if (!orderNumber || !orderDate) {
+        toast({
+            title: 'خطأ',
+            description: 'لم يتم إنشاء رقم الطلب بشكل صحيح.',
+            variant: 'destructive',
+        });
+        setIsSubmitting(false);
+        return;
+    }
+
 
     addOrder({
       id: orderNumber,
