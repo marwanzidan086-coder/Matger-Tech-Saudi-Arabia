@@ -47,7 +47,7 @@ export default function OrdersPage() {
                         {order.items.map((item) => (
                           <li key={item.id} className="flex justify-between">
                             <span>{item.name} x {item.quantity}</span>
-                            <span>{(item.price * item.quantity).toFixed(2)} د.م</span>
+                            <span>{(item.price * item.quantity).toFixed(2)} ج.م</span>
                           </li>
                         ))}
                       </ul>
@@ -56,7 +56,7 @@ export default function OrdersPage() {
                 </Accordion>
                 <div className="border-t mt-4 pt-4 flex justify-between font-bold text-lg">
                   <span>الإجمالي</span>
-                  <span>{order.total.toFixed(2)} د.م</span>
+                  <span>{order.total.toFixed(2)} ج.م</span>
                 </div>
               </CardContent>
             </Card>

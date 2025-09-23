@@ -181,13 +181,13 @@ export default function CheckoutPage() {
                     <p className="font-semibold">{item.name}</p>
                     <p className="text-sm text-muted-foreground">الكمية: {item.quantity}</p>
                   </div>
-                  <p className="font-mono">{(item.price * item.quantity).toFixed(2)} د.م</p>
+                  <p className="font-mono">{(item.price * item.quantity).toFixed(2)} ج.م</p>
                 </div>
               ))}
               <div className="border-t border-border my-4"></div>
               <div className="flex justify-between font-bold text-xl">
                 <p>الإجمالي</p>
-                <p className="font-mono">{total.toFixed(2)} د.م</p>
+                <p className="font-mono">{total.toFixed(2)} ج.م</p>
               </div>
             </CardContent>
           </Card>

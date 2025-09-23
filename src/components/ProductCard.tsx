@@ -28,7 +28,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <Link href={`/products/${product.slug}`}>{product.name}</Link>
         </h3>
         <p className="mt-2 text-lg font-bold text-primary">
-          {product.price.toFixed(2)} د.م
+          {product.price.toFixed(2)} ج.م
         </p>
         <div className="mt-4 flex flex-col gap-2">
           <AddToCartButton product={product} />

@@ -25,7 +25,7 @@ function buildOrderMessage(
   const productLines = orderData.cartItems
     .map(
       (item) =>
-        `- ${item.name} (الكمية: ${item.quantity}) - السعر: ${item.price.toFixed(2)} د.م`
+        `- ${item.name} (الكمية: ${item.quantity}) - السعر: ${item.price.toFixed(2)} ج.م`
     )
     .join('\n');
 
@@ -47,7 +47,7 @@ function buildOrderMessage(
 *المنتجات:*
 ${productLines}
 
-*الإجمالي:* ${orderData.total.toFixed(2)} د.م
+*الإجمالي:* ${orderData.total.toFixed(2)} ج.م
   `.trim();
 }
 

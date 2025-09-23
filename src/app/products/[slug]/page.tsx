@@ -41,7 +41,7 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="flex flex-col space-y-6">
           <h1 className="text-3xl md:text-4xl font-headline font-bold">{product.name}</h1>
           <p className="text-2xl font-semibold font-mono text-primary">
-            {product.price.toFixed(2)} د.م
+            {product.price.toFixed(2)} ج.م
           </p>
           <div className="text-lg leading-relaxed">
             <p>{product.description}</p>

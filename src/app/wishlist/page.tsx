@@ -60,7 +60,7 @@ export default function WishlistPage() {
                 <h3 className="font-semibold text-lg flex-grow">
                   <Link href={`/products/${item.slug}`}>{item.name}</Link>
                 </h3>
-                <p className="text-primary font-semibold my-2">{item.price.toFixed(2)} د.م</p>
+                <p className="text-primary font-semibold my-2">{item.price.toFixed(2)} ج.م</p>
                 <div className="flex gap-2 mt-auto">
                     <Button onClick={() => handleAddToCart(item)} className="w-full">
                         <ShoppingCart className="me-2 h-4 w-4" />
