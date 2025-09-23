@@ -13,7 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 
@@ -44,19 +44,20 @@ export default function CheckoutPage() {
   } = useForm<CheckoutFormValues>({
     resolver: zodResolver(checkoutSchema),
   });
+
+  useEffect(() => {
+    if (isMounted && cartItems.length === 0) {
+      router.replace('/cart');
+    }
+  }, [isMounted, cartItems, router]);
   
   if (!isMounted || cartItems.length === 0) {
-    if (isMounted && cartItems.length === 0) {
-        router.replace('/cart');
-    }
     return <div className="text-center py-10">جاري التحميل...</div>;
   }
 
   const onSubmit = async (data: CheckoutFormValues) => {
     setIsSubmitting(true);
     
-    // NOTE: Temporarily disable WhatsApp sending to avoid fetch errors
-    // You can re-enable this when Twilio credentials are set up.
     const orderNumber = generateOrderNumber();
     const orderDate = new Date().toLocaleDateString('en-CA');
 
