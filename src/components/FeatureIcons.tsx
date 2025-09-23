@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { generateFeatureIcons, type FeatureIconsOutput } from '@/ai/flows/product-feature-icon-generation';
+// import { generateFeatureIcons, type FeatureIconsOutput } from '@/ai/flows/product-feature-icon-generation';
 import {
   BatteryCharging,
   Wifi,
@@ -14,6 +14,15 @@ import {
   FastForward
 } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
+
+// This is a placeholder type.
+type FeatureIconsOutput = {
+    featureIcons: {
+        feature: string;
+        icon: string;
+    }[];
+}
+
 
 const ICONS_MAP: { [key: string]: React.ComponentType<LucideProps> } = {
   BatteryCharging,
@@ -37,20 +46,23 @@ export default function FeatureIcons({ productDescription }: { productDescriptio
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getFeatures() {
-      try {
-        setLoading(true);
-        const result = await generateFeatureIcons({ productDescription });
-        if (result && result.featureIcons) {
-          setFeatures(result.featureIcons);
-        }
-      } catch (error) {
-        console.error("Failed to generate feature icons:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    getFeatures();
+    // The feature generation is disabled to prevent fetch errors.
+    // To re-enable, add your GEMINI_API_KEY to .env and uncomment the AI flow import and call.
+    setLoading(false);
+    // async function getFeatures() {
+    //   try {
+    //     setLoading(true);
+    //     const result = await generateFeatureIcons({ productDescription });
+    //     if (result && result.featureIcons) {
+    //       setFeatures(result.featureIcons);
+    //     }
+    //   } catch (error) {
+    //     console.error("Failed to generate feature icons:", error);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // }
+    // getFeatures();
   }, [productDescription]);
 
   if (loading) {
