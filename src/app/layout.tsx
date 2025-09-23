@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { siteConfig } from '@/config/site';
+import BottomNav from '@/components/BottomNav';
 
 export const metadata: Metadata = {
   title: {
@@ -31,11 +32,12 @@ export default function RootLayout({
         <Providers>
           <div className="relative flex min-h-dvh flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pb-24">{children}</main>
             <Footer />
           </div>
           <FloatingWhatsApp />
           <Toaster />
+          <BottomNav />
         </Providers>
       </body>
     </html>

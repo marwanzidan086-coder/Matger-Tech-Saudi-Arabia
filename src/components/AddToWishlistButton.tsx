@@ -30,6 +30,7 @@ export function AddToWishlistButton({ product }: { product: Product }) {
       addToWishlist(product);
       toast({
         title: 'تمت الإضافة إلى المفضلة',
+        variant: 'success'
       });
     }
   };
@@ -39,7 +40,7 @@ export function AddToWishlistButton({ product }: { product: Product }) {
       onClick={handleToggleWishlist}
       variant="outline"
       size="lg"
-      className="flex-1"
+      className="w-full"
     >
       <Heart className={`me-2 h-5 w-5 ${isInWishlist ? 'fill-red-500 text-red-500' : ''}`} />
       {isInWishlist ? 'إزالة من المفضلة' : 'أضف إلى المفضلة'}

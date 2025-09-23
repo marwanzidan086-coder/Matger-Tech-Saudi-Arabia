@@ -49,7 +49,7 @@ export default function ProductPage({ params }: ProductPageProps) {
 
           <FeatureIcons productDescription={product.description} />
           
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="flex flex-col gap-4 pt-4">
             <AddToCartButton product={product} />
             <AddToWishlistButton product={product} />
           </div>
