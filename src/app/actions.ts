@@ -72,9 +72,8 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const FROM = process.env.TWILIO_PHONE_NUMBER;
 
   if (!SID || !TOKEN || !FROM) {
-    console.warn("Twilio credentials are not set. Skipping WhatsApp notification.");
-    // في بيئة الإنتاج، قد ترغب في إظهار خطأ، لكن للتطوير سنسمح بالمرور
-    return { success: true, orderNumber, orderDate };
+    console.error("Twilio credentials are not set in .env file.");
+    return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر.' };
   }
   
   const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${SID}/Messages.json`;
