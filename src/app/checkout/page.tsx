@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useCart } from '@/contexts/CartContext';
 import { useOrder } from '@/contexts/OrderContext';
-import { sendOrderViaWhatsApp } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -58,6 +57,25 @@ export default function CheckoutPage() {
   const onSubmit = async (data: CheckoutFormValues) => {
     setIsSubmitting(true);
     
+    // The WhatsApp sending is disabled until the .env variables are set.
+    // To re-enable, add your TWILIO_* credentials to .env and uncomment the code below.
+    
+    // const result = await sendOrderViaWhatsApp({
+    //   ...data,
+    //   cartItems,
+    //   total,
+    // });
+
+    // if (!result.success) {
+    //   toast({
+    //     title: 'خطأ في إرسال الطلب',
+    //     description: result.message,
+    //     variant: 'destructive',
+    //   });
+    //   setIsSubmitting(false);
+    //   return;
+    // }
+
     const orderNumber = generateOrderNumber();
     const orderDate = new Date().toLocaleDateString('en-CA');
 
@@ -75,6 +93,7 @@ export default function CheckoutPage() {
       variant: 'success',
     });
     router.push('/orders');
+    // setIsSubmitting(false); // This is not strictly necessary as we are navigating away
   };
 
   return (
