@@ -46,8 +46,6 @@ export default function ProductPage({ params }: ProductPageProps) {
           <div className="text-lg leading-relaxed">
             <p>{product.description}</p>
           </div>
-
-          <FeatureIcons productDescription={product.description} />
           
           <div className="flex flex-col gap-4 pt-4">
             <AddToCartButton product={product} />
