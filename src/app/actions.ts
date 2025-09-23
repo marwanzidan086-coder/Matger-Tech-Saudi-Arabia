@@ -58,18 +58,17 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     return { success: false, message: 'بيانات غير صالحة.' };
   }
 
-  const orderNumber = generateOrderNumber();
-  const orderDate = new Date().toLocaleDateString('en-CA');
-
-  const messageBody = buildOrderMessage({
-    ...validation.data,
-    orderNumber,
-    orderDate,
-  });
-
   const SID = process.env.TWILIO_ACCOUNT_SID;
   const TOKEN = process.env.TWILIO_AUTH_TOKEN;
   const FROM = process.env.TWILIO_PHONE_NUMBER;
+
+  // Diagnostic logging
+  console.log("--- Diagnosing Twilio Env Vars ---");
+  console.log("TWILIO_ACCOUNT_SID:", SID ? "Loaded" : "Not Loaded");
+  console.log("TWILIO_AUTH_TOKEN:", TOKEN ? "Loaded" : "Not Loaded");
+  console.log("TWILIO_PHONE_NUMBER:", FROM ? "Loaded" : "Not Loaded");
+  console.log("------------------------------------");
+
 
   if (!SID || !TOKEN || !FROM) {
     console.error("Twilio credentials are not set in .env file.");
@@ -79,6 +78,14 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${SID}/Messages.json`;
 
   try {
+    const orderNumber = generateOrderNumber();
+    const orderDate = new Date().toLocaleDateString('en-CA');
+    const messageBody = buildOrderMessage({
+        ...validation.data,
+        orderNumber,
+        orderDate,
+    });
+
     for (const to of siteConfig.whatsappNumbers) {
       const form = new URLSearchParams();
       form.append('To', `whatsapp:${to}`);
@@ -97,11 +104,10 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
         const errorData = await response.json();
         console.error('Twilio Error:', errorData);
 
-        // التعامل مع أخطاء Twilio الشائعة
-        if (errorData.code === 21211) { // Invalid 'To' Phone Number
+        if (errorData.code === 21211) { 
              return { success: false, message: 'رقم Twilio الذي تحاول الإرسال إليه غير صالح.' };
         }
-        if (errorData.code === 63018) { // Twilio Sandbox message limit reached or not set up
+        if (errorData.code === 63018) {
             return { success: false, message: 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي.' };
         }
         throw new Error(`Twilio API Error: ${errorData.message}`);
@@ -112,7 +118,6 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   } catch (err) {
     console.error(err);
     const errorMessage = (err as Error).message;
-    // التعامل مع خطأ المصادقة
     if (errorMessage.includes('Authenticate')) {
       return { success: false, message: 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN).' };
     }
