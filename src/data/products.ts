@@ -19,11 +19,15 @@ const electronicsProducts: Product[] = [
         slug: 'dlc-multi-use-lantern',
         description: `
 <div class="text-foreground/90 p-4 rounded-lg bg-gradient-to-b from-muted/30 to-transparent">
-  <p class="text-lg font-semibold text-center text-primary mb-6">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
 
   <div class="mb-6">
-    <h3 class="text-xl font-bold text-center text-green-400 mb-2" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">✨ أهم المميزات ✨</h3>
-    <ul class="space-y-3 list-none p-0 m-0">
+    <p class="text-lg font-semibold text-center text-primary">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
+  </div>
+
+  <div class="mb-6">
+    <h3 class="text-xl font-bold text-center text-green-400" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">✨ أهم المميزات ✨</h3>
+    <hr class="border-t-2 border-green-400/30 w-1/2 mx-auto mt-2">
+    <ul class="space-y-3 list-none p-0 mt-4">
       <li class="flex items-start gap-3"><span class="text-green-400 mt-1">💡</span><div><strong class="text-primary">إضاءة كاشفة:</strong> تنور لك المكان بوضوح تام وتحول الليل إلى نهار.</div></li>
       <li class="flex items-start gap-3"><span class="text-green-400 mt-1">🔋</span><div><strong class="text-primary">باور بانك مدمج:</strong> طاقة لا تنقطع وشحن سريع لجوالك عبر USB.</div></li>
       <li class="flex items-start gap-3"><span class="text-green-400 mt-1">🧲</span><div><strong class="text-primary">تثبيت مغناطيسي:</strong> يثبت بقوة على أي سطح معدني بثبات.</div></li>
@@ -33,8 +37,9 @@ const electronicsProducts: Product[] = [
   </div>
 
   <div>
-    <h3 class="text-xl font-bold text-center text-green-400 mb-2" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">🚀 تفاصيل سريعة 🚀</h3>
-    <div class="overflow-x-auto pt-2">
+    <h3 class="text-xl font-bold text-center text-green-400" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">🚀 تفاصيل سريعة 🚀</h3>
+    <hr class="border-t-2 border-green-400/30 w-1/2 mx-auto mt-2">
+    <div class="overflow-x-auto pt-4">
         <table class="w-full text-sm text-left">
             <tbody>
                 <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الماركة:</td><td class="px-4 py-2">DLC</td></tr>
@@ -44,6 +49,7 @@ const electronicsProducts: Product[] = [
         </table>
     </div>
   </div>
+
 </div>
 `,
         price: 150.00,
