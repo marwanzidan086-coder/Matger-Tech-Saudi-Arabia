@@ -11,7 +11,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Card, CardContent } from "@/components/ui/card"
 import FeatureIcons from '@/components/FeatureIcons';
 
 type ProductPageProps = {
@@ -41,18 +40,16 @@ export default function ProductPage({ params }: ProductPageProps) {
             <CarouselContent>
               {product.images.map((image, index) => (
                 <CarouselItem key={index}>
-                  <Card>
-                    <CardContent className="relative aspect-square p-0">
-                      <Image
-                        src={image}
-                        alt={`${product.name} - image ${index + 1}`}
-                        fill
-                        className="object-cover rounded-lg"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        data-ai-hint="product image"
-                      />
-                    </CardContent>
-                  </Card>
+                  <div className="relative aspect-square">
+                    <Image
+                      src={image}
+                      alt={`${product.name} - image ${index + 1}`}
+                      fill
+                      className="object-cover rounded-lg"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      data-ai-hint="product image"
+                    />
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
