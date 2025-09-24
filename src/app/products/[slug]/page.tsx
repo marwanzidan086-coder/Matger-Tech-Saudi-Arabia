@@ -11,8 +11,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Card, CardContent } from "@/components/ui/card"
-import FeatureIcons from '@/components/FeatureIcons';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
 
@@ -43,16 +41,16 @@ export default function ProductPage({ params }: ProductPageProps) {
             <CarouselContent>
               {product.images.map((image, index) => (
                 <CarouselItem key={index} className="pl-4">
-                  <div className="relative aspect-square">
-                    <Image
-                      src={image}
-                      alt={`${product.name} - image ${index + 1}`}
-                      fill
-                      className="object-cover rounded-lg"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      data-ai-hint="product image"
-                    />
-                  </div>
+                    <div className="relative aspect-square">
+                      <Image
+                        src={image}
+                        alt={`${product.name} - image ${index + 1}`}
+                        fill
+                        className="object-cover rounded-lg"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        data-ai-hint="product image"
+                      />
+                    </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -65,12 +63,11 @@ export default function ProductPage({ params }: ProductPageProps) {
           <p className="text-2xl font-semibold font-mono text-primary">
             {product.price.toFixed(2)} ج.م
           </p>
-          <div className="text-lg leading-relaxed space-y-4">
-            <p>{product.description}</p>
-          </div>
+          <div
+              className="text-lg leading-relaxed space-y-4"
+              dangerouslySetInnerHTML={{ __html: product.description.replace(/\n/g, '<br />') }}
+          />
 
-          <FeatureIcons productDescription={product.description} />
-          
           <div className="flex flex-col gap-4 pt-4">
             <OrderNowButton product={product} />
             <div className="grid grid-cols-2 gap-4">
