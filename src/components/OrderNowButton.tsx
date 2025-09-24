@@ -19,14 +19,14 @@ export function OrderNowButton({ product }: { product: Product }) {
     // 2. Add the current product to the now-empty cart.
     addToCart(product);
     
-    // 3. Immediately redirect to the checkout page.
-    // The checkout page is already designed to handle a cart with items.
+    // 3. Show a confirmation toast.
     toast({
       variant: 'success',
       title: 'تم تجهيز طلبك!',
       description: 'سيتم توجيهك لصفحة الدفع مباشرة.',
     });
     
+    // 4. Immediately redirect to the checkout page.
     router.push('/checkout');
   };
 
