@@ -18,13 +18,12 @@ const electronicsProducts: Product[] = [
         name: 'فانوس الكشتات والرحلات DLC-32898',
         slug: 'dlc-multi-use-lantern',
         description: `
-<div class="space-y-6 text-foreground/90 bg-muted/20 p-4 rounded-lg">
-  <p class="text-lg font-semibold text-center text-primary">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
+<div class="text-foreground/90 p-4 rounded-lg bg-gradient-to-b from-muted/30 to-transparent">
+  <p class="text-lg font-semibold text-center text-primary mb-6">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
 
-  <div class="space-y-4">
-    <h3 class="text-xl font-bold text-center text-green-400" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">✨ أهم المميزات ✨</h3>
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-green-400/50 to-transparent mb-4"></div>
-    <ul class="space-y-3 list-inside text-foreground/90 pr-4">
+  <div class="mb-6">
+    <h3 class="text-xl font-bold text-center text-green-400 mb-2" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">✨ أهم المميزات ✨</h3>
+    <ul class="space-y-3 list-none p-0 m-0">
       <li class="flex items-start gap-3"><span class="text-green-400 mt-1">💡</span><div><strong class="text-primary">إضاءة كاشفة:</strong> تنور لك المكان بوضوح تام وتحول الليل إلى نهار.</div></li>
       <li class="flex items-start gap-3"><span class="text-green-400 mt-1">🔋</span><div><strong class="text-primary">باور بانك مدمج:</strong> طاقة لا تنقطع وشحن سريع لجوالك عبر USB.</div></li>
       <li class="flex items-start gap-3"><span class="text-green-400 mt-1">🧲</span><div><strong class="text-primary">تثبيت مغناطيسي:</strong> يثبت بقوة على أي سطح معدني بثبات.</div></li>
@@ -33,8 +32,8 @@ const electronicsProducts: Product[] = [
     </ul>
   </div>
 
-  <div class="space-y-2">
-    <h3 class="text-xl font-bold text-center text-green-400" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">🚀 تفاصيل سريعة 🚀</h3>
+  <div>
+    <h3 class="text-xl font-bold text-center text-green-400 mb-2" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">🚀 تفاصيل سريعة 🚀</h3>
     <div class="overflow-x-auto pt-2">
         <table class="w-full text-sm text-left">
             <tbody>
