@@ -70,8 +70,10 @@ export default function ProductPage({ params }: ProductPageProps) {
           
           <div className="flex flex-col gap-4 pt-4">
             <OrderNowButton product={product} />
-            <AddToCartButton product={product} />
-            <AddToWishlistButton product={product} />
+            <div className="grid grid-cols-2 gap-4">
+                <AddToCartButton product={product} />
+                <AddToWishlistButton product={product} />
+            </div>
           </div>
         </div>
       </div>

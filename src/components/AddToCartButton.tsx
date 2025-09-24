@@ -19,7 +19,7 @@ export function AddToCartButton({ product }: { product: Product }) {
   };
 
   return (
-    <Button onClick={handleAddToCart} size="lg" className="w-full">
+    <Button onClick={handleAddToCart} size="lg" className="w-full" variant="outline">
       <ShoppingCart className="me-2 h-5 w-5" />
       أضف إلى السلة
     </Button>
