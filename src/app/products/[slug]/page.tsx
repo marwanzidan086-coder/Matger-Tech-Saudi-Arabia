@@ -71,7 +71,7 @@ function ParsedDescription({ description }: { description: string }) {
 
       {features.length > 0 && (
         <div className="mb-8">
-          <h3 className="text-xl font-bold mb-3 text-primary" style={{ textShadow: '0 0 10px hsl(var(--primary) / 0.5)' }}>✨ مميزات المنتج ✨</h3>
+          <h3 className="text-xl font-bold mb-3 text-primary drop-shadow-lg">✨ مميزات المنتج ✨</h3>
           <ul className="space-y-3">
             {features.map((feature, index) => {
               const Icon = getIconForFeature(feature);
@@ -88,7 +88,7 @@ function ParsedDescription({ description }: { description: string }) {
 
       {details.length > 0 && (
          <div>
-          <h3 className="text-xl font-bold mb-3 text-primary" style={{ textShadow: '0 0 10px hsl(var(--primary) / 0.5)' }}>🚀 تفاصيل سريعة 🚀</h3>
+          <h3 className="text-xl font-bold mb-3 text-primary drop-shadow-lg">🚀 تفاصيل سريعة 🚀</h3>
             <ul className="space-y-2">
                 {details.map(({ key, value }, index) => (
                     <li key={index} className="flex justify-between border-b pb-2">
@@ -147,7 +147,7 @@ export default function ProductPage() {
                       variant="ghost"
                       size="icon"
                       onClick={handlePrevImage}
-                      className="absolute top-1/2 left-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/20 text-white hover:bg-black/40 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute top-1/2 left-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors"
                       aria-label="الصورة السابقة"
                     >
                       <ChevronLeft className="h-6 w-6" />
@@ -156,7 +156,7 @@ export default function ProductPage() {
                       variant="ghost"
                       size="icon"
                       onClick={handleNextImage}
-                      className="absolute top-1/2 right-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/20 text-white hover:bg-black/40 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute top-1/2 right-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors"
                       aria-label="الصورة التالية"
                     >
                       <ChevronRight className="h-6 w-6" />
