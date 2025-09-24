@@ -15,7 +15,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { Loader2, Truck, ShoppingBag } from 'lucide-react';
 import { sendOrderViaWhatsApp } from '@/app/actions';
 import { useOrder } from '@/contexts/OrderContext';
-import { type Product, type CartItem } from '@/lib/types';
+import { type CartItem } from '@/lib/types';
 import Link from 'next/link';
 
 const checkoutSchema = z.object({
@@ -83,7 +83,7 @@ function OrderNowContent() {
     return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
   }
 
-  const singleCartItem: Omit<CartItem, 'images'> & {image: string} = { ...product, quantity: 1 };
+  const singleCartItem: Omit<CartItem, 'images'> & {image: string, images: string[]} = { ...product, quantity: 1, images: [product.image] };
   const total = product.price;
 
   const onSubmit = async (data: CheckoutFormValues) => {
