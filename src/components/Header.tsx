@@ -7,9 +7,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-14 items-center justify-center relative">
-        <Link href="/" className="flex items-center gap-2 text-primary">
-          <Truck className="h-6 w-6" />
-          <span className="text-2xl font-bold font-headline tracking-wide [text-shadow:0_0_8px_hsl(var(--primary))]">
+        <Link href="/" className="flex items-center gap-2" style={{ color: 'hsl(217, 91%, 60%)' }}>
+          <Truck className="h-7 w-7" />
+          <span className="text-3xl font-bold font-headline tracking-wide" style={{ textShadow: '0 0 8px hsl(217, 91%, 60%)' }}>
             {siteConfig.name}
           </span>
         </Link>
