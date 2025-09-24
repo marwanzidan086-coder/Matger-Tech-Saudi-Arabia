@@ -48,7 +48,7 @@ export function AddToWishlistButton({ product, size, ...props }: AddToWishlistBu
       className="w-full"
       {...props}
     >
-      <Heart className={`me-2 h-5 w-5 ${isInWishlist ? 'fill-red-500 text-red-500' : ''}`} />
+      <Heart className={`me-2 h-5 w-5 transition-colors ${isInWishlist ? 'fill-red-500 text-red-500' : ''}`} />
       {isInWishlist ? 'إزالة من المفضلة' : 'أضف إلى المفضلة'}
     </Button>
   );
