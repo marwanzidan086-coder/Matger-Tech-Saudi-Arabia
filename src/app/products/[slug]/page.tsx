@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { products } from '@/data/products';
@@ -69,7 +70,7 @@ function ParsedDescription({ description }: { description: string }) {
 
       {features.length > 0 && (
         <div>
-          <h3 className="text-lg font-bold mb-3">مميزات المنتج</h3>
+          <h3 className="text-xl font-bold mb-3 text-primary" style={{ textShadow: '0 0 5px hsl(var(--primary) / 0.5)' }}>✨ مميزات المنتج ✨</h3>
           <ul className="space-y-3">
             {features.map((feature, index) => {
               const Icon = getIconForFeature(feature);
@@ -86,7 +87,7 @@ function ParsedDescription({ description }: { description: string }) {
 
       {details.length > 0 && (
          <div>
-          <h3 className="text-lg font-bold mb-3">تفاصيل سريعة</h3>
+          <h3 className="text-xl font-bold mb-3 text-primary" style={{ textShadow: '0 0 5px hsl(var(--primary) / 0.5)' }}>🚀 تفاصيل سريعة 🚀</h3>
             <ul className="space-y-2">
                 {details.map(({ key, value }, index) => (
                     <li key={index} className="flex justify-between border-b pb-2">
