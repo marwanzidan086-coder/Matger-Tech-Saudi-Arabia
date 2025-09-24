@@ -23,23 +23,23 @@ const electronicsProducts: Product[] = [
   <p class="text-base text-center">هل أنت من عشاق الرحلات والكشتات؟ هل تحتاج إلى إضاءة قوية وطاقة لا تنقطع في حالات الطوارئ؟ نقدم لك الفانوس الذي سيغير قواعد اللعبة!</p>
 
   <div>
-    <h3 class="text-xl font-bold text-primary mb-3">أهم المميزات:</h3>
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent mb-4"></div>
-    <ul class="space-y-2 list-inside">
-      <li><span class="font-semibold text-primary">إضاءة قوية:</span> تنور لك المكان بوضوح تام.</li>
-      <li><span class="font-semibold text-primary">شحن سريع:</span> طاقة لا تنقطع بسهولة عبر USB.</li>
-      <li><span class="font-semibold text-primary">تثبيت مغناطيسي:</span> يثبت على أي سطح معدني بثبات.</li>
-      <li><span class="font-semibold text-primary">زوايا متعددة:</span> قابل للتعديل ليناسب كل احتياجاتك.</li>
-      <li><span class="font-semibold text-primary">تصميم متين:</span> مقاوم للمطر والغبار والظروف القاسية.</li>
-      <li><span class="font-semibold text-primary">بطارية تدوم:</span> قدرة عالية لتشغيل طويل.</li>
-      <li><span class="font-semibold text-primary">سهل الحمل:</span> خفيف الوزن ومثالي للتنقل.</li>
-      <li><span class="font-semibold text-primary">متعدد الاستخدامات:</span> مثالي للمنزل، الرحلات، والطوارئ.</li>
+    <h3 class="text-xl font-bold text-primary mb-3" style="text-shadow: 0 0 8px hsl(var(--primary) / 0.5);">أهم المميزات:</h3>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent mb-4"></div>
+    <ul class="space-y-3 list-inside">
+      <li><span class="font-semibold text-primary">💡 إضاءة LED قوية:</span> تنور لك المكان بوضوح تام.</li>
+      <li><span class="font-semibold text-primary">🔋 شحن سريع:</span> طاقة لا تنقطع بسهولة عبر USB ويعمل كباور بانك.</li>
+      <li><span class="font-semibold text-primary">🧲 تثبيت مغناطيسي:</span> يثبت على أي سطح معدني بثبات.</li>
+      <li><span class="font-semibold text-primary">🔄 زوايا متعددة:</span> قابل للتعديل ليناسب كل احتياجاتك.</li>
+      <li><span class="font-semibold text-primary">🌧️ تصميم متين:</span> مقاوم للمطر والغبار والظروف القاسية.</li>
+      <li><span class="font-semibold text-primary">⏳ بطارية تدوم:</span> قدرة عالية لتشغيل طويل.</li>
+      <li><span class="font-semibold text-primary">🎒 سهل الحمل:</span> خفيف الوزن ومثالي للتنقل.</li>
+      <li><span class="font-semibold text-primary">🏠 متعدد الاستخدامات:</span> مثالي للمنزل، الرحلات، والطوارئ.</li>
     </ul>
   </div>
 
   <div>
     <h3 class="text-xl font-bold text-primary mb-3">تفاصيل سريعة:</h3>
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent mb-4"></div>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent mb-4"></div>
     <div class="overflow-x-auto">
         <table class="w-full text-sm text-left">
             <tbody>
@@ -56,7 +56,7 @@ const electronicsProducts: Product[] = [
 
   <div>
     <h3 class="text-xl font-bold text-primary mb-3">محتويات المنتج:</h3>
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent mb-4"></div>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent mb-4"></div>
     <ul class="space-y-2 list-inside">
       <li>1 × مصباح DLC-32898 قابل للشحن</li>
       <li>1 × كابل شحن USB</li>
@@ -67,7 +67,7 @@ const electronicsProducts: Product[] = [
 
   <div>
     <h3 class="text-xl font-bold text-primary mb-3">كيفية الاستخدام:</h3>
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent mb-4"></div>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent mb-4"></div>
     <ol class="space-y-2 list-decimal list-inside">
         <li>اشحن المصباح بالكامل باستخدام كابل الـ USB المرفق.</li>
         <li>ثبّت المصباح على أي سطح معدني، أو استخدمه باليد.</li>
