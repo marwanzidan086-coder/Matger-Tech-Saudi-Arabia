@@ -61,7 +61,6 @@ export default function Search() {
   
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && query) {
-      e.preventDefault();
       router.push(`/search?q=${query}`);
       setOpen(false);
     }
@@ -86,9 +85,9 @@ export default function Search() {
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="p-0 top-[10vh] translate-y-0 sm:top-1/4">
-            <DialogHeader className="sr-only">
-              <DialogTitle>بحث المنتجات</DialogTitle>
-              <DialogDescription>ابحث في جميع المنتجات في المتجر.</DialogDescription>
+            <DialogHeader>
+              <DialogTitle className="sr-only">بحث المنتجات</DialogTitle>
+              <DialogDescription className="sr-only">ابحث في جميع المنتجات في المتجر.</DialogDescription>
             </DialogHeader>
             <Command shouldFilter={false} className="[&_[cmdk-list]]:max-h-[300px] [&_[cmdk-list]]:sm:max-h-[400px]">
               <div className="flex items-center border-b px-3">
