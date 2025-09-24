@@ -12,6 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
+import FeatureIcons from '@/components/FeatureIcons';
 
 type ProductPageProps = {
   params: {
@@ -47,6 +48,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                         alt={`${product.name} - image ${index + 1}`}
                         fill
                         className="object-cover rounded-lg"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         data-ai-hint="product image"
                       />
                     </CardContent>
@@ -63,9 +65,11 @@ export default function ProductPage({ params }: ProductPageProps) {
           <p className="text-2xl font-semibold font-mono text-primary">
             {product.price.toFixed(2)} ج.م
           </p>
-          <div className="text-lg leading-relaxed">
+          <div className="text-lg leading-relaxed space-y-4">
             <p>{product.description}</p>
           </div>
+
+          <FeatureIcons productDescription={product.description} />
           
           <div className="flex flex-col gap-4 pt-4">
             <OrderNowButton product={product} />
