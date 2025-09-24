@@ -12,6 +12,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import FeatureIcons from '@/components/FeatureIcons';
+import SimilarProducts from '@/components/SimilarProducts';
+import { Separator } from '@/components/ui/separator';
 
 type ProductPageProps = {
   params: {
@@ -77,6 +79,8 @@ export default function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
       </div>
+      <Separator className="my-12" />
+      <SimilarProducts currentProduct={product} />
     </div>
   );
 }

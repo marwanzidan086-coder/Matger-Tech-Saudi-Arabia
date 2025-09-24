@@ -2,11 +2,15 @@
 
 import { useCart } from '@/contexts/CartContext';
 import { type Product } from '@/lib/types';
-import { Button } from './ui/button';
+import { Button, ButtonProps } from './ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { ShoppingCart } from 'lucide-react';
 
-export function AddToCartButton({ product }: { product: Product }) {
+interface AddToCartButtonProps extends ButtonProps {
+  product: Product;
+}
+
+export function AddToCartButton({ product, size, variant, ...props }: AddToCartButtonProps) {
   const { addToCart } = useCart();
   const { toast } = useToast();
 
@@ -19,7 +23,7 @@ export function AddToCartButton({ product }: { product: Product }) {
   };
 
   return (
-    <Button onClick={handleAddToCart} size="lg" className="w-full" variant="outline">
+    <Button onClick={handleAddToCart} size={size || "lg"} variant={variant || "outline"} className="w-full" {...props}>
       <ShoppingCart className="me-2 h-5 w-5" />
       أضف إلى السلة
     </Button>
