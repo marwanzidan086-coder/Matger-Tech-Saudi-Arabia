@@ -60,6 +60,516 @@
         "https://picsum.photos/seed/webcam-4/600/600",
         "https://picsum.photos/seed/webcam-5/600/600"
       ]
+    },
+    {
+      "id": "smart-lighting-kit",
+      "images": [
+        "https://picsum.photos/seed/smart-light-1/600/600",
+        "https://picsum.photos/seed/smart-light-2/600/600",
+        "https://picsum.photos/seed/smart-light-3/600/600",
+        "https://picsum.photos/seed/smart-light-4/600/600",
+        "https://picsum.photos/seed/smart-light-5/600/600"
+      ]
+    },
+    {
+      "id": "gaming-mouse",
+      "images": [
+        "https://picsum.photos/seed/gaming-mouse-1/600/600",
+        "https://picsum.photos/seed/gaming-mouse-2/600/600",
+        "https://picsum.photos/seed/gaming-mouse-3/600/600",
+        "https://picsum.photos/seed/gaming-mouse-4/600/600",
+        "https://picsum.photos/seed/gaming-mouse-5/600/600"
+      ]
+    },
+    {
+      "id": "mini-drone-4k",
+      "images": [
+        "https://picsum.photos/seed/mini-drone-1/600/600",
+        "https://picsum.photos/seed/mini-drone-2/600/600",
+        "https://picsum.photos/seed/mini-drone-3/600/600",
+        "https://picsum.photos/seed/mini-drone-4/600/600",
+        "https://picsum.photos/seed/mini-drone-5/600/600"
+      ]
+    },
+    {
+      "id": "portable-projector",
+      "images": [
+        "https://picsum.photos/seed/projector-1/600/600",
+        "https://picsum.photos/seed/projector-2/600/600",
+        "https://picsum.photos/seed/projector-3/600/600",
+        "https://picsum.photos/seed/projector-4/600/600",
+        "https://picsum.photos/seed/projector-5/600/600"
+      ]
+    },
+    {
+      "id": "vr-headset",
+      "images": [
+        "https://picsum.photos/seed/vr-headset-1/600/600",
+        "https://picsum.photos/seed/vr-headset-2/600/600",
+        "https://picsum.photos/seed/vr-headset-3/600/600",
+        "https://picsum.photos/seed/vr-headset-4/600/600",
+        "https://picsum.photos/seed/vr-headset-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-speaker-assistant",
+      "images": [
+        "https://picsum.photos/seed/smart-speaker-1/600/600",
+        "https://picsum.photos/seed/smart-speaker-2/600/600",
+        "https://picsum.photos/seed/smart-speaker-3/600/600",
+        "https://picsum.photos/seed/smart-speaker-4/600/600",
+        "https://picsum.photos/seed/smart-speaker-5/600/600"
+      ]
+    },
+    {
+      "id": "digital-photo-frame",
+      "images": [
+        "https://picsum.photos/seed/photo-frame-1/600/600",
+        "https://picsum.photos/seed/photo-frame-2/600/600",
+        "https://picsum.photos/seed/photo-frame-3/600/600",
+        "https://picsum.photos/seed/photo-frame-4/600/600",
+        "https://picsum.photos/seed/photo-frame-5/600/600"
+      ]
+    },
+    {
+      "id": "air-purifier",
+      "images": [
+        "https://picsum.photos/seed/air-purifier-1/600/600",
+        "https://picsum.photos/seed/air-purifier-2/600/600",
+        "https://picsum.photos/seed/air-purifier-3/600/600",
+        "https://picsum.photos/seed/air-purifier-4/600/600",
+        "https://picsum.photos/seed/air-purifier-5/600/600"
+      ]
+    },
+    {
+      "id": "robot-vacuum",
+      "images": [
+        "https://picsum.photos/seed/robot-vacuum-1/600/600",
+        "https://picsum.photos/seed/robot-vacuum-2/600/600",
+        "https://picsum.photos/seed/robot-vacuum-3/600/600",
+        "https://picsum.photos/seed/robot-vacuum-4/600/600",
+        "https://picsum.photos/seed/robot-vacuum-5/600/600"
+      ]
+    },
+    {
+      "id": "electric-toothbrush",
+      "images": [
+        "https://picsum.photos/seed/toothbrush-1/600/600",
+        "https://picsum.photos/seed/toothbrush-2/600/600",
+        "https://picsum.photos/seed/toothbrush-3/600/600",
+        "https://picsum.photos/seed/toothbrush-4/600/600",
+        "https://picsum.photos/seed/toothbrush-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-scale",
+      "images": [
+        "https://picsum.photos/seed/smart-scale-1/600/600",
+        "https://picsum.photos/seed/smart-scale-2/600/600",
+        "https://picsum.photos/seed/smart-scale-3/600/600",
+        "https://picsum.photos/seed/smart-scale-4/600/600",
+        "https://picsum.photos/seed/smart-scale-5/600/600"
+      ]
+    },
+    {
+      "id": "bluetooth-tracker",
+      "images": [
+        "https://picsum.photos/seed/tracker-1/600/600",
+        "https://picsum.photos/seed/tracker-2/600/600",
+        "https://picsum.photos/seed/tracker-3/600/600",
+        "https://picsum.photos/seed/tracker-4/600/600",
+        "https://picsum.photos/seed/tracker-5/600/600"
+      ]
+    },
+    {
+      "id": "portable-ssd",
+      "images": [
+        "https://picsum.photos/seed/portable-ssd-1/600/600",
+        "https://picsum.photos/seed/portable-ssd-2/600/600",
+        "https://picsum.photos/seed/portable-ssd-3/600/600",
+        "https://picsum.photos/seed/portable-ssd-4/600/600",
+        "https://picsum.photos/seed/portable-ssd-5/600/600"
+      ]
+    },
+    {
+      "id": "wireless-charger-stand",
+      "images": [
+        "https://picsum.photos/seed/wireless-charger-1/600/600",
+        "https://picsum.photos/seed/wireless-charger-2/600/600",
+        "https://picsum.photos/seed/wireless-charger-3/600/600",
+        "https://picsum.photos/seed/wireless-charger-4/600/600",
+        "https://picsum.photos/seed/wireless-charger-5/600/600"
+      ]
+    },
+    {
+      "id": "usb-c-hub",
+      "images": [
+        "https://picsum.photos/seed/usb-hub-1/600/600",
+        "https://picsum.photos/seed/usb-hub-2/600/600",
+        "https://picsum.photos/seed/usb-hub-3/600/600",
+        "https://picsum.photos/seed/usb-hub-4/600/600",
+        "https://picsum.photos/seed/usb-hub-5/600/600"
+      ]
+    },
+    {
+      "id": "laptop-stand",
+      "images": [
+        "https://picsum.photos/seed/laptop-stand-1/600/600",
+        "https://picsum.photos/seed/laptop-stand-2/600/600",
+        "https://picsum.photos/seed/laptop-stand-3/600/600",
+        "https://picsum.photos/seed/laptop-stand-4/600/600",
+        "https://picsum.photos/seed/laptop-stand-5/600/600"
+      ]
+    },
+    {
+      "id": "monitor-light-bar",
+      "images": [
+        "https://picsum.photos/seed/monitor-light-1/600/600",
+        "https://picsum.photos/seed/monitor-light-2/600/600",
+        "https://picsum.photos/seed/monitor-light-3/600/600",
+        "https://picsum.photos/seed/monitor-light-4/600/600",
+        "https://picsum.photos/seed/monitor-light-5/600/600"
+      ]
+    },
+    {
+      "id": "3d-printer",
+      "images": [
+        "https://picsum.photos/seed/3d-printer-1/600/600",
+        "https://picsum.photos/seed/3d-printer-2/600/600",
+        "https://picsum.photos/seed/3d-printer-3/600/600",
+        "https://picsum.photos/seed/3d-printer-4/600/600",
+        "https://picsum.photos/seed/3d-printer-5/600/600"
+      ]
+    },
+    {
+      "id": "action-camera",
+      "images": [
+        "https://picsum.photos/seed/action-cam-1/600/600",
+        "https://picsum.photos/seed/action-cam-2/600/600",
+        "https://picsum.photos/seed/action-cam-3/600/600",
+        "https://picsum.photos/seed/action-cam-4/600/600",
+        "https://picsum.photos/seed/action-cam-5/600/600"
+      ]
+    },
+    {
+      "id": "e-reader",
+      "images": [
+        "https://picsum.photos/seed/ereader-1/600/600",
+        "https://picsum.photos/seed/ereader-2/600/600",
+        "https://picsum.photos/seed/ereader-3/600/600",
+        "https://picsum.photos/seed/ereader-4/600/600",
+        "https://picsum.photos/seed/ereader-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-thermostat",
+      "images": [
+        "https://picsum.photos/seed/thermostat-1/600/600",
+        "https://picsum.photos/seed/thermostat-2/600/600",
+        "https://picsum.photos/seed/thermostat-3/600/600",
+        "https://picsum.photos/seed/thermostat-4/600/600",
+        "https://picsum.photos/seed/thermostat-5/600/600"
+      ]
+    },
+    {
+      "id": "wifi-mesh-system",
+      "images": [
+        "https://picsum.photos/seed/wifi-mesh-1/600/600",
+        "https://picsum.photos/seed/wifi-mesh-2/600/600",
+        "https://picsum.photos/seed/wifi-mesh-3/600/600",
+        "https://picsum.photos/seed/wifi-mesh-4/600/600",
+        "https://picsum.photos/seed/wifi-mesh-5/600/600"
+      ]
+    },
+    {
+      "id": "portable-bluetooth-speaker",
+      "images": [
+        "https://picsum.photos/seed/bt-speaker-1/600/600",
+        "https://picsum.photos/seed/bt-speaker-2/600/600",
+        "https://picsum.photos/seed/bt-speaker-3/600/600",
+        "https://picsum.photos/seed/bt-speaker-4/600/600",
+        "https://picsum.photos/seed/bt-speaker-5/600/600"
+      ]
+    },
+    {
+      "id": "gimbal-stabilizer",
+      "images": [
+        "https://picsum.photos/seed/gimbal-1/600/600",
+        "https://picsum.photos/seed/gimbal-2/600/600",
+        "https://picsum.photos/seed/gimbal-3/600/600",
+        "https://picsum.photos/seed/gimbal-4/600/600",
+        "https://picsum.photos/seed/gimbal-5/600/600"
+      ]
+    },
+    {
+      "id": "drawing-tablet",
+      "images": [
+        "https://picsum.photos/seed/drawing-tablet-1/600/600",
+        "https://picsum.photos/seed/drawing-tablet-2/600/600",
+        "https://picsum.photos/seed/drawing-tablet-3/600/600",
+        "https://picsum.photos/seed/drawing-tablet-4/600/600",
+        "https://picsum.photos/seed/drawing-tablet-5/600/600"
+      ]
+    },
+    {
+      "id": "wireless-earbuds",
+      "images": [
+        "https://picsum.photos/seed/earbuds-1/600/600",
+        "https://picsum.photos/seed/earbuds-2/600/600",
+        "https://picsum.photos/seed/earbuds-3/600/600",
+        "https://picsum.photos/seed/earbuds-4/600/600",
+        "https://picsum.photos/seed/earbuds-5/600/600"
+      ]
+    },
+    {
+      "id": "gaming-headset",
+      "images": [
+        "https://picsum.photos/seed/gaming-headset-1/600/600",
+        "https://picsum.photos/seed/gaming-headset-2/600/600",
+        "https://picsum.photos/seed/gaming-headset-3/600/600",
+        "https://picsum.photos/seed/gaming-headset-4/600/600",
+        "https://picsum.photos/seed/gaming-headset-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-doorbell",
+      "images": [
+        "https://picsum.photos/seed/doorbell-1/600/600",
+        "https://picsum.photos/seed/doorbell-2/600/600",
+        "https://picsum.photos/seed/doorbell-3/600/600",
+        "https://picsum.photos/seed/doorbell-4/600/600",
+        "https://picsum.photos/seed/doorbell-5/600/600"
+      ]
+    },
+    {
+      "id": "uv-sanitizer-box",
+      "images": [
+        "https://picsum.photos/seed/uv-box-1/600/600",
+        "https://picsum.photos/seed/uv-box-2/600/600",
+        "https://picsum.photos/seed/uv-box-3/600/600",
+        "https://picsum.photos/seed/uv-box-4/600/600",
+        "https://picsum.photos/seed/uv-box-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-garden",
+      "images": [
+        "https://picsum.photos/seed/smart-garden-1/600/600",
+        "https://picsum.photos/seed/smart-garden-2/600/600",
+        "https://picsum.photos/seed/smart-garden-3/600/600",
+        "https://picsum.photos/seed/smart-garden-4/600/600",
+        "https://picsum.photos/seed/smart-garden-5/600/600"
+      ]
+    },
+    {
+      "id": "soundbar-system",
+      "images": [
+        "https://picsum.photos/seed/soundbar-1/600/600",
+        "https://picsum.photos/seed/soundbar-2/600/600",
+        "https://picsum.photos/seed/soundbar-3/600/600",
+        "https://picsum.photos/seed/soundbar-4/600/600",
+        "https://picsum.photos/seed/soundbar-5/600/600"
+      ]
+    },
+    {
+      "id": "car-phone-mount",
+      "images": [
+        "https://picsum.photos/seed/car-mount-1/600/600",
+        "https://picsum.photos/seed/car-mount-2/600/600",
+        "https://picsum.photos/seed/car-mount-3/600/600",
+        "https://picsum.photos/seed/car-mount-4/600/600",
+        "https://picsum.photos/seed/car-mount-5/600/600"
+      ]
+    },
+    {
+      "id": "foldable-drone",
+      "images": [
+        "https://picsum.photos/seed/foldable-drone-1/600/600",
+        "https://picsum.photos/seed/foldable-drone-2/600/600",
+        "https://picsum.photos/seed/foldable-drone-3/600/600",
+        "https://picsum.photos/seed/foldable-drone-4/600/600",
+        "https://picsum.photos/seed/foldable-drone-5/600/600"
+      ]
+    },
+    {
+      "id": "wireless-gaming-controller",
+      "images": [
+        "https://picsum.photos/seed/game-controller-1/600/600",
+        "https://picsum.photos/seed/game-controller-2/600/600",
+        "https://picsum.photos/seed/game-controller-3/600/600",
+        "https://picsum.photos/seed/game-controller-4/600/600",
+        "https://picsum.photos/seed/game-controller-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-water-bottle",
+      "images": [
+        "https://picsum.photos/seed/water-bottle-1/600/600",
+        "https://picsum.photos/seed/water-bottle-2/600/600",
+        "https://picsum.photos/seed/water-bottle-3/600/600",
+        "https://picsum.photos/seed/water-bottle-4/600/600",
+        "https://picsum.photos/seed/water-bottle-5/600/600"
+      ]
+    },
+    {
+      "id": "portable-photo-printer",
+      "images": [
+        "https://picsum.photos/seed/photo-printer-1/600/600",
+        "https://picsum.photos/seed/photo-printer-2/600/600",
+        "https://picsum.photos/seed/photo-printer-3/600/600",
+        "https://picsum.photos/seed/photo-printer-4/600/600",
+        "https://picsum.photos/seed/photo-printer-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-notebook",
+      "images": [
+        "https://picsum.photos/seed/smart-notebook-1/600/600",
+        "https://picsum.photos/seed/smart-notebook-2/600/600",
+        "https://picsum.photos/seed/smart-notebook-3/600/600",
+        "https://picsum.photos/seed/smart-notebook-4/600/600",
+        "https://picsum.photos/seed/smart-notebook-5/600/600"
+      ]
+    },
+    {
+      "id": "wearable-air-conditioner",
+      "images": [
+        "https://picsum.photos/seed/wearable-ac-1/600/600",
+        "https://picsum.photos/seed/wearable-ac-2/600/600",
+        "https://picsum.photos/seed/wearable-ac-3/600/600",
+        "https://picsum.photos/seed/wearable-ac-4/600/600",
+        "https://picsum.photos/seed/wearable-ac-5/600/600"
+      ]
+    },
+    {
+      "id": "sunrise-alarm-clock",
+      "images": [
+        "https://picsum.photos/seed/alarm-clock-1/600/600",
+        "https://picsum.photos/seed/alarm-clock-2/600/600",
+        "https://picsum.photos/seed/alarm-clock-3/600/600",
+        "https://picsum.photos/seed/alarm-clock-4/600/600",
+        "https://picsum.photos/seed/alarm-clock-5/600/600"
+      ]
+    },
+    {
+      "id": "handheld-game-console",
+      "images": [
+        "https://picsum.photos/seed/handheld-console-1/600/600",
+        "https://picsum.photos/seed/handheld-console-2/600/600",
+        "https://picsum.photos/seed/handheld-console-3/600/600",
+        "https://picsum.photos/seed/handheld-console-4/600/600",
+        "https://picsum.photos/seed/handheld-console-5/600/600"
+      ]
+    },
+    {
+      "id": "weather-station",
+      "images": [
+        "https://picsum.photos/seed/weather-station-1/600/600",
+        "https://picsum.photos/seed/weather-station-2/600/600",
+        "https://picsum.photos/seed/weather-station-3/600/600",
+        "https://picsum.photos/seed/weather-station-4/600/600",
+        "https://picsum.photos/seed/weather-station-5/600/600"
+      ]
+    },
+    {
+      "id": "digital-measuring-tape",
+      "images": [
+        "https://picsum.photos/seed/measuring-tape-1/600/600",
+        "https://picsum.photos/seed/measuring-tape-2/600/600",
+        "https://picsum.photos/seed/measuring-tape-3/600/600",
+        "https://picsum.photos/seed/measuring-tape-4/600/600",
+        "https://picsum.photos/seed/measuring-tape-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-lock",
+      "images": [
+        "https://picsum.photos/seed/smart-lock-1/600/600",
+        "https://picsum.photos/seed/smart-lock-2/600/600",
+        "https://picsum.photos/seed/smart-lock-3/600/600",
+        "https://picsum.photos/seed/smart-lock-4/600/600",
+        "https://picsum.photos/seed/smart-lock-5/600/600"
+      ]
+    },
+    {
+      "id": "portable-blender",
+      "images": [
+        "https://picsum.photos/seed/blender-1/600/600",
+        "https://picsum.photos/seed/blender-2/600/600",
+        "https://picsum.photos/seed/blender-3/600/600",
+        "https://picsum.photos/seed/blender-4/600/600",
+        "https://picsum.photos/seed/blender-5/600/600"
+      ]
+    },
+    {
+      "id": "sleep-headphones",
+      "images": [
+        "https://picsum.photos/seed/sleep-phones-1/600/600",
+        "https://picsum.photos/seed/sleep-phones-2/600/600",
+        "https://picsum.photos/seed/sleep-phones-3/600/600",
+        "https://picsum.photos/seed/sleep-phones-4/600/600",
+        "https://picsum.photos/seed/sleep-phones-5/600/600"
+      ]
+    },
+    {
+      "id": "self-cleaning-water-bottle",
+      "images": [
+        "https://picsum.photos/seed/self-clean-bottle-1/600/600",
+        "https://picsum.photos/seed/self-clean-bottle-2/600/600",
+        "https://picsum.photos/seed/self-clean-bottle-3/600/600",
+        "https://picsum.photos/seed/self-clean-bottle-4/600/600",
+        "https://picsum.photos/seed/self-clean-bottle-5/600/600"
+      ]
+    },
+    {
+      "id": "temperature-control-travel-mug",
+      "images": [
+        "https://picsum.photos/seed/travel-mug-1/600/600",
+        "https://picsum.photos/seed/travel-mug-2/600/600",
+        "https://picsum.photos/seed/travel-mug-3/600/600",
+        "https://picsum.photos/seed/travel-mug-4/600/600",
+        "https://picsum.photos/seed/travel-mug-5/600/600"
+      ]
+    },
+    {
+      "id": "smart-meat-thermometer",
+      "images": [
+        "https://picsum.photos/seed/meat-thermometer-1/600/600",
+        "https://picsum.photos/seed/meat-thermometer-2/600/600",
+        "https://picsum.photos/seed/meat-thermometer-3/600/600",
+        "https://picsum.photos/seed/meat-thermometer-4/600/600",
+        "https://picsum.photos/seed/meat-thermometer-5/600/600"
+      ]
+    },
+    {
+      "id": "desktop-whiteboard",
+      "images": [
+        "https://picsum.photos/seed/desktop-whiteboard-1/600/600",
+        "https://picsum.photos/seed/desktop-whiteboard-2/600/600",
+        "https://picsum.photos/seed/desktop-whiteboard-3/600/600",
+        "https://picsum.photos/seed/desktop-whiteboard-4/600/600",
+        "https://picsum.photos/seed/desktop-whiteboard-5/600/600"
+      ]
+    },
+    {
+      "id": "led-strip-lights",
+      "images": [
+        "https://picsum.photos/seed/led-lights-1/600/600",
+        "https://picsum.photos/seed/led-lights-2/600/600",
+        "https://picsum.photos/seed/led-lights-3/600/600",
+        "https://picsum.photos/seed/led-lights-4/600/600",
+        "https://picsum.photos/seed/led-lights-5/600/600"
+      ]
+    },
+    {
+      "id": "solar-power-bank",
+      "images": [
+        "https://picsum.photos/seed/solar-powerbank-1/600/600",
+        "https://picsum.photos/seed/solar-powerbank-2/600/600",
+        "https://picsum.photos/seed/solar-powerbank-3/600/600",
+        "https://picsum.photos/seed/solar-powerbank-4/600/600",
+        "https://picsum.photos/seed/solar-powerbank-5/600/600"
+      ]
     }
   ]
 }
