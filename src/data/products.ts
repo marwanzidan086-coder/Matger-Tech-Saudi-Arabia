@@ -1,5 +1,6 @@
 import { type Product } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { categories } from '@/lib/categories';
 
 const getImages = (productId: string): string[] => {
   const imageSet = PlaceHolderImages.find(img => img.id === productId);
@@ -18,6 +19,7 @@ export const products: Product[] = [
     description: 'استمتع بمشروبك في درجة الحرارة المثالية من أول رشفة حتى آخر قطرة. هذا الكوب الذكي، المصنوع من الفولاذ المقاوم للصدأ والسيراميك، يتيح لك التحكم الدقيق في درجة حرارة قهوتك أو الشاي عبر تطبيق على هاتفك. ببطارية تدوم حتى 80 دقيقة وشحن لاسلكي سريع، هو الرفيق المثالي لكل محب للمشروبات الساخنة.',
     price: 399.99,
     images: getImages('smart-coffee-mug'),
+    category: categories.home.slug,
   },
   {
     id: '2',
@@ -26,6 +28,7 @@ export const products: Product[] = [
     description: 'ادخل إلى عالم من الصوت النقي وانعزل عن ضجيج العالم الخارجي. تتميز هذه السماعات بتقنية إلغاء الضوضاء النشطة (ANC) الرائدة، مع مشغلات صوت عالية الدقة تقدم تجربة استماع غامرة. تصميم مريح فوق الأذن، واتصال Bluetooth 5.2 مستقر، وبطارية مذهلة تعمل لمدة 30 ساعة متواصلة.',
     price: 899.50,
     images: getImages('wireless-headphones'),
+    category: categories.electronics.slug,
   },
   {
     id: '3',
@@ -34,6 +37,7 @@ export const products: Product[] = [
     description: 'لا تدع بطارية هاتفك تنفد مرة أخرى. هذا الشاحن المتنقل بسعة 20000 مللي أمبير هو الحل الأمثل للطاقة أثناء التنقل. صغير بما يكفي ليناسب جيبك، ولكنه قوي بما يكفي لشحن أحدث الهواتف الذكية عدة مرات. يدعم تقنية الشحن السريع Power Delivery بقوة 25 واط لإعادة شحن أجهزتك في وقت قياسي.',
     price: 250.00,
     images: getImages('portable-power-bank'),
+    category: categories.electronics.slug,
   },
   {
     id: '4',
@@ -42,6 +46,7 @@ export const products: Product[] = [
     description: 'اكتشف متعة الكتابة واللعب مع لوحة المفاتيح الميكانيكية ذات التصميم المريح. مصممة لتقليل إجهاد معصميك ويديك أثناء الاستخدام الطويل. تتميز بمفاتيح ميكانيكية سريعة الاستجابة، وإضاءة خلفية RGB قابلة للتخصيص بالكامل، مع إمكانية الاتصال السلكي أو اللاسلكي عبر Bluetooth.',
     price: 650.00,
     images: getImages('ergonomic-keyboard'),
+    category: categories.electronics.slug,
   },
   {
     id: '5',
@@ -50,6 +55,7 @@ export const products: Product[] = [
     description: 'رفيقك المثالي للصحة واللياقة البدنية. تتبع خطواتك، ومعدل ضربات قلبك، وأنماط نومك، وأكثر من 100 تمرين رياضي مختلف بدقة عالية. بشاشة AMOLED ساطعة، وهيكل متين مقاوم للماء بمعيار 5ATM، ونظام GPS مدمج، وبطارية تدوم لأكثر من 10 أيام في الشحنة الواحدة.',
     price: 1200.00,
     images: getImages('smart-watch'),
+    category: categories.electronics.slug,
   },
   {
     id: '6',
@@ -58,6 +64,7 @@ export const products: Product[] = [
     description: 'ارتقِ بمكالمات الفيديو والبث المباشر إلى مستوى احترافي. توفر كاميرا الويب هذه جودة صورة فائقة الوضوح بدقة 4K مع ألوان واقعية وتفاصيل دقيقة. تتميز بتركيز تلقائي ذكي، وميكروفونات مزدوجة ستيريو لتقليل الضوضاء المحيطة، وغطاء خصوصية مدمج لراحة بالك.',
     price: 550.00,
     images: getImages('4k-webcam'),
+    category: categories.electronics.slug,
   },
   {
     id: '7',
@@ -66,6 +73,7 @@ export const products: Product[] = [
     description: 'حوّل منزلك بأكثر من 16 مليون لون. مجموعة الإضاءة الذكية هذه تتيح لك التحكم في أجواء أي غرفة عبر هاتفك أو الأوامر الصوتية. سهلة التركيب ومتوافقة مع معظم المساعدين الصوتيين.',
     price: 450.00,
     images: getImages('smart-lighting-kit'),
+    category: categories.home.slug,
   },
   {
     id: '8',
@@ -74,6 +82,7 @@ export const products: Product[] = [
     description: 'حقق النصر مع هذا الماوس المخصص للألعاب، والمزود بمستشعر بصري فائق الدقة يصل إلى 16000 DPI. تصميم مريح لليد اليمنى وأزرار قابلة للبرمجة تمنحك أفضلية في المنافسة.',
     price: 350.00,
     images: getImages('gaming-mouse'),
+    category: categories.electronics.slug,
   },
   {
     id: '9',
@@ -82,6 +91,7 @@ export const products: Product[] = [
     description: 'التقط صورًا ومقاطع فيديو جوية مذهلة بدقة 4K. هذه الطائرة الصغيرة والقابلة للطي سهلة الحمل والاستخدام، مع ميزات ذكية مثل تتبع الهدف والعودة التلقائية إلى نقطة الانطلاق.',
     price: 1500.00,
     images: getImages('mini-drone-4k'),
+    category: categories.misc.slug,
   },
   {
     id: '10',
@@ -90,6 +100,7 @@ export const products: Product[] = [
     description: 'استمتع بالسينما في أي مكان. هذا البروجيكتور المحمول الصغير يمكنه عرض صورة تصل إلى 120 بوصة بوضوح عالٍ. يحتوي على بطارية مدمجة ومكبرات صوت، ومثالي لليالي الأفلام في المنزل أو خارجه.',
     price: 1300.00,
     images: getImages('portable-projector'),
+    category: categories.electronics.slug,
   },
   {
     id: '11',
@@ -98,6 +109,7 @@ export const products: Product[] = [
     description: 'انغمس في عوالم جديدة من الألعاب والترفيه. توفر نظارة الواقع الافتراضي هذه تجربة غامرة بزاوية رؤية واسعة ودقة عرض عالية، مع أجهزة تحكم يدوية لتفاعل كامل.',
     price: 2200.00,
     images: getImages('vr-headset'),
+    category: categories.electronics.slug,
   },
   {
     id: '12',
@@ -106,6 +118,7 @@ export const products: Product[] = [
     description: 'تحكم في منزلك الذكي، وشغل الموسيقى، واحصل على إجابات لأسئلتك، كل ذلك بصوتك. يوفر هذا المكبر الذكي صوتًا غنيًا بزاوية 360 درجة وتصميمًا أنيقًا يناسب أي ديكور.',
     price: 480.00,
     images: getImages('smart-speaker-assistant'),
+    category: categories.home.slug,
   },
   {
     id: '13',
@@ -114,6 +127,7 @@ export const products: Product[] = [
     description: 'شارك لحظاتك الثمينة على الفور. يسمح لك إطار الصور الرقمي هذا بإرسال الصور مباشرة من هاتفك إلى الإطار من أي مكان في العالم. شاشة لمس عالية الدقة تعرض صورك بألوان زاهية.',
     price: 600.00,
     images: getImages('digital-photo-frame'),
+    category: categories.home.slug,
   },
   {
     id: '14',
@@ -122,6 +136,7 @@ export const products: Product[] = [
     description: 'تنفس هواءً نقيًا وصحيًا. يزيل هذا المنقي الذكي 99.97% من ملوثات الهواء مثل الغبار وحبوب اللقاح والدخان. يمكنك مراقبة جودة الهواء والتحكم في الجهاز من خلال تطبيق على هاتفك.',
     price: 950.00,
     images: getImages('air-purifier'),
+    category: categories.health.slug,
   },
   {
     id: '15',
@@ -130,6 +145,7 @@ export const products: Product[] = [
     description: 'دع الروبوت يقوم بالتنظيف عنك. تستخدم هذه المكنسة الذكية نظام ملاحة بالليزر لرسم خرائط لمنزلك وتنظيفه بكفاءة. تحكم فيها عبر التطبيق أو الأوامر الصوتية.',
     price: 1800.00,
     images: getImages('robot-vacuum'),
+    category: categories.home.slug,
   },
   {
     id: '16',
@@ -138,6 +154,7 @@ export const products: Product[] = [
     description: 'احصل على نظافة احترافية لأسنانك كل يوم. تزيل هذه الفرشاة الكهربائية كمية أكبر من البلاك مقارنة بالفرشاة العادية، مع أوضاع تنظيف متعددة ومؤقت ذكي.',
     price: 320.00,
     images: getImages('electric-toothbrush'),
+    category: categories.health.slug,
   },
   {
     id: '17',
@@ -146,6 +163,7 @@ export const products: Product[] = [
     description: 'تتبع أكثر من مجرد وزنك. يقيس هذا الميزان الذكي 13 مؤشرًا مختلفًا لتكوين الجسم، بما في ذلك نسبة الدهون وكتلة العضلات، ويزامن البيانات تلقائيًا مع تطبيق اللياقة البدنية الخاص بك.',
     price: 280.00,
     images: getImages('smart-scale'),
+    category: categories.health.slug,
   },
   {
     id: '18',
@@ -154,6 +172,7 @@ export const products: Product[] = [
     description: 'لا تفقد مفاتيحك أو محفظتك مرة أخرى. قم بتعليق هذا المتتبع الصغير بأغراضك الثمينة، واستخدم هاتفك لتحديد موقعها بسهولة عندما تضيع.',
     price: 120.00,
     images: getImages('bluetooth-tracker'),
+    category: categories.electronics.slug,
   },
   {
     id: '19',
@@ -162,6 +181,7 @@ export const products: Product[] = [
     description: 'نقل ملفاتك بسرعة البرق. هذا القرص المحمول من نوع SSD يوفر سرعات قراءة وكتابة فائقة في هيكل متين ومدمج. مثالي للمصورين ومصممي الفيديو والمحترفين أثناء التنقل.',
     price: 750.00,
     images: getImages('portable-ssd'),
+    category: categories.electronics.slug,
   },
   {
     id: '20',
@@ -170,6 +190,7 @@ export const products: Product[] = [
     description: 'اشحن هاتفك وساعتك الذكية وسماعاتك اللاسلكية في نفس الوقت. يوفر هذا الحامل الأنيق حلاً منظمًا للشحن على مكتبك أو بجانب سريرك، مع دعم الشحن السريع.',
     price: 290.00,
     images: getImages('wireless-charger-stand'),
+    category: categories.electronics.slug,
   },
   {
     id: '21',
@@ -178,6 +199,7 @@ export const products: Product[] = [
     description: 'وسّع إمكانيات حاسوبك المحمول. يضيف هذا الموزع مجموعة متنوعة من المنافذ (HDMI, USB-A, قارئ بطاقات SD) إلى جهازك عبر منفذ USB-C واحد، مما يجعله مثاليًا للعمل والعرض.',
     price: 220.00,
     images: getImages('usb-c-hub'),
+    category: categories.electronics.slug,
   },
   {
     id: '22',
@@ -186,6 +208,7 @@ export const products: Product[] = [
     description: 'ارفع مستوى راحتك وإنتاجيتك. يرفع هذا الحامل الأنيق الكمبيوتر المحمول إلى مستوى العين، مما يحسن وضعية جلوسك ويزيد من تدفق الهواء لتبريد أفضل للجهاز.',
     price: 180.00,
     images: getImages('laptop-stand'),
+    category: categories.electronics.slug,
   },
   {
     id: '23',
@@ -194,6 +217,7 @@ export const products: Product[] = [
     description: 'أنر مساحة عملك دون إجهاد لعينيك. يتم تثبيت شريط الإضاءة هذا فوق شاشتك لتوفير إضاءة متساوية على مكتبك دون التسبب في وهج على الشاشة، مع درجات حرارة ألوان قابلة للتعديل.',
     price: 300.00,
     images: getImages('monitor-light-bar'),
+    category: categories.home.slug,
   },
   {
     id: '24',
@@ -202,6 +226,7 @@ export const products: Product[] = [
     description: 'حوّل أفكارك إلى واقع ملموس. هذه الطابعة ثلاثية الأبعاد سهلة الاستخدام ومثالية للمبتدئين والهواة، مع حجم طباعة كبير وميزات أمان متقدمة.',
     price: 1950.00,
     images: getImages('3d-printer'),
+    category: categories.misc.slug,
   },
   {
     id: '25',
@@ -210,6 +235,7 @@ export const products: Product[] = [
     description: 'وثّق مغامراتك بجودة مذهلة. تسجل هذه الكاميرا فيديو بدقة 5K وتتميز بتثبيت صورة فائق السلاسة. مقاومة للماء حتى عمق 10 أمتار بدون غطاء إضافي.',
     price: 2100.00,
     images: getImages('action-camera'),
+    category: categories.electronics.slug,
   },
   {
     id: '26',
@@ -218,6 +244,7 @@ export const products: Product[] = [
     description: 'احمل مكتبتك بأكملها في جهاز واحد. يتميز هذا القارئ الإلكتروني بشاشة حبر إلكتروني لا تسبب إجهادًا للعين، ومقاومة للماء، وإضاءة دافئة قابلة للتعديل للقراءة ليلاً.',
     price: 850.00,
     images: getImages('e-reader'),
+    category: categories.electronics.slug,
   },
   {
     id: '27',
@@ -226,6 +253,7 @@ export const products: Product[] = [
     description: 'وفر في فواتير الطاقة وعش براحة أكبر. يتعلم منظم الحرارة هذا جدولك ودرجات الحرارة التي تفضلها ويبرمج نفسه تلقائيًا. تحكم فيه من أي مكان عبر هاتفك.',
     price: 1100.00,
     images: getImages('smart-thermostat'),
+    category: categories.home.slug,
   },
   {
     id: '28',
@@ -234,6 +262,7 @@ export const products: Product[] = [
     description: 'قضِ على مناطق ضعف إشارة الواي فاي في منزلك. يوفر هذا النظام تغطية كاملة وموثوقة للمنازل الكبيرة من خلال إنشاء شبكة واي فاي واحدة قوية وسلسة.',
     price: 1400.00,
     images: getImages('wifi-mesh-system'),
+    category: categories.electronics.slug,
   },
   {
     id: '29',
@@ -242,6 +271,7 @@ export const products: Product[] = [
     description: 'خذ حفلتك معك أينما ذهبت. يقدم هذا المكبر المحمول صوتًا قويًا ونقيًا، وهو مقاوم للماء والغبار، مما يجعله مثاليًا للشاطئ أو حمام السباحة.',
     price: 400.00,
     images: getImages('portable-bluetooth-speaker'),
+    category: categories.electronics.slug,
   },
   {
     id: '30',
@@ -250,6 +280,7 @@ export const products: Product[] = [
     description: 'صوّر مقاطع فيديو سينمائية سلسة بهاتفك. يزيل هذا المثبت ثلاثي المحاور الاهتزازات والحركات غير المرغوب فيها، مع ميزات تتبع ذكية وأوضاع تصوير إبداعية.',
     price: 650.00,
     images: getImages('gimbal-stabilizer'),
+    category: categories.electronics.slug,
   },
   {
     id: '31',
@@ -258,6 +289,7 @@ export const products: Product[] = [
     description: 'أطلق العنان لإبداعك. مثالي للرسم والتصميم وتحرير الصور، يوفر هذا اللوح الرقمي تجربة رسم طبيعية مع قلم حساس للضغط لا يحتاج إلى بطارية.',
     price: 580.00,
     images: getImages('drawing-tablet'),
+    category: categories.misc.slug,
   },
   {
     id: '32',
@@ -266,6 +298,7 @@ export const products: Product[] = [
     description: 'استمتع بحرية تامة بدون أسلاك. توفر سماعات الأذن هذه صوتًا رائعًا في تصميم صغير ومريح، مع علبة شحن توفر عمر بطارية يصل إلى 24 ساعة.',
     price: 450.00,
     images: getImages('wireless-earbuds'),
+    category: categories.electronics.slug,
   },
   {
     id: '33',
@@ -274,6 +307,7 @@ export const products: Product[] = [
     description: 'اسمع كل خطوة لخصومك. توفر هذه السماعة صوتًا محيطيًا غامرًا 7.1، وميكروفونًا واضحًا لإلغاء الضوضاء، وراحة فائقة لجلسات اللعب الطويلة.',
     price: 520.00,
     images: getImages('gaming-headset'),
+    category: categories.electronics.slug,
   },
   {
     id: '34',
@@ -282,6 +316,7 @@ export const products: Product[] = [
     description: 'اعرف من على بابك وتحدث إليه من أي مكان. يرسل لك هذا الجرس الذكي تنبيهات على هاتفك عندما يرن شخص ما الجرس أو عند اكتشاف حركة، مع فيديو عالي الدقة ورؤية ليلية.',
     price: 900.00,
     images: getImages('smart-doorbell'),
+    category: categories.home.slug,
   },
   {
     id: '35',
@@ -290,6 +325,7 @@ export const products: Product[] = [
     description: 'عقم هاتفك ومفاتيحك وأغراضك الصغيرة الأخرى في دقائق. يستخدم هذا الصندوق ضوء الأشعة فوق البنفسجية لقتل 99.9% من البكتيريا والجراثيم، ويعمل أيضًا كشاحن لاسلكي.',
     price: 250.00,
     images: getImages('uv-sanitizer-box'),
+    category: categories.health.slug,
   },
   {
     id: '36',
@@ -298,6 +334,7 @@ export const products: Product[] = [
     description: 'ازرع الأعشاب والخضروات الطازجة في مطبخك على مدار السنة. توفر هذه الحديقة الذكية الماء والضوء والمغذيات تلقائيًا لنباتاتك، مما يجعل البستنة سهلة للجميع.',
     price: 700.00,
     images: getImages('smart-garden'),
+    category: categories.home.slug,
   },
   {
     id: '37',
@@ -306,6 +343,7 @@ export const products: Product[] = [
     description: 'ارتقِ بتجربة مشاهدة الأفلام مع صوت سينمائي غامر. يوفر هذا الساوند بار مع مضخم صوت لاسلكي حوارًا واضحًا وجهيرًا عميقًا لإضفاء الحياة على الترفيه الخاص بك.',
     price: 1600.00,
     images: getImages('soundbar-system'),
+    category: categories.electronics.slug,
   },
   {
     id: '38',
@@ -314,6 +352,7 @@ export const products: Product[] = [
     description: 'ثبت هاتفك بأمان أثناء القيادة. يتميز هذا الحامل المغناطيسي بتصميم أنيق وقوة تثبيت عالية، ويتيح لك ضبط زاوية الرؤية بسهولة بيد واحدة.',
     price: 95.00,
     images: getImages('car-phone-mount'),
+    category: categories.misc.slug,
   },
   {
     id: '39',
@@ -322,6 +361,7 @@ export const products: Product[] = [
     description: 'للمصورين الجويين الجادين. تتميز بمستشعر كبير، ووقت طيران طويل، وأنظمة متقدمة لتجنب العقبات. قابلة للطي لسهولة النقل.',
     price: 4500.00,
     images: getImages('foldable-drone'),
+    category: categories.misc.slug,
   },
   {
     id: '40',
@@ -330,6 +370,7 @@ export const products: Product[] = [
     description: 'تجربة لعب مريحة ودقيقة على الكمبيوتر الشخصي والجوّال. تصميم مألوف، وأزرار قابلة للتخصيص، واتصال لاسلكي مستقر.',
     price: 280.00,
     images: getImages('wireless-gaming-controller'),
+    category: categories.electronics.slug,
   },
   {
     id: '41',
@@ -338,6 +379,7 @@ export const products: Product[] = [
     description: 'تتبع كمية الماء التي تشربها وحافظ على رطوبة جسمك. تضيء هذه الزجاجة الذكية لتذكيرك بموعد الشرب وتتزامن مع تطبيق لتحديد أهدافك اليومية.',
     price: 320.00,
     images: getImages('smart-water-bottle'),
+    category: categories.health.slug,
   },
   {
     id: '42',
@@ -346,6 +388,7 @@ export const products: Product[] = [
     description: 'اطبع صورك من هاتفك الذكي على الفور. تستخدم هذه الطابعة الصغيرة تقنية ZINK بدون حبر لإنتاج صور ملونة صغيرة يمكنك لصقها في أي مكان.',
     price: 480.00,
     images: getImages('portable-photo-printer'),
+    category: categories.misc.slug,
   },
   {
     id: '43',
@@ -354,6 +397,7 @@ export const products: Product[] = [
     description: 'اكتب كالمعتاد، ثم امسح ملاحظاتك ضوئيًا إلى السحابة باستخدام تطبيق مخصص. يمكن مسح الصفحات بقطعة قماش مبللة لإعادة استخدامها مرارًا وتكرارًا.',
     price: 200.00,
     images: getImages('smart-notebook'),
+    category: categories.misc.slug,
   },
   {
     id: '44',
@@ -362,6 +406,7 @@ export const products: Product[] = [
     description: 'ابق منتعشًا في الأيام الحارة. يوضع هذا الجهاز خفيف الوزن حول رقبتك ويوفر نسيمًا باردًا للمساعدة في التغلب على الحرارة أثناء التنقل.',
     price: 450.00,
     images: getImages('wearable-air-conditioner'),
+    category: categories.misc.slug,
   },
   {
     id: '45',
@@ -370,6 +415,7 @@ export const products: Product[] = [
     description: 'استيقظ بشكل طبيعي وهادئ. تحاكي هذه الساعة المنبهة شروق الشمس، حيث يزداد سطوعها تدريجيًا قبل انطلاق المنبه، لمساعدتك على الاستيقاظ وأنت تشعر بالانتعاش.',
     price: 380.00,
     images: getImages('sunrise-alarm-clock'),
+    category: categories.home.slug,
   },
   {
     id: '46',
@@ -378,6 +424,7 @@ export const products: Product[] = [
     description: 'استمتع بألعاب عالية الجودة أثناء التنقل. يتميز هذا الجهاز المحمول بشاشة OLED نابضة بالحياة وأدوات تحكم مريحة ومكتبة واسعة من الألعاب.',
     price: 2500.00,
     images: getImages('handheld-game-console'),
+    category: categories.electronics.slug,
   },
   {
     id: '47',
@@ -386,6 +433,7 @@ export const products: Product[] = [
     description: 'كن خبير الأرصاد الجوية الخاص بك. تقيس هذه المحطة درجة الحرارة والرطوبة وسرعة الرياح وهطول الأمطار، وتعرض جميع البيانات على شاشة ملونة سهلة القراءة.',
     price: 750.00,
     images: getImages('weather-station'),
+    category: categories.home.slug,
   },
   {
     id: '48',
@@ -394,6 +442,7 @@ export const products: Product[] = [
     description: 'قياسات دقيقة بضغطة زر. يوفر شريط القياس الرقمي هذا قياسات فورية ودقيقة للمسافات والمساحات والحجوم، مما يجعله أداة لا غنى عنها للمشاريع المنزلية.',
     price: 220.00,
     images: getImages('digital-measuring-tape'),
+    category: categories.misc.slug,
   },
   {
     id: '49',
@@ -402,6 +451,7 @@ export const products: Product[] = [
     description: 'افتح باب منزلك بدون مفتاح. يتيح لك هذا القفل الذكي استخدام بصمة إصبعك أو رمز أو هاتفك الذكي لفتح الباب، مع إمكانية منح وصول مؤقت للضيوف.',
     price: 1300.00,
     images: getImages('smart-lock'),
+    category: categories.home.slug,
   },
   {
     id: '50',
@@ -410,6 +460,7 @@ export const products: Product[] = [
     description: 'اصنع عصائرك ومخفوقات البروتين في أي مكان. هذا الخلاط الصغير قابل لإعادة الشحن عبر USB، وهو قوي بما يكفي لسحق الثلج والفواكه المجمدة.',
     price: 190.00,
     images: getImages('portable-blender'),
+    category: categories.health.slug,
   },
   {
     id: '51',
@@ -418,6 +469,7 @@ export const products: Product[] = [
     description: 'استمع إلى الموسيقى الهادئة أو البودكاست دون إزعاج. هذه السماعات عبارة عن عصابة رأس ناعمة ومريحة تحتوي على سماعات رفيعة جدًا، مثالية للنوم والسفر.',
     price: 240.00,
     images: getImages('sleep-headphones'),
+    category: categories.health.slug,
   },
   {
     id: '52',
@@ -426,6 +478,7 @@ export const products: Product[] = [
     description: 'ماء نقي من زجاجة نظيفة. تستخدم هذه الزجاجة تقنية ضوء UV-C لتعقيم الماء وتنظيف السطح الداخلي للزجاجة، مما يقضي على الروائح الكريهة والبكتيريا.',
     price: 420.00,
     images: getImages('self-cleaning-water-bottle'),
+    category: categories.health.slug,
   },
   {
     id: '53',
@@ -434,6 +487,7 @@ export const products: Product[] = [
     description: 'حافظ على مشروبك ساخنًا لساعات أثناء التنقل. يتيح لك هذا الكوب الحراري الذكي ضبط درجة الحرارة الدقيقة التي تفضلها والحفاظ عليها من خلال تطبيق.',
     price: 650.00,
     images: getImages('temperature-control-travel-mug'),
+    category: categories.home.slug,
   },
   {
     id: '54',
@@ -442,6 +496,7 @@ export const products: Product[] = [
     description: 'احصل على نتائج طهي مثالية في كل مرة. يتصل مقياس الحرارة هذا بهاتفك ويرشدك خلال عملية الطهي بأكملها، مما يضمن طهي اللحوم بشكل مثالي.',
     price: 350.00,
     images: getImages('smart-meat-thermometer'),
+    category: categories.home.slug,
   },
   {
     id: '55',
@@ -450,6 +505,7 @@ export const products: Product[] = [
     description: 'دوّن ملاحظاتك وأفكارك السريعة بأناقة. يوضع هذا اللوح الزجاجي الأنيق بين لوحة المفاتيح والشاشة، مما يوفر مساحة مثالية للملاحظات المؤقتة.',
     price: 180.00,
     images: getImages('desktop-whiteboard'),
+    category: categories.misc.slug,
   },
   {
     id: '56',
@@ -458,6 +514,7 @@ export const products: Product[] = [
     description: 'عزز تجربة المشاهدة الخاصة بك. يتزامن شريط الإضاءة هذا مع الألوان المعروضة على شاشة التلفزيون، مما يخلق إضاءة محيطة غامرة تملأ الغرفة.',
     price: 320.00,
     images: getImages('led-strip-lights'),
+    category: categories.electronics.slug,
   },
   {
     id: '57',
@@ -466,5 +523,6 @@ export const products: Product[] = [
     description: 'طاقة لا تنتهي من الشمس. مثالي لرحلات التخييم والطوارئ، يمكن إعادة شحن هذا الباور بانك المقاوم للصدمات والماء باستخدام الألواح الشمسية المدمجة.',
     price: 380.00,
     images: getImages('solar-power-bank'),
+    category: categories.electronics.slug,
   },
 ];

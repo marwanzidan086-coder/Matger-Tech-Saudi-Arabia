@@ -5,6 +5,7 @@ export type Product = {
     description: string;
     price: number;
     images: string[];
+    category: string;
 };
   
 export type CartItem = Product & {
@@ -17,4 +18,11 @@ export type Order = {
     items: CartItem[];
     total: number;
     status: 'قيد المراجعة' | 'مكتمل' | 'ملغي';
+};
+
+export type Category = {
+    name: string;
+    slug: string;
+    icon: React.ComponentType<{ className?: string }>;
+    description: string;
 };

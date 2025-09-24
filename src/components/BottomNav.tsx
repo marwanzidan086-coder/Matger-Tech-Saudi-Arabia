@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, PackageSearch, Heart, ShoppingCart } from 'lucide-react';
+import { Home, PackageSearch, Heart, ShoppingCart, LayoutGrid } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { cn } from '@/lib/utils';
@@ -11,6 +11,7 @@ import { ThemeToggle } from './ThemeToggle';
 
 const navItems = [
   { href: '/', label: 'المتجر', icon: Home },
+  { href: '/categories', label: 'الأقسام', icon: LayoutGrid },
   { href: '/orders', label: 'طلباتي', icon: PackageSearch },
   { href: '/wishlist', label: 'المفضلة', icon: Heart, badge: 'wishlist' },
   { href: '/cart', label: 'السلة', icon: ShoppingCart, badge: 'cart' },
