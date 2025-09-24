@@ -4,11 +4,23 @@ import { useOrder } from '@/contexts/OrderContext';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { PackageSearch } from 'lucide-react';
+import { PackageSearch, Trash2 } from 'lucide-react';
 import { useIsMounted } from '@/hooks/use-is-mounted';
+import { Button } from '@/components/ui/button';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
 
 export default function OrdersPage() {
-  const { orders } = useOrder();
+  const { orders, clearOrders } = useOrder();
   const isMounted = useIsMounted();
 
   if (!isMounted) {
@@ -17,9 +29,11 @@ export default function OrdersPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl md:text-4xl font-headline font-bold mb-8 text-center">
-        طلباتي
-      </h1>
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl font-headline font-bold">
+          طلباتي
+        </h1>
+      </div>
       {orders.length === 0 ? (
         <div className="text-center py-10">
           <PackageSearch className="mx-auto h-24 w-24 text-muted-foreground" />
@@ -27,6 +41,31 @@ export default function OrdersPage() {
         </div>
       ) : (
         <div className="max-w-4xl mx-auto space-y-6">
+          <div className="text-start mb-6">
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button variant="destructive" className="gap-2">
+                    <Trash2 className="h-4 w-4" />
+                    مسح كل الطلبات
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>هل أنت متأكد؟</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      سيتم حذف جميع طلباتك بشكل نهائي. لا يمكن التراجع عن هذا الإجراء.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>إلغاء</AlertDialogCancel>
+                    <AlertDialogAction onClick={clearOrders}>
+                      تأكيد الحذف
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+          </div>
+
           {orders.map((order) => (
             <Card key={order.id}>
               <CardHeader>

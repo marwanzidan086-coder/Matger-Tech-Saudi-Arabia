@@ -7,6 +7,7 @@ import { useLocalStorage } from '@/hooks/use-local-storage';
 type OrderContextType = {
   orders: Order[];
   addOrder: (order: Order) => void;
+  clearOrders: () => void;
 };
 
 const OrderContext = createContext<OrderContextType | undefined>(undefined);
@@ -18,8 +19,12 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
     setOrders(prevOrders => [order, ...prevOrders]);
   };
 
+  const clearOrders = () => {
+    setOrders([]);
+  };
+
   return (
-    <OrderContext.Provider value={{ orders, addOrder }}>
+    <OrderContext.Provider value={{ orders, addOrder, clearOrders }}>
       {children}
     </OrderContext.Provider>
   );
