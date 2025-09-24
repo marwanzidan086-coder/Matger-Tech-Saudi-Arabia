@@ -4,20 +4,20 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Image from 'next/image';
-import { useCart } from '@/contexts/CartContext';
-import { useOrder } from '@/contexts/OrderContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
 import { Loader2, Truck, ShoppingBag } from 'lucide-react';
-import { useIsMounted } from '@/hooks/use-is-mounted';
 import { sendOrderViaWhatsApp } from '@/app/actions';
+import { useOrder } from '@/contexts/OrderContext';
+import { type Product, type CartItem } from '@/lib/types';
+import Link from 'next/link';
 
 const checkoutSchema = z.object({
   name: z.string().min(3, 'يجب أن يكون الاسم 3 أحرف على الأقل'),
@@ -31,13 +31,36 @@ const checkoutSchema = z.object({
 
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
-export default function CheckoutPage() {
-  const { cartItems, total, clearCart } = useCart();
+function OrderNowContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { addOrder } = useOrder();
   const { toast } = useToast();
-  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const isMounted = useIsMounted();
+  const [product, setProduct] = useState<Product | null>(null);
+
+  useEffect(() => {
+    const id = searchParams.get('id');
+    const name = searchParams.get('name');
+    const price = searchParams.get('price');
+    const image = searchParams.get('image');
+    const slug = searchParams.get('slug');
+    const description = searchParams.get('description');
+
+    if (id && name && price && image && slug && description) {
+      setProduct({
+        id,
+        name,
+        price: parseFloat(price),
+        image,
+        slug,
+        description,
+      });
+    } else {
+      // If product data is missing, redirect to home
+      router.replace('/');
+    }
+  }, [searchParams, router]);
 
   const {
     register,
@@ -50,23 +73,20 @@ export default function CheckoutPage() {
     }
   });
 
-  useEffect(() => {
-    if (isMounted && cartItems.length === 0) {
-      router.replace('/cart');
-    }
-  }, [isMounted, cartItems.length, router]);
-  
-  if (!isMounted || cartItems.length === 0) {
+  if (!product) {
     return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
   }
+
+  const singleCartItem: CartItem = { ...product, quantity: 1 };
+  const total = product.price;
 
   const onSubmit = async (data: CheckoutFormValues) => {
     setIsSubmitting(true);
     
     const result = await sendOrderViaWhatsApp({
       ...data,
-      governorate: data.region, // Map region to governorate for the action
-      cartItems,
+      governorate: data.region,
+      cartItems: [singleCartItem],
       total,
     });
 
@@ -80,27 +100,26 @@ export default function CheckoutPage() {
       return;
     }
 
-    const orderNumber = result.orderNumber;
-    const orderDate = result.orderDate;
+    const { orderNumber, orderDate } = result;
 
     if (!orderNumber || !orderDate) {
-        toast({
-            title: 'خطأ',
-            description: 'لم يتم إنشاء رقم الطلب بشكل صحيح.',
-            variant: 'destructive',
-        });
-        setIsSubmitting(false);
-        return;
+      toast({
+          title: 'خطأ',
+          description: 'لم يتم إنشاء رقم الطلب بشكل صحيح.',
+          variant: 'destructive',
+      });
+      setIsSubmitting(false);
+      return;
     }
 
     addOrder({
       id: orderNumber,
       date: orderDate,
-      items: cartItems,
+      items: [singleCartItem],
       total,
       status: 'قيد المراجعة',
     });
-    clearCart();
+
     toast({
       title: 'تم إرسال طلبك بنجاح!',
       description: `رقم طلبك هو: ${orderNumber}`,
@@ -113,13 +132,12 @@ export default function CheckoutPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-10">
         <h1 className="text-3xl md:text-4xl font-headline font-bold">
-          إتمام الطلب
+          اطلب الآن
         </h1>
-        <p className="text-muted-foreground mt-2">خطوة أخيرة لإرسال طلبك الرائع!</p>
+        <p className="text-muted-foreground mt-2">منتج رائع على وشك أن يكون لك!</p>
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 xl:gap-12">
-        
         <div className="lg:col-span-3">
           <Card>
             <CardHeader>
@@ -143,7 +161,6 @@ export default function CheckoutPage() {
                  <div>
                   <Label htmlFor="phone2">رقم جوال إضافي (اختياري)</Label>
                   <Input id="phone2" {...register('phone2')} dir="ltr" />
-                  {errors.phone2 && <p className="text-sm text-destructive mt-1">{errors.phone2.message}</p>}
                 </div>
                  <div>
                   <Label htmlFor="region">المنطقة</Label>
@@ -168,13 +185,8 @@ export default function CheckoutPage() {
               <CardFooter>
                  <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
                   {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      جاري الإرسال...
-                    </>
-                  ) : (
-                    'إرسال الطلب وتأكيده'
-                  )}
+                    <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> جاري الإرسال...</>
+                  ) : ( 'إرسال الطلب وتأكيده' )}
                 </Button>
               </CardFooter>
             </form>
@@ -190,19 +202,19 @@ export default function CheckoutPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2">
-                {cartItems.map(item => (
-                  <div key={item.id} className="flex justify-between items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-md overflow-hidden">
-                       <Image src={item.image} alt={item.name} fill className="object-cover" data-ai-hint="product image" />
-                    </div>
-                    <div className="flex-grow">
-                      <p className="font-semibold">{item.name}</p>
-                      <p className="text-sm text-muted-foreground">الكمية: {item.quantity}</p>
-                    </div>
-                    <p className="font-mono text-sm">{(item.price * item.quantity).toFixed(2)} ج.م</p>
-                  </div>
-                ))}
+              <div className="flex justify-between items-center gap-4">
+                <div className="relative w-16 h-16 rounded-md overflow-hidden">
+                    <Image src={product.image} alt={product.name} fill className="object-cover" data-ai-hint="product image" />
+                </div>
+                <div className="flex-grow">
+                  <p className="font-semibold">{product.name}</p>
+                  <p className="text-sm text-muted-foreground">
+                     <Link href={`/products/${product.slug}`} className="hover:underline">
+                        تغيير المنتج
+                     </Link>
+                  </p>
+                </div>
+                <p className="font-mono text-sm">{total.toFixed(2)} ج.م</p>
               </div>
               <Separator />
               <div className="flex justify-between font-bold text-lg">
@@ -215,4 +227,13 @@ export default function CheckoutPage() {
       </div>
     </div>
   );
+}
+
+
+export default function OrderNowPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>}>
+      <OrderNowContent />
+    </Suspense>
+  )
 }
