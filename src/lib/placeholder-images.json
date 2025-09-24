@@ -22,6 +22,62 @@
         "https://i.ibb.co/3yvz06sb/image-1.jpg",
         "https://i.ibb.co/J1bwZdm/image-2.jpg"
       ]
+    },
+    {
+      "id": "anker-powercore-10000",
+      "images": [
+        "https://picsum.photos/seed/anker-powercore-10000-1/600/600",
+        "https://picsum.photos/seed/anker-powercore-10000-2/600/600",
+        "https://picsum.photos/seed/anker-powercore-10000-3/600/600"
+      ]
+    },
+    {
+      "id": "smart-coffee-mug",
+      "images": [
+        "https://picsum.photos/seed/smart-coffee-mug-1/600/600",
+        "https://picsum.photos/seed/smart-coffee-mug-2/600/600",
+        "https://picsum.photos/seed/smart-coffee-mug-3/600/600"
+      ]
+    },
+    {
+      "id": "led-desk-lamp",
+      "images": [
+        "https://picsum.photos/seed/led-desk-lamp-1/600/600",
+        "https://picsum.photos/seed/led-desk-lamp-2/600/600",
+        "https://picsum.photos/seed/led-desk-lamp-3/600/600"
+      ]
+    },
+    {
+      "id": "smart-scale",
+      "images": [
+        "https://picsum.photos/seed/smart-scale-1/600/600",
+        "https://picsum.photos/seed/smart-scale-2/600/600",
+        "https://picsum.photos/seed/smart-scale-3/600/600"
+      ]
+    },
+    {
+      "id": "handheld-massager",
+      "images": [
+        "https://picsum.photos/seed/handheld-massager-1/600/600",
+        "https://picsum.photos/seed/handheld-massager-2/600/600",
+        "https://picsum.photos/seed/handheld-massager-3/600/600"
+      ]
+    },
+    {
+      "id": "robot-vacuum-cleaner",
+      "images": [
+        "https://picsum.photos/seed/robot-vacuum-cleaner-1/600/600",
+        "https://picsum.photos/seed/robot-vacuum-cleaner-2/600/600",
+        "https://picsum.photos/seed/robot-vacuum-cleaner-3/600/600"
+      ]
+    },
+    {
+      "id": "smart-air-purifier",
+      "images": [
+        "https://picsum.photos/seed/smart-air-purifier-1/600/600",
+        "https://picsum.photos/seed/smart-air-purifier-2/600/600",
+        "https://picsum.photos/seed/smart-air-purifier-3/600/600"
+      ]
     }
   ]
 }
