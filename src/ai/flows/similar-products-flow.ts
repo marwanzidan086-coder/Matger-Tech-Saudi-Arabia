@@ -25,19 +25,13 @@ const SimilarProductsOutputSchema = z.object({
   ).describe('An array of 3-4 recommended product slugs.'),
 });
 
-// Prepare a string of all products for the prompt
-const productCatalog = products.map(p => 
-  `- ID: ${p.id}\n  Slug: ${p.slug}\n  Name: ${p.name}\n  Description: ${p.description}`
-).join('\n\n');
-
-
 export async function suggestSimilarProducts(input: SimilarProductsInput): Promise<SimilarProductsOutput> {
   return similarProductsFlow(input);
 }
 
 const prompt = ai.definePrompt({
   name: 'similarProductsPrompt',
-  input: { schema: SimilarProductsInputSchema },
+  input: { schema: z.object({ ...SimilarProductsInputSchema.shape, productCatalog: z.string() }) },
   output: { schema: SimilarProductsOutputSchema },
   prompt: `
 You are a helpful AI assistant for an e-commerce store. Your goal is to recommend similar or complementary products to a user viewing a specific item.
@@ -66,9 +60,20 @@ const similarProductsFlow = ai.defineFlow(
     outputSchema: SimilarProductsOutputSchema,
   },
   async (input) => {
+    // Filter out the current product from the catalog sent to the AI
+    const productCatalog = products
+      .filter(p => p.id !== input.productId)
+      .map(p => `- ID: ${p.id}\n  Slug: ${p.slug}\n  Name: ${p.name}\n  Description: ${p.description}`)
+      .join('\n\n');
+
+    // If there are no other products, return empty recommendations
+    if (!productCatalog) {
+      return { recommendations: [] };
+    }
+      
     const { output } = await prompt({
         ...input,
-        productCatalog: productCatalog
+        productCatalog: productCatalog,
     });
     return output || { recommendations: [] };
   }
