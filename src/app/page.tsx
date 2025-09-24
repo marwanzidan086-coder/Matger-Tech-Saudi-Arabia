@@ -1,12 +1,14 @@
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
 import Hero from '@/components/Hero';
+import GiftAdvisor from '@/components/GiftAdvisor';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <div id="products" className="container mx-auto px-4 py-8">
+      <GiftAdvisor />
+      <div id="products" className="container mx-auto px-4 py-12">
         <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-8">
           منتجاتنا
         </h2>
