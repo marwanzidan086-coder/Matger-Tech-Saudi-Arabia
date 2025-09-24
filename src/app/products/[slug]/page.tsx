@@ -3,7 +3,7 @@
 
 import { products } from '@/data/products';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import { AddToCartButton } from '@/components/AddToCartButton';
 import { AddToWishlistButton } from '@/components/AddToWishlistButton';
 import { OrderNowButton } from '@/components/OrderNowButton';
@@ -14,14 +14,10 @@ import { ShieldCheck, Truck, Clock } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
-type ProductPageProps = {
-  params: {
-    slug: string;
-  };
-};
-
-export default function ProductPage({ params }: ProductPageProps) {
-  const product = products.find((p) => p.slug === params.slug);
+export default function ProductPage() {
+  const params = useParams();
+  const slug = typeof params.slug === 'string' ? params.slug : '';
+  const product = products.find((p) => p.slug === slug);
   const [activeImage, setActiveImage] = useState(0);
 
   if (!product) {
