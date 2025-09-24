@@ -22,8 +22,8 @@ import Link from 'next/link';
 const checkoutSchema = z.object({
   name: z.string().min(3, 'يجب أن يكون الاسم 3 أحرف على الأقل'),
   phone: z.string().regex(/^05\d{8}$/, 'رقم الجوال غير صالح. يجب أن يبدأ بـ 05 ويتكون من 10 أرقام'),
-  phone2: z.string().optional(),
-  region: z.string().min(2, 'المنطقة مطلوبة'),
+  phone2: z.string().regex(/^05\d{8}$/, 'رقم الجوال غير صالح. يجب أن يبدأ بـ 05 ويتكون من 10 أرقام').optional().or(z.literal('')),
+  governorate: z.string().min(2, 'المنطقة مطلوبة'),
   city: z.string().min(2, 'المدينة مطلوبة'),
   address: z.string().min(10, 'يجب أن يكون العنوان 10 أحرف على الأقل'),
   notes: z.string().optional(),
@@ -82,7 +82,6 @@ function OrderNowContent() {
     
     const result = await sendOrderViaWhatsApp({
       ...data,
-      governorate: data.region,
       cartItems: [singleCartItem],
       total,
     });
@@ -144,8 +143,8 @@ function OrderNowContent() {
               </CardTitle>
             </CardHeader>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
-                <div className="md:col-span-2">
+              <CardContent className="grid grid-cols-1 gap-y-4">
+                <div>
                   <Label htmlFor="name">الاسم الكامل</Label>
                   <Input id="name" {...register('name')} />
                   {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
@@ -157,24 +156,25 @@ function OrderNowContent() {
                 </div>
                  <div>
                   <Label htmlFor="phone2">رقم جوال إضافي (اختياري)</Label>
-                  <Input id="phone2" {...register('phone2')} dir="ltr" />
+                  <Input id="phone2" {...register('phone2')} dir="ltr" placeholder="05xxxxxxxx"/>
+                  {errors.phone2 && <p className="text-sm text-destructive mt-1">{errors.phone2.message}</p>}
                 </div>
                  <div>
-                  <Label htmlFor="region">المنطقة</Label>
-                  <Input id="region" {...register('region')} />
-                  {errors.region && <p className="text-sm text-destructive mt-1">{errors.region.message}</p>}
+                  <Label htmlFor="governorate">المنطقة</Label>
+                  <Input id="governorate" {...register('governorate')} />
+                  {errors.governorate && <p className="text-sm text-destructive mt-1">{errors.governorate.message}</p>}
                 </div>
                  <div>
                   <Label htmlFor="city">المدينة</Label>
                   <Input id="city" {...register('city')} />
                   {errors.city && <p className="text-sm text-destructive mt-1">{errors.city.message}</p>}
                 </div>
-                <div className="md:col-span-2">
+                <div>
                   <Label htmlFor="address">العنوان (الحي، الشارع، رقم المبنى)</Label>
                   <Textarea id="address" {...register('address')} />
                   {errors.address && <p className="text-sm text-destructive mt-1">{errors.address.message}</p>}
                 </div>
-                <div className="md-col-span-2">
+                <div>
                   <Label htmlFor="notes">تفاصيل إضافية للطلب (اختياري)</Label>
                   <Textarea id="notes" {...register('notes')} />
                 </div>
