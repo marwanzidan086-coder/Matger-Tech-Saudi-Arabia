@@ -18,23 +18,24 @@ const electronicsProducts: Product[] = [
         name: 'فانوس الكشتات والرحلات DLC-32898',
         slug: 'dlc-multi-use-lantern',
         description: `
-<div class="text-foreground/90">
-  <div class="text-center mb-6">
+<div class="text-foreground/90 space-y-8">
+
+  <div class="text-center">
     <p class="text-lg font-semibold">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
   </div>
 
-  <div class="mb-8">
+  <div>
     <h3 class="text-xl font-bold text-center text-green-400 mb-4" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">✨ أهم المميزات ✨</h3>
     <ul class="space-y-3 list-none p-0 text-sm">
-      <li class="flex items-center gap-3"><span class="text-green-400">💡</span><div><strong class="text-primary">إضاءة كاشفة:</strong> تنور لك المكان بوضوح تام وتحول الليل إلى نهار.</div></li>
-      <li class="flex items-center gap-3"><span class="text-green-400">🔋</span><div><strong class="text-primary">باور بانك مدمج:</strong> طاقة لا تنقطع وشحن سريع لجوالك عبر USB.</div></li>
-      <li class="flex items-center gap-3"><span class="text-green-400">🧲</span><div><strong class="text-primary">تثبيت مغناطيسي:</strong> يثبت بقوة على أي سطح معدني بثبات.</div></li>
-      <li class="flex items-center gap-3"><span class="text-green-400">🌧️</span><div><strong class="text-primary">تصميم متين:</strong> مقاوم للمطر والغبار ومصمم للظروف القاسية.</div></li>
-      <li class="flex items-center gap-3"><span class="text-green-400">⚙️</span><div><strong class="text-primary">سهل الاستخدام:</strong> خفيف الوزن، متعدد الزوايا، ومثالي للتنقل.</div></li>
+      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">💡</span><div><strong class="text-primary">إضاءة كاشفة:</strong> تنور لك المكان بوضوح تام وتحول الليل إلى نهار.</div></li>
+      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">🔋</span><div><strong class="text-primary">باور بانك مدمج:</strong> طاقة لا تنقطع وشحن سريع لجوالك عبر USB.</div></li>
+      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">🧲</span><div><strong class="text-primary">تثبيت مغناطيسي:</strong> يثبت بقوة على أي سطح معدني بثبات.</div></li>
+      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">🌧️</span><div><strong class="text-primary">تصميم متين:</strong> مقاوم للمطر والغبار ومصمم للظروف القاسية.</div></li>
+      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">⚙️</span><div><strong class="text-primary">سهل الاستخدام:</strong> خفيف الوزن، متعدد الزوايا، ومثالي للتنقل.</div></li>
     </ul>
   </div>
 
-  <div class="mb-8">
+  <div>
     <h3 class="text-xl font-bold text-center text-green-400 mb-4" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">🚀 تفاصيل سريعة 🚀</h3>
     <div class="overflow-x-auto">
       <table class="w-full text-sm text-right border-collapse">
@@ -47,7 +48,7 @@ const electronicsProducts: Product[] = [
     </div>
   </div>
   
-  <div class="mb-8">
+  <div>
     <h3 class="text-xl font-bold text-center text-green-400 mb-4" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">📦 محتويات المنتج 📦</h3>
     <ul class="space-y-2 list-disc list-inside pr-4 text-sm">
         <li>مصباح DLC-32898 قابل للشحن</li>
