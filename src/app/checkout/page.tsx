@@ -51,8 +51,16 @@ export default function CheckoutPage() {
   });
 
   useEffect(() => {
-    if (isMounted && cartItems.length === 0) {
-      router.replace('/cart');
+    // Only redirect if mounted and cart is definitely empty after a brief moment
+    if (isMounted) {
+      if (cartItems.length === 0) {
+        const timer = setTimeout(() => {
+           if (cartItems.length === 0) {
+             router.replace('/cart');
+           }
+        }, 500); // Wait 500ms to ensure cart state is settled
+        return () => clearTimeout(timer);
+      }
     }
   }, [isMounted, cartItems, router]);
   

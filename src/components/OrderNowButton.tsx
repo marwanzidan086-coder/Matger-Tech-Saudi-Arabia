@@ -25,8 +25,11 @@ export function OrderNowButton({ product }: { product: Product }) {
       title: 'تم تجهيز طلبك!',
       description: 'سيتم توجيهك لصفحة الدفع مباشرة.',
     });
-
-    router.push('/checkout');
+    
+    // Add a small delay to ensure cart is updated before navigating
+    setTimeout(() => {
+        router.push('/checkout');
+    }, 100);
   };
 
   return (
