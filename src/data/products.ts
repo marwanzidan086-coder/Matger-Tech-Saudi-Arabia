@@ -4,14 +4,16 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const getImages = (id: string, count: number): string[] => {
   const imageUrl = PlaceHolderImages.find(img => img.id === id)?.imageUrl;
   if (!imageUrl) {
-    return Array(count).fill('https://picsum.photos/seed/placeholder/600/600');
+    // Fallback if no image is found in placeholder data
+    return Array.from({length: count}, (_, i) => `https://picsum.photos/seed/${id}${i + 1}/600/600`);
   }
   const url = new URL(imageUrl);
   const seed = url.pathname.split('/')[2];
   
   return Array.from({length: count}, (_, i) => {
     const newUrl = new URL(imageUrl);
-    newUrl.pathname = `/seed/${seed}${i + 1}/600/600`;
+    // Use a unique seed for each image in the array to ensure different images
+    newUrl.pathname = `/seed/${seed}-${i + 1}/600/600`;
     return newUrl.toString();
   });
 };
