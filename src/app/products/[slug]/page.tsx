@@ -11,10 +11,11 @@ import { OrderNowButton } from '@/components/OrderNowButton';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, Truck, Clock, Zap, BatteryCharging, Droplets, Usb, Speaker, Bluetooth, Weight } from 'lucide-react';
+import { ShieldCheck, Truck, Clock, Zap, BatteryCharging, Droplets, Usb, Speaker, Bluetooth, Weight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import type { LucideProps } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 // --- Helper Component to Render Description ---
 const ICONS_MAP: { [key: string]: React.ComponentType<LucideProps> } = {
@@ -63,14 +64,14 @@ function ParsedDescription({ description }: { description: string }) {
   }, [description]);
 
   return (
-    <div className="space-y-6">
-      <p className="text-base leading-relaxed text-foreground/80">
+    <div>
+      <p className="text-base leading-relaxed text-foreground/80 mb-8">
         {intro.trim()}
       </p>
 
       {features.length > 0 && (
-        <div>
-          <h3 className="text-xl font-bold mb-3 text-primary" style={{ textShadow: '0 0 5px hsl(var(--primary) / 0.5)' }}>✨ مميزات المنتج ✨</h3>
+        <div className="mb-8">
+          <h3 className="text-xl font-bold mb-3 text-primary" style={{ textShadow: '0 0 10px hsl(var(--primary) / 0.5)' }}>✨ مميزات المنتج ✨</h3>
           <ul className="space-y-3">
             {features.map((feature, index) => {
               const Icon = getIconForFeature(feature);
@@ -87,7 +88,7 @@ function ParsedDescription({ description }: { description: string }) {
 
       {details.length > 0 && (
          <div>
-          <h3 className="text-xl font-bold mb-3 text-primary" style={{ textShadow: '0 0 5px hsl(var(--primary) / 0.5)' }}>🚀 تفاصيل سريعة 🚀</h3>
+          <h3 className="text-xl font-bold mb-3 text-primary" style={{ textShadow: '0 0 10px hsl(var(--primary) / 0.5)' }}>🚀 تفاصيل سريعة 🚀</h3>
             <ul className="space-y-2">
                 {details.map(({ key, value }, index) => (
                     <li key={index} className="flex justify-between border-b pb-2">
@@ -116,13 +117,21 @@ export default function ProductPage() {
 
   const mainImage = product.images[activeImage];
 
+  const handleNextImage = () => {
+    setActiveImage((prev) => (prev + 1) % product.images.length);
+  };
+
+  const handlePrevImage = () => {
+    setActiveImage((prev) => (prev - 1 + product.images.length) % product.images.length);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         
         {/* Image Gallery */}
         <div className="flex flex-col gap-4 md:sticky top-24 self-start">
-            <div className="relative aspect-square w-full overflow-hidden rounded-lg border shadow-lg">
+            <div className="relative aspect-square w-full overflow-hidden rounded-lg border shadow-lg group">
                 <Image
                     src={mainImage}
                     alt={`${product.name} - main image`}
@@ -132,6 +141,28 @@ export default function ProductPage() {
                     key={mainImage}
                     data-ai-hint="product image"
                 />
+                {product.images.length > 1 && (
+                  <>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={handlePrevImage}
+                      className="absolute top-1/2 left-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/20 text-white hover:bg-black/40 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                      aria-label="الصورة السابقة"
+                    >
+                      <ChevronLeft className="h-6 w-6" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={handleNextImage}
+                      className="absolute top-1/2 right-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/20 text-white hover:bg-black/40 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                      aria-label="الصورة التالية"
+                    >
+                      <ChevronRight className="h-6 w-6" />
+                    </Button>
+                  </>
+                )}
             </div>
             <div className="grid grid-cols-5 gap-2">
                 {product.images.map((image, index) => (
