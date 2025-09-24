@@ -33,9 +33,10 @@ export default function Search() {
   }, []);
   
   useEffect(() => {
-    if (searchParams.get('q')) {
+    const q = searchParams.get('q');
+    if (q) {
       setOpen(true);
-      setQuery(searchParams.get('q') || '');
+      setQuery(q);
     }
   }, [searchParams]);
 
