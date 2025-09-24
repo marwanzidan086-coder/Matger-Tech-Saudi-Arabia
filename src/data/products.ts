@@ -14,63 +14,57 @@ const getImages = (productId: string): string[] => {
 
 const electronicsProducts: Product[] = [
     {
-        id: 'dlc-multi-use-lantern',
-        name: 'فانوس الكشتات والرحلات DLC-32898',
-        slug: 'dlc-multi-use-lantern',
+        id: 'soundcore-r100',
+        name: 'سماعة ساوند كور R100',
+        slug: 'soundcore-r100',
         description: `
-<div class="text-foreground/90 space-y-8">
-
-  <div class="text-center">
-    <p class="text-lg font-semibold">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-bold text-center text-green-400 mb-4" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">✨ أهم المميزات ✨</h3>
-    <ul class="space-y-3 list-none p-0 text-sm">
-      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">💡</span><div><strong class="text-primary">إضاءة كاشفة:</strong> تنور لك المكان بوضوح تام وتحول الليل إلى نهار.</div></li>
-      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">🔋</span><div><strong class="text-primary">باور بانك مدمج:</strong> طاقة لا تنقطع وشحن سريع لجوالك عبر USB.</div></li>
-      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">🧲</span><div><strong class="text-primary">تثبيت مغناطيسي:</strong> يثبت بقوة على أي سطح معدني بثبات.</div></li>
-      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">🌧️</span><div><strong class="text-primary">تصميم متين:</strong> مقاوم للمطر والغبار ومصمم للظروف القاسية.</div></li>
-      <li class="flex items-center gap-3"><span class="text-green-400 text-xl">⚙️</span><div><strong class="text-primary">سهل الاستخدام:</strong> خفيف الوزن، متعدد الزوايا، ومثالي للتنقل.</div></li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-bold text-center text-green-400 mb-4" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">🚀 تفاصيل سريعة 🚀</h3>
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm text-right border-collapse">
-        <tbody>
-          <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الماركة:</td><td class="px-4 py-2">DLC</td></tr>
-          <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الموديل:</td><td class="px-4 py-2">DLC-32898</td></tr>
-          <tr><td class="px-4 py-2 font-semibold text-primary">الضمان:</td><td class="px-4 py-2">عامين</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="space-y-6 text-foreground/90 text-right">
   
+  <p class="text-base">
+    استمتع بصوت نقي وجهير عميق مع سماعات ساوند كور R100 اللاسلكية. تصميم مريح للاستخدام طوال اليوم وبطارية تدوم لساعات.
+  </p>
+
+  <hr class="border-border/50">
+
   <div>
-    <h3 class="text-xl font-bold text-center text-green-400 mb-4" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">📦 محتويات المنتج 📦</h3>
-    <ul class="space-y-2 list-disc list-inside pr-4 text-sm">
-        <li>مصباح DLC-32898 قابل للشحن</li>
-        <li>كابل شحن USB</li>
-        <li>قاعدة مغناطيسية للتثبيت</li>
-        <li>دليل استخدام</li>
+    <h3 class="text-xl font-bold mb-4">مميزات المنتج</h3>
+    <ul class="space-y-3">
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-500"><path d="M2 12.5a10.5 10.5 0 1 0 21 0"/><path d="M12 2v6"/><path d="M18.36 6.64l-4.24 4.24"/><path d="M22 12.5h-6"/><path d="M6.64 18.36l4.24-4.24"/></svg>
+        <span>صوت عالي الجودة مع تقنية BassUp</span>
+      </li>
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-500"><path d="M2 9.5A2.5 2.5 0 0 1 4.5 7h15A2.5 2.5 0 0 1 22 9.5v5A2.5 2.5 0 0 1 19.5 17h-15A2.5 2.5 0 0 1 2 14.5Z"/><path d="m13 12-3 2V10l3 2Z"/></svg>
+        <span>بطارية تدوم حتى 25 ساعة مع علبة الشحن</span>
+      </li>
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-500"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/><path d="M12 12v-2"/></svg>
+        <span>مقاومة للماء بمعيار IPX5</span>
+      </li>
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-500"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+        <span>شحن سريع USB-C</span>
+      </li>
     </ul>
   </div>
 
   <div>
-      <h3 class="text-xl font-bold text-center text-green-400 mb-4" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">⚙️ كيفية الاستخدام ⚙️</h3>
-      <ol class="space-y-2 list-decimal list-inside pr-4 text-sm">
-          <li>اشحن المصباح بالكامل قبل أول استخدام.</li>
-          <li>ثبّت المصباح باستخدام القاعدة المغناطيسية أو ضعه في المكان المناسب.</li>
-          <li>اضغط على زر التشغيل للتحكم في الإضاءة.</li>
-          <li>بعد الاستخدام، نظّفه وخزّنه في مكان جاف.</li>
-      </ol>
+    <h3 class="text-xl font-bold mb-4">تفاصيل سريعة</h3>
+    <ul class="space-y-2">
+      <li><span class="font-semibold">- اللون:</span> أسود</li>
+      <li><span class="font-semibold">- الاتصال:</span> بلوتوث 5.0</li>
+      <li><span class="font-semibold">- الوزن:</span> 40 جرام</li>
+    </ul>
   </div>
+
 </div>
 `,
-        price: 150.00,
-        images: getImages('dlc-multi-use-lantern'),
+        price: 120.00,
+        images: [
+            "https://i.ibb.co/C0W2vFm/image.png",
+            "https://i.ibb.co/3yvz06sb/image-1.jpg",
+            "https://i.ibb.co/J1bwZdm/image-2.jpg"
+        ],
         category: categories.electronics.slug
     },
 ];
