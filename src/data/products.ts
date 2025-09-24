@@ -1,3 +1,4 @@
+
 import { type Product } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { categories } from '@/lib/categories';
@@ -20,46 +21,41 @@ const electronicsProducts: Product[] = [
 <p class="my-4 text-base leading-relaxed">هل أنت من عشاق الرحلات والكشتات؟ هل تحتاج إلى إضاءة قوية وطاقة لا تنقطع في حالات الطوارئ؟ نقدم لك الفانوس الذي سيغير قواعد اللعبة!</p>
 
 <div class="my-6">
-  <!-- Rocket Title -->
-  <div class="flex items-center justify-center my-4">
-    <div class="relative w-full flex items-center justify-center">
-      <div class="absolute -start-4 h-full w-20 bg-gradient-to-r from-primary/50 to-transparent blur-md -z-10"></div>
-      <div class="flex items-center justify-center h-12 bg-primary/20 rounded-full border border-primary/30 shadow-lg shadow-primary/20" style="clip-path: polygon(0% 20%, 5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 80%);">
-        <h3 class="text-xl font-bold text-primary-foreground px-8 whitespace-nowrap" style="text-shadow: 0 0 10px hsl(var(--primary));">🚀 أهم المميزات</h3>
-      </div>
-    </div>
-  </div>
-
-  <!-- Features Grid -->
-  <div class="grid grid-cols-2 gap-4 mt-6">
-    <div class="p-4 bg-background/50 rounded-lg border border-border/50 flex items-start gap-4">
-      <div class="p-2 bg-primary/10 rounded-full border border-primary/20 text-primary">💡</div>
+  <h3 class="text-xl font-bold text-center mb-4 flex items-center justify-center gap-2">🚀 أهم المميزات</h3>
+  <div class="space-y-4">
+    
+    <div class="flex items-start gap-4">
+      <span class="text-2xl">💡</span>
       <div>
         <h4 class="font-bold">إضاءة تغطي المكان</h4>
         <p class="text-sm text-muted-foreground">LED قوي يحول الليل إلى نهار.</p>
       </div>
     </div>
-    <div class="p-4 bg-background/50 rounded-lg border border-border/50 flex items-start gap-4">
-      <div class="p-2 bg-primary/10 rounded-full border border-primary/20 text-primary">🔋</div>
+    
+    <div class="flex items-start gap-4">
+      <span class="text-2xl">🔋</span>
       <div>
         <h4 class="font-bold">طاقة لا تنتهي</h4>
         <p class="text-sm text-muted-foreground">يعمل كباور بانك لشحن جوالك.</p>
       </div>
     </div>
-    <div class="p-4 bg-background/50 rounded-lg border border-border/50 flex items-start gap-4">
-      <div class="p-2 bg-primary/10 rounded-full border border-primary/20 text-primary">🧲</div>
+    
+    <div class="flex items-start gap-4">
+      <span class="text-2xl">🧲</span>
       <div>
         <h4 class="font-bold">تثبيت ذكي</h4>
         <p class="text-sm text-muted-foreground">قاعدة مغناطيسية قوية للتثبيت.</p>
       </div>
     </div>
-    <div class="p-4 bg-background/50 rounded-lg border border-border/50 flex items-start gap-4">
-      <div class="p-2 bg-primary/10 rounded-full border border-primary/20 text-primary">🌧️</div>
+    
+    <div class="flex items-start gap-4">
+      <span class="text-2xl">🌧️</span>
       <div>
         <h4 class="font-bold">صُنع ليتحمل</h4>
         <p class="text-sm text-muted-foreground">مقاوم للمطر والغبار والظروف القاسية.</p>
       </div>
     </div>
+
   </div>
 </div>
 
