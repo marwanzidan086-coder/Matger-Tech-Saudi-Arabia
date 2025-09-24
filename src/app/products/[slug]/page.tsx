@@ -4,6 +4,14 @@ import { notFound } from 'next/navigation';
 import { AddToCartButton } from '@/components/AddToCartButton';
 import { AddToWishlistButton } from '@/components/AddToWishlistButton';
 import { OrderNowButton } from '@/components/OrderNowButton';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { Card, CardContent } from "@/components/ui/card"
 
 type ProductPageProps = {
   params: {
@@ -28,15 +36,27 @@ export default function ProductPage({ params }: ProductPageProps) {
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         <div className="flex justify-center items-start">
-          <div className="relative aspect-square w-full max-w-md bg-card rounded-lg shadow-lg overflow-hidden">
-             <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover"
-                data-ai-hint="product image"
-              />
-          </div>
+          <Carousel className="w-full max-w-md">
+            <CarouselContent>
+              {product.images.map((image, index) => (
+                <CarouselItem key={index}>
+                  <Card>
+                    <CardContent className="relative aspect-square p-0">
+                      <Image
+                        src={image}
+                        alt={`${product.name} - image ${index + 1}`}
+                        fill
+                        className="object-cover rounded-lg"
+                        data-ai-hint="product image"
+                      />
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute start-2" />
+            <CarouselNext className="absolute end-2" />
+          </Carousel>
         </div>
         <div className="flex flex-col space-y-6">
           <h1 className="text-3xl md:text-4xl font-headline font-bold">{product.name}</h1>

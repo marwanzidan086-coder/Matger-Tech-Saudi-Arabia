@@ -13,7 +13,8 @@ export function OrderNowButton({ product }: { product: Product }) {
     params.set('id', product.id);
     params.set('name', product.name);
     params.set('price', product.price.toString());
-    params.set('image', product.image);
+    // Pass only the first image
+    params.set('image', product.images[0]);
     params.set('slug', product.slug);
     params.set('description', product.description);
     

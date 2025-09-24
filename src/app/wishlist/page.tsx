@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Heart, ShoppingCart, Trash2 } from 'lucide-react';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 import { useToast } from '@/hooks/use-toast';
+import { Product } from '@/lib/types';
 
 export default function WishlistPage() {
   const { wishlistItems, removeFromWishlist } = useWishlist();
@@ -15,7 +16,7 @@ export default function WishlistPage() {
   const { toast } = useToast();
   const isMounted = useIsMounted();
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     addToCart(product);
     removeFromWishlist(product.id);
     toast({
@@ -48,7 +49,7 @@ export default function WishlistPage() {
               <Link href={`/products/${item.slug}`} className="block">
                 <div className="relative w-full aspect-square bg-card">
                   <Image
-                    src={item.image}
+                    src={item.images[0]}
                     alt={item.name}
                     fill
                     className="object-cover"

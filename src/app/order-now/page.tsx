@@ -30,13 +30,23 @@ const checkoutSchema = z.object({
 
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
+// A slimmed down product type for the order-now page
+type OrderNowProduct = {
+  id: string;
+  name: string;
+  price: number;
+  image: string; // Only the first image
+  slug: string;
+  description: string;
+}
+
 function OrderNowContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { addOrder } = useOrder();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [product, setProduct] = useState<Product | null>(null);
+  const [product, setProduct] = useState<OrderNowProduct | null>(null);
 
   useEffect(() => {
     const id = searchParams.get('id');
@@ -73,7 +83,7 @@ function OrderNowContent() {
     return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
   }
 
-  const singleCartItem: CartItem = { ...product, quantity: 1 };
+  const singleCartItem: Omit<CartItem, 'images'> & {image: string} = { ...product, quantity: 1 };
   const total = product.price;
 
   const onSubmit = async (data: CheckoutFormValues) => {
@@ -106,11 +116,18 @@ function OrderNowContent() {
       setIsSubmitting(false);
       return;
     }
+    
+    // We need to create a proper CartItem to store in orders
+    const orderItem: CartItem = {
+      ...product,
+      images: [product.image], // Create an array with the single image
+      quantity: 1
+    };
 
     addOrder({
       id: orderNumber,
       date: orderDate,
-      items: [singleCartItem],
+      items: [orderItem],
       total,
       status: 'قيد المراجعة',
     });
