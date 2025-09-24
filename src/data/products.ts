@@ -99,6 +99,3 @@ export const products: Product[] = [
     ...healthProducts,
     ...homeProducts
 ];
-
-
-
