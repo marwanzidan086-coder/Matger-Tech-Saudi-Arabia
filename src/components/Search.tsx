@@ -1,31 +1,25 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useTransition } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { products } from '@/data/products';
 import { type Product } from '@/lib/types';
 import { Command, CommandInput, CommandList, CommandEmpty, CommandItem } from '@/components/ui/command';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from './ui/button';
-import { SearchIcon, X } from 'lucide-react';
+import { SearchIcon, X, Loader2 } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
-import Fuse from 'fuse.js';
+import { searchProducts } from '@/ai/flows/product-search-flow';
 
-const fuseOptions = {
-  keys: ['name', 'description'],
-  includeScore: true,
-  threshold: 0.3, // Adjust this value to make the search more or less fuzzy
-  minMatchCharLength: 2,
-};
 
 export default function Search() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const searchParams = useSearchParams();
-
-  const fuse = new Fuse(products, fuseOptions);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -39,26 +33,36 @@ export default function Search() {
   }, []);
   
   useEffect(() => {
-    // If the user navigates to a search page directly, open the dialog
     if (searchParams.get('q')) {
       setOpen(true);
       setQuery(searchParams.get('q') || '');
     }
   }, [searchParams]);
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!query.trim()) return;
-    setOpen(false);
-    router.push(`/search?q=${query}`);
-  };
+  useEffect(() => {
+    if (query.length <= 2) {
+      setSearchResults([]);
+      return;
+    }
+
+    const timerId = setTimeout(() => {
+        startTransition(async () => {
+            const response = await searchProducts({ query });
+            const foundProducts = response.results
+                .map(res => products.find(p => p.slug === res.slug))
+                .filter((p): p is Product => !!p);
+            setSearchResults(foundProducts);
+        });
+    }, 300); // Debounce search
+
+    return () => clearTimeout(timerId);
+
+  }, [query]);
 
   const handleSelectResult = (slug: string) => {
     setOpen(false);
     router.push(`/products/${slug}`);
   };
-  
-  const searchResults = query.length > 1 ? fuse.search(query).map(result => result.item) : [];
 
   return (
     <>
@@ -74,65 +78,52 @@ export default function Search() {
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="p-0 top-[10vh] translate-y-0 sm:top-1/4">
-           <DialogHeader className="sr-only">
+            <DialogHeader className="sr-only">
               <DialogTitle>بحث المنتجات</DialogTitle>
               <DialogDescription>ابحث في جميع المنتجات في المتجر.</DialogDescription>
             </DialogHeader>
-           <form onSubmit={handleSearch}>
-              <Command shouldFilter={false} className="[&_[cmdk-list]]:max-h-[300px] [&_[cmdk-list]]:sm:max-h-[400px]">
-                <div className="flex items-center border-b px-3">
-                    <SearchIcon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
-                    <CommandInput
-                      value={query}
-                      onValueChange={setQuery}
-                      placeholder="ابحث عن منتج..."
-                      className="h-11"
-                    />
-                     <Button type="button" variant="ghost" size="icon" onClick={() => setOpen(false)} className="h-8 w-8">
-                        <X className="h-4 w-4" />
-                    </Button>
-                </div>
-                <CommandList>
-                  <CommandEmpty>{query.length > 1 ? "لا توجد نتائج." : "ابدأ في الكتابة للبحث."}</CommandEmpty>
-                  {searchResults.slice(0, 10).map((product) => (
-                    <CommandItem
-                      key={product.id}
-                      value={product.name}
-                      onSelect={() => handleSelectResult(product.slug)}
-                      className="cursor-pointer"
-                    >
-                      <div className="flex items-center gap-4">
-                        <Image
-                            src={product.images[0]}
-                            alt={product.name}
-                            width={40}
-                            height={40}
-                            className="rounded-md object-cover"
-                            data-ai-hint="product image"
-                        />
-                        <div className="flex flex-col">
-                            <span>{product.name}</span>
-                            <span className="text-xs text-primary">{product.price.toFixed(2)} ج.م</span>
-                        </div>
+            <Command shouldFilter={false} className="[&_[cmdk-list]]:max-h-[300px] [&_[cmdk-list]]:sm:max-h-[400px]">
+              <div className="flex items-center border-b px-3">
+                  <SearchIcon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+                  <CommandInput
+                    ref={inputRef}
+                    value={query}
+                    onValueChange={setQuery}
+                    placeholder="ابحث عن منتج..."
+                    className="h-11"
+                  />
+                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                   <Button type="button" variant="ghost" size="icon" onClick={() => setOpen(false)} className="h-8 w-8">
+                      <X className="h-4 w-4" />
+                  </Button>
+              </div>
+              <CommandList>
+                <CommandEmpty>{query.length > 2 && !isPending ? "لا توجد نتائج." : "اكتب كلمتين على الأقل للبحث..."}</CommandEmpty>
+                {searchResults.slice(0, 10).map((product) => (
+                  <CommandItem
+                    key={product.id}
+                    value={product.name}
+                    onSelect={() => handleSelectResult(product.slug)}
+                    className="cursor-pointer"
+                  >
+                    <div className="flex items-center gap-4">
+                      <Image
+                          src={product.images[0]}
+                          alt={product.name}
+                          width={40}
+                          height={40}
+                          className="rounded-md object-cover"
+                          data-ai-hint="product image"
+                      />
+                      <div className="flex flex-col">
+                          <span>{product.name}</span>
+                          <span className="text-xs text-primary">{product.price.toFixed(2)} ج.م</span>
                       </div>
-                    </CommandItem>
-                  ))}
-                  {searchResults.length > 5 && (
-                    <CommandItem 
-                        value="show-all"
-                        onSelect={() => {
-                            if (!query.trim()) return;
-                            setOpen(false);
-                            router.push(`/search?q=${query}`);
-                        }}
-                        className="cursor-pointer justify-center text-center text-sm font-medium text-primary hover:text-primary/80"
-                    >
-                       عرض كل النتائج ({searchResults.length})
-                    </CommandItem>
-                  )}
-                </CommandList>
-              </Command>
-          </form>
+                    </div>
+                  </CommandItem>
+                ))}
+              </CommandList>
+            </Command>
         </DialogContent>
       </Dialog>
     </>
