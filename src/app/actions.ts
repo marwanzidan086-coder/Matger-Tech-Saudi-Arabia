@@ -62,14 +62,6 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const TOKEN = process.env.TWILIO_AUTH_TOKEN;
   const FROM = process.env.TWILIO_PHONE_NUMBER;
 
-  // Diagnostic logging
-  console.log("--- Diagnosing Twilio Env Vars ---");
-  console.log("TWILIO_ACCOUNT_SID:", SID ? "Loaded" : "Not Loaded");
-  console.log("TWILIO_AUTH_TOKEN:", TOKEN ? "Loaded" : "Not Loaded");
-  console.log("TWILIO_PHONE_NUMBER:", FROM ? "Loaded" : "Not Loaded");
-  console.log("------------------------------------");
-
-
   if (!SID || !TOKEN || !FROM) {
     console.error("Twilio credentials are not set in .env file.");
     return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر.' };
