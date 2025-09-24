@@ -21,11 +21,11 @@ const electronicsProducts: Product[] = [
 <p class="my-4 text-base leading-relaxed">هل أنت من عشاق الرحلات والكشتات؟ هل تحتاج إلى إضاءة قوية وطاقة لا تنقطع في حالات الطوارئ؟ نقدم لك الفانوس الذي سيغير قواعد اللعبة!</p>
 
 <div class="my-6">
-  <h3 class="text-xl font-bold text-center mb-4 flex items-center justify-center gap-2">🚀 أهم المميزات</h3>
+  <h3 class="text-xl font-bold text-center mb-4">🚀 أهم المميزات</h3>
   <div class="space-y-4">
     
     <div class="flex items-start gap-4">
-      <span class="text-2xl">💡</span>
+      <span class="text-2xl mt-1">💡</span>
       <div>
         <h4 class="font-bold">إضاءة تغطي المكان</h4>
         <p class="text-sm text-muted-foreground">LED قوي يحول الليل إلى نهار.</p>
@@ -33,7 +33,7 @@ const electronicsProducts: Product[] = [
     </div>
     
     <div class="flex items-start gap-4">
-      <span class="text-2xl">🔋</span>
+      <span class="text-2xl mt-1">🔋</span>
       <div>
         <h4 class="font-bold">طاقة لا تنتهي</h4>
         <p class="text-sm text-muted-foreground">يعمل كباور بانك لشحن جوالك.</p>
@@ -41,7 +41,7 @@ const electronicsProducts: Product[] = [
     </div>
     
     <div class="flex items-start gap-4">
-      <span class="text-2xl">🧲</span>
+      <span class="text-2xl mt-1">🧲</span>
       <div>
         <h4 class="font-bold">تثبيت ذكي</h4>
         <p class="text-sm text-muted-foreground">قاعدة مغناطيسية قوية للتثبيت.</p>
@@ -49,7 +49,7 @@ const electronicsProducts: Product[] = [
     </div>
     
     <div class="flex items-start gap-4">
-      <span class="text-2xl">🌧️</span>
+      <span class="text-2xl mt-1">🌧️</span>
       <div>
         <h4 class="font-bold">صُنع ليتحمل</h4>
         <p class="text-sm text-muted-foreground">مقاوم للمطر والغبار والظروف القاسية.</p>
