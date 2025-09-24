@@ -47,7 +47,7 @@ export default function ProductCard({ product, size }: ProductCardProps) {
           <Link href={`/products/${product.slug}`}>{product.name}</Link>
         </h3>
         <p className={cn("mt-1 font-bold text-primary", size === 'small' ? 'text-base' : 'text-lg')}>
-          {product.price.toFixed(2)} ج.م
+          {product.price.toFixed(2)} ر.س
         </p>
         <div className={cn("mt-3 flex gap-2", size === 'small' ? 'flex-col' : 'flex-col')}>
           <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'default'} />

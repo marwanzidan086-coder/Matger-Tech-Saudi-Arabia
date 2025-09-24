@@ -27,7 +27,7 @@ const electronicsProducts: Product[] = [
 - اللون: أسود
 - الاتصال: بلوتوث 5.0
 - الوزن: 40 جرام`,
-        price: 120.00,
+        price: 220.00,
         images: getImages('soundcore-r100'),
         category: categories.electronics.slug
     },

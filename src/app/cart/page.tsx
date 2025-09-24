@@ -53,7 +53,7 @@ export default function CartPage() {
                         />
                         <div className="flex-grow">
                           <h3 className="font-semibold">{item.name}</h3>
-                          <p className="text-sm text-muted-foreground">{item.price.toFixed(2)} ج.م</p>
+                          <p className="text-sm text-muted-foreground">{item.price.toFixed(2)} ر.س</p>
                         </div>
                         <div className="flex items-center gap-2">
                           <Input
@@ -90,12 +90,12 @@ export default function CartPage() {
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
                   <span>الإجمالي الفرعي</span>
-                  <span>{total.toFixed(2)} ج.م</span>
+                  <span>{total.toFixed(2)} ر.س</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
                   <span>الإجمالي</span>
-                  <span>{total.toFixed(2)} ج.م</span>
+                  <span>{total.toFixed(2)} ر.س</span>
                 </div>
               </CardContent>
               <CardFooter>

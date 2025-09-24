@@ -123,7 +123,7 @@ export default function Search() {
                         />
                         <div className="flex flex-col">
                             <span>{product.name}</span>
-                            <span className="text-xs text-primary">{product.price.toFixed(2)} ج.م</span>
+                            <span className="text-xs text-primary">{product.price.toFixed(2)} ر.س</span>
                         </div>
                         </div>
                     </CommandItem>

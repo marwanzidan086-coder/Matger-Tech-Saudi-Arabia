@@ -212,12 +212,12 @@ function OrderNowContent() {
                      </Link>
                   </p>
                 </div>
-                <p className="font-mono text-sm">{total.toFixed(2)} ج.م</p>
+                <p className="font-mono text-sm">{total.toFixed(2)} ر.س</p>
               </div>
               <Separator />
               <div className="flex justify-between font-bold text-lg">
                 <p>الإجمالي النهائي</p>
-                <p className="font-mono">{total.toFixed(2)} ج.م</p>
+                <p className="font-mono">{total.toFixed(2)} ر.س</p>
               </div>
             </CardContent>
           </Card>

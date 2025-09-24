@@ -147,7 +147,7 @@ export default function ProductPage() {
                       variant="ghost"
                       size="icon"
                       onClick={handlePrevImage}
-                      className="absolute top-1/2 left-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors"
+                      className="absolute top-1/2 left-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/50 text-white hover:bg-black/60 transition-colors"
                       aria-label="الصورة السابقة"
                     >
                       <ChevronLeft className="h-6 w-6" />
@@ -156,7 +156,7 @@ export default function ProductPage() {
                       variant="ghost"
                       size="icon"
                       onClick={handleNextImage}
-                      className="absolute top-1/2 right-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors"
+                      className="absolute top-1/2 right-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/50 text-white hover:bg-black/60 transition-colors"
                       aria-label="الصورة التالية"
                     >
                       <ChevronRight className="h-6 w-6" />
@@ -192,7 +192,7 @@ export default function ProductPage() {
           <div className="space-y-3">
             <h1 className="text-3xl md:text-4xl font-headline font-bold">{product.name}</h1>
             <p className="text-3xl font-bold font-mono text-primary">
-              {product.price.toFixed(2)} ج.م
+              {product.price.toFixed(2)} ر.س
             </p>
           </div>
 
