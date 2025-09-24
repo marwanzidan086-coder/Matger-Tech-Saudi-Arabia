@@ -15,7 +15,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { Loader2, Truck, ShoppingBag } from 'lucide-react';
 import { sendOrderViaWhatsApp } from '@/app/actions';
 import { useOrder } from '@/contexts/OrderContext';
-import { type CartItem } from '@/lib/types';
+import { type CartItem, type Product } from '@/lib/types';
 import Link from 'next/link';
 
 const checkoutSchema = z.object({
@@ -30,42 +30,32 @@ const checkoutSchema = z.object({
 
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
-// A slimmed down product type for the order-now page
-type OrderNowProduct = {
-  id: string;
-  name: string;
-  price: number;
-  image: string; // Only the first image
-  images: string[];
-  slug: string;
-  description: string;
-}
-
 function OrderNowContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { addOrder } = useOrder();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [product, setProduct] = useState<OrderNowProduct | null>(null);
+  const [product, setProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     const id = searchParams.get('id');
     const name = searchParams.get('name');
     const price = searchParams.get('price');
-    const image = searchParams.get('image');
+    const images = searchParams.get('images');
     const slug = searchParams.get('slug');
     const description = searchParams.get('description');
+    const category = searchParams.get('category');
 
-    if (id && name && price && image && slug && description) {
+    if (id && name && price && images && slug && description && category) {
       setProduct({
         id,
         name,
         price: parseFloat(price),
-        image,
-        images: [image], // Ensure images array exists
+        images: JSON.parse(images),
         slug,
         description,
+        category
       });
     } else {
       // If product data is missing, redirect to home
@@ -85,7 +75,7 @@ function OrderNowContent() {
     return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
   }
 
-  const singleCartItem: Omit<CartItem, 'images'> & {image: string, images: string[]} = { ...product, quantity: 1, images: [product.image] };
+  const singleCartItem: CartItem = { ...product, quantity: 1 };
   const total = product.price;
 
   const onSubmit = async (data: CheckoutFormValues) => {
@@ -119,17 +109,10 @@ function OrderNowContent() {
       return;
     }
     
-    // We need to create a proper CartItem to store in orders
-    const orderItem: CartItem = {
-      ...product,
-      images: [product.image], // Create an array with the single image
-      quantity: 1
-    };
-
     addOrder({
       id: orderNumber,
       date: orderDate,
-      items: [orderItem],
+      items: [singleCartItem],
       total,
       status: 'قيد المراجعة',
     });
@@ -219,7 +202,7 @@ function OrderNowContent() {
             <CardContent className="space-y-4">
               <div className="flex justify-between items-center gap-4">
                 <div className="relative w-16 h-16 rounded-md overflow-hidden">
-                    <Image src={product.image} alt={product.name} fill className="object-cover" data-ai-hint="product image" />
+                    <Image src={product.images[0]} alt={product.name} fill className="object-cover" data-ai-hint="product image" />
                 </div>
                 <div className="flex-grow">
                   <p className="font-semibold">{product.name}</p>

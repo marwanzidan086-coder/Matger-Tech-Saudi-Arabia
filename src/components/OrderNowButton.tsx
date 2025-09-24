@@ -13,10 +13,10 @@ export function OrderNowButton({ product }: { product: Product }) {
     params.set('id', product.id);
     params.set('name', product.name);
     params.set('price', product.price.toString());
-    // Pass only the first image
-    params.set('image', product.images[0]);
+    params.set('images', JSON.stringify(product.images));
     params.set('slug', product.slug);
     params.set('description', product.description);
+    params.set('category', product.category);
     
     router.push(`/order-now?${params.toString()}`);
   };
