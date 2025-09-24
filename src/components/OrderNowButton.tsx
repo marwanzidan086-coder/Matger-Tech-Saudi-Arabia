@@ -22,7 +22,11 @@ export function OrderNowButton({ product }: { product: Product }) {
   };
 
   return (
-    <Button onClick={handleOrderNow} size="lg" className="w-full">
+    <Button 
+      onClick={handleOrderNow} 
+      size="lg" 
+      className="w-full shadow-lg shadow-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-primary/80"
+    >
       <Rocket className="me-2 h-5 w-5" />
       اطلب الآن
     </Button>
