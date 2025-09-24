@@ -20,20 +20,16 @@ const electronicsProducts: Product[] = [
         description: `
 <div class="space-y-6 text-foreground/90 bg-muted/20 p-4 rounded-lg">
   <p class="text-lg font-semibold text-center text-primary">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
-  <p class="text-base text-center">هل أنت من عشاق الرحلات والكشتات؟ هل تحتاج إلى إضاءة قوية وطاقة لا تنقطع في حالات الطوارئ؟ نقدم لك الفانوس الذي سيغير قواعد اللعبة!</p>
 
   <div class="space-y-4">
     <h3 class="text-xl font-bold text-center text-green-400" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">✨ أهم المميزات ✨</h3>
     <div class="w-full h-px bg-gradient-to-r from-transparent via-green-400/50 to-transparent mb-4"></div>
-    <ul class="space-y-3 list-inside text-foreground/90">
-      <li><strong class="text-primary">إضاءة LED قوية:</strong> تنور لك المكان بوضوح تام.</li>
-      <li><strong class="text-primary">شحن سريع:</strong> طاقة لا تنقطع بسهولة عبر USB ويعمل كباور بانك.</li>
-      <li><strong class="text-primary">تثبيت مغناطيسي:</strong> يثبت على أي سطح معدني بثبات.</li>
-      <li><strong class="text-primary">زوايا متعددة:</strong> قابل للتعديل ليناسب كل احتياجاتك.</li>
-      <li><strong class="text-primary">تصميم متين:</strong> مقاوم للمطر والغبار والظروف القاسية.</li>
-      <li><strong class="text-primary">بطارية تدوم:</strong> قدرة عالية لتشغيل طويل.</li>
-      <li><strong class="text-primary">سهل الحمل:</strong> خفيف الوزن ومثالي للتنقل.</li>
-      <li><strong class="text-primary">متعدد الاستخدامات:</strong> مثالي للمنزل، الرحلات، والطوارئ.</li>
+    <ul class="space-y-3 list-inside text-foreground/90 pr-4">
+      <li class="flex items-start gap-3"><span class="text-green-400 mt-1">💡</span><div><strong class="text-primary">إضاءة كاشفة:</strong> تنور لك المكان بوضوح تام وتحول الليل إلى نهار.</div></li>
+      <li class="flex items-start gap-3"><span class="text-green-400 mt-1">🔋</span><div><strong class="text-primary">باور بانك مدمج:</strong> طاقة لا تنقطع وشحن سريع لجوالك عبر USB.</div></li>
+      <li class="flex items-start gap-3"><span class="text-green-400 mt-1">🧲</span><div><strong class="text-primary">تثبيت مغناطيسي:</strong> يثبت بقوة على أي سطح معدني بثبات.</div></li>
+      <li class="flex items-start gap-3"><span class="text-green-400 mt-1">🌧️</span><div><strong class="text-primary">تصميم متين:</strong> مقاوم للمطر والغبار ومصمم للظروف القاسية.</div></li>
+      <li class="flex items-start gap-3"><span class="text-green-400 mt-1">⚙️</span><div><strong class="text-primary">سهل الاستخدام:</strong> خفيف الوزن، متعدد الزوايا، ومثالي للتنقل.</div></li>
     </ul>
   </div>
 
@@ -43,37 +39,12 @@ const electronicsProducts: Product[] = [
     <div class="overflow-x-auto">
         <table class="w-full text-sm text-left">
             <tbody>
-                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الماركة</td><td class="px-4 py-2">DLC</td></tr>
-                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الموديل</td><td class="px-4 py-2">DLC-32898</td></tr>
-                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الضمان</td><td class="px-4 py-2">عامين</td></tr>
-                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">القدرة</td><td class="px-4 py-2">6 - 10 واط</td></tr>
-                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">مصدر الطاقة</td><td class="px-4 py-2">USB قابل للشحن</td></tr>
-                <tr><td class="px-4 py-2 font-semibold text-primary">الخاصية المميزة</td><td class="px-4 py-2">مقاوم للطقس</td></tr>
+                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الماركة:</td><td class="px-4 py-2">DLC</td></tr>
+                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الموديل:</td><td class="px-4 py-2">DLC-32898</td></tr>
+                <tr><td class="px-4 py-2 font-semibold text-primary">الضمان:</td><td class="px-4 py-2">عامين</td></tr>
             </tbody>
         </table>
     </div>
-  </div>
-
-  <div class="space-y-4">
-    <h3 class="text-xl font-bold text-center text-green-400" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">📦 محتويات المنتج 📦</h3>
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-green-400/50 to-transparent mb-4"></div>
-    <ul class="space-y-2 list-inside list-disc text-foreground/90">
-      <li>مصباح DLC-32898 قابل للشحن</li>
-      <li>كابل شحن USB</li>
-      <li>قاعدة مغناطيسية للتثبيت</li>
-      <li>دليل استخدام</li>
-    </ul>
-  </div>
-
-  <div class="space-y-4">
-    <h3 class="text-xl font-bold text-center text-green-400" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">⚙️ كيفية الاستخدام ⚙️</h3>
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-green-400/50 to-transparent mb-4"></div>
-    <ol class="space-y-2 list-decimal list-inside text-foreground/90">
-        <li>اشحن المصباح بالكامل باستخدام كابل الـ USB المرفق.</li>
-        <li>ثبّت المصباح على أي سطح معدني، أو استخدمه باليد.</li>
-        <li>اضغط على زر التشغيل لتشغيل الإضاءة أو إيقافها.</li>
-        <li>عدّل زاوية الإضاءة حسب رغبتك.</li>
-    </ol>
   </div>
 </div>
 `,
