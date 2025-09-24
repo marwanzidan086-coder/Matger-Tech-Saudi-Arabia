@@ -29,7 +29,7 @@ export function OrderNowButton({ product }: { product: Product }) {
     // Add a small delay to ensure cart is updated before navigating
     setTimeout(() => {
         router.push('/checkout');
-    }, 100);
+    }, 500);
   };
 
   return (
