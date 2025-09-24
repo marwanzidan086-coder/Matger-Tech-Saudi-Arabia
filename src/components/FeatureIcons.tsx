@@ -41,6 +41,7 @@ export default function FeatureIcons({ productDescription }: { productDescriptio
     // To re-enable, add your GEMINI_API_KEY to .env and uncomment the AI flow import and call.
     setLoading(false);
     async function getFeatures() {
+      /*
       try {
         setLoading(true);
         const result = await generateFeatureIcons({ productDescription });
@@ -52,6 +53,7 @@ export default function FeatureIcons({ productDescription }: { productDescriptio
       } finally {
         setLoading(false);
       }
+      */
     }
     // getFeatures();
   }, [productDescription]);

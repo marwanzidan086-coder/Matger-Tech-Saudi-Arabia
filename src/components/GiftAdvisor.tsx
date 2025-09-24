@@ -43,8 +43,12 @@ export default function GiftAdvisor() {
 
   const onSubmit = async (values: GiftAdvisorFormValues) => {
     setIsLoading(true);
-    setError(null);
+    setError('ميزة خبير الهدايا معطلة حاليًا. تحتاج إلى مفتاح Gemini API لتفعيلها.');
     setRecommendations([]);
+
+    // The AI flow call is disabled to prevent errors when no API key is provided.
+    // To re-enable, add your GEMINI_API_KEY to .env and uncomment the following lines.
+    /*
     try {
       const result = await suggestGift(values);
       if (result && result.recommendations) {
@@ -58,6 +62,12 @@ export default function GiftAdvisor() {
     } finally {
       setIsLoading(false);
     }
+    */
+   
+    // Simulate a delay to show the loading state
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 1500);
   };
 
   const getProductBySlug = (slug: string) => {
@@ -153,7 +163,7 @@ export default function GiftAdvisor() {
 
       {error && (
         <Alert variant="destructive" className="max-w-4xl mx-auto mt-8">
-            <AlertTitle>خطأ!</AlertTitle>
+            <AlertTitle>تنبيه!</AlertTitle>
             <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}
