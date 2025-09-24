@@ -31,7 +31,7 @@ const electronicsProducts: Product[] = [
   </div>
 
   <!-- Features Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+  <div class="grid grid-cols-2 gap-4 mt-6">
     <div class="p-4 bg-background/50 rounded-lg border border-border/50 flex items-start gap-4">
       <div class="p-2 bg-primary/10 rounded-full border border-primary/20 text-primary">💡</div>
       <div>
