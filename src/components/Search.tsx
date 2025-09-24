@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { products } from '@/data/products';
 import { type Product } from '@/lib/types';
 import { Command, CommandInput, CommandList, CommandEmpty, CommandItem } from '@/components/ui/command';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from './ui/button';
 import { SearchIcon, X } from 'lucide-react';
 import Image from 'next/image';
@@ -74,6 +74,10 @@ export default function Search() {
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="p-0 top-[10vh] translate-y-0 sm:top-1/4">
+           <DialogHeader className="sr-only">
+              <DialogTitle>بحث المنتجات</DialogTitle>
+              <DialogDescription>ابحث في جميع المنتجات في المتجر.</DialogDescription>
+            </DialogHeader>
            <form onSubmit={handleSearch}>
               <Command shouldFilter={false} className="[&_[cmdk-list]]:max-h-[300px] [&_[cmdk-list]]:sm:max-h-[400px]">
                 <div className="flex items-center border-b px-3">
