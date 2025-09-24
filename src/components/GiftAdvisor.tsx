@@ -43,31 +43,27 @@ export default function GiftAdvisor() {
 
   const onSubmit = async (values: GiftAdvisorFormValues) => {
     setIsLoading(true);
-    setError('ميزة خبير الهدايا معطلة حاليًا. تحتاج إلى مفتاح Gemini API لتفعيلها.');
+    setError(null);
     setRecommendations([]);
 
-    // The AI flow call is disabled to prevent errors when no API key is provided.
-    // To re-enable, add your GEMINI_API_KEY to .env and uncomment the following lines.
-    /*
     try {
       const result = await suggestGift(values);
-      if (result && result.recommendations) {
+      if (result && result.recommendations && result.recommendations.length > 0) {
         setRecommendations(result.recommendations);
       } else {
-        setError('لم أتمكن من العثور على توصيات. الرجاء المحاولة مرة أخرى.');
+        setError('لم أتمكن من العثور على توصيات مناسبة. جرب تغيير كلمات البحث.');
       }
     } catch (e) {
       console.error(e);
-      setError('حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى.');
+      // Specific error for missing API key
+      if (e instanceof Error && e.message.includes('API key')) {
+        setError('ميزة خبير الهدايا معطلة حاليًا. تحتاج إلى مفتاح Gemini API لتفعيلها.');
+      } else {
+        setError('حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى.');
+      }
     } finally {
       setIsLoading(false);
     }
-    */
-   
-    // Simulate a delay to show the loading state
-    setTimeout(() => {
-        setIsLoading(false);
-    }, 1500);
   };
 
   const getProductBySlug = (slug: string) => {
