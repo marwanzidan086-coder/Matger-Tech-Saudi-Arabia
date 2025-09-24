@@ -21,7 +21,7 @@ import Link from 'next/link';
 
 const checkoutSchema = z.object({
   name: z.string().min(3, 'يجب أن يكون الاسم 3 أحرف على الأقل'),
-  phone: z.string().regex(/^(\+9665|05)\d{8}$/, 'رقم الجوال غير صالح. يجب أن يبدأ بـ 05 أو +9665'),
+  phone: z.string().regex(/^05\d{8}$/, 'رقم الجوال غير صالح. يجب أن يبدأ بـ 05 ويتكون من 10 أرقام'),
   phone2: z.string().optional(),
   region: z.string().min(2, 'المنطقة مطلوبة'),
   city: z.string().min(2, 'المدينة مطلوبة'),
@@ -68,9 +68,6 @@ function OrderNowContent() {
     formState: { errors },
   } = useForm<CheckoutFormValues>({
     resolver: zodResolver(checkoutSchema),
-    defaultValues: {
-      phone: '+966'
-    }
   });
 
   if (!product) {
@@ -155,7 +152,7 @@ function OrderNowContent() {
                 </div>
                  <div>
                   <Label htmlFor="phone">رقم الجوال الأساسي</Label>
-                  <Input id="phone" {...register('phone')} dir="ltr" />
+                  <Input id="phone" {...register('phone')} dir="ltr" placeholder="05xxxxxxxx" />
                   {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>}
                 </div>
                  <div>
@@ -177,7 +174,7 @@ function OrderNowContent() {
                   <Textarea id="address" {...register('address')} />
                   {errors.address && <p className="text-sm text-destructive mt-1">{errors.address.message}</p>}
                 </div>
-                <div className="md:col-span-2">
+                <div className="md-col-span-2">
                   <Label htmlFor="notes">تفاصيل إضافية للطلب (اختياري)</Label>
                   <Textarea id="notes" {...register('notes')} />
                 </div>

@@ -21,7 +21,7 @@ import { sendOrderViaWhatsApp } from '@/app/actions';
 
 const checkoutSchema = z.object({
   name: z.string().min(3, 'يجب أن يكون الاسم 3 أحرف على الأقل'),
-  phone: z.string().regex(/^(\+9665|05)\d{8}$/, 'رقم الجوال غير صالح. يجب أن يبدأ بـ 05 أو +9665'),
+  phone: z.string().regex(/^05\d{8}$/, 'رقم الجوال غير صالح. يجب أن يبدأ بـ 05 ويتكون من 10 أرقام'),
   phone2: z.string().optional(),
   region: z.string().min(2, 'المنطقة مطلوبة'),
   city: z.string().min(2, 'المدينة مطلوبة'),
@@ -44,10 +44,7 @@ export default function CheckoutPage() {
     handleSubmit,
     formState: { errors },
   } = useForm<CheckoutFormValues>({
-    resolver: zodResolver(checkoutSchema),
-    defaultValues: {
-      phone: '+966'
-    }
+    resolver: zodResolver(checkoutSchema)
   });
 
   useEffect(() => {
@@ -137,7 +134,7 @@ export default function CheckoutPage() {
                 </div>
                  <div>
                   <Label htmlFor="phone">رقم الجوال الأساسي</Label>
-                  <Input id="phone" {...register('phone')} dir="ltr" />
+                  <Input id="phone" {...register('phone')} dir="ltr" placeholder="05xxxxxxxx" />
                   {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>}
                 </div>
                  <div>
