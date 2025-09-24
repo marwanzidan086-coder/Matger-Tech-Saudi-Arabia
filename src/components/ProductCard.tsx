@@ -24,7 +24,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </Link>
       <div className="flex flex-1 flex-col p-3">
-        <h3 className="text-base font-semibold flex-grow">
+        <h3 className="text-base font-semibold h-12 overflow-hidden">
           <Link href={`/products/${product.slug}`}>{product.name}</Link>
         </h3>
         <p className="mt-2 text-lg font-bold text-primary">
