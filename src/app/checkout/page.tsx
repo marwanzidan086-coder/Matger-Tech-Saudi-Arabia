@@ -32,7 +32,7 @@ const checkoutSchema = z.object({
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
 export default function CheckoutPage() {
-  const { cartItems, total, clearCart } = useCart();
+  const { cartItems, total, clearCart, orderNowItem, addOrderNowItemToCart } = useCart();
   const { addOrder } = useOrder();
   const { toast } = useToast();
   const router = useRouter();
@@ -51,20 +51,24 @@ export default function CheckoutPage() {
   });
 
   useEffect(() => {
-    // Only redirect if mounted and cart is definitely empty after a brief moment
-    if (isMounted) {
-      if (cartItems.length === 0) {
+    if (isMounted && orderNowItem) {
+      addOrderNowItemToCart();
+    }
+  }, [isMounted, orderNowItem, addOrderNowItemToCart]);
+
+
+  useEffect(() => {
+    if (isMounted && cartItems.length === 0 && !orderNowItem) {
         const timer = setTimeout(() => {
-           if (cartItems.length === 0) {
+           if (cartItems.length === 0 && !orderNowItem) {
              router.replace('/cart');
            }
-        }, 500); // Wait 500ms to ensure cart state is settled
+        }, 100); // Short delay to ensure state is consistent
         return () => clearTimeout(timer);
       }
-    }
-  }, [isMounted, cartItems, router]);
+  }, [isMounted, cartItems, orderNowItem, router]);
   
-  if (!isMounted || cartItems.length === 0) {
+  if (!isMounted || (cartItems.length === 0 && !orderNowItem)) {
     return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
   }
 
