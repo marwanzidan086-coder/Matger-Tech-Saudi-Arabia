@@ -4,61 +4,61 @@
     {
       "id": "smart-coffee-mug",
       "images": [
-        "https://picsum.photos/seed/smart-coffee-mug-1/600/600",
-        "https://picsum.photos/seed/smart-coffee-mug-2/600/600",
-        "https://picsum.photos/seed/smart-coffee-mug-3/600/600",
-        "https://picsum.photos/seed/smart-coffee-mug-4/600/600",
-        "https://picsum.photos/seed/smart-coffee-mug-5/600/600"
+        "https://picsum.photos/seed/coffee-mug-1/600/600",
+        "https://picsum.photos/seed/coffee-mug-2/600/600",
+        "https://picsum.photos/seed/coffee-mug-3/600/600",
+        "https://picsum.photos/seed/coffee-mug-4/600/600",
+        "https://picsum.photos/seed/coffee-mug-5/600/600"
       ]
     },
     {
       "id": "wireless-headphones",
       "images": [
-        "https://picsum.photos/seed/wireless-headphones-1/600/600",
-        "https://picsum.photos/seed/wireless-headphones-2/600/600",
-        "https://picsum.photos/seed/wireless-headphones-3/600/600",
-        "https://picsum.photos/seed/wireless-headphones-4/600/600",
-        "https://picsum.photos/seed/wireless-headphones-5/600/600"
+        "https://picsum.photos/seed/headphones-1/600/600",
+        "https://picsum.photos/seed/headphones-2/600/600",
+        "https://picsum.photos/seed/headphones-3/600/600",
+        "https://picsum.photos/seed/headphones-4/600/600",
+        "https://picsum.photos/seed/headphones-5/600/600"
       ]
     },
     {
       "id": "portable-power-bank",
       "images": [
-        "https://picsum.photos/seed/portable-power-bank-1/600/600",
-        "https://picsum.photos/seed/portable-power-bank-2/600/600",
-        "https://picsum.photos/seed/portable-power-bank-3/600/600",
-        "https://picsum.photos/seed/portable-power-bank-4/600/600",
-        "https://picsum.photos/seed/portable-power-bank-5/600/600"
+        "https://picsum.photos/seed/power-bank-1/600/600",
+        "https://picsum.photos/seed/power-bank-2/600/600",
+        "https://picsum.photos/seed/power-bank-3/600/600",
+        "https://picsum.photos/seed/power-bank-4/600/600",
+        "https://picsum.photos/seed/power-bank-5/600/600"
       ]
     },
     {
       "id": "ergonomic-keyboard",
       "images": [
-        "https://picsum.photos/seed/ergonomic-keyboard-1/600/600",
-        "https://picsum.photos/seed/ergonomic-keyboard-2/600/600",
-        "https://picsum.photos/seed/ergonomic-keyboard-3/600/600",
-        "https://picsum.photos/seed/ergonomic-keyboard-4/600/600",
-        "https://picsum.photos/seed/ergonomic-keyboard-5/600/600"
+        "https://picsum.photos/seed/keyboard-1/600/600",
+        "https://picsum.photos/seed/keyboard-2/600/600",
+        "https://picsum.photos/seed/keyboard-3/600/600",
+        "https://picsum.photos/seed/keyboard-4/600/600",
+        "https://picsum.photos/seed/keyboard-5/600/600"
       ]
     },
     {
       "id": "smart-watch",
       "images": [
-        "https://picsum.photos/seed/smart-watch-1/600/600",
-        "https://picsum.photos/seed/smart-watch-2/600/600",
-        "https://picsum.photos/seed/smart-watch-3/600/600",
-        "https://picsum.photos/seed/smart-watch-4/600/600",
-        "https://picsum.photos/seed/smart-watch-5/600/600"
+        "https://picsum.photos/seed/watch-1/600/600",
+        "https://picsum.photos/seed/watch-2/600/600",
+        "https://picsum.photos/seed/watch-3/600/600",
+        "https://picsum.photos/seed/watch-4/600/600",
+        "https://picsum.photos/seed/watch-5/600/600"
       ]
     },
     {
       "id": "4k-webcam",
       "images": [
-        "https://picsum.photos/seed/4k-webcam-1/600/600",
-        "https://picsum.photos/seed/4k-webcam-2/600/600",
-        "https://picsum.photos/seed/4k-webcam-3/600/600",
-        "https://picsum.photos/seed/4k-webcam-4/600/600",
-        "https://picsum.photos/seed/4k-webcam-5/600/600"
+        "https://picsum.photos/seed/webcam-1/600/600",
+        "https://picsum.photos/seed/webcam-2/600/600",
+        "https://picsum.photos/seed/webcam-3/600/600",
+        "https://picsum.photos/seed/webcam-4/600/600",
+        "https://picsum.photos/seed/webcam-5/600/600"
       ]
     }
   ]
