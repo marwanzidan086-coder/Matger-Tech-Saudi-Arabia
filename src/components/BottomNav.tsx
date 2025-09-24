@@ -2,14 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, PackageSearch, Heart, ShoppingCart, LayoutGrid, Search } from 'lucide-react';
+import { Home, PackageSearch, Heart, ShoppingCart, LayoutGrid } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { cn } from '@/lib/utils';
 import { useIsMounted } from '@/hooks/use-is-mounted';
-import { ThemeToggle } from './ThemeToggle';
-import SearchComponent from './Search';
-
 
 const navItems = [
   { href: '/', label: 'المتجر', icon: Home },
@@ -35,9 +32,6 @@ export default function BottomNav() {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/95 border-t backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex items-center justify-around h-16">
-        <div className="absolute end-4 top-1/2 -translate-y-1/2 md:hidden">
-            <ThemeToggle />
-        </div>
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           const badgeCount = getBadgeCount(item.badge);
