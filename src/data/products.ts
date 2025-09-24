@@ -21,42 +21,13 @@ const electronicsProducts: Product[] = [
 <p class="my-4 text-base leading-relaxed text-foreground/80">هل أنت من عشاق الرحلات والكشتات؟ هل تحتاج إلى إضاءة قوية وطاقة لا تنقطع في حالات الطوارئ؟ نقدم لك الفانوس الذي سيغير قواعد اللعبة!</p>
 
 <div class="my-6 p-4 rounded-lg bg-gradient-to-br from-card to-muted/50 border border-border/20">
-  <h3 class="text-2xl font-bold text-center mb-5" style="color: #63b3ed; text-shadow: 0 0 8px rgba(99, 179, 237, 0.7);">🚀 أهم المميزات</h3>
-  <div class="space-y-4">
-    
-    <div class="flex items-start gap-3">
-      <span class="text-3xl mt-1">💡</span>
-      <div>
-        <h4 class="font-bold text-primary">إضاءة تغطي المكان</h4>
-        <p class="text-sm text-foreground/90">LED قوي يحول الليل إلى نهار.</p>
-      </div>
-    </div>
-    
-    <div class="flex items-start gap-3">
-      <span class="text-3xl mt-1">🔋</span>
-      <div>
-        <h4 class="font-bold text-primary">طاقة لا تنتهي</h4>
-        <p class="text-sm text-foreground/90">يعمل كباور بانك لشحن جوالك.</p>
-      </div>
-    </div>
-    
-    <div class="flex items-start gap-3">
-      <span class="text-3xl mt-1">🧲</span>
-      <div>
-        <h4 class="font-bold text-primary">تثبيت ذكي</h4>
-        <p class="text-sm text-foreground/90">قاعدة مغناطيسية قوية للتثبيت.</p>
-      </div>
-    </div>
-    
-    <div class="flex items-start gap-3">
-      <span class="text-3xl mt-1">🌧️</span>
-      <div>
-        <h4 class="font-bold text-primary">صُنع ليتحمل</h4>
-        <p class="text-sm text-foreground/90">مقاوم للمطر والغبار والظروف القاسية.</p>
-      </div>
-    </div>
-
-  </div>
+  <h3 class="text-2xl font-bold text-center mb-4" style="color: #63b3ed; text-shadow: 0 0 10px rgba(99, 179, 237, 0.7);">🚀 أهم المميزات</h3>
+  <p class="text-center text-md leading-loose">
+    <span class="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full border border-primary/20">💡 إضاءة تغطي المكان</span>
+    <span class="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full border border-primary/20">🔋 طاقة لا تنتهي</span>
+    <span class="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full border border-primary/20">🧲 تثبيت ذكي</span>
+    <span class="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full border border-primary/20">🌧️ صُنع ليتحمل</span>
+  </p>
 </div>
 
 <p class="mt-6 text-base text-foreground/80">مع ضمان لمدة عامين، يمكنك الوثوق بأن هذا الفانوس سيعيش معك طويلاً. لا تدع الظلام أو البطارية الفارغة توقفك. <strong>اطلبه الآن واستعد لإضاءة كل لحظاتك!</strong></p>
@@ -83,3 +54,4 @@ export const products: Product[] = [
     ...healthProducts,
     ...homeProducts
 ];
+
