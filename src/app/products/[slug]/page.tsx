@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { Card, CardContent } from "@/components/ui/card"
 import FeatureIcons from '@/components/FeatureIcons';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
@@ -38,20 +39,22 @@ export default function ProductPage({ params }: ProductPageProps) {
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         <div className="flex justify-center items-start">
-          <Carousel className="w-full max-w-md">
+           <Carousel className="w-full max-w-md">
             <CarouselContent>
               {product.images.map((image, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative aspect-square">
-                    <Image
-                      src={image}
-                      alt={`${product.name} - image ${index + 1}`}
-                      fill
-                      className="object-cover rounded-lg"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      data-ai-hint="product image"
-                    />
-                  </div>
+                  <Card>
+                    <CardContent className="relative aspect-square p-0">
+                      <Image
+                        src={image}
+                        alt={`${product.name} - image ${index + 1}`}
+                        fill
+                        className="object-cover rounded-lg"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        data-ai-hint="product image"
+                      />
+                    </CardContent>
+                  </Card>
                 </CarouselItem>
               ))}
             </CarouselContent>
