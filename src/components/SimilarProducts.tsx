@@ -28,7 +28,14 @@ export default function SimilarProducts({ currentProduct }: { currentProduct: Pr
           const recommendedProducts = result.recommendations
             .map(rec => products.find(p => p.slug === rec.slug))
             .filter((p): p is Product => !!p); // Filter out any undefined products
-          setRecommendations(recommendedProducts);
+          
+          // Filter for unique products to avoid duplicate key errors
+          const uniqueProducts = recommendedProducts.filter(
+            (product, index, self) =>
+              index === self.findIndex((p) => p.id === product.id)
+          );
+          
+          setRecommendations(uniqueProducts);
         }
 
       } catch (e) {
