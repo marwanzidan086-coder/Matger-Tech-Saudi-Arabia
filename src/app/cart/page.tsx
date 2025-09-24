@@ -44,7 +44,7 @@ export default function CartPage() {
                     <div key={item.id}>
                       <div className="flex items-center gap-4">
                         <Image
-                          src={item.images[0]}
+                          src={(item.images && item.images.length > 0) ? item.images[0] : 'https://placehold.co/80x80/EEE/31343C?text=?'}
                           alt={item.name}
                           width={80}
                           height={80}

@@ -36,6 +36,7 @@ type OrderNowProduct = {
   name: string;
   price: number;
   image: string; // Only the first image
+  images: string[];
   slug: string;
   description: string;
 }
@@ -62,6 +63,7 @@ function OrderNowContent() {
         name,
         price: parseFloat(price),
         image,
+        images: [image], // Ensure images array exists
         slug,
         description,
       });
