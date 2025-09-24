@@ -19,6 +19,7 @@ function SearchResults() {
   useEffect(() => {
     if (!query) {
       setIsLoading(false);
+      setResults([]);
       return;
     }
 

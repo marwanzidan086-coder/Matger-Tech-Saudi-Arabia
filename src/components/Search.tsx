@@ -35,8 +35,7 @@ export default function Search() {
   useEffect(() => {
     const q = searchParams.get('q');
     if (q) {
-      setOpen(true);
-      setQuery(q);
+      setOpen(false);
     }
   }, [searchParams]);
 
