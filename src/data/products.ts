@@ -18,42 +18,45 @@ const electronicsProducts: Product[] = [
         name: 'فانوس الكشتات والرحلات DLC-32898 متعدد الاستخدامات مع باور بانك',
         slug: 'dlc-multi-use-lantern',
         description: `
-<div class="space-y-6">
-  <p class="text-lg font-semibold text-center">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
-  <p class="text-base text-center text-foreground/80">هل أنت من عشاق الرحلات والكشتات؟ هل تحتاج إلى إضاءة قوية وطاقة لا تنقطع في حالات الطوارئ؟ نقدم لك الفانوس الذي سيغير قواعد اللعبة!</p>
+<div class="space-y-6 text-foreground/90 bg-muted/20 p-4 rounded-lg">
+  <p class="text-lg font-semibold text-center text-primary">🔦 رفيقك الأمثل في كل مغامرة! ⛺️</p>
+  <p class="text-base text-center">هل أنت من عشاق الرحلات والكشتات؟ هل تحتاج إلى إضاءة قوية وطاقة لا تنقطع في حالات الطوارئ؟ نقدم لك الفانوس الذي سيغير قواعد اللعبة!</p>
 
-  <div class="py-4">
-    <h3 class="text-xl font-bold text-center mb-4 text-primary">أهم المميزات:</h3>
-    <ul class="space-y-2 text-foreground/90 list-inside">
-      <li class="flex items-start gap-2"><span>💡</span> إضاءة LED قوية تنور لك المكان بوضوح.</li>
-      <li class="flex items-start gap-2"><span>🔋</span> بطارية قوية تدوم معك لفترة طويلة مع شحن USB سريع.</li>
-      <li class="flex items-start gap_2"><span>🧲</span> تصميم مغناطيسي يثبت على أي سطح معدني بسهولة.</li>
-      <li class="flex items-start gap-2"><span>🔄</span> قابل للتعديل بزوايا متعددة لتناسب كل احتياجاتك.</li>
-      <li class="flex items-start gap-2"><span>🌧️</span> مقاوم للمطر والغبار والظروف القاسية.</li>
-      <li class="flex items-start gap-2"><span>🎒</span> خفيف الوزن وسهل الحمل والتخزين في أي مكان.</li>
-      <li class="flex items-start gap-2"><span>🛠️</span> مصنوع من خامات عالية الجودة ليعيش معك طويلاً.</li>
-      <li class="flex items-start gap-2"><span>🏠</span> مثالي للمنزل، الرحلات، الطوارئ والاستخدام اليومي.</li>
+  <div>
+    <h3 class="text-xl font-bold text-primary mb-3">أهم المميزات:</h3>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent mb-4"></div>
+    <ul class="space-y-2 list-inside">
+      <li><span class="font-semibold text-primary">إضاءة قوية:</span> تنور لك المكان بوضوح تام.</li>
+      <li><span class="font-semibold text-primary">شحن سريع:</span> طاقة لا تنقطع بسهولة عبر USB.</li>
+      <li><span class="font-semibold text-primary">تثبيت مغناطيسي:</span> يثبت على أي سطح معدني بثبات.</li>
+      <li><span class="font-semibold text-primary">زوايا متعددة:</span> قابل للتعديل ليناسب كل احتياجاتك.</li>
+      <li><span class="font-semibold text-primary">تصميم متين:</span> مقاوم للمطر والغبار والظروف القاسية.</li>
+      <li><span class="font-semibold text-primary">بطارية تدوم:</span> قدرة عالية لتشغيل طويل.</li>
+      <li><span class="font-semibold text-primary">سهل الحمل:</span> خفيف الوزن ومثالي للتنقل.</li>
+      <li><span class="font-semibold text-primary">متعدد الاستخدامات:</span> مثالي للمنزل، الرحلات، والطوارئ.</li>
     </ul>
   </div>
 
-  <div class="py-4">
-    <h3 class="text-xl font-bold text-center mb-4 text-primary">تفاصيل سريعة:</h3>
+  <div>
+    <h3 class="text-xl font-bold text-primary mb-3">تفاصيل سريعة:</h3>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent mb-4"></div>
     <div class="overflow-x-auto">
         <table class="w-full text-sm text-left">
             <tbody>
-                <tr class="border-b"><td class="px-4 py-2 font-semibold">الماركة</td><td class="px-4 py-2">DLC</td></tr>
-                <tr class="border-b"><td class="px-4 py-2 font-semibold">الموديل</td><td class="px-4 py-2">DLC-32898</td></tr>
-                <tr class="border-b"><td class="px-4 py-2 font-semibold">الضمان</td><td class="px-4 py-2">عامين</td></tr>
-                <tr class="border-b"><td class="px-4 py-2 font-semibold">القدرة</td><td class="px-4 py-2">6 - 10 واط</td></tr>
-                <tr class="border-b"><td class="px-4 py_2 font-semibold">مصدر الطاقة</td><td class="px-4 py-2">USB قابل للشحن</td></tr>
-                <tr><td class="px-4 py-2 font-semibold">الخاصية</td><td class="px-4 py-2">مقاوم للطقس</td></tr>
+                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold">الماركة</td><td class="px-4 py-2">DLC</td></tr>
+                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold">الموديل</td><td class="px-4 py-2">DLC-32898</td></tr>
+                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold">الضمان</td><td class="px-4 py-2">عامين</td></tr>
+                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold">القدرة</td><td class="px-4 py-2">6 - 10 واط</td></tr>
+                <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold">مصدر الطاقة</td><td class="px-4 py-2">USB قابل للشحن</td></tr>
+                <tr><td class="px-4 py-2 font-semibold">الخاصية المميزة</td><td class="px-4 py-2">مقاوم للطقس</td></tr>
             </tbody>
         </table>
     </div>
   </div>
 
-  <div class="py-4">
-    <h3 class="text-xl font-bold text-center mb-4 text-primary">محتويات المنتج:</h3>
+  <div>
+    <h3 class="text-xl font-bold text-primary mb-3">محتويات المنتج:</h3>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent mb-4"></div>
     <ul class="space-y-2 list-inside">
       <li>1 × مصباح DLC-32898 قابل للشحن</li>
       <li>1 × كابل شحن USB</li>
@@ -62,14 +65,14 @@ const electronicsProducts: Product[] = [
     </ul>
   </div>
 
-  <div class="py-4">
-    <h3 class="text-xl font-bold text-center mb-4 text-primary">كيفية الاستخدام:</h3>
+  <div>
+    <h3 class="text-xl font-bold text-primary mb-3">كيفية الاستخدام:</h3>
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent mb-4"></div>
     <ol class="space-y-2 list-decimal list-inside">
-        <li>اشحن المصباح بالكامل باستخدام كابل الـ USB.</li>
-        <li>ثبّت المصباح على أي سطح معدني باستخدام القاعدة المغناطيسية، أو استخدمه باليد.</li>
+        <li>اشحن المصباح بالكامل باستخدام كابل الـ USB المرفق.</li>
+        <li>ثبّت المصباح على أي سطح معدني، أو استخدمه باليد.</li>
         <li>اضغط على زر التشغيل لتشغيل الإضاءة أو إيقافها.</li>
         <li>عدّل زاوية الإضاءة حسب رغبتك.</li>
-        <li>بعد الاستخدام، نظّفه وخزّنه في مكان جاف.</li>
     </ol>
   </div>
 </div>
@@ -96,5 +99,6 @@ export const products: Product[] = [
     ...healthProducts,
     ...homeProducts
 ];
+
 
 
