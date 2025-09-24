@@ -56,8 +56,8 @@ export default function GiftAdvisor() {
     } catch (e) {
       console.error(e);
       // Specific error for missing API key
-      if (e instanceof Error && e.message.includes('API key')) {
-        setError('ميزة خبير الهدايا معطلة حاليًا. تحتاج إلى مفتاح Gemini API لتفعيلها.');
+      if (e instanceof Error && (e.message.includes('API key') || e.message.includes('GEMINI_API_KEY'))) {
+        setError('ميزة خبير الهدايا معطلة حاليًا. تحتاج إلى مفتاح Gemini API صالح لتفعيلها.');
       } else {
         setError('حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى.');
       }

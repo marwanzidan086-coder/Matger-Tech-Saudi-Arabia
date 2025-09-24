@@ -49,10 +49,10 @@ export default function FeatureIcons({ productDescription }: { productDescriptio
         if (result && result.featureIcons) {
           setFeatures(result.featureIcons);
         }
-      } catch (error) {
-        console.error("Failed to generate feature icons:", error);
-        if (error instanceof Error && error.message.includes('API key')) {
-          setError('ميزة أيقونات المميزات معطلة. تحتاج إلى مفتاح Gemini API لتفعيلها.');
+      } catch (e) {
+        console.error("Failed to generate feature icons:", e);
+        if (e instanceof Error && (e.message.includes('API key') || e.message.includes('GEMINI_API_KEY'))) {
+          setError('ميزة أيقونات المميزات معطلة. تحتاج إلى مفتاح Gemini API صالح لتفعيلها.');
         } else {
           setError('فشل في توليد الأيقونات.');
         }
