@@ -10,6 +10,7 @@ import { Button } from './ui/button';
 import { SearchIcon, X, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { searchProducts } from '@/ai/flows/product-search-flow';
+import Link from 'next/link';
 
 
 export default function Search() {
@@ -19,7 +20,6 @@ export default function Search() {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -59,11 +59,19 @@ export default function Search() {
     return () => clearTimeout(timerId);
 
   }, [query]);
-
-  const handleSelectResult = (slug: string) => {
-    setOpen(false);
-    router.push(`/products/${slug}`);
+  
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && query) {
+      e.preventDefault();
+      router.push(`/search?q=${query}`);
+      setOpen(false);
+    }
   };
+  
+  const handleSelectResult = () => {
+    setOpen(false);
+  };
+
 
   return (
     <>
@@ -87,9 +95,9 @@ export default function Search() {
               <div className="flex items-center border-b px-3">
                   <SearchIcon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
                   <CommandInput
-                    ref={inputRef}
                     value={query}
                     onValueChange={setQuery}
+                    onKeyDown={handleKeyDown}
                     placeholder="ابحث عن منتج..."
                     className="h-11"
                   />
@@ -101,27 +109,27 @@ export default function Search() {
               <CommandList>
                 <CommandEmpty>{query.length > 2 && !isPending ? "لا توجد نتائج." : "اكتب كلمتين على الأقل للبحث..."}</CommandEmpty>
                 {searchResults.slice(0, 10).map((product) => (
-                  <CommandItem
-                    key={product.id}
-                    value={product.name}
-                    onSelect={() => handleSelectResult(product.slug)}
-                    className="cursor-pointer"
-                  >
-                    <div className="flex items-center gap-4">
-                      <Image
-                          src={product.images[0]}
-                          alt={product.name}
-                          width={40}
-                          height={40}
-                          className="rounded-md object-cover"
-                          data-ai-hint="product image"
-                      />
-                      <div className="flex flex-col">
-                          <span>{product.name}</span>
-                          <span className="text-xs text-primary">{product.price.toFixed(2)} ج.م</span>
-                      </div>
-                    </div>
-                  </CommandItem>
+                  <Link key={product.id} href={`/products/${product.slug}`} passHref>
+                    <CommandItem
+                        onSelect={handleSelectResult}
+                        className="cursor-pointer"
+                    >
+                        <div className="flex items-center gap-4">
+                        <Image
+                            src={product.images[0]}
+                            alt={product.name}
+                            width={40}
+                            height={40}
+                            className="rounded-md object-cover"
+                            data-ai-hint="product image"
+                        />
+                        <div className="flex flex-col">
+                            <span>{product.name}</span>
+                            <span className="text-xs text-primary">{product.price.toFixed(2)} ج.م</span>
+                        </div>
+                        </div>
+                    </CommandItem>
+                  </Link>
                 ))}
               </CommandList>
             </Command>
