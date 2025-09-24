@@ -19,9 +19,9 @@ import { sendOrderViaWhatsApp } from '@/app/actions';
 
 const checkoutSchema = z.object({
   name: z.string().min(3, 'يجب أن يكون الاسم 3 أحرف على الأقل'),
-  phone: z.string().min(10, 'رقم الهاتف غير صالح').regex(/^[\d+]{10,}$/, 'رقم الهاتف يجب أن يحتوي على أرقام فقط'),
+  phone: z.string().regex(/^(\+9665|05)\d{8}$/, 'رقم الجوال غير صالح. يجب أن يبدأ بـ 05 أو +9665'),
   phone2: z.string().optional(),
-  governorate: z.string().min(2, 'المحافظة مطلوبة'),
+  region: z.string().min(2, 'المنطقة مطلوبة'),
   city: z.string().min(2, 'المدينة مطلوبة'),
   address: z.string().min(10, 'يجب أن يكون العنوان 10 أحرف على الأقل'),
   notes: z.string().optional(),
@@ -43,6 +43,9 @@ export default function CheckoutPage() {
     formState: { errors },
   } = useForm<CheckoutFormValues>({
     resolver: zodResolver(checkoutSchema),
+    defaultValues: {
+      phone: '+966'
+    }
   });
 
   useEffect(() => {
@@ -60,6 +63,7 @@ export default function CheckoutPage() {
     
     const result = await sendOrderViaWhatsApp({
       ...data,
+      governorate: data.region, // Map region to governorate for the action
       cartItems,
       total,
     });
@@ -74,7 +78,6 @@ export default function CheckoutPage() {
       return;
     }
 
-    // هذا الجزء سيعمل فقط إذا كانت بيانات Twilio غير موجودة أو نجح الإرسال
     const orderNumber = result.orderNumber;
     const orderDate = result.orderDate;
 
@@ -87,7 +90,6 @@ export default function CheckoutPage() {
         setIsSubmitting(false);
         return;
     }
-
 
     addOrder({
       id: orderNumber,
@@ -124,32 +126,32 @@ export default function CheckoutPage() {
                   {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
                 </div>
                  <div>
-                  <Label htmlFor="phone">رقم الهاتف</Label>
-                  <Input id="phone" {...register('phone')} />
+                  <Label htmlFor="phone">رقم الجوال الأساسي</Label>
+                  <Input id="phone" {...register('phone')} dir="ltr" />
                   {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>}
                 </div>
                  <div>
-                  <Label htmlFor="phone2">رقم هاتف إضافي (اختياري)</Label>
-                  <Input id="phone2" {...register('phone2')} />
+                  <Label htmlFor="phone2">رقم جوال إضافي (اختياري)</Label>
+                  <Input id="phone2" {...register('phone2')} dir="ltr" />
                   {errors.phone2 && <p className="text-sm text-destructive mt-1">{errors.phone2.message}</p>}
                 </div>
                  <div>
-                  <Label htmlFor="governorate">المحافظة</Label>
-                  <Input id="governorate" {...register('governorate')} />
-                  {errors.governorate && <p className="text-sm text-destructive mt-1">{errors.governorate.message}</p>}
+                  <Label htmlFor="region">المنطقة</Label>
+                  <Input id="region" {...register('region')} />
+                  {errors.region && <p className="text-sm text-destructive mt-1">{errors.region.message}</p>}
                 </div>
                  <div>
-                  <Label htmlFor="city">المدينة / المركز</Label>
+                  <Label htmlFor="city">المدينة</Label>
                   <Input id="city" {...register('city')} />
                   {errors.city && <p className="text-sm text-destructive mt-1">{errors.city.message}</p>}
                 </div>
                 <div>
-                  <Label htmlFor="address">باقي العنوان (القرية، الشارع، علامة مميزة...)</Label>
+                  <Label htmlFor="address">العنوان (الحي، الشارع، رقم المبنى)</Label>
                   <Textarea id="address" {...register('address')} />
                   {errors.address && <p className="text-sm text-destructive mt-1">{errors.address.message}</p>}
                 </div>
                 <div>
-                  <Label htmlFor="notes">ملاحظات إضافية (اختياري)</Label>
+                  <Label htmlFor="notes">تفاصيل إضافية للطلب (اختياري)</Label>
                   <Textarea id="notes" {...register('notes')} />
                 </div>
               </CardContent>

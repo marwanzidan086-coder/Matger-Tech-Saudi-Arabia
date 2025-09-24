@@ -7,7 +7,7 @@ const orderSchema = z.object({
   name: z.string().min(1, 'الاسم مطلوب'),
   phone: z.string().min(1, 'رقم الهاتف مطلوب'),
   phone2: z.string().optional(),
-  governorate: z.string().min(1, 'المحافظة مطلوبة'),
+  governorate: z.string().min(1, 'المنطقة مطلوبة'),
   city: z.string().min(1, 'المدينة مطلوبة'),
   address: z.string().min(1, 'العنوان مطلوب'),
   notes: z.string().optional(),
@@ -25,7 +25,7 @@ function buildOrderMessage(
   const productLines = orderData.cartItems
     .map(
       (item) =>
-        `- ${item.name} (الكمية: ${item.quantity}) - السعر: ${item.price.toFixed(2)} ج.م`
+        `- ${item.name} (الكمية: ${item.quantity}) - السعر: ${item.price.toFixed(2)}`
     )
     .join('\n');
 
@@ -39,15 +39,15 @@ function buildOrderMessage(
 
 *بيانات العميل:*
 *الاسم:* ${orderData.name}
-*رقم الهاتف:* ${orderData.phone}
-*هاتف إضافي:* ${orderData.phone2 || 'لا يوجد'}
+*الجوال الأساسي:* ${orderData.phone}
+*جوال إضافي:* ${orderData.phone2 || 'لا يوجد'}
 *العنوان:* ${fullAddress}
-*ملاحظات:* ${orderData.notes || 'لا يوجد'}
+*تفاصيل إضافية:* ${orderData.notes || 'لا يوجد'}
 
 *المنتجات:*
 ${productLines}
 
-*الإجمالي:* ${orderData.total.toFixed(2)} ج.م
+*الإجمالي:* ${orderData.total.toFixed(2)}
   `.trim();
 }
 
