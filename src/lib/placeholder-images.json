@@ -2,39 +2,63 @@
   "placeholderImages": [
     {
       "id": "smart-coffee-mug",
-      "description": "A sleek, temperature-controlled smart coffee mug.",
-      "imageUrl": "https://images.unsplash.com/photo-1572538467611-4f2675ce6fdf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzbWFydCUyMG11Z3xlbnwwfHx8fDE3NTg1OTUyMTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "smart mug"
+      "images": [
+        "https://picsum.photos/seed/coffee-mug-1/600/600",
+        "https://picsum.photos/seed/coffee-mug-2/600/600",
+        "https://picsum.photos/seed/coffee-mug-3/600/600",
+        "https://picsum.photos/seed/coffee-mug-4/600/600",
+        "https://picsum.photos/seed/coffee-mug-5/600/600"
+      ]
     },
     {
       "id": "wireless-headphones",
-      "description": "High-fidelity wireless headphones with noise cancellation.",
-      "imageUrl": "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3aXJlbGVzcyUyMGhlYWRwaG9uZXN8ZW58MHx8fHwxNzU4NTgzMDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wireless headphones"
+      "images": [
+        "https://picsum.photos/seed/headphones-1/600/600",
+        "https://picsum.photos/seed/headphones-2/600/600",
+        "https://picsum.photos/seed/headphones-3/600/600",
+        "https://picsum.photos/seed/headphones-4/600/600",
+        "https://picsum.photos/seed/headphones-5/600/600"
+      ]
     },
     {
       "id": "portable-power-bank",
-      "description": "A compact and powerful portable power bank for all your devices.",
-      "imageUrl": "https://images.unsplash.com/photo-1594843665794-446ce915d840?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwb3dlciUyMGJhbmt8ZW58MHx8fHwxNzU4NjAzODYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "power bank"
+      "images": [
+        "https://picsum.photos/seed/power-bank-1/600/600",
+        "https://picsum.photos/seed/power-bank-2/600/600",
+        "https://picsum.photos/seed/power-bank-3/600/600",
+        "https://picsum.photos/seed/power-bank-4/600/600",
+        "https://picsum.photos/seed/power-bank-5/600/600"
+      ]
     },
     {
       "id": "ergonomic-keyboard",
-      "description": "A mechanical ergonomic keyboard for comfortable typing.",
-      "imageUrl": "https://images.unsplash.com/photo-1653786146466-9ac4d30a47f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlcmdvbm9taWMlMjBrZXlib2FyZHxlbnwwfHx8fDE3NTg2MzA3MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "ergonomic keyboard"
+      "images": [
+        "https://picsum.photos/seed/keyboard-1/600/600",
+        "https://picsum.photos/seed/keyboard-2/600/600",
+        "https://picsum.photos/seed/keyboard-3/600/600",
+        "https://picsum.photos/seed/keyboard-4/600/600",
+        "https://picsum.photos/seed/keyboard-5/600/600"
+      ]
     },
     {
       "id": "smart-watch",
-      "description": "A feature-rich smart watch with fitness tracking.",
-      "imageUrl": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzbWFydCUyMHdhdGNofGVufDB8fHx8MTc1ODU4Mjc0NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "smart watch"
+      "images": [
+        "https://picsum.photos/seed/smart-watch-1/600/600",
+        "https://picsum.photos/seed/smart-watch-2/600/600",
+        "https://picsum.photos/seed/smart-watch-3/600/600",
+        "https://picsum.photos/seed/smart-watch-4/600/600",
+        "https://picsum.photos/seed/smart-watch-5/600/600"
+      ]
     },
     {
       "id": "4k-webcam",
-      "description": "A 4K ultra-high-definition webcam for crystal clear video calls.",
-      "imageUrl": "https://images.unsplash.com/photo-1622750342107-4b60e2704157?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHw0ayUyMHdlYmNhbXxlbnwwfHx8fDE3NTg2NjU4MTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "4k webcam"
+      "images": [
+        "https://picsum.photos/seed/webcam-1/600/600",
+        "https://picsum.photos/seed/webcam-2/600/600",
+        "https://picsum.photos/seed/webcam-3/600/600",
+        "https://picsum.photos/seed/webcam-4/600/600",
+        "https://picsum.photos/seed/webcam-5/600/600"
+      ]
     }
   ]
 }

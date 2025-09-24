@@ -1,21 +1,13 @@
 import { type Product } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-const getImages = (id: string, count: number): string[] => {
-  const imageUrl = PlaceHolderImages.find(img => img.id === id)?.imageUrl;
-  if (!imageUrl) {
-    // Fallback if no image is found in placeholder data
-    return Array.from({length: count}, (_, i) => `https://picsum.photos/seed/${id}${i + 1}/600/600`);
+const getImages = (productId: string): string[] => {
+  const imageSet = PlaceHolderImages.find(img => img.id === productId);
+  if (imageSet && imageSet.images.length > 0) {
+    return imageSet.images;
   }
-  const url = new URL(imageUrl);
-  const seed = url.pathname.split('/')[2];
-  
-  return Array.from({length: count}, (_, i) => {
-    const newUrl = new URL(imageUrl);
-    // Use a unique seed for each image in the array to ensure different images
-    newUrl.pathname = `/seed/${seed}-${i + 1}/600/600`;
-    return newUrl.toString();
-  });
+  // Fallback to a generic set of 5 images if not found
+  return Array.from({length: 5}, (_, i) => `https://picsum.photos/seed/${productId}-${i + 1}/600/600`);
 };
 
 export const products: Product[] = [
@@ -25,7 +17,7 @@ export const products: Product[] = [
     slug: 'smart-coffee-mug',
     description: 'كوب قهوة ذكي يحافظ على درجة حرارة مشروبك. يتم التحكم فيه عبر تطبيق الهاتف الذكي ويتضمن بطارية تدوم طويلاً وشحن لاسلكي سريع.',
     price: 399.99,
-    images: getImages('smart-coffee-mug', 5),
+    images: getImages('smart-coffee-mug'),
   },
   {
     id: '2',
@@ -33,7 +25,7 @@ export const products: Product[] = [
     slug: 'wireless-headphones',
     description: 'سماعات رأس لاسلكية عالية الدقة مع إلغاء نشط للضوضاء. تتميز بصوت نقي، اتصال Bluetooth 5.2، وبطارية تعمل لمدة 30 ساعة.',
     price: 899.50,
-    images: getImages('wireless-headphones', 5),
+    images: getImages('wireless-headphones'),
   },
   {
     id: '3',
@@ -41,7 +33,7 @@ export const products: Product[] = [
     slug: 'portable-power-bank',
     description: 'شاحن متنقل صغير وقوي لجميع أجهزتك. سعة 20000 مللي أمبير، ويدعم الشحن السريع PD بقوة 25 واط.',
     price: 250.00,
-    images: getImages('portable-power-bank', 5),
+    images: getImages('portable-power-bank'),
   },
   {
     id: '4',
@@ -49,7 +41,7 @@ export const products: Product[] = [
     slug: 'ergonomic-keyboard',
     description: 'لوحة مفاتيح ميكانيكية بتصميم مريح لتقليل إجهاد اليدين. إضاءة خلفية RGB قابلة للتخصيص واتصال سلكي ولاسلكي عبر Bluetooth.',
     price: 650.00,
-    images: getImages('ergonomic-keyboard', 5),
+    images: getImages('ergonomic-keyboard'),
   },
   {
     id: '5',
@@ -57,7 +49,7 @@ export const products: Product[] = [
     slug: 'smart-watch',
     description: 'ساعة ذكية غنية بالميزات مع تتبع دقيق للياقة البدنية ومعدل ضربات القلب. مقاومة للماء بمعيار 5ATM وبطارية ممتازة.',
     price: 1200.00,
-    images: getImages('smart-watch', 5),
+    images: getImages('smart-watch'),
   },
   {
     id: '6',
@@ -65,6 +57,6 @@ export const products: Product[] = [
     slug: '4k-webcam',
     description: 'كاميرا ويب بدقة 4K فائقة الوضوح لمكالمات الفيديو الاحترافية. تتميز بتركيز تلقائي وميكروفون مزدوج لتقليل الضوضاء.',
     price: 550.00,
-    images: getImages('4k-webcam', 5),
+    images: getImages('4k-webcam'),
   },
 ];
