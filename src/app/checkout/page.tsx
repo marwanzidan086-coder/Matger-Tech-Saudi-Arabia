@@ -9,7 +9,6 @@ import { useOrder } from '@/contexts/OrderContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
@@ -153,12 +152,12 @@ export default function CheckoutPage() {
                 </div>
                 <div>
                   <Label htmlFor="address">العنوان (الحي، الشارع، رقم المبنى)</Label>
-                  <Textarea id="address" {...register('address')} />
+                  <Input id="address" {...register('address')} />
                   {errors.address && <p className="text-sm text-destructive mt-1">{errors.address.message}</p>}
                 </div>
                 <div>
                   <Label htmlFor="notes">تفاصيل إضافية للطلب (اختياري)</Label>
-                  <Textarea id="notes" {...register('notes')} />
+                  <Input id="notes" {...register('notes')} />
                 </div>
               </CardContent>
               <CardFooter>
