@@ -2,12 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, PackageSearch, Heart, ShoppingCart, LayoutGrid } from 'lucide-react';
+import { Home, PackageSearch, Heart, ShoppingCart, LayoutGrid, Search } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { cn } from '@/lib/utils';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 import { ThemeToggle } from './ThemeToggle';
+import SearchComponent from './Search';
+
 
 const navItems = [
   { href: '/', label: 'المتجر', icon: Home },
@@ -55,6 +57,9 @@ export default function BottomNav() {
             </Link>
           );
         })}
+         <div className="absolute start-4 top-1/2 -translate-y-1/2 md:hidden">
+            <ThemeToggle />
+        </div>
       </div>
     </nav>
   );
