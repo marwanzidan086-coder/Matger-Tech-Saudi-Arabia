@@ -3,17 +3,19 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
 import { useOrder } from '@/contexts/OrderContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Truck, ShoppingBag } from 'lucide-react';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 import { sendOrderViaWhatsApp } from '@/app/actions';
 
@@ -55,7 +57,7 @@ export default function CheckoutPage() {
   }, [isMounted, cartItems, router]);
   
   if (!isMounted || cartItems.length === 0) {
-    return <div className="text-center py-10">جاري التحميل...</div>;
+    return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
   }
 
   const onSubmit = async (data: CheckoutFormValues) => {
@@ -109,18 +111,26 @@ export default function CheckoutPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl md:text-4xl font-headline font-bold mb-8 text-center">
-        الدفع
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div>
+      <div className="text-center mb-10">
+        <h1 className="text-3xl md:text-4xl font-headline font-bold">
+          إتمام الطلب
+        </h1>
+        <p className="text-muted-foreground mt-2">خطوة أخيرة لإرسال طلبك الرائع!</p>
+      </div>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 xl:gap-12">
+        
+        <div className="lg:col-span-3">
           <Card>
             <CardHeader>
-              <CardTitle>معلومات التوصيل</CardTitle>
+              <CardTitle className="flex items-center gap-2 text-xl">
+                <Truck className="h-6 w-6" />
+                معلومات التوصيل
+              </CardTitle>
             </CardHeader>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <CardContent className="space-y-4">
-                <div>
+              <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                <div className="md:col-span-2">
                   <Label htmlFor="name">الاسم الكامل</Label>
                   <Input id="name" {...register('name')} />
                   {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
@@ -145,12 +155,12 @@ export default function CheckoutPage() {
                   <Input id="city" {...register('city')} />
                   {errors.city && <p className="text-sm text-destructive mt-1">{errors.city.message}</p>}
                 </div>
-                <div>
+                <div className="md:col-span-2">
                   <Label htmlFor="address">العنوان (الحي، الشارع، رقم المبنى)</Label>
                   <Textarea id="address" {...register('address')} />
                   {errors.address && <p className="text-sm text-destructive mt-1">{errors.address.message}</p>}
                 </div>
-                <div>
+                <div className="md:col-span-2">
                   <Label htmlFor="notes">تفاصيل إضافية للطلب (اختياري)</Label>
                   <Textarea id="notes" {...register('notes')} />
                 </div>
@@ -163,7 +173,7 @@ export default function CheckoutPage() {
                       جاري الإرسال...
                     </>
                   ) : (
-                    'إرسال الطلب'
+                    'إرسال الطلب وتأكيده'
                   )}
                 </Button>
               </CardFooter>
@@ -171,24 +181,32 @@ export default function CheckoutPage() {
           </Card>
         </div>
         
-        <div>
-          <Card>
+        <div className="lg:col-span-2">
+          <Card className="sticky top-24">
             <CardHeader>
-              <CardTitle>ملخص طلبك</CardTitle>
+              <CardTitle className="flex items-center gap-2 text-xl">
+                  <ShoppingBag className="h-6 w-6" />
+                  ملخص طلبك
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              {cartItems.map(item => (
-                <div key={item.id} className="flex justify-between items-center">
-                  <div>
-                    <p className="font-semibold">{item.name}</p>
-                    <p className="text-sm text-muted-foreground">الكمية: {item.quantity}</p>
+              <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2">
+                {cartItems.map(item => (
+                  <div key={item.id} className="flex justify-between items-center gap-4">
+                    <div className="relative w-16 h-16 rounded-md overflow-hidden">
+                       <Image src={item.image} alt={item.name} fill className="object-cover" data-ai-hint="product image" />
+                    </div>
+                    <div className="flex-grow">
+                      <p className="font-semibold">{item.name}</p>
+                      <p className="text-sm text-muted-foreground">الكمية: {item.quantity}</p>
+                    </div>
+                    <p className="font-mono text-sm">{(item.price * item.quantity).toFixed(2)} ج.م</p>
                   </div>
-                  <p className="font-mono">{(item.price * item.quantity).toFixed(2)} ج.م</p>
-                </div>
-              ))}
-              <div className="border-t border-border my-4"></div>
-              <div className="flex justify-between font-bold text-xl">
-                <p>الإجمالي</p>
+                ))}
+              </div>
+              <Separator />
+              <div className="flex justify-between font-bold text-lg">
+                <p>الإجمالي النهائي</p>
                 <p className="font-mono">{total.toFixed(2)} ج.م</p>
               </div>
             </CardContent>
