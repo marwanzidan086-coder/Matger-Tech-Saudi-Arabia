@@ -9,7 +9,7 @@ export default function Header() {
       <div className="container mx-auto flex h-14 items-center justify-center relative">
         <Link href="/" className="flex items-center gap-2 text-primary">
           <Truck className="h-6 w-6" />
-          <span className="text-2xl font-bold font-headline tracking-wide">
+          <span className="text-2xl font-bold font-headline tracking-wide [text-shadow:0_0_8px_hsl(var(--primary))]">
             {siteConfig.name}
           </span>
         </Link>
