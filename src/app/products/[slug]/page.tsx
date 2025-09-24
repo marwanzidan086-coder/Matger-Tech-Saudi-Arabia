@@ -10,7 +10,7 @@ import { OrderNowButton } from '@/components/OrderNowButton';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, Truck, Clock, Zap, BatteryCharging, Droplets, UsbC, Speaker, Bluetooth, Weight } from 'lucide-react';
+import { ShieldCheck, Truck, Clock, Zap, BatteryCharging, Droplets, Usb, Speaker, Bluetooth, Weight } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import type { LucideProps } from 'lucide-react';
@@ -20,7 +20,7 @@ const ICONS_MAP: { [key: string]: React.ComponentType<LucideProps> } = {
   'صوت': Speaker,
   'bassup': Speaker,
   'بطارية': BatteryCharging,
-  'شحن': UsbC,
+  'شحن': Usb,
   'ماء': Droplets,
   'بلوتوث': Bluetooth,
   'وزن': Weight,
