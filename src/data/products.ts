@@ -6,7 +6,7 @@ const getImages = (productId: string): string[] => {
   if (imageSet && imageSet.images.length > 0) {
     return imageSet.images;
   }
-  // Fallback to a generic set of 5 images if not found
+  // Fallback to a generic set of 5 images using the correct productId if not found
   return Array.from({length: 5}, (_, i) => `https://picsum.photos/seed/${productId}-${i + 1}/600/600`);
 };
 
