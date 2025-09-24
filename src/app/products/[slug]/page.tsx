@@ -31,7 +31,7 @@ export default function ProductPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         
         {/* Image Gallery */}
-        <div className="flex flex-col gap-4 sticky top-24 self-start">
+        <div className="flex flex-col gap-4 md:sticky top-24 self-start">
             <div className="relative aspect-square w-full overflow-hidden rounded-lg border shadow-lg">
                 <Image
                     src={mainImage}
