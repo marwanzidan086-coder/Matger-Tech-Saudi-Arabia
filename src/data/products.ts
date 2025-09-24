@@ -33,10 +33,9 @@ const electronicsProducts: Product[] = [
     </ul>
   </div>
 
-  <div class="space-y-4">
+  <div class="space-y-2">
     <h3 class="text-xl font-bold text-center text-green-400" style="text-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;">🚀 تفاصيل سريعة 🚀</h3>
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-green-400/50 to-transparent mb-4"></div>
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto pt-2">
         <table class="w-full text-sm text-left">
             <tbody>
                 <tr class="border-b border-border/50"><td class="px-4 py-2 font-semibold text-primary">الماركة:</td><td class="px-4 py-2">DLC</td></tr>
