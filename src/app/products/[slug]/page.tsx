@@ -43,8 +43,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             <CarouselContent>
               {product.images.map((image, index) => (
                 <CarouselItem key={index}>
-                  <Card>
-                    <CardContent className="relative aspect-square p-0">
+                    <div className="relative aspect-square w-full">
                       <Image
                         src={image}
                         alt={`${product.name} - image ${index + 1}`}
@@ -53,8 +52,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         data-ai-hint="product image"
                       />
-                    </CardContent>
-                  </Card>
+                    </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
