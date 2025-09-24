@@ -27,7 +27,7 @@ const electronicsProducts: Product[] = [
 - اللون: أسود
 - الاتصال: بلوتوث 5.0
 - الوزن: 40 جرام`,
-        price: 220.00,
+        price: 95.00,
         images: getImages('soundcore-r100'),
         category: categories.electronics.slug
     },
@@ -46,7 +46,7 @@ const electronicsProducts: Product[] = [
 - الماركة: DLC
 - الموديل: DLC-32898
 - الضمان: عامين`,
-      price: 95.00,
+      price: 220.00,
       images: getImages('dlc-multi-use-lantern'),
       category: categories.electronics.slug,
     }
