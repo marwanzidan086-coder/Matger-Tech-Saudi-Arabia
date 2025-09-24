@@ -32,7 +32,7 @@ const checkoutSchema = z.object({
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
 export default function CheckoutPage() {
-  const { cartItems, total, clearCart, orderNowItem, addOrderNowItemToCart } = useCart();
+  const { cartItems, total, clearCart } = useCart();
   const { addOrder } = useOrder();
   const { toast } = useToast();
   const router = useRouter();
@@ -51,24 +51,12 @@ export default function CheckoutPage() {
   });
 
   useEffect(() => {
-    if (isMounted && orderNowItem) {
-      addOrderNowItemToCart();
+    if (isMounted && cartItems.length === 0) {
+      router.replace('/cart');
     }
-  }, [isMounted, orderNowItem, addOrderNowItemToCart]);
-
-
-  useEffect(() => {
-    if (isMounted && cartItems.length === 0 && !orderNowItem) {
-        const timer = setTimeout(() => {
-           if (cartItems.length === 0 && !orderNowItem) {
-             router.replace('/cart');
-           }
-        }, 100); // Short delay to ensure state is consistent
-        return () => clearTimeout(timer);
-      }
-  }, [isMounted, cartItems, orderNowItem, router]);
+  }, [isMounted, cartItems, router]);
   
-  if (!isMounted || (cartItems.length === 0 && !orderNowItem)) {
+  if (!isMounted || cartItems.length === 0) {
     return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
   }
 

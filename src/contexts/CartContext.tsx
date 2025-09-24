@@ -6,7 +6,6 @@ import { useLocalStorage } from '@/hooks/use-local-storage';
 
 type CartState = {
   cartItems: CartItem[];
-  orderNowItem: Product | null;
 };
 
 type CartAction =
@@ -14,9 +13,7 @@ type CartAction =
   | { type: 'REMOVE_FROM_CART'; payload: { id: string } }
   | { type: 'UPDATE_QUANTITY'; payload: { id:string; quantity: number } }
   | { type: 'SET_CART'; payload: CartItem[] }
-  | { type: 'CLEAR_CART' }
-  | { type: 'SET_ORDER_NOW_ITEM', payload: Product | null }
-  | { type: 'ADD_ORDER_NOW_ITEM_TO_CART' };
+  | { type: 'CLEAR_CART' };
 
 
 const cartReducer = (state: CartState, action: CartAction): CartState => {
@@ -52,22 +49,6 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
         return { ...state, cartItems: [] };
     case 'SET_CART':
       return { ...state, cartItems: action.payload };
-    case 'SET_ORDER_NOW_ITEM':
-      return { ...state, orderNowItem: action.payload };
-    case 'ADD_ORDER_NOW_ITEM_TO_CART': {
-      if (!state.orderNowItem) return state;
-      const existingItem = state.cartItems.find(item => item.id === state.orderNowItem!.id);
-      if (existingItem) {
-        // Item is already in cart, no need to add it again, just clear the orderNowItem
-        return { ...state, orderNowItem: null };
-      }
-      // Add the orderNowItem to the cart and clear it
-      return {
-        ...state,
-        cartItems: [...state.cartItems, { ...state.orderNowItem, quantity: 1 }],
-        orderNowItem: null,
-      };
-    }
     default:
       return state;
   }
@@ -75,13 +56,10 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 
 type CartContextType = {
   cartItems: CartItem[];
-  orderNowItem: Product | null;
   addToCart: (product: Product) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
-  setOrderNowItem: (product: Product | null) => void;
-  addOrderNowItemToCart: () => void;
   total: number;
 };
 
@@ -89,12 +67,15 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [storedValue, setValue] = useLocalStorage<CartItem[]>('matger_cart', []);
-  const initialState: CartState = { cartItems: storedValue, orderNowItem: null };
+  const initialState: CartState = { cartItems: storedValue };
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   React.useEffect(() => {
-    setValue(state.cartItems);
-  }, [state.cartItems, setValue]);
+    // Only set value to localStorage if it's different, to avoid loops
+    if (JSON.stringify(state.cartItems) !== JSON.stringify(storedValue)) {
+      setValue(state.cartItems);
+    }
+  }, [state.cartItems, setValue, storedValue]);
   
   React.useEffect(() => {
     dispatch({ type: 'SET_CART', payload: storedValue });
@@ -105,13 +86,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const removeFromCart = (id: string) => dispatch({ type: 'REMOVE_FROM_CART', payload: { id } });
   const updateQuantity = (id: string, quantity: number) => dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
   const clearCart = () => dispatch({ type: 'CLEAR_CART' });
-  const setOrderNowItem = (product: Product | null) => dispatch({ type: 'SET_ORDER_NOW_ITEM', payload: product });
-  const addOrderNowItemToCart = () => dispatch({ type: 'ADD_ORDER_NOW_ITEM_TO_CART' });
 
   const total = state.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems: state.cartItems, orderNowItem: state.orderNowItem, addToCart, removeFromCart, updateQuantity, clearCart, setOrderNowItem, addOrderNowItemToCart, total }}>
+    <CartContext.Provider value={{ cartItems: state.cartItems, addToCart, removeFromCart, updateQuantity, clearCart, total }}>
       {children}
     </CartContext.Provider>
   );
