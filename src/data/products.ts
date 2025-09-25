@@ -650,12 +650,12 @@ const electronicsProducts: Product[] = [
         slug: 'logitech-mx-master-3s',
         description: `الماوس المثالي للمبدعين والمبرمجين. يتميز بتمرير كهرومغناطيسي فائق السرعة، ومستشعر 8K DPI، ونقرات هادئة.
 ###FEATURES###
-- تمرير MagSpeed الكهرومagnيسي
+- تمرير MagSpeed الكهرومغناطيسي
 - مستشعر 8K DPI يعمل على أي سطح (حتى الزجاج)
 - نقرات هادئة
 - تصميم مريح لليد اليمنى
 ###DETAILS###
-- الاتصال: بلوتوth, Logi Bolt USB receiver
+- الاتصال: بلوتوث, Logi Bolt USB receiver
 - البطارية: تدوم 70 يومًا بشحنة كاملة
 - الأزرار: 7 أزرار قابلة للتخصيص`,
         price: 550.00,
@@ -988,8 +988,837 @@ const miscProducts: Product[] = [
         slug: 'digital-photo-frame',
         images: getImages('digital-photo-frame'),
         category: categories.misc.slug
+    },
+    {
+        id: 'smart-notebook',
+        name: 'دفتر ملاحظات ذكي قابل لإعادة الاستخدام',
+        slug: 'smart-notebook',
+        description: `اكتب بلا حدود. امسح ما كتبته باستخدام قطعة قماش مبللة وأرسل ملاحظاتك إلى السحابة.
+###FEATURES###
+- 36 صفحة قابلة لإعادة الاستخدام
+- يتكامل مع Google Drive, Dropbox, Evernote, Slack
+- تقنية OCR لتحويل الخط اليدوي إلى نص
+- يأتي مع قلم خاص وقطعة قماش مايكروفايبر
+###DETAILS###
+- الحجم: A4
+- المادة: ورق صناعي مقاوم للماء
+- الاتصال: عبر تطبيق الجوال`,
+        price: 150.00,
+        images: getImages('smart-notebook'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'portable-blender',
+        name: 'خلاط محمول قابل للشحن',
+        slug: 'portable-blender',
+        description: `اصنع عصائرك ومخفوقات البروتين في أي مكان. خلاط قوي ومدمج يعمل ببطارية قابلة للشحن عبر USB-C.
+###FEATURES###
+- محرك قوي وشفرات من الفولاذ المقاوم للصدأ
+- بطارية تكفي لعمل 15-20 كوبًا
+- سهل التنظيف، فقط أضف الماء والصابون واخلط
+- تصميم مانع للتسرب
+###DETAILS###
+- السعة: 400 مل
+- الشحن: USB-C
+- المواد: بلاستيك خالٍ من BPA`,
+        price: 180.00,
+        images: getImages('portable-blender'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'sunrise-alarm-clock',
+        name: 'ساعة منبه محاكاة شروق الشمس',
+        slug: 'sunrise-alarm-clock',
+        description: `استيقظ بهدوء وطبيعية. تحاكي هذه الساعة شروق الشمس تدريجيًا قبل 30 دقيقة من وقت الاستيقاظ، مع أصوات طبيعية.
+###FEATURES###
+- محاكاة شروق وغروب الشمس
+- 7 ألوان إضاءة و 20 مستوى سطوع
+- 7 أصوات طبيعية وراديو FM
+- وضع القراءة مع إضاءة دافئة
+###DETAILS###
+- نوع العرض: رقمي LED
+- مصدر الطاقة: محول كهربائي
+- الوظائف: منبه مزدوج، غفوة`,
+        price: 250.00,
+        images: getImages('sunrise-alarm-clock'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'weather-station',
+        name: 'محطة طقس لاسلكية',
+        slug: 'weather-station',
+        description: `احصل على توقعات دقيقة للطقس في منزلك. تعرض درجة الحرارة والرطوبة الداخلية والخارجية، وتوقعات الطقس.
+###FEATURES###
+- شاشة LCD ملونة كبيرة
+- مستشعر خارجي لاسلكي بمدى 60 مترًا
+- توقعات الطقس بناءً على الضغط الجوي
+- عرض الوقت والتاريخ وتقويم مراحل القمر
+###DETAILS###
+- نطاق درجة الحرارة الداخلية: 0-50 درجة مئوية
+- نطاق درجة الحرارة الخارجية: -20-60 درجة مئوية
+- مصدر الطاقة: محول كهربائي أو بطاريات`,
+        price: 320.00,
+        images: getImages('weather-station'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'star-projector',
+        name: 'جهاز عرض النجوم والمجرات',
+        slug: 'star-projector',
+        description: `حول غرفتك إلى سماء ليلية ساحرة. يعرض هذا الجهاز آلاف النجوم والسدم الملونة على السقف والجدران.
+###FEATURES###
+- تأثيرات سديم متعددة الألوان
+- عرض نجوم بالليزر الأخضر
+- ريموت كنترول للتحكم في الألوان والسطوع والسرعة
+- مكبر صوت بلوتوث مدمج
+###DETAILS###
+- الإضاءة: LED و ليزر
+- الاتصال: بلوتوث
+- مصدر الطاقة: USB`,
+        price: 200.00,
+        images: getImages('star-projector'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'key-finder',
+        name: 'متتبع مفاتيح وبلوتوث (4 قطع)',
+        slug: 'key-finder',
+        description: `لا تضيع مفاتيحك أو محفظتك مرة أخرى. اربط هذه الأجهزة الصغيرة بأغراضك واعثر عليها بسهولة باستخدام هاتفك.
+###FEATURES###
+- تتبع عبر البلوتوث بمدى يصل إلى 50 مترًا
+- يجعل هاتفك يرن حتى لو كان صامتًا
+- يعرض آخر موقع معروف على الخريطة
+- عمر بطارية يصل إلى عام (قابلة للاستبدال)
+###DETAILS###
+- العدد: 4 قطع
+- التوافق: iOS و Android
+- البطارية: CR2032`,
+        price: 120.00,
+        images: getImages('key-finder'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'fingerprint-padlock',
+        name: 'قفل بصمة ذكي',
+        slug: 'fingerprint-padlock',
+        description: `قفل آمن بدون مفتاح. يفتح هذا القفل ببصمة إصبعك في أقل من ثانية ويمكنه تخزين ما يصل إلى 20 بصمة مختلفة.
+###FEATURES###
+- فتح سريع ببصمة الإصبع
+- يخزن حتى 20 بصمة
+- بطارية تدوم حتى 6 أشهر بشحنة واحدة
+- مقاوم للماء والغبار (IP65)
+###DETAILS###
+- المادة: سبائك الزنك والفولاذ
+- الشحن: Micro USB
+- الاستخدام: حقائب، خزائن، دراجات`,
+        price: 130.00,
+        images: getImages('fingerprint-padlock'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'digital-tape-measure',
+        name: 'شريط قياس رقمي بالليزر',
+        slug: 'digital-tape-measure',
+        description: `قياسات دقيقة وسريعة بضغطة زر. يجمع هذا الجهاز بين شريط قياس تقليدي ومقياس ليزر رقمي للمسافات الطويلة.
+###FEATURES###
+- قياس بالليزر يصل إلى 40 مترًا
+- شريط قياس بطول 5 أمتار
+- شاشة LCD لعرض القياسات
+- حساب المساحة والحجم وفيثاغورس
+###DETAILS###
+- دقة الليزر: ±2 مم
+- البطارية: قابلة لإعادة الشحن USB
+- الوحدات: متر، بوصة، قدم`,
+        price: 190.00,
+        images: getImages('digital-tape-measure'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'mini-fridge-4l',
+        name: 'ثلاجة صغيرة للعناية بالبشرة 4 لتر',
+        slug: 'mini-fridge-4l',
+        description: `حافظي على منتجات العناية بالبشرة والمكياج باردة ومنعشة. هذه الثلاجة الصغيرة والأنيقة مثالية لغرفة النوم أو الحمام.
+###FEATURES###
+- تبريد وتسخين
+- سعة 4 لتر (تكفي لـ 6 علب مشروب)
+- تشغيل هادئ للغاية
+- تعمل بالكهرباء أو من ولاعة السيارة
+###DETAILS###
+- الأبعاد: 24 × 18 × 25 سم
+- الوزن: 1.7 كجم
+- اللون: وردي`,
+        price: 280.00,
+        images: getImages('mini-fridge-4l'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'sous-vide-cooker',
+        name: 'جهاز طبخ سو فيد (Sous Vide)',
+        slug: 'sous-vide-cooker',
+        description: `اطبخ مثل المحترفين. يطهو جهاز السو فيد الطعام في حمام مائي متحكم في درجة حرارته بدقة للحصول على نتائج مثالية في كل مرة.
+###FEATURES###
+- تحكم دقيق في درجة الحرارة (±0.1 درجة مئوية)
+- اتصال Wi-Fi للتحكم عبر التطبيق
+- محرك قوي وهادئ
+- تصميم مقاوم للماء وسهل التنظيف
+###DETAILS###
+- القوة: 1000 واط
+- نطاق درجة الحرارة: 25-90 درجة مئوية
+- التوافق: أي وعاء أو قدر`,
+        price: 550.00,
+        images: getImages('sous-vide-cooker'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'pet-feeder-camera',
+        name: 'مغذي حيوانات أليفة ذكي مع كاميرا',
+        slug: 'pet-feeder-camera',
+        description: `اطمئن على حيوانك الأليف وأطعمه من أي مكان. يسمح لك هذا المغذي بجدولة وجبات الطعام ومشاهدة حيوانك والتحدث إليه عبر كاميرا مدمجة.
+###FEATURES###
+- كاميرا HD بزاوية رؤية واسعة ورؤية ليلية
+- صوت ثنائي الاتجاه
+- جدولة الوجبات والتحكم في الحصص
+- يعمل بالبطارية والكهرباء لضمان الاستمرارية
+###DETAILS###
+- السعة: 6 لتر
+- الاتصال: واي فاي 2.4GHz
+- الدقة: 1080p`,
+        price: 750.00,
+        images: getImages('pet-feeder-camera'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'automatic-plant-waterer',
+        name: 'نظام سقي نباتات أوتوماتيكي',
+        slug: 'automatic-plant-waterer',
+        description: `سافر وأنت مرتاح البال. يقوم هذا النظام بسقي نباتاتك تلقائيًا حسب الجدول الذي تحدده.
+###FEATURES###
+- يسقي ما يصل إلى 10 نباتات
+- برمجة سهلة لمدة الري والفاصل الزمني
+- يسحب الماء من أي وعاء (دلو، زجاجة)
+- يعمل بالبطارية أو USB
+###DETAILS###
+- المحتويات: مضخة، أنبوب 10م، 10 أوتاد
+- مصدر الطاقة: 4 بطاريات AA أو USB
+- الاستخدام: للنباتات الداخلية`,
+        price: 160.00,
+        images: getImages('automatic-plant-waterer'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'travel-adapter-universal',
+        name: 'محول سفر عالمي',
+        slug: 'travel-adapter-universal',
+        description: `رفيق السفر المثالي. محول واحد يعمل في أكثر من 150 دولة، مع 4 منافذ USB لشحن جميع أجهزتك.
+###FEATURES###
+- يغطي الولايات المتحدة/الاتحاد الأوروبي/المملكة المتحدة/أستراليا
+- 4 منافذ USB-A ومنفذ USB-C
+- حماية من زيادة التيار
+- تصميم مدمج مع حقيبة حمل
+###DETAILS###
+- الحد الأقصى للطاقة: 1840 واط عند 230 فولت
+- إخراج USB: 5 فولت / 5.6 أمبير (إجمالي)
+- الأمان: فيوز مزدوج`,
+        price: 110.00,
+        images: getImages('travel-adapter-universal'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'motion-sensor-lights',
+        name: 'مصابيح LED بحساس حركة (3 قطع)',
+        slug: 'motion-sensor-lights',
+        description: `أضئ طريقك تلقائيًا. مثالية للخزائن، الممرات، والسلالم. تضيء عند اكتشاف الحركة وتنطفئ بعد 20 ثانية.
+###FEATURES###
+- تركيب سهل بدون أسلاك (شريط لاصق مغناطيسي)
+- تعمل بالبطارية وقابلة لإعادة الشحن USB
+- 3 أوضاع: تشغيل/إيقاف/تلقائي
+- إضاءة بيضاء دافئة
+###DETAILS###
+- عدد المصابيح: 3
+- عمر البطارية: شهرين في الوضع التلقائي
+- نطاق الاستشعار: 3 أمتار، 120 درجة`,
+        price: 140.00,
+        images: getImages('motion-sensor-lights'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'wine-opener-electric',
+        name: 'فتاحة نبيذ كهربائية',
+        slug: 'wine-opener-electric',
+        description: `افتح زجاجات النبيذ بسهولة وأناقة في ثوانٍ. تأتي مع قاطع للرقائق وقاعدة شحن.
+###FEATURES###
+- تفتح الزجاجة في 6-8 ثوانٍ
+- تشغيل بضغطة زر واحدة
+- بطارية قابلة لإعادة الشحن تفتح 30 زجاجة
+- تصميم أنيق من الفولاذ المقاوم للصدأ
+###DETAILS###
+- المحتويات: فتاحة، قاطع رقائق، قاعدة شحن
+- اللون: فضي
+- مصدر الطاقة: قاعدة شحن`,
+        price: 170.00,
+        images: getImages('wine-opener-electric'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'vr-headset-for-phone',
+        name: 'نظارة واقع افتراضي للهواتف',
+        slug: 'vr-headset-for-phone',
+        description: `حول هاتفك إلى بوابة للواقع الافتراضي. شاهد أفلام 360 درجة والعب ألعاب VR غامرة.
+###FEATURES###
+- عدسات عالية الجودة قابلة للتعديل
+- سماعات رأس مدمجة
+- تصميم مريح مع أحزمة قابلة للتعديل
+- زر لمس الشاشة للتفاعل
+###DETAILS###
+- التوافق: هواتف 4.7-6.5 بوصة
+- مجال الرؤية: 120 درجة
+- المادة: بلاستيك ABS`,
+        price: 220.00,
+        images: getImages('vr-headset-for-phone'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'portable-photo-printer',
+        name: 'طابعة صور محمولة',
+        slug: 'portable-photo-printer',
+        description: `اطبع صورك المفضلة مباشرة من هاتفك. طابعة صغيرة لا تستخدم الحبر وتطبع صورًا لاصقة مقاس 2x3 بوصة.
+###FEATURES###
+- تقنية الطباعة ZINK (بدون حبر)
+- تطبع صورًا لاصقة مقاومة للماء
+- اتصال بلوتوث سهل
+- تحرير الصور وإضافة فلاتر عبر التطبيق
+###DETAILS###
+- حجم الصورة: 2x3 بوصة
+- البطارية: قابلة لإعادة الشحن
+- التوافق: iOS و Android`,
+        price: 480.00,
+        images: getImages('portable-photo-printer'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'air-fryer-smart',
+        name: 'مقلاة هوائية ذكية',
+        slug: 'air-fryer-smart',
+        description: `استمتع بطعام مقلي صحي مع دهون أقل بنسبة تصل إلى 85%. تحكم في المقلاة عن بعد واختر من بين عشرات الوصفات عبر التطبيق.
+###FEATURES###
+- سعة 5.5 لتر
+- 11 إعدادًا مسبقًا للطهي
+- التحكم عبر التطبيق والأوامر الصوتية
+- سلة غير لاصقة وآمنة في غسالة الصحون
+###DETAILS###
+- القوة: 1700 واط
+- نطاق درجة الحرارة: 77-205 درجة مئوية
+- الاتصال: واي فاي`,
+        price: 650.00,
+        images: getImages('air-fryer-smart'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'karaoke-mic-bluetooth',
+        name: 'ميكروفون كاريوكي بلوتوث',
+        slug: 'karaoke-mic-bluetooth',
+        description: `أطلق العنان لنجم الغناء بداخلك. هذا الميكروفون 3 في 1 هو ميكروفون، مكبر صوت، ومسجل في جهاز واحد.
+###FEATURES###
+- مكبر صوت ستيريو مدمج
+- تأثيرات صوتية متعددة (مثل الصدى)
+- اتصال بلوتوث لتشغيل الموسيقى
+- بطارية تدوم 5-8 ساعات
+###DETAILS###
+- القوة: 5 واط
+- التوافق: iOS, Android, PC
+- الألوان: ذهبي وردي, أسود, أزرق`,
+        price: 150.00,
+        images: getImages('karaoke-mic-bluetooth'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'foot-massager-shiatsu',
+        name: 'جهاز تدليك القدم شياتسو',
+        slug: 'foot-massager-shiatsu',
+        description: `امنح قدميك الراحة التي تستحقها. يوفر هذا الجهاز تدليكًا عميقًا بتقنية شياتسو مع ضغط الهواء ووظيفة التدفئة.
+###FEATURES###
+- تدليك شياتسو دوار
+- ضغط الهواء مع 3 مستويات شدة
+- وظيفة تدفئة مهدئة
+- تصميم يغطي القدم بالكامل
+###DETAILS###
+- مصدر الطاقة: محول كهربائي
+- المؤقت: 15/30 دقيقة
+- أغطية قابلة للغسل: نعم`,
+        price: 580.00,
+        images: getImages('foot-massager-shiatsu'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'dog-camera-treat-tosser',
+        name: 'كاميرا للكلاب مع قاذف حلوى',
+        slug: 'dog-camera-treat-tosser',
+        description: `تفاعل مع كلبك حتى وأنت خارج المنزل. شاهد وتحدث وألقِ له الحلوى بلمسة زر من هاتفك.
+###FEATURES###
+- كاميرا 1080p بزاوية رؤية 165 درجة ورؤية ليلية
+- صوت ثنائي الاتجاه
+- قذف الحلوى عن بعد
+- تنبيهات نباح مخصصة
+###DETAILS###
+- الاتصال: واي فاي 2.4GHz
+- سعة الحلوى: 100 قطعة
+- التوافق: iOS و Android`,
+        price: 850.00,
+        images: getImages('dog-camera-treat-tosser'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'levitating-plant-pot',
+        name: 'أصيص نباتات طائر',
+        slug: 'levitating-plant-pot',
+        description: `أضف لمسة من السحر والخيال العلمي إلى ديكورك. هذا الأصيص يطفو ويدور في الهواء فوق قاعدة مغناطيسية.
+###FEATURES###
+- يطفو ويدور 360 درجة
+- تصميم هندسي أنيق
+- مثالي للنباتات الهوائية الصغيرة والعصاريات
+- سهل الإعداد
+###DETAILS###
+- المادة: ABS
+- القاعدة: خشبية
+- الحجم: مناسب للنباتات الصغيرة`,
+        price: 380.00,
+        images: getImages('levitating-plant-pot'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'digital-kitchen-scale',
+        name: 'ميزان مطبخ رقمي',
+        slug: 'digital-kitchen-scale',
+        description: `دقة في الطهي والخبز. يقيس هذا الميزان المكونات بدقة عالية ويتميز بوظيفة تصفير الوزن لسهولة إضافة المكونات.
+###FEATURES###
+- دقة عالية (1 جرام)
+- سطح من الفولاذ المقاوم للصدأ سهل التنظيف
+- وظيفة تصفير الوزن (Tare)
+- وحدات قياس متعددة (جرام، أونصة، مل)
+###DETAILS###
+- الحد الأقصى للوزن: 5 كجم
+- البطارية: 2x AAA
+- شاشة: LCD بإضاءة خلفية`,
+        price: 80.00,
+        images: getImages('digital-kitchen-scale'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'cocktail-maker-machine',
+        name: 'آلة صنع الكوكتيل الأوتوماتيكية',
+        slug: 'cocktail-maker-machine',
+        description: `اصنع كوكتيلات احترافية بضغطة زر. املأ الكبسولات بمكوناتك المفضلة ودع الآلة تقوم بالباقي.
+###FEATURES###
+- تخلط مئات أنواع الكوكتيلات
+- تحكم عبر التطبيق لاختيار المشروبات
+- 5 كبسولات زجاجية للمكونات
+- دورة تنظيف ذاتي
+###DETAILS###
+- التوافق: iOS و Android
+- المواد: زجاج وفولاذ مقاوم للصدأ
+- الأبعاد: 35 × 25 × 40 سم`,
+        price: 1500.00,
+        images: getImages('cocktail-maker-machine'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'led-light-strips',
+        name: 'شرائط إضاءة LED ذكية',
+        slug: 'led-light-strips',
+        description: `أضف أجواءً مذهلة إلى أي غرفة. تتزامن هذه الشرائط مع الموسيقى ويمكن التحكم فيها عبر التطبيق أو الأوامر الصوتية.
+###FEATURES###
+- 16 مليون لون وتأثيرات متعددة
+- مزامنة مع الموسيقى
+- التحكم عبر التطبيق و Alexa/Google Assistant
+- سهلة التركيب مع شريط لاصق
+###DETAILS###
+- الطول: 5 أمتار (قابل للقص)
+- الاتصال: واي فاي وبلوتوث
+- مقاومة الماء: IP65`,
+        price: 160.00,
+        images: getImages('led-light-strips'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'desktop-vacuum-cleaner',
+        name: 'مكنسة مكتب صغيرة',
+        slug: 'desktop-vacuum-cleaner',
+        description: `حافظ على نظافة مساحة عملك. هذه المكنسة الصغيرة تشفط الغبار، فتات الطعام، وشعر الحيوانات الأليفة من مكتبك ولوحة المفاتيح.
+###FEATURES###
+- تصميم لاسلكي ومحمول
+- شفط قوي 360 درجة
+- تعمل بالبطارية وقابلة لإعادة الشحن USB
+- سهلة التفريغ والتنظيف
+###DETAILS###
+- وقت التشغيل: 1.5 ساعة
+- الوزن: 160 جرام
+- اللون: أبيض`,
+        price: 70.00,
+        images: getImages('desktop-vacuum-cleaner'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'solar-power-bank-20000mah',
+        name: 'باور بانك شمسي 20000mAh',
+        slug: 'solar-power-bank-20000mah',
+        description: `طاقة لا تنضب في مغامراتك. يشحن هذا الباور بانك أجهزتك ويمكن إعادة شحنه باستخدام الطاقة الشمسية، مع كشاف مدمج.
+###FEATURES###
+- سعة كبيرة 20000mAh
+- شحن بالطاقة الشمسية للطوارئ
+- منفذان USB
+- كشاف LED قوي مع وضع SOS
+###DETAILS###
+- مقاوم للماء والغبار والصدمات
+- الإدخال: Micro USB, USB-C
+- الإخراج: 5V/2.1A`,
+        price: 240.00,
+        images: getImages('solar-power-bank-20000mah'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'smart-meat-thermometer',
+        name: 'ميزان حرارة لحوم ذكي لاسلكي',
+        slug: 'smart-meat-thermometer',
+        description: `احصل على لحم مطهو بشكل مثالي في كل مرة. يراقب هذا الميزان درجة حرارة اللحم ويرسل البيانات إلى هاتفك.
+###FEATURES###
+- لاسلكي بالكامل بمدى 50 مترًا
+- مستشعران: لدرجة حرارة اللحم والفرن
+- تقدير وقت الطهي المتبقي
+- إرشادات طهي خطوة بخطوة في التطبيق
+###DETAILS###
+- الاتصال: بلوتوث
+- مقاومة الحرارة: حتى 300 درجة مئوية
+- التوافق: iOS و Android`,
+        price: 450.00,
+        images: getImages('smart-meat-thermometer'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'sleep-headphones-mask',
+        name: 'قناع نوم مع سماعات بلوتوث',
+        slug: 'sleep-headphones-mask',
+        description: `استمتع بنوم عميق وهادئ. يجمع هذا القناع بين حجب الضوء التام وسماعات رأس لاسلكية رفيعة للاستماع إلى الموسيقى الهادئة أو البودكاست.
+###FEATURES###
+- حجب 100% للضوء
+- سماعات رأس رفيعة ومريحة
+- اتصال بلوتوث
+- بطارية تدوم 10 ساعات
+###DETAILS###
+- المادة: قماش ناعم ومسامي
+- قابل للغسل (بعد إزالة السماعات)
+- الشحن: Micro USB`,
+        price: 130.00,
+        images: getImages('sleep-headphones-mask'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'ember-mug-2',
+        name: 'كوب Ember الذكي الإصدار الثاني',
+        slug: 'ember-mug-2',
+        description: `كوب القهوة الذي لا يبرد أبدًا. حافظ على مشروبك في درجة الحرارة المثالية التي تختارها بالضبط من أول رشفة حتى الأخيرة.
+###FEATURES###
+- يتحكم في درجة الحرارة بدقة
+- عمر بطارية يصل إلى 1.5 ساعة أو طوال اليوم على القاعدة
+- التحكم عبر التطبيق
+- ينام تلقائيًا عندما يكون فارغًا
+###DETAILS###
+- السعة: 295 مل
+- المادة: سيراميك مقاوم للصدأ
+- مقاوم للماء: IPX7`,
+        price: 600.00,
+        images: getImages('ember-mug-2'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'click-and-grow-smart-garden',
+        name: 'حديقة Click & Grow الذكية 3',
+        slug: 'click-and-grow-smart-garden',
+        description: `ازرع الأعشاب الطازجة في مطبخك بدون مجهود. توفر هذه الحديقة الذكية للنباتات الماء والضوء والمغذيات تلقائيًا.
+###FEATURES###
+- تزرع 3 نباتات في المرة الواحدة
+- إضاءة LED موفرة للطاقة
+- نظام ري ذاتي
+- لا حاجة للمبيدات أو الأسمدة
+###DETAILS###
+- المحتويات: حديقة، 3 كبسولات ريحان
+- مصدر الطاقة: محول كهربائي
+- الأبعاد: 30 × 12 × 34 سم`,
+        price: 550.00,
+        images: getImages('click-and-grow-smart-garden'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'theragun-mini',
+        name: 'جهاز تدليك Theragun Mini',
+        slug: 'theragun-mini',
+        description: `علاج العضلات العميقة بحجم الجيب. يوفر Theragun mini راحة فورية من التوتر والتعب أينما كنت.
+###FEATURES###
+- محمول ومدمج
+- 3 سرعات قابلة للتعديل
+- محرك QuietForce هادئ
+- تصميم مريح
+###DETAILS###
+- عمر البطارية: 150 دقيقة
+- الوزن: 650 جرام
+- الملحقات: حقيبة حمل، رأس تدليك واحد`,
+        price: 950.00,
+        images: getImages('theragun-mini'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'nanoleaf-shapes',
+        name: 'ألواح إضاءة Nanoleaf Shapes - سداسية',
+        slug: 'nanoleaf-shapes',
+        description: `صمم تحفتك الفنية المضيئة. تتيح لك هذه الألواح السداسية إنشاء تصميمات مخصصة تتفاعل مع اللمس والموسيقى.
+###FEATURES###
+- تصميم معياري، يمكنك توصيلها بأي شكل
+- 16 مليون لون
+- تتفاعل مع اللمس والموسيقى
+- التحكم عبر التطبيق والأوامر الصوتية
+###DETAILS###
+- المحتويات: 9 ألواح سداسية
+- الاتصال: واي فاي
+- التوافق: Apple HomeKit, Alexa, Google Assistant`,
+        price: 900.00,
+        images: getImages('nanoleaf-shapes'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'smart-jump-rope',
+        name: 'حبل قفز ذكي',
+        slug: 'smart-jump-rope',
+        description: `ارتقِ بتمارينك. يتتبع هذا الحبل عدد القفزات، والسعرات الحرارية المحروقة، ومدة التمرين، ويزامن البيانات مع هاتفك.
+###FEATURES###
+- يتتبع بيانات التمرين
+- يتصل بتطبيق عبر البلوتوث
+- طول حبل قابل للتعديل
+- مقابض مريحة مانعة للانزلاق
+###DETAILS###
+- البطارية: CR2032 (تدوم عامًا)
+- التوافق: iOS و Android
+- المادة: حبل PVC`,
+        price: 180.00,
+        images: getImages('smart-jump-rope'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'temperature-control-travel-mug',
+        name: 'كوب سفر متحكم في درجة الحرارة',
+        slug: 'temperature-control-travel-mug',
+        description: `استمتع بمشروبك الساخن في درجة الحرارة المثالية أثناء التنقل. يمكنك ضبط درجة الحرارة مباشرة من الكوب.
+###FEATURES###
+- يحافظ على درجة الحرارة لمدة 3 ساعات
+- شاشة لمس لضبط درجة الحرارة
+- تصميم مانع للتسرب 360 درجة
+- مصنوع من الفولاذ المقاوم للصدأ
+###DETAILS###
+- السعة: 355 مل
+- نطاق الحرارة: 50-62.5 درجة مئوية
+- مقاوم للماء: IPX7`,
+        price: 850.00,
+        images: getImages('temperature-control-travel-mug'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'pocket-synthesizer',
+        name: 'مُركِّب موسيقي للجيب',
+        slug: 'pocket-synthesizer',
+        description: `اصنع الموسيقى في أي مكان. هذا الجهاز الصغير هو مُركِّب صوتي قوي وسيكوينسر مع مكبر صوت مدمج.
+###FEATURES###
+- 16 صوتًا مختلفًا
+- سيكوينسر 16 خطوة
+- تأثيرات صوتية متعددة
+- مكبر صوت مدمج وشاشة LCD متحركة
+###DETAILS###
+- مزامنة مع أجهزة Pocket Operator الأخرى
+- البطارية: 2x AAA (تدوم شهرًا)
+- المخرج: 3.5 ملم`,
+        price: 350.00,
+        images: getImages('pocket-synthesizer'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'smart-guitar',
+        name: 'جيتار ذكي للمبتدئين',
+        slug: 'smart-guitar',
+        description: `تعلم العزف على الجيتار بسهولة. يحتوي هذا الجيتار على لوحة أصابع LED تريك أين تضع أصابعك، ويتصل بتطبيق تعليمي.
+###FEATURES###
+- لوحة أصابع LED تفاعلية
+- تطبيق تعليمي مع دروس وألعاب
+- تصميم مدمج ومحمول
+- مخرج صوت لتوصيله بسماعات أو مضخم
+###DETAILS###
+- المادة: خشب القيقب
+- طول الأوتار: 23.5 بوصة
+- البطارية: قابلة لإعادة الشحن`,
+        price: 1400.00,
+        images: getImages('smart-guitar'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'handwriting-to-text-pen',
+        name: 'قلم تحويل الكتابة اليدوية إلى نص',
+        slug: 'handwriting-to-text-pen',
+        description: `اكتب على أي ورقة وحول ملاحظاتك إلى نص رقمي على الفور. يتعرف القلم على خط يدك ويحفظه على هاتفك أو جهازك اللوحي.
+###FEATURES###
+- يحول الكتابة اليدوية إلى نص رقمي
+- يعمل على أي نوع من الورق
+- يخزن آلاف الصفحات في ذاكرته الداخلية
+- يتزامن عبر البلوتوث
+###DETAILS###
+- التوافق: iOS, Android, Windows, macOS
+- عمر البطارية: 8 ساعات من الكتابة
+- الشحن: Micro USB`,
+        price: 700.00,
+        images: getImages('handwriting-to-text-pen'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'smart-chess-board',
+        name: 'لوحة شطرنج ذكية',
+        slug: 'smart-chess-board',
+        description: `العب الشطرنج مع أي شخص في العالم على لوحة حقيقية. تتحرك قطع الخصم تلقائيًا على اللوحة بفضل آلية روبوتية.
+###FEATURES###
+- العب عبر الإنترنت على لوحة حقيقية
+- قطع ذاتية الحركة
+- تحليل اللعبة وتدريب مدمج
+- لوحة خشبية مصنوعة يدويًا
+###DETAILS###
+- الاتصال: بلوتوث
+- التوافق: Chess.com, Lichess
+- البطارية: قابلة لإعادة الشحن`,
+        price: 1800.00,
+        images: getImages('smart-chess-board'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'air-quality-monitor',
+        name: 'جهاز مراقبة جودة الهواء',
+        slug: 'air-quality-monitor',
+        description: `اعرف ما تتنفسه. يقيس هذا الجهاز الجسيمات الدقيقة (PM2.5)، المركبات العضوية المتطايرة، درجة الحرارة، والرطوبة.
+###FEATURES###
+- يقيس 4 مؤشرات لجودة الهواء
+- شاشة عرض سهلة القراءة
+- يتصل بتطبيق لعرض البيانات التاريخية
+- محمول ويعمل بالبطارية
+###DETAILS###
+- عمر البطارية: 6 ساعات
+- الاتصال: واي فاي وبلوتوث
+- الشحن: USB-C`,
+        price: 650.00,
+        images: getImages('air-quality-monitor'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'automatic-cocktail-maker',
+        name: 'صانع الكوكتيل الأوتوماتيكي',
+        slug: 'automatic-cocktail-maker',
+        description: `كن نادل محترف في منزلك. املأ الجهاز بمكوناتك واختر مشروبك من التطبيق ليتم تحضيره في ثوانٍ.
+###FEATURES###
+- يحضر مئات الوصفات
+- 6 خزانات زجاجية للمكونات
+- تحكم عبر شاشة لمس أو تطبيق
+- دورة تنظيف أوتوماتيكية
+###DETAILS###
+- الاتصال: واي فاي
+- المواد: زجاج وفولاذ مقاوم للصدأ
+- الأبعاد: 40 × 30 × 45 سم`,
+        price: 2500.00,
+        images: getImages('automatic-cocktail-maker'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'self-cleaning-cat-litter-box',
+        name: 'صندوق فضلات القطط ذاتي التنظيف',
+        slug: 'self-cleaning-cat-litter-box',
+        description: `تخلص من عناء تنظيف صندوق الفضلات. يقوم هذا الصندوق الذكي بتنظيف نفسه تلقائيًا بعد كل استخدام ويحتوي على الروائح.
+###FEATURES###
+- تنظيف تلقائي
+- نظام للتحكم في الروائح
+- مستشعرات أمان للقطط
+- يتصل بتطبيق لتتبع استخدام القطة وصحتها
+###DETAILS###
+- مناسب للقطط متعددة
+- سعة درج النفايات: 7 أيام
+- الاتصال: واي فاي`,
+        price: 2200.00,
+        images: getImages('self-cleaning-cat-litter-box'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'smart-dog-collar',
+        name: 'طوق كلاب ذكي مع GPS',
+        slug: 'smart-dog-collar',
+        description: `لا تقلق بشأن فقدان كلبك مرة أخرى. يوفر هذا الطوق تتبعًا مباشرًا للموقع عبر GPS ويراقب نشاط حيوانك الأليف وصحته.
+###FEATURES###
+- تتبع GPS مباشر
+- مراقبة النشاط ومستويات اللياقة
+- تحديد مناطق آمنة وتلقي تنبيهات
+- مقاوم للماء 100%
+###DETAILS###
+- عمر البطارية: 2-5 أيام
+- يتطلب اشتراكًا شهريًا
+- الوزن: 30 جرام`,
+        price: 250.00,
+        images: getImages('smart-dog-collar'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'language-translator-earbuds',
+        name: 'سماعات أذن للترجمة الفورية',
+        slug: 'language-translator-earbuds',
+        description: `تحدث مع أي شخص في العالم. تترجم هذه السماعات 40 لغة و 93 لهجة في الوقت الفعلي.
+###FEATURES###
+- ترجمة فورية ثنائية الاتجاه
+- تدعم 40 لغة
+- وضع المحادثة ووضع الاستماع
+- جودة صوت عالية للموسيقى والمكالمات
+###DETAILS###
+- الاتصال: بلوتوث 5.0
+- عمر البطارية: 6 ساعات (24 مع العلبة)
+- تتطلب اتصال بالإنترنت وتطبيق`,
+        price: 800.00,
+        images: getImages('language-translator-earbuds'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'smart-whiteboard',
+        name: 'سبورة بيضاء ذكية',
+        slug: 'smart-whiteboard',
+        description: `حول أفكارك إلى محتوى رقمي. كل ما تكتبه على هذه السبورة يتم حفظه ومشاركته في الوقت الفعلي مع فريقك.
+###FEATURES###
+- التقاط ومشاركة الملاحظات في الوقت الحقيقي
+- بث مباشر إلى أي متصفح ويب
+- يحفظ تلقائيًا إلى السحابة
+- متوافق مع أقلام المسح الجاف العادية
+###DETAILS###
+- الحجم: 90 × 60 سم
+- الاتصال: واي فاي
+- مصدر الطاقة: محول كهربائي`,
+        price: 2800.00,
+        images: getImages('smart-whiteboard'),
+        category: categories.misc.slug
+    },
+    {
+        id: 'electric-longboard',
+        name: 'لوح تزلج كهربائي طويل',
+        slug: 'electric-longboard',
+        description: `تنقل في المدينة بأناقة وسرعة. يصل هذا اللوح إلى سرعة 40 كم/ساعة بمدى يصل إلى 25 كم.
+###FEATURES###
+- سرعة قصوى 40 كم/ساعة
+- مدى يصل إلى 25 كم
+- محركان قويان
+- فرامل متجددة (تعيد شحن البطارية عند الفرملة)
+###DETAILS###
+- الوزن: 7.7 كجم
+- وقت الشحن: 4-5 ساعات
+- التحكم: ريموت لاسلكي`,
+        price: 2300.00,
+        images: getImages('electric-longboard'),
+        category: categories.misc.slug
     }
 ];
+
 
 const healthProducts: Product[] = [
     {
