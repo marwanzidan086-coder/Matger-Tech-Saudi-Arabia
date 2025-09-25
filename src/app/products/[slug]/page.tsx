@@ -17,6 +17,7 @@ import { cn } from '@/lib/utils';
 import type { LucideProps } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProductFaq from '@/components/ProductFaq';
+import ProductStory from '@/components/ProductStory';
 
 
 function ParsedDescription({ description }: { description: string }) {
@@ -185,6 +186,8 @@ export default function ProductPage() {
               <ParsedDescription description={product.description} />
             </CardContent>
           </Card>
+
+          {product.story && <ProductStory story={product.story} />}
           
           <ProductFeatures description={product.description} />
 

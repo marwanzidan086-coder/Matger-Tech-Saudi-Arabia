@@ -7,6 +7,7 @@ export type Product = {
     images: string[];
     category: string;
     warranty?: string; // Optional warranty field
+    story?: string;
     faq?: { question: string; answer: string }[];
 };
   
