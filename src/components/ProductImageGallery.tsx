@@ -27,7 +27,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
 
   return (
     <div className="flex flex-col gap-4 md:sticky top-24 self-start">
-      <div className="relative aspect-square w-full overflow-hidden rounded-lg border shadow-lg group">
+      <div className="relative aspect-square w-full overflow-hidden rounded-lg border shadow-lg">
         <Image
             src={mainImage}
             alt={`${productName} - main image`}
@@ -43,7 +43,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
               variant="ghost"
               size="icon"
               onClick={handlePrevImage}
-              className="absolute top-1/2 left-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/50 text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100"
+              className="absolute top-1/2 left-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/50 text-white hover:bg-black/60 transition-colors"
               aria-label="الصورة السابقة"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -52,7 +52,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
               variant="ghost"
               size="icon"
               onClick={handleNextImage}
-              className="absolute top-1/2 right-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/50 text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100"
+              className="absolute top-1/2 right-2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/50 text-white hover:bg-black/60 transition-colors"
               aria-label="الصورة التالية"
             >
               <ChevronRight className="h-6 w-6" />
