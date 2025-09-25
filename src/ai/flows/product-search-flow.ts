@@ -32,7 +32,7 @@ export async function searchProducts(input: ProductSearchInput): Promise<Product
 
 const prompt = ai.definePrompt({
   name: 'productSearchPrompt',
-  input: { schema: ProductSearchInputSchema },
+  input: { schema: z.object({ ...ProductSearchInputSchema.shape, productCatalog: z.string() }) },
   output: { schema: ProductSearchOutputSchema },
   prompt: `
 You are an intelligent search assistant for an e-commerce store. Your goal is to help users find products from the catalog even if they have spelling mistakes in their query.
@@ -58,9 +58,13 @@ const productSearchFlow = ai.defineFlow(
     outputSchema: ProductSearchOutputSchema,
   },
   async (input) => {
+    const productCatalog = products.map(p => 
+      `- Slug: ${p.slug}\n  Name: ${p.name}\n  Description: ${p.description}`
+    ).join('\n\n');
+      
     const { output } = await prompt({
         ...input,
-        productCatalog: productCatalog
+        productCatalog: productCatalog,
     });
     return output || { results: [] };
   }
