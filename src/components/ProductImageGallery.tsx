@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -99,6 +99,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
 
       <Dialog open={isLightboxOpen} onOpenChange={setLightboxOpen}>
         <DialogContent className="max-w-4xl w-full h-auto max-h-[90vh] p-4 flex flex-col items-center justify-center">
+            <DialogTitle className="sr-only">{productName}</DialogTitle>
             <div className="relative aspect-square w-full max-w-[80vh] max-h-[80vh]">
                 <Image
                     src={mainImage}
