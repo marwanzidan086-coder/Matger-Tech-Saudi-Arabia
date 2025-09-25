@@ -19,6 +19,7 @@ function SearchResults() {
   const [aiResults, setAiResults] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isAiLoading, setIsAiLoading] = useState(false);
+  const [lastSearchedQuery, setLastSearchedQuery] = useState<string | null>(null);
 
   const fuse = new Fuse(products, {
     keys: ['name', 'description', 'category'],
@@ -27,23 +28,24 @@ function SearchResults() {
   });
 
   useEffect(() => {
-    if (!query) {
-      setIsLoading(false);
+    if (query !== lastSearchedQuery) {
       setLocalResults([]);
       setAiResults([]);
-      return;
-    }
-
-    const fetchLocalResults = () => {
       setIsLoading(true);
+      setLastSearchedQuery(query);
+
+      if (!query) {
+        setIsLoading(false);
+        return;
+      }
+
       const results = fuse.search(query).map(result => result.item);
       setLocalResults(results);
       setIsLoading(false);
-      setAiResults([]); // Clear AI results on new search
-    };
-
-    fetchLocalResults();
-  }, [query]);
+    } else {
+        setIsLoading(false);
+    }
+  }, [query, lastSearchedQuery, fuse]);
 
   const handleAiSuggestion = async () => {
     if (!query) return;
