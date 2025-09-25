@@ -10,40 +10,39 @@ import ProductListItem from '@/components/ProductListItem';
 import { Loader2, Search, Sparkles } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from '@/components/ui/button';
+import Fuse from 'fuse.js';
 
 function SearchResults() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q');
-  const [results, setResults] = useState<Product[]>([]);
+  const [localResults, setLocalResults] = useState<Product[]>([]);
+  const [aiResults, setAiResults] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isAiLoading, setIsAiLoading] = useState(false);
+
+  const fuse = new Fuse(products, {
+    keys: ['name', 'description', 'category'],
+    includeScore: true,
+    threshold: 0.3,
+  });
 
   useEffect(() => {
     if (!query) {
       setIsLoading(false);
-      setResults([]);
+      setLocalResults([]);
+      setAiResults([]);
       return;
     }
 
-    const fetchResults = async () => {
+    const fetchLocalResults = () => {
       setIsLoading(true);
-      // For demonstration, we simulate a local search first or directly use AI.
-      // In a real app, you might use Fuse.js here before calling the AI.
-      try {
-        const response = await searchProducts({ query });
-        const foundProducts = response.results
-          .map(res => products.find(p => p.slug === res.slug))
-          .filter((p): p is Product => !!p);
-        setResults(foundProducts);
-      } catch (error) {
-        console.error("Search failed:", error);
-        setResults([]);
-      } finally {
-        setIsLoading(false);
-      }
+      const results = fuse.search(query).map(result => result.item);
+      setLocalResults(results);
+      setIsLoading(false);
+      setAiResults([]); // Clear AI results on new search
     };
 
-    fetchResults();
+    fetchLocalResults();
   }, [query]);
 
   const handleAiSuggestion = async () => {
@@ -54,16 +53,18 @@ function SearchResults() {
       const foundProducts = response.results
         .map(res => products.find(p => p.slug === res.slug))
         .filter((p): p is Product => !!p);
-      setResults(foundProducts); 
+      setAiResults(foundProducts);
     } catch (error) {
       console.error("AI suggestion failed:", error);
+      setAiResults([]);
     } finally {
       setIsAiLoading(false);
     }
   };
 
-
-  const noResults = !isLoading && results.length === 0;
+  const hasLocalResults = localResults.length > 0;
+  const hasAiResults = aiResults.length > 0;
+  const noResultsFound = !isLoading && !hasLocalResults && !hasAiResults;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -83,24 +84,30 @@ function SearchResults() {
           <Loader2 className="h-12 w-12 animate-spin text-primary" />
           <p className="mt-4 text-muted-foreground">جاري البحث...</p>
         </div>
-      ) : noResults ? (
-        <div className="flex flex-col items-center justify-center min-h-[40vh] gap-8">
-            <Alert className="max-w-md text-center border-dashed">
-                <div className="mx-auto w-fit mb-2">
-                    <Search className="h-8 w-8"/>
-                </div>
-                <AlertTitle className="font-bold">لا توجد نتائج بحث</AlertTitle>
-                <AlertDescription>
-                    لم نتمكن من العثور على منتجات تطابق بحثك. حاول استخدام كلمات مختلفة أو استخدم المساعدة الذكية.
-                </AlertDescription>
-            </Alert>
-        </div>
       ) : (
-         <div className="max-w-4xl mx-auto space-y-6">
-          {results.map((product) => (
-            <ProductListItem key={product.id} product={product} />
-          ))}
-        </div>
+        <>
+          {hasLocalResults && (
+            <div className="max-w-4xl mx-auto space-y-6">
+              {localResults.map((product) => (
+                <ProductListItem key={product.id} product={product} />
+              ))}
+            </div>
+          )}
+
+          {noResultsFound && (
+            <div className="flex flex-col items-center justify-center min-h-[40vh] gap-8">
+                <Alert className="max-w-md text-center border-dashed">
+                    <div className="mx-auto w-fit mb-2">
+                        <Search className="h-8 w-8"/>
+                    </div>
+                    <AlertTitle className="font-bold">لا توجد نتائج بحث</AlertTitle>
+                    <AlertDescription>
+                        لم نتمكن من العثور على منتجات تطابق بحثك. حاول استخدام كلمات مختلفة أو استخدم المساعدة الذكية.
+                    </AlertDescription>
+                </Alert>
+            </div>
+          )}
+        </>
       )}
 
       {query && !isLoading && (
@@ -118,6 +125,26 @@ function SearchResults() {
             )}
             ✨ بحـث ذكـي ✨
           </Button>
+        </div>
+      )}
+
+      {isAiLoading && (
+         <div className="text-center py-10">
+          <Loader2 className="mx-auto h-12 w-12 text-primary animate-spin" />
+          <p className="mt-4 text-lg text-muted-foreground">يقوم خبيرنا بالبحث لك...</p>
+        </div>
+      )}
+
+      {hasAiResults && (
+        <div className="mt-12">
+            <h3 className="text-2xl font-headline font-bold text-center mb-8">
+                نتائج البحث الذكي
+            </h3>
+            <div className="max-w-4xl mx-auto space-y-6">
+            {aiResults.map((product) => (
+                <ProductListItem key={`ai-${product.id}`} product={product} />
+            ))}
+            </div>
         </div>
       )}
     </div>
