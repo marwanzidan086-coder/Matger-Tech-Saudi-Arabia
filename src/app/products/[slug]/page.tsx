@@ -161,10 +161,7 @@ export default function ProductPage() {
 
           <ProductFaq product={product} />
 
-          {/* This is the new Product Q&A component. It will only render for the 'soundcore-r100' product */}
-          {product.slug === 'soundcore-r100' && (
-            <ProductQnA product={product} />
-          )}
+          <ProductQnA product={product} />
 
           <Card>
             <CardContent className="p-4 grid grid-cols-3 gap-4 text-center">
