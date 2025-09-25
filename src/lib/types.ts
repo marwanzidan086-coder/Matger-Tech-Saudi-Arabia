@@ -18,6 +18,7 @@ export type CartItem = Product & {
 export type Order = {
     id: string;
     date: string;
+    createdAt: number; // Added timestamp for smart status
     items: CartItem[];
     total: number;
     status: 'قيد المراجعة' | 'مكتمل' | 'ملغي';

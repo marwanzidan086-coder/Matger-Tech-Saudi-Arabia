@@ -6,7 +6,7 @@ import { useLocalStorage } from '@/hooks/use-local-storage';
 
 type OrderContextType = {
   orders: Order[];
-  addOrder: (order: Order) => void;
+  addOrder: (order: Omit<Order, 'createdAt'>) => void;
   clearOrders: () => void;
 };
 
@@ -15,8 +15,12 @@ const OrderContext = createContext<OrderContextType | undefined>(undefined);
 export const OrderProvider = ({ children }: { children: ReactNode }) => {
   const [orders, setOrders] = useLocalStorage<Order[]>('matger_orders', []);
 
-  const addOrder = (order: Order) => {
-    setOrders(prevOrders => [order, ...prevOrders]);
+  const addOrder = (order: Omit<Order, 'createdAt'>) => {
+    const newOrder: Order = {
+      ...order,
+      createdAt: Date.now(), // Add timestamp when order is created
+    }
+    setOrders(prevOrders => [newOrder, ...prevOrders]);
   };
 
   const clearOrders = () => {

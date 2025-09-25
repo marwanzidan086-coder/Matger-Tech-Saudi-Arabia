@@ -4,7 +4,7 @@ import { useOrder } from '@/contexts/OrderContext';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { PackageSearch, Trash2 } from 'lucide-react';
+import { PackageSearch, Trash2, Clock } from 'lucide-react';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,6 +18,16 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+
+const getSmartStatus = (createdAt: number): string => {
+    const orderHour = new Date(createdAt).getHours();
+    // Check if order time is between 10 AM (10) and 4 PM (16)
+    if (orderHour >= 10 && orderHour < 16) {
+        return "سيتم التواصل معك اليوم وسيتم شحن الاوردر غدا";
+    } else {
+        return "سيتم التواصل معك خلال 24 ساعه القادمه وسيتم شحن الاوردر بعد تاكيد الطلب مباشره";
+    }
+}
 
 
 export default function OrdersPage() {
@@ -79,6 +89,12 @@ export default function OrdersPage() {
                 </div>
               </CardHeader>
               <CardContent>
+                {order.status === 'قيد المراجعة' && (
+                    <div className="mb-4 p-3 rounded-md bg-blue-50 text-blue-800 border border-blue-200 flex items-center gap-3">
+                        <Clock className="h-5 w-5" />
+                        <p className="text-sm font-medium">{getSmartStatus(order.createdAt)}</p>
+                    </div>
+                )}
                 <Accordion type="single" collapsible>
                   <AccordionItem value="items">
                     <AccordionTrigger>عرض تفاصيل الطلب</AccordionTrigger>
