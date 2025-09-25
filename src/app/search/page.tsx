@@ -42,23 +42,20 @@ function SearchResults() {
 
   useEffect(() => {
     setIsLoading(true);
+    setAiResults([]);
     setLocalResults([]);
     
     if (!query) {
       setIsLoading(false);
-      setAiResults([]); // Clear AI results if there is no query
       return;
     }
     
-    // Check cache for this query
+    // Check cache for this query for AI results
     const cacheKey = `ai_search_${query}`;
     const cachedResults = getSessionCache(cacheKey);
 
     if (cachedResults) {
         setAiResults(cachedResults);
-    } else {
-        // If not in cache, clear previous AI results for the new query
-        setAiResults([]);
     }
 
     // Perform local search
