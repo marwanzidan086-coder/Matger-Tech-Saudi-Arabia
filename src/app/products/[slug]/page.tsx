@@ -16,6 +16,7 @@ import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import type { LucideProps } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import FeatureIcons from '@/components/FeatureIcons';
 
 // --- Helper Component to Render Description ---
 const ICONS_MAP: { [key: string]: React.ComponentType<LucideProps> } = {
@@ -199,6 +200,7 @@ export default function ProductPage() {
           <Card className="bg-muted/40 border-dashed">
             <CardContent className="p-6">
               <ParsedDescription description={product.description} />
+              <FeatureIcons productDescription={product.description} />
             </CardContent>
           </Card>
 
