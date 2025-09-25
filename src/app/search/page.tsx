@@ -78,24 +78,6 @@ function SearchResults() {
         )}
       </div>
 
-       {query && (
-          <div className="text-center mb-8">
-             <Button 
-                onClick={handleAiSuggestion} 
-                disabled={isAiLoading}
-                size="lg"
-                className="font-bold text-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/50"
-            >
-              {isAiLoading ? (
-                <Loader2 className="me-2 h-5 w-5 animate-spin" />
-              ) : (
-                <Sparkles className="me-2 h-5 w-5" />
-              )}
-              لست متأكدًا؟ دع الذكاء الاصطناعي يساعدك
-            </Button>
-          </div>
-        )}
-
       {isLoading ? (
         <div className="flex flex-col items-center justify-center min-h-[40vh]">
           <Loader2 className="h-12 w-12 animate-spin text-primary" />
@@ -118,6 +100,24 @@ function SearchResults() {
           {results.map((product) => (
             <ProductListItem key={product.id} product={product} />
           ))}
+        </div>
+      )}
+
+      {query && !isLoading && (
+        <div className="text-center mt-12">
+            <Button 
+              onClick={handleAiSuggestion} 
+              disabled={isAiLoading}
+              size="lg"
+              className="font-bold text-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/50"
+          >
+            {isAiLoading ? (
+              <Loader2 className="me-2 h-5 w-5 animate-spin" />
+            ) : (
+              <Sparkles className="me-2 h-5 w-5" />
+            )}
+            ✨ لست متأكدًا؟ دع الذكاء الاصطناعي يساعدك ✨
+          </Button>
         </div>
       )}
     </div>
