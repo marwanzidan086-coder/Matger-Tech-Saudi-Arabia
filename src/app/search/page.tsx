@@ -23,6 +23,12 @@ function setSessionCache(key: string, value: any) {
     sessionStorage.setItem(key, JSON.stringify(value));
 }
 
+// Initialize Fuse.js outside the component to prevent re-creation on every render
+const fuse = new Fuse(products, {
+  keys: ['name', 'description', 'category'],
+  includeScore: true,
+  threshold: 0.3,
+});
 
 function SearchResults() {
   const searchParams = useSearchParams();
@@ -33,20 +39,14 @@ function SearchResults() {
   const [isLoading, setIsLoading] = useState(true);
   const [isAiLoading, setIsAiLoading] = useState(false);
 
-  const fuse = new Fuse(products, {
-    keys: ['name', 'description', 'category'],
-    includeScore: true,
-    threshold: 0.3,
-  });
 
   useEffect(() => {
-    // This effect runs only when the query changes
     setIsLoading(true);
     setLocalResults([]);
-    setAiResults([]);
-
+    
     if (!query) {
       setIsLoading(false);
+      setAiResults([]); // Clear AI results if there is no query
       return;
     }
     
@@ -56,6 +56,9 @@ function SearchResults() {
 
     if (cachedResults) {
         setAiResults(cachedResults);
+    } else {
+        // If not in cache, clear previous AI results for the new query
+        setAiResults([]);
     }
 
     // Perform local search
@@ -63,7 +66,7 @@ function SearchResults() {
     setLocalResults(results);
     setIsLoading(false);
 
-  }, [query, fuse]);
+  }, [query]);
 
   const handleAiSuggestion = async () => {
     if (!query) return;
