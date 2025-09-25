@@ -29,7 +29,25 @@ const electronicsProducts: Product[] = [
 - الوزن: 40 جرام`,
         price: 95.00,
         images: getImages('soundcore-r100'),
-        category: categories.electronics.slug
+        category: categories.electronics.slug,
+        faq: [
+            {
+                question: "ما هي مدة عمل بطارية سماعة ساوند كور R100؟",
+                answer: "تدوم البطارية حتى 25 ساعة من التشغيل مع علبة الشحن."
+            },
+            {
+                question: "هل السماعة مقاومة للماء؟",
+                answer: "نعم، السماعة مقاومة للماء بمعيار IPX5، مما يجعلها مناسبة للتمارين الرياضية والاستخدام تحت المطر الخفيف."
+            },
+            {
+                question: "ما هي تقنية BassUp؟",
+                answer: "هي تقنية حصرية من Anker تقوم بتحليل الترددات المنخفضة في الوقت الفعلي وتعززها على الفور للحصول على صوت جهير (Bass) أعمق وأقوى."
+            },
+            {
+                question: "هل تدعم السماعة الشحن السريع؟",
+                answer: "نعم، تدعم الشحن السريع عبر منفذ USB-C. شحن لمدة 10 دقائق يمكن أن يمنحك ساعة من الاستخدام."
+            }
+        ]
     },
     {
       id: 'dlc-multi-use-lantern',
@@ -2818,7 +2836,6 @@ const homeProducts: Product[] = [
     {
         id: 'robot-mop-m6',
         name: 'روبوت مسح الأرضيات Braava jet m6',
-        slug: 'robot-mop-m6',
         description: `احصل على أرضيات نظيفة ولامعة كل يوم. يتعلم روبوت Braava jet m6 خريطة منزلك ويمسح الأوساخ والبقع بذكاء.
 ###FEATURES###
 - مسح رطب وجاف

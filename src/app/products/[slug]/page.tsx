@@ -16,6 +16,7 @@ import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import type { LucideProps } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ProductFaq from '@/components/ProductFaq';
 
 // --- Helper Component to Render Description ---
 const ICONS_MAP: { [key: string]: React.ComponentType<LucideProps> } = {
@@ -201,6 +202,10 @@ export default function ProductPage() {
               <ParsedDescription description={product.description} />
             </CardContent>
           </Card>
+          
+          {product.faq && product.faq.length > 0 && (
+            <ProductFaq faqs={product.faq} />
+          )}
 
           <Card>
             <CardContent className="p-4 grid grid-cols-3 gap-4 text-center">
