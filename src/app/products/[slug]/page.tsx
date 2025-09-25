@@ -18,90 +18,20 @@ import type { LucideProps } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProductFaq from '@/components/ProductFaq';
 
-// --- Helper Component to Render Description ---
-const ICONS_MAP: { [key: string]: React.ComponentType<LucideProps> } = {
-  'صوت': Speaker,
-  'bassup': Speaker,
-  'بطارية': BatteryCharging,
-  'شحن': Usb,
-  'ماء': Droplets,
-  'بلوتوث': Bluetooth,
-  'وزن': Weight,
-  'إضاءة': Zap,
-  'باور بانك': BatteryCharging,
-  'مغناطيسي': Zap,
-};
-
-const getIconForFeature = (feature: string) => {
-  const lowerFeature = feature.toLowerCase();
-  for (const key in ICONS_MAP) {
-    if (lowerFeature.includes(key)) {
-      return ICONS_MAP[key];
-    }
-  }
-  return Zap; // Default icon
-};
-
 
 function ParsedDescription({ description }: { description: string }) {
-  const { intro, features, details } = useMemo(() => {
-    const parts = description.split(/###(FEATURES|DETAILS)###/);
-    const intro = parts[0] || '';
-    
-    const featuresIndex = description.includes('###FEATURES###') ? parts.findIndex(p => p === 'FEATURES') + 1 : -1;
-    const featuresList = featuresIndex !== -1 
-      ? parts[featuresIndex].trim().split('\n').map(f => f.replace(/^- /, '')).filter(f => f) 
-      : [];
+    const intro = useMemo(() => {
+        const parts = description.split(/###(FEATURES|DETAILS)###/);
+        return parts[0] || '';
+    }, [description]);
 
-    const detailsIndex = description.includes('###DETAILS###') ? parts.findIndex(p => p === 'DETAILS') + 1 : -1;
-    const detailsList = detailsIndex !== -1
-      ? parts[detailsIndex].trim().split('\n').map(d => {
-          const [key, ...valueParts] = d.replace(/^- /, '').split(':');
-          return { key: key.trim(), value: valueParts.join(':').trim() };
-        }).filter(d => d.key && d.value)
-      : [];
-      
-    return { intro, features: featuresList, details: detailsList };
-  }, [description]);
-
-  return (
-    <div>
-      <p className="text-base leading-relaxed text-foreground/80 mb-8">
-        {intro.trim()}
-      </p>
-
-      {features.length > 0 && (
-        <div className="mb-8">
-          <h3 className="text-xl font-bold mb-3 text-primary drop-shadow-lg">✨ مميزات المنتج ✨</h3>
-          <ul className="space-y-3">
-            {features.map((feature, index) => {
-              const Icon = getIconForFeature(feature);
-              return (
-                <li key={index} className="flex items-center gap-3">
-                  <Icon className="h-5 w-5 text-primary" />
-                  <span>{feature}</span>
-                </li>
-              );
-            })}
-          </ul>
+    return (
+        <div>
+            <p className="text-base leading-relaxed text-foreground/80">
+                {intro.trim()}
+            </p>
         </div>
-      )}
-
-      {details.length > 0 && (
-         <div>
-          <h3 className="text-xl font-bold mb-3 text-primary drop-shadow-lg">🚀 تفاصيل سريعة 🚀</h3>
-            <ul className="space-y-2">
-                {details.map(({ key, value }, index) => (
-                    <li key={index} className="flex justify-between border-b pb-2">
-                        <span className="font-semibold text-foreground/90">{key}:</span>
-                        <span className="text-muted-foreground">{value}</span>
-                    </li>
-                ))}
-            </ul>
-        </div>
-      )}
-    </div>
-  );
+    );
 }
 
 
@@ -203,9 +133,7 @@ export default function ProductPage() {
             </CardContent>
           </Card>
           
-          {product.faq && product.faq.length > 0 && (
-            <ProductFaq faqs={product.faq} />
-          )}
+          <ProductFaq product={product} />
 
           <Card>
             <CardContent className="p-4 grid grid-cols-3 gap-4 text-center">
