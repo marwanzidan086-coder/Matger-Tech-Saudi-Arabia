@@ -1785,7 +1785,7 @@ const miscProducts: Product[] = [
         id: 'smart-whiteboard',
         name: 'سبورة بيضاء ذكية',
         slug: 'smart-whiteboard',
-        description: `حول أفكارك إلى محتوى رقمي. كل ما تكتبه على هذه السبورة يتم حفظه ومشاركته في الوقت الفعلي مع فريقك.
+        description: `حول أفكارك إلى محتوى رقمي. كل ما تكتبه على هذه السبورة يتم حفظه ومشاركته في الوقت الحقيقي مع فريقك.
 ###FEATURES###
 - التقاط ومشاركة الملاحظات في الوقت الحقيقي
 - بث مباشر إلى أي متصفح ويب
@@ -2813,6 +2813,744 @@ const homeProducts: Product[] = [
         price: 650.00,
         slug: 'smart-lighting-kit',
         images: getImages('smart-lighting-kit'),
+        category: categories.home.slug
+    },
+    {
+        id: 'robot-mop-m6',
+        name: 'روبوت مسح الأرضيات Braava jet m6',
+        slug: 'robot-mop-m6',
+        description: `احصل على أرضيات نظيفة ولامعة كل يوم. يتعلم روبوت Braava jet m6 خريطة منزلك ويمسح الأوساخ والبقع بذكاء.
+###FEATURES###
+- مسح رطب وجاف
+- تقنية Precision Jet Spray لإزالة البقع
+- يتعلم ويخطط وينظف منزلك بالكامل
+- يعمل مع المكانس الروبوتية Roomba
+###DETAILS###
+- التوافق: يعمل مع Alexa و Google Assistant
+- الاتصال: واي فاي
+- الأبعاد: 27 × 25 × 9 سم`,
+        price: 1800.00,
+        images: getImages('robot-mop-m6'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-thermostat-t9',
+        name: 'منظم حرارة ذكي T9 مع مستشعر',
+        slug: 'smart-thermostat-t9',
+        description: `وفر الطاقة وحافظ على راحة منزلك. يتعلم T9 جدولك الزمني ودرجات الحرارة المفضلة لديك، ويمكن التحكم فيه عن بعد.
+###FEATURES###
+- يأتي مع مستشعر للغرف الذكية
+- يتكيف مع جدولك الزمني لتوفير الطاقة
+- التحكم من أي مكان عبر التطبيق
+- تنبيهات حول درجة الحرارة والرطوبة
+###DETAILS###
+- الاتصال: واي فاي
+- التوافق: معظم أنظمة التكييف والتدفئة
+- الشاشة: لمس ملونة`,
+        price: 800.00,
+        images: getImages('smart-thermostat-t9'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-blinds-kit',
+        name: 'مجموعة تحويل الستائر إلى ذكية',
+        slug: 'smart-blinds-kit',
+        description: `اجعل ستائرك ذكية. تسمح لك هذه المجموعة بفتح وإغلاق ستائرك الحالية تلقائيًا عبر جدول زمني أو الأوامر الصوتية.
+###FEATURES###
+- يعمل مع معظم أنواع الستائر
+- التحكم عبر التطبيق والأوامر الصوتية
+- يعمل بالطاقة الشمسية أو محول كهربائي
+- إعداد سهل في دقائق
+###DETAILS###
+- الاتصال: بلوتوث
+- مصدر الطاقة: لوح شمسي صغير ومحول
+- التوافق: Alexa, Google Assistant, HomeKit`,
+        price: 500.00,
+        images: getImages('smart-blinds-kit'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-indoor-camera-c1',
+        name: 'كاميرا مراقبة داخلية ذكية C1',
+        slug: 'smart-indoor-camera-c1',
+        description: `راقب منزلك من الداخل بوضوح. توفر هذه الكاميرا فيديو عالي الدقة، ورؤية ليلية، وصوتًا ثنائي الاتجاه.
+###FEATURES###
+- فيديو 1080p HD
+- رؤية ليلية واضحة
+- صوت ثنائي الاتجاه
+- تنبيهات ذكية للحركة والصوت
+###DETAILS###
+- مجال الرؤية: 130 درجة
+- التخزين: سحابي أو بطاقة SD
+- الاتصال: واي فاي`,
+        price: 250.00,
+        images: getImages('smart-indoor-camera-c1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-outdoor-camera-o2',
+        name: 'كاميرا مراقبة خارجية لاسلكية O2',
+        slug: 'smart-outdoor-camera-o2',
+        description: `أمن محيط منزلك. هذه الكاميرا مقاومة للطقس، وتعمل بالبطارية، وتوفر فيديو واضحًا ليلاً ونهارًا.
+###FEATURES###
+- لاسلكية بالكامل وتعمل بالبطارية
+- مقاومة للطقس (IP66)
+- كشاف مدمج وصفارة إنذار
+- رؤية ليلية ملونة
+###DETAILS###
+- الدقة: 1080p HD
+- عمر البطارية: 3-6 أشهر
+- الاتصال: واي فاي`,
+        price: 600.00,
+        images: getImages('smart-outdoor-camera-o2'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-garden-sg9',
+        name: 'حديقة ذكية داخلية SG9',
+        slug: 'smart-garden-sg9',
+        description: `ازرع الأعشاب والخضروات الطازجة على مدار السنة. توفر هذه الحديقة الذكية للنباتات الماء والضوء والمغذيات تلقائيًا.
+###FEATURES###
+- تزرع ما يصل إلى 9 نباتات
+- إضاءة LED كاملة الطيف بقوة 24 واط
+- نظام ري ذاتي
+- لوحة تحكم باللمس
+###DETAILS###
+- سعة خزان الماء: 4 لتر
+- مصدر الطاقة: محول كهربائي
+- المحتويات: مجموعة بذور متنوعة`,
+        price: 900.00,
+        images: getImages('smart-garden-sg9'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-frame-sf1',
+        name: 'إطار فني ذكي لعرض الصور الرقمية',
+        slug: 'smart-frame-sf1',
+        description: `اعرض أعمالًا فنية عالمية أو صورك الشخصية على شاشة غير لامعة تبدو وكأنها لوحة حقيقية.
+###FEATURES###
+- شاشة 15.6 بوصة Full HD غير لامعة
+- مستشعر الإضاءة المحيطة لضبط السطوع
+- التحكم عبر التطبيق وتحميل الصور
+- وصول إلى مكتبة فنية ضخمة (يتطلب اشتراكًا)
+###DETAILS###
+- الدقة: 1920x1080
+- الاتصال: واي فاي
+- الإطار: قابل للتغيير (أسود، أبيض، خشبي)`,
+        price: 2500.00,
+        images: getImages('smart-frame-sf1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-smoke-detector-sd1',
+        name: 'كاشف دخان وأول أكسيد الكربون ذكي',
+        slug: 'smart-smoke-detector-sd1',
+        description: `حماية ذكية لمنزلك. يرسل هذا الكاشف تنبيهات إلى هاتفك أينما كنت، ويخبرك بنوع الخطر وموقعه.
+###FEATURES###
+- يكتشف الدخان وأول أكسيد الكربون
+- يرسل تنبيهات إلى الهاتف
+- تنبيهات صوتية بصوت بشري
+- عمر بطارية يصل إلى 10 سنوات
+###DETAILS###
+- الاتصال: واي فاي
+- المستشعر: كهروكيميائي ضوئي
+- شهادات الأمان: معتمد`,
+        price: 550.00,
+        images: getImages('smart-smoke-detector-sd1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-water-leak-detector-wld1',
+        name: 'كاشف تسرب المياه الذكي',
+        slug: 'smart-water-leak-detector-wld1',
+        description: `تجنب الأضرار المكلفة. يرسل هذا الكاشف الصغير تنبيهات فورية إلى هاتفك عند اكتشاف تسرب مياه أو رطوبة.
+###FEATURES###
+- تنبيهات فورية على الهاتف
+- إنذار صوتي مدمج
+- تصميم صغير يمكن وضعه في أي مكان
+- عمر بطارية يصل إلى 3 سنوات
+###DETAILS###
+- الاتصال: واي فاي
+- مصدر الطاقة: بطارية
+- مناسب لـ: تحت الأحواض، بجانب الغسالات، إلخ.`,
+        price: 200.00,
+        images: getImages('smart-water-leak-detector-wld1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-dog-ball-db1',
+        name: 'كرة كلاب ذكية تفاعلية',
+        slug: 'smart-dog-ball-db1',
+        description: `أبقِ كلبك مستمتعًا ونشيطًا. تتحرك هذه الكرة من تلقاء نفسها، وتتجنب العقبات، وتحفز غرائز الصيد لدى كلبك.
+###FEATURES###
+- 3 أوضاع تفاعلية
+- تتجنب العقبات تلقائيًا
+- قابلة لإعادة الشحن عبر USB
+- مصنوعة من مواد آمنة ومتينة
+###DETAILS###
+- المادة: سيليكون وبولي كربونات
+- وقت اللعب: ساعتان
+- مناسبة لـ: الكلاب الصغيرة والمتوسطة`,
+        price: 180.00,
+        images: getImages('smart-dog-ball-db1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'compost-bin-cb1',
+        name: 'صندوق سماد كهربائي للمطبخ',
+        slug: 'compost-bin-cb1',
+        description: `حول بقايا طعامك إلى سماد غني بالمغذيات في ساعات قليلة، بدون رائحة أو فوضى.
+###FEATURES###
+- يحول بقايا الطعام إلى سماد في أقل من 5 ساعات
+- يقلل حجم النفايات بنسبة تصل إلى 90%
+- عملية تجفيف وطحن هادئة وعديمة الرائحة
+- سهل الاستخدام والتنظيف
+###DETAILS###
+- السعة: 2.5 لتر
+- مصدر الطاقة: كهربائي
+- فلتر: كربون قابل للاستبدال`,
+        price: 1500.00,
+        images: getImages('compost-bin-cb1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-curtain-robot-cr1',
+        name: 'روبوت الستائر الذكي',
+        slug: 'smart-curtain-robot-cr1',
+        description: `اجعل أي ستارة ذكية في 30 ثانية. يقوم هذا الروبوت الصغير بفتح وإغلاق ستائرك بناءً على جدول زمني أو الأوامر الصوتية.
+###FEATURES###
+- تركيب سهل للغاية
+- يعمل مع معظم أنواع قضبان الستائر
+- مستشعر ضوء لفتح الستائر تلقائيًا عند شروق الشمس
+- يعمل بالبطارية القابلة لإعادة الشحن
+###DETAILS###
+- الاتصال: بلوتوث (يتطلب Hub للأوامر الصوتية عن بعد)
+- عمر البطارية: يصل إلى 8 أشهر
+- الشحن: USB-C`,
+        price: 380.00,
+        images: getImages('smart-curtain-robot-cr1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'wireless-charging-furniture-wcf1',
+        name: 'طاولة جانبية مع شحن لاسلكي مدمج',
+        slug: 'wireless-charging-furniture-wcf1',
+        description: `أثاث ذكي وعملي. ضع هاتفك على الطاولة لشحنه لاسلكيًا. تصميم عصري يناسب أي غرفة.
+###FEATURES###
+- شاحن لاسلكي مدمج غير مرئي
+- تصميم بسيط وأنيق
+- منفذ USB إضافي
+- سهلة التركيب
+###DETAILS###
+- المادة: خشب MDF
+- قوة الشاحن: 10 واط Qi
+- الأبعاد: 40 × 40 × 50 سم`,
+        price: 550.00,
+        images: getImages('wireless-charging-furniture-wcf1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-laundry-sensor-ls1',
+        name: 'مستشعر غسيل ذكي',
+        slug: 'smart-laundry-sensor-ls1',
+        description: `اعرف متى تنتهي دورة الغسيل أو التجفيف. يرسل هذا المستشعر إشعارًا إلى هاتفك عند توقف الاهتزازات.
+###FEATURES###
+- يرسل إشعارات عند انتهاء الغسيل
+- يعمل مع أي غسالة أو مجفف
+- تركيب سهل (مغناطيسي)
+- عمر بطارية طويل
+###DETAILS###
+- الاتصال: واي فاي
+- مصدر الطاقة: بطارية
+- التوافق: Alexa`,
+        price: 150.00,
+        images: getImages('smart-laundry-sensor-ls1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'automatic-soap-dispenser-asd1',
+        name: 'موزع صابون رغوي أوتوماتيكي',
+        slug: 'automatic-soap-dispenser-asd1',
+        description: `تجربة غسل يدين صحية وبدون لمس. يوفر هذا الموزع كمية مثالية من الصابون الرغوي عند تمرير يدك تحته.
+###FEATURES###
+- مستشعر حركة بالأشعة تحت الحمراء
+- ينتج رغوة غنية وكثيفة
+- قابل لإعادة الشحن عبر USB
+- تصميم أنيق ومقاوم للماء
+###DETAILS###
+- السعة: 300 مل
+- وقت الاستجابة: 0.25 ثانية
+- الشحن: USB-C`,
+        price: 120.00,
+        images: getImages('automatic-soap-dispenser-asd1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-trash-can-stc1',
+        name: 'سلة مهملات ذكية',
+        slug: 'smart-trash-can-stc1',
+        description: `طريقة صحية وأنيقة للتعامل مع القمامة. تفتح السلة تلقائيًا عند اقترابك وتغلق بهدوء.
+###FEATURES###
+- فتح وإغلاق بدون لمس
+- تحتوي على الروائح بفعالية
+- مصنوعة من الفولاذ المقاوم للصدأ
+- حلقة لتثبيت كيس القمامة
+###DETAILS###
+- السعة: 15 لتر
+- مصدر الطاقة: 4 بطاريات AA
+- المادة: فولاذ مقاوم للصدأ`,
+        price: 350.00,
+        images: getImages('smart-trash-can-stc1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-wifi-plug-swp1',
+        name: 'مقبس كهربائي ذكي واي فاي (قطعتان)',
+        slug: 'smart-wifi-plug-swp1',
+        description: `حول أي جهاز عادي إلى جهاز ذكي. تحكم في المصابيح والمراوح وأي جهاز آخر من هاتفك أو بصوتك.
+###FEATURES###
+- التحكم عن بعد عبر التطبيق
+- يعمل مع Alexa و Google Assistant
+- وضع "Away" لتشغيل الأجهزة عشوائيًا
+- تصميم مدمج لا يعيق المقبس المجاور
+###DETAILS###
+- الاتصال: واي فاي 2.4GHz
+- الحد الأقصى للتيار: 10 أمبير
+- لا يتطلب Hub`,
+        price: 120.00,
+        images: getImages('smart-wifi-plug-swp1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-diffuser-sd1',
+        name: 'موزع روائح عطرية ذكي',
+        slug: 'smart-diffuser-sd1',
+        description: `عطر منزلك بذكاء. تحكم في قوة الرائحة، وجدولة التشغيل، وألوان الإضاءة من خلال هاتفك.
+###FEATURES###
+- التحكم عبر التطبيق والأوامر الصوتية
+- جدولة أوقات التشغيل
+- إضاءة LED قابلة للتخصيص
+- يعمل مع الزيوت العطرية
+###DETAILS###
+- السعة: 200 مل
+- الاتصال: واي فاي
+- التغطية: تصل إلى 30 مترًا مربعًا`,
+        price: 280.00,
+        images: getImages('smart-diffuser-sd1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'self-watering-pot-swp2',
+        name: 'أصيص نباتات ذاتي السقي',
+        slug: 'self-watering-pot-swp2',
+        description: `حافظ على نباتاتك حية وصحية حتى أثناء سفرك. يوفر هذا الأصيص الماء لنباتاتك لمدة تصل إلى شهر.
+###FEATURES###
+- نظام ري ذاتي
+- مؤشر لمستوى الماء
+- تصميم عصري وأنيق
+- مثالي للنباتات الداخلية
+###DETAILS###
+- المادة: بلاستيك عالي الجودة
+- الحجم: 15 سم (قطر)
+- الألوان: أبيض, أسود, رمادي`,
+        price: 80.00,
+        images: getImages('self-watering-pot-swp2'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-food-scale-sfs1',
+        name: 'ميزان طعام ذكي مع تحليل غذائي',
+        slug: 'smart-food-scale-sfs1',
+        description: `اعرف بالضبط ما تأكله. يقيس هذا الميزان وزن الطعام ويتصل بتطبيق يوفر لك معلومات تفصيلية عن السعرات الحرارية والمغذيات.
+###FEATURES###
+- يتصل بتطبيق لتحليل القيمة الغذائية
+- قاعدة بيانات ضخمة للأطعمة
+- سطح من الزجاج المقوى سهل التنظيف
+- وظيفة تصفير الوزن (Tare)
+###DETAILS###
+- الاتصال: بلوتوث
+- الحد الأقصى للوزن: 5 كجم
+- التوافق: iOS و Android`,
+        price: 220.00,
+        images: getImages('smart-food-scale-sfs1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'bbq-thermometer-bt1',
+        name: 'ميزان حرارة شواء لاسلكي',
+        slug: 'bbq-thermometer-bt1',
+        description: `اشوِ اللحم كالمحترفين. يتيح لك هذا الميزان مراقبة درجة حرارة اللحم من هاتفك وتلقي تنبيهات عند وصوله إلى درجة النضج المثالية.
+###FEATURES###
+- مسباران لمراقبة نوعين من اللحم أو درجة حرارة الشواية
+- مدى لاسلكي يصل إلى 100 متر
+- إعدادات مسبقة لدرجات حرارة أنواع اللحوم المختلفة
+- تطبيق سهل الاستخدام مع تنبيهات
+###DETAILS###
+- الاتصال: بلوتوث
+- مقاومة الحرارة (المسبار): تصل إلى 380 درجة مئوية
+- البطارية: قابلة لإعادة الشحن`,
+        price: 350.00,
+        images: getImages('bbq-thermometer-bt1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-photo-printer-spp1',
+        name: 'طابعة صور ذكية للمنزل',
+        slug: 'smart-photo-printer-spp1',
+        description: `اطبع صورًا بجودة احترافية مباشرة من هاتفك. تستخدم هذه الطابعة تقنية التسامي الصبغي لإنتاج صور مقاومة للماء والبهتان.
+###FEATURES###
+- طباعة صور عالية الجودة مقاس 4x6 بوصة
+- طباعة لاسلكية من الهاتف أو الكمبيوتر
+- تطبيق لتحرير الصور وإضافة لمسات إبداعية
+- تطبع الصورة في أقل من دقيقة
+###DETAILS###
+- التقنية: Dye-sublimation
+- الاتصال: واي فاي
+- التوافق: iOS, Android, Windows, macOS`,
+        price: 650.00,
+        images: getImages('smart-photo-printer-spp1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-mirror-sm1',
+        name: 'مرآة ذكية للحمام',
+        slug: 'smart-mirror-sm1',
+        description: `مرآة عصرية تعرض لك الوقت، والطقس، والأخبار أثناء استعدادك في الصباح.
+###FEATURES###
+- شاشة عرض مدمجة غير مرئية عند إطفائها
+- تعرض الوقت، التاريخ، الطقس
+- إضاءة LED مدمجة مع سطوع قابل للتعديل
+- نظام إزالة الضباب
+###DETAILS###
+- الحجم: 80 × 60 سم
+- الاتصال: واي فاي
+- مصدر الطاقة: كهربائي`,
+        price: 1400.00,
+        images: getImages('smart-mirror-sm1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-pet-toy-spt1',
+        name: 'لعبة حيوانات أليفة ذكية بالليزر',
+        slug: 'smart-pet-toy-spt1',
+        description: `أبقِ قطتك أو كلبك مستمتعًا لساعات. تتحرك نقطة الليزر بشكل عشوائي لإثارة غريزة الصيد لدى حيوانك الأليف.
+###FEATURES###
+- وضع تلقائي ووضع يدوي
+- أنماط ليزر عشوائية
+- تعمل بجدول زمني للحفاظ على نشاط حيوانك
+- هادئة وآمنة للحيوانات الأليفة
+###DETAILS###
+- مصدر الطاقة: USB
+- الدوران: 360 درجة
+- التوافق: مناسب للقطط والكلاب`,
+        price: 180.00,
+        images: getImages('smart-pet-toy-spt1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'digital-luggage-scale-dls1',
+        name: 'ميزان أمتعة رقمي محمول',
+        slug: 'digital-luggage-scale-dls1',
+        description: `تجنب رسوم الوزن الزائد في المطار. يتيح لك هذا الميزان الصغير وزن حقائبك بدقة قبل التوجه إلى المطار.
+###FEATURES###
+- شاشة LCD سهلة القراءة
+- يقيس حتى 50 كجم
+- وظيفة تصفير الوزن (Tare)
+- صغير وخفيف الوزن
+###DETAILS###
+- البطارية: 1x CR2032
+- الوحدات: كجم / رطل
+- إيقاف تلقائي`,
+        price: 60.00,
+        images: getImages('digital-luggage-scale-dls1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-sous-vide-ssv1',
+        name: 'جهاز طبخ سو فيد ذكي',
+        slug: 'smart-sous-vide-ssv1',
+        description: `اطبخ شرائح اللحم والخضروات بشكل مثالي. يتصل هذا الجهاز بهاتفك ويتيح لك التحكم في عملية الطهي من أي مكان.
+###FEATURES###
+- تحكم دقيق في درجة الحرارة
+- اتصال واي فاي وبلوتوث
+- تطبيق مع آلاف الوصفات
+- صغير وقوي
+###DETAILS###
+- القوة: 1100 واط
+- معدل التدفق: 12 لتر/دقيقة
+- مقاوم للماء: IPX7`,
+        price: 850.00,
+        images: getImages('smart-sous-vide-ssv1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-button-pusher-sbp1',
+        name: 'روبوت ضغط الأزرار الذكي',
+        slug: 'smart-button-pusher-sbp1',
+        description: `حول أي جهاز تقليدي إلى جهاز ذكي. يقوم هذا الروبوت الصغير بالضغط على الأزرار نيابة عنك، ويمكن التحكم فيه عبر التطبيق.
+###FEATURES###
+- يضغط على الأزرار ومفاتيح الإضاءة
+- تحكم عبر التطبيق والأوامر الصوتية (يتطلب Hub)
+- تركيب سهل باللصق
+- عمر بطارية طويل جدًا
+###DETAILS###
+- الاتصال: بلوتوث
+- عمر البطارية: حوالي 600 يوم
+- المادة: بلاستيك ABS`,
+        price: 150.00,
+        images: getImages('smart-button-pusher-sbp1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'cordless-stick-vacuum-csv1',
+        name: 'مكنسة كهربائية لاسلكية عمودية',
+        slug: 'cordless-stick-vacuum-csv1',
+        description: `تنظيف قوي بدون قيود. هذه المكنسة خفيفة الوزن وتصل إلى كل زاوية، مع بطارية قابلة للفصل لسهولة الشحن.
+###FEATURES###
+- شفط قوي 22KPa
+- بطارية تدوم حتى 40 دقيقة
+- نظام ترشيح 5 مراحل
+- تتحول إلى مكنسة يدوية
+###DETAILS###
+- الوزن: 2.5 كجم
+- سعة صندوق الغبار: 0.8 لتر
+- الملحقات: فرشاة للأرضيات، أداة للشقوق، فرشاة 2 في 1`,
+        price: 750.00,
+        images: getImages('cordless-stick-vacuum-csv1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-window-cleaner-swc1',
+        name: 'روبوت تنظيف النوافذ الذكي',
+        slug: 'smart-window-cleaner-swc1',
+        description: `احصل على نوافذ لامعة بدون مجهود. يلتصق هذا الروبوت بالزجاج وينظفه تلقائيًا.
+###FEATURES###
+- نظام شفط قوي للبقاء على الزجاج
+- ينظف بمسارات ذكية
+- تحكم عبر ريموت كنترول
+- نظام أمان مع بطارية احتياطية وحبل أمان
+###DETAILS###
+- سرعة التنظيف: 4 دقائق/متر مربع
+- مصدر الطاقة: كهربائي
+- مناسب لـ: النوافذ، المرايا، بلاط السيراميك`,
+        price: 1200.00,
+        images: getImages('smart-window-cleaner-swc1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-air-freshener-saf1',
+        name: 'معطر جو ذكي للسيارة',
+        slug: 'smart-air-freshener-saf1',
+        description: `حافظ على رائحة سيارتك منعشة دائمًا. يكتشف هذا المعطر الاهتزازات ويبدأ بالعمل تلقائيًا عند تشغيل السيارة.
+###FEATURES###
+- يعمل تلقائيًا عند تشغيل السيارة
+- 3 مستويات لشدة العطر
+- يدوم حتى 60 يومًا
+- تصميم أنيق من سبائك الألومنيوم
+###DETAILS###
+- مصدر الطاقة: بطارية قابلة لإعادة الشحن USB
+- نوع العطر: زيوت عطرية (يأتي مع عبوة واحدة)
+- التركيب: فتحة المكيف`,
+        price: 180.00,
+        images: getImages('smart-air-freshener-saf1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-rice-cooker-src1',
+        name: 'طباخة أرز ذكية',
+        slug: 'smart-rice-cooker-src1',
+        description: `احصل على أرز مطبوخ بشكل مثالي في كل مرة. تتيح لك هذه الطباخة التحكم في عملية الطهي واختيار نوع الأرز من هاتفك.
+###FEATURES###
+- تحكم عبر التطبيق مع وصفات متنوعة
+- تقنية التسخين بالحث الكهرومغناطيسي
+- وعاء داخلي غير لاصق
+- يحافظ على الأرز دافئًا لساعات
+###DETAILS###
+- السعة: 3 لتر
+- الاتصال: واي فاي
+- القوة: 1100 واط`,
+        price: 550.00,
+        images: getImages('smart-rice-cooker-src1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'electric-kettle-ek1',
+        name: 'غلاية ماء كهربائية مع تحكم في درجة الحرارة',
+        slug: 'electric-kettle-ek1',
+        description: `مثالية لعشاق الشاي والقهوة. تتيح لك هذه الغلاية تسخين الماء إلى درجة الحرارة الدقيقة المطلوبة لمشروبك.
+###FEATURES###
+- 6 إعدادات مسبقة لدرجة الحرارة
+- وظيفة الحفاظ على الدفء لمدة 60 دقيقة
+- مصنوعة من الفولاذ المقاوم للصدأ
+- حماية من الغليان الجاف
+###DETAILS###
+- السعة: 1.7 لتر
+- القوة: 1500 واط
+- المادة: فولاذ مقاوم للصدأ`,
+        price: 280.00,
+        images: getImages('electric-kettle-ek1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'motion-activated-faucet-maf1',
+        name: 'محول صنبور الماء إلى ذكي',
+        slug: 'motion-activated-faucet-maf1',
+        description: `حول أي صنبور إلى صنبور يعمل بدون لمس. يوفر الماء ويقلل من انتشار الجراثيم.
+###FEATURES###
+- مستشعران للحركة (سفلي وجانبي)
+- تركيب سهل على معظم الصنابير
+- يوفر استهلاك الماء
+- بطارية قابلة لإعادة الشحن تدوم طويلاً
+###DETAILS###
+- مقاوم للماء: IPX6
+- الشحن: Micro USB
+- عمر البطارية: يصل إلى 6 أشهر`,
+        price: 150.00,
+        images: getImages('motion-activated-faucet-maf1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-plant-sensor-sps1',
+        name: 'مستشعر نباتات ذكي',
+        slug: 'smart-plant-sensor-sps1',
+        description: `اعرف بالضبط ما تحتاجه نباتاتك. يقيس هذا المستشعر رطوبة التربة، والضوء، ودرجة الحرارة، ومستوى الخصوبة.
+###FEATURES###
+- يقيس 4 مؤشرات حيوية للنبات
+- يتصل بتطبيق مع قاعدة بيانات لآلاف النباتات
+- يقدم نصائح للعناية بنباتاتك
+- مناسب للنباتات الداخلية والخارجية
+###DETAILS###
+- الاتصال: بلوتوث
+- البطارية: 1x CR2032 (تدوم عامًا)
+- مقاوم للماء: IPX5`,
+        price: 130.00,
+        images: getImages('smart-plant-sensor-sps1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-picture-light-spl1',
+        name: 'إضاءة لوحات ذكية',
+        slug: 'smart-picture-light-spl1',
+        description: `أبرز جمال لوحاتك الفنية. تتيح لك هذه الإضاءة التحكم في درجة حرارة اللون والسطوع لإضاءة مثالية.
+###FEATURES###
+- تحكم في درجة حرارة اللون (دافئ إلى بارد)
+- سطوع قابل للتعديل
+- تعمل بالبطارية لتركيب بدون أسلاك
+- ريموت كنترول للتحكم السهل
+###DETAILS###
+- مصدر الطاقة: بطارية قابلة لإعادة الشحن
+- التركيب: على الحائط فوق اللوحة
+- المادة: معدن`,
+        price: 320.00,
+        images: getImages('smart-picture-light-spl1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'automatic-pet-door-apd1',
+        name: 'باب حيوانات أليفة أوتوماتيكي',
+        slug: 'automatic-pet-door-apd1',
+        description: `امنح حيوانك الأليف حرية الدخول والخروج مع الحفاظ على أمان منزلك. يفتح الباب فقط عندما يقترب حيوانك الأليف الذي يرتدي الطوق الخاص.
+###FEATURES###
+- يفتح فقط للحيوانات الأليفة التي ترتدي الطوق الذكي
+- يمنع دخول الحيوانات الأخرى
+- 4 أوضاع للقفل
+- مقاوم للطقس
+###DETAILS###
+- مصدر الطاقة: 4 بطاريات C
+- مناسب لـ: القطط والكلاب الصغيرة
+- المحتويات: باب، طوق ذكي واحد`,
+        price: 700.00,
+        images: getImages('automatic-pet-door-apd1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-fabric-shaver-sfs2',
+        name: 'مزيل الوبر الذكي للملابس',
+        slug: 'smart-fabric-shaver-sfs2',
+        description: `جدد ملابسك وأثاثك. يزيل هذا الجهاز الوبر والكرات الصغيرة من الأقمشة بفعالية وأمان.
+###FEATURES###
+- شاشة LED لعرض مستوى البطارية والسرعة
+- 3 سرعات مختلفة
+- شفرات حادة وقوية
+- تصميم آمن لا يتلف القماش
+###DETAILS###
+- الشحن: USB-C
+- وقت التشغيل: يصل إلى 3 ساعات
+- سهل التنظيف`,
+        price: 140.00,
+        images: getImages('smart-fabric-shaver-sfs2'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-coffee-grinder-scg1',
+        name: 'مطحنة قهوة ذكية',
+        slug: 'smart-coffee-grinder-scg1',
+        description: `احصل على طحنة قهوة مثالية لمشروبك. تتيح لك هذه المطحنة اختيار درجة الطحن والكمية بدقة للحصول على أفضل نكهة.
+###FEATURES###
+- 60 إعدادًا للطحن (من الإسبريسو إلى الفرنش برس)
+- تطحن مباشرة في مرشح القهوة
+- شاشة LCD لعرض الإعدادات
+- شفرات مخروطية من الفولاذ المقاوم للصدأ
+###DETAILS###
+- سعة وعاء البن: 450 جرام
+- القوة: 165 واط
+- المادة: فولاذ مقاوم للصدأ`,
+        price: 950.00,
+        images: getImages('smart-coffee-grinder-scg1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-humidifier-sh1',
+        name: 'مرطب هواء ذكي',
+        slug: 'smart-humidifier-sh1',
+        description: `حافظ على مستوى رطوبة مثالي في منزلك. يمكنك التحكم في هذا المرطب عن بعد وتعيين مستوى الرطوبة المستهدف.
+###FEATURES###
+- خزان كبير بسعة 4.5 لتر
+- وضع تلقائي للحفاظ على الرطوبة المستهدفة
+- فوهة 360 درجة لتوزيع الرذاذ
+- هادئ ومناسب لغرف النوم
+###DETAILS###
+- الاتصال: واي فاي
+- وقت التشغيل: يصل إلى 40 ساعة
+- التغطية: تصل إلى 40 مترًا مربعًا`,
+        price: 320.00,
+        images: getImages('smart-humidifier-sh1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'bedside-lamp-bl1',
+        name: 'مصباح سرير ذكي مع منبه ضوئي',
+        slug: 'bedside-lamp-bl1',
+        description: `استيقظ بنشاط ونم بهدوء. يحاكي هذا المصباح شروق الشمس لإيقاظك بلطف ويساعدك على الاسترخاء مع إضاءة دافئة.
+###FEATURES###
+- محاكاة شروق وغروب الشمس
+- 16 مليون لون
+- التحكم عبر التطبيق والأوامر الصوتية
+- يعمل كضوء ليلي
+###DETAILS###
+- الاتصال: واي فاي
+- التوافق: Alexa, Google Assistant, HomeKit
+- مصدر الطاقة: كهربائي`,
+        price: 450.00,
+        images: getImages('bedside-lamp-bl1'),
+        category: categories.home.slug
+    },
+    {
+        id: 'smart-wine-aerator-swa1',
+        name: 'مهوي نبيذ إلكتروني ذكي',
+        slug: 'smart-wine-aerator-swa1',
+        description: `عزز نكهة النبيذ في ثوانٍ. يقوم هذا الجهاز بتهوية النبيذ أثناء سكبه لإطلاق نكهاته ورائحته الكاملة.
+###FEATURES###
+- تهوية فورية بلمسة زر
+- يسكب ويوزع النبيذ بسهولة
+- تصميم أنيق ومحكم
+- يعمل مع معظم زجاجات النبيذ
+###DETAILS###
+- مصدر الطاقة: بطارية قابلة لإعادة الشحن USB
+- المادة: فولاذ مقاوم للصدأ
+- سهل التنظيف`,
+        price: 250.00,
+        images: getImages('smart-wine-aerator-swa1'),
         category: categories.home.slug
     }
 ];
