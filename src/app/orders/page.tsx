@@ -18,6 +18,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import Image from 'next/image';
 
 const getSmartStatus = (createdAt: number): string => {
     const orderHour = new Date(createdAt).getHours();
@@ -90,20 +92,36 @@ export default function OrdersPage() {
               </CardHeader>
               <CardContent>
                 {order.status === 'قيد المراجعة' && (
-                    <div className="mb-4 p-3 rounded-md bg-blue-50 text-blue-800 border border-blue-200 flex items-center gap-3">
-                        <Clock className="h-5 w-5" />
-                        <p className="text-sm font-medium">{getSmartStatus(order.createdAt)}</p>
-                    </div>
+                    <Alert className="mb-4 border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-100">
+                        <Clock className="h-5 w-5 !text-blue-500" />
+                        <AlertTitle className="font-bold">ملاحظة حول طلبك</AlertTitle>
+                        <AlertDescription>
+                          {getSmartStatus(order.createdAt)}
+                        </AlertDescription>
+                    </Alert>
                 )}
                 <Accordion type="single" collapsible>
                   <AccordionItem value="items">
                     <AccordionTrigger>عرض تفاصيل الطلب</AccordionTrigger>
                     <AccordionContent>
-                      <ul className="space-y-3 mt-2">
+                      <ul className="space-y-4 mt-4">
                         {order.items.map((item) => (
-                          <li key={item.id} className="flex justify-between">
-                            <span>{item.name} x {item.quantity}</span>
-                            <span>{(item.price * item.quantity).toFixed(2)} ر.س</span>
+                          <li key={item.id} className="flex justify-between items-center gap-4">
+                             <div className="flex items-center gap-3 flex-grow">
+                               <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
+                                  <Image 
+                                    src={item.images[0]} 
+                                    alt={item.name} 
+                                    fill
+                                    className="object-cover"
+                                  />
+                               </div>
+                               <div>
+                                  <p className="font-semibold">{item.name}</p>
+                                  <p className="text-sm text-muted-foreground">الكمية: {item.quantity}</p>
+                               </div>
+                             </div>
+                            <span className="font-mono text-sm flex-shrink-0">{(item.price * item.quantity).toFixed(2)} ر.س</span>
                           </li>
                         ))}
                       </ul>
