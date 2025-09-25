@@ -10,7 +10,6 @@ import { ai } from '@/ai/genkit';
 import { products } from '@/data/products';
 import { z } from 'zod';
 import type { SimilarProductsInput, SimilarProductsOutput } from './similar-products-flow.d';
-import Fuse from 'fuse.js';
 
 // Zod schemas are defined here, on the server, to validate flow input/output.
 const SimilarProductsInputSchema = z.object({
@@ -38,7 +37,7 @@ const prompt = ai.definePrompt({
   prompt: `
 You are a helpful AI assistant for an e-commerce store. Your goal is to recommend similar or complementary products to a user viewing a specific item.
 
-You will be given the current product's details and a pre-filtered catalog of potentially similar products. You MUST recommend 3-4 different products from THIS pre-filtered catalog. Do NOT recommend the same product the user is currently viewing.
+You will be given the current product's details and the full product catalog (excluding the current product). You MUST recommend 3-4 different products from this catalog. Do NOT recommend the same product the user is currently viewing.
 
 **Current Product:**
 - ID: {{{productId}}}
@@ -46,18 +45,13 @@ You will be given the current product's details and a pre-filtered catalog of po
 - Description: {{{productDescription}}}
 
 
-**Pre-filtered Similar Product Catalog:**
+**Full Product Catalog (excluding current product):**
 ---
 {{productCatalog}}
 ---
 
 Analyze the user's current product and the provided catalog. Select the most suitable products and provide your response in the required JSON format, containing only the slugs of the recommended products.
   `,
-});
-
-const fuse = new Fuse(products, {
-  keys: ['name', 'description', 'category'],
-  threshold: 0.3,
 });
 
 
@@ -68,34 +62,15 @@ const similarProductsFlow = ai.defineFlow(
     outputSchema: SimilarProductsOutputSchema,
   },
   async (input) => {
-    // 1. Find the current product to get its category and description
-    const currentProduct = products.find(p => p.id === input.productId);
-    if (!currentProduct) {
-      return { recommendations: [] };
-    }
-
-    // 2. Pre-filter products using local search (Fuse.js)
-    // We search based on the current product's name and description to find similar ones.
-    const searchResults = fuse.search(currentProduct.name);
-    let relevantProducts = searchResults.map(result => result.item);
-
-    // Filter out the current product itself from the results
-    relevantProducts = relevantProducts.filter(p => p.id !== input.productId);
-
-    // Take the top 10 most relevant products
-    const topRelevantProducts = relevantProducts.slice(0, 10);
+    // Filter out the current product from the full list
+    const otherProducts = products.filter(p => p.id !== input.productId);
     
-    // If no other products are found, return empty.
-    if (topRelevantProducts.length === 0) {
-      return { recommendations: [] };
-    }
-    
-    // 3. Prepare the smaller product catalog string for the AI
-    const productCatalog = topRelevantProducts
+    // Prepare the product catalog string for the AI
+    const productCatalog = otherProducts
       .map(p => `- ID: ${p.id}\n  Slug: ${p.slug}\n  Name: ${p.name}\n  Description: ${p.description}`)
       .join('\n\n');
       
-    // 4. Call the AI with the filtered list
+    // Call the AI with the filtered list
     const { output } = await prompt({
         ...input,
         productCatalog: productCatalog,
