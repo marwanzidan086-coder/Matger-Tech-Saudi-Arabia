@@ -71,7 +71,9 @@ export default function ProductFaq({ product }: ProductFaqProps) {
             {allFaqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
                     <AccordionTrigger>{faq.question}</AccordionTrigger>
-                    <AccordionContent className="text-base" dangerouslySetInnerHTML={{ __html: faq.answer }} />
+                    <AccordionContent className="text-base">
+                      <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
+                    </AccordionContent>
                 </AccordionItem>
             ))}
         </Accordion>
