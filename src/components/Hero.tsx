@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Gift } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -27,12 +27,20 @@ export default function Hero() {
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-white/90">
           أحدث المنتجات التقنية التي تلهم حياتك اليومية، بأسعار تنافسية وجودة لا تضاهى.
         </p>
-        <Button asChild size="lg" className="mt-8 font-bold text-lg">
-          <Link href="#products">
-            تسوق الآن
-            <ArrowLeft className="me-2 h-5 w-5" />
-          </Link>
-        </Button>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild size="lg" className="font-bold text-lg">
+              <Link href="#products">
+                تسوق الآن
+                <ArrowLeft className="me-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="font-bold text-lg bg-transparent hover:bg-white/10 text-white border-white/50 hover:border-white">
+              <Link href="#gift-advisor">
+                 البحث عن هدية
+                <Gift className="me-2 h-5 w-5" />
+              </Link>
+            </Button>
+        </div>
       </div>
     </div>
   );
