@@ -8,7 +8,7 @@ import { AddToCartButton } from './AddToCartButton';
 import { AddToWishlistButton } from './AddToWishlistButton';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 
 
@@ -31,16 +31,38 @@ type ProductCardProps = {
   product: Product;
 } & VariantProps<typeof productCardVariants>;
 
+// A global flag to manage the loading state across all product cards
+let isAnyProductLoading = false;
 
 export default function ProductCard({ product, size }: ProductCardProps) {
   const [isLoading, setIsLoading] = useState(false);
-  
-  const handleClick = () => {
+  const [isNavigating, setIsNavigating] = useState(false);
+
+  useEffect(() => {
+    // Reset the global flag if the component unmounts (e.g., page navigation)
+    return () => {
+      isAnyProductLoading = false;
+    };
+  }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (isAnyProductLoading) {
+      e.preventDefault();
+      return;
+    }
+    isAnyProductLoading = true;
     setIsLoading(true);
+    setIsNavigating(true); // A local state to re-render this component if needed
   };
 
+  const isDisabled = isAnyProductLoading && !isLoading;
+
   return (
-    <div className={cn(productCardVariants({ size }), isLoading && 'ring-2 ring-primary ring-offset-2 ring-offset-background shadow-lg shadow-primary/30')}>
+    <div className={cn(
+        productCardVariants({ size }), 
+        isLoading && 'ring-2 ring-primary ring-offset-2 ring-offset-background shadow-lg shadow-primary/30',
+        isDisabled && 'opacity-50 pointer-events-none'
+      )}>
       <Link href={`/products/${product.slug}`} className="block" onClick={handleClick}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
            {isLoading && (
