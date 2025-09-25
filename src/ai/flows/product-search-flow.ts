@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A Genkit flow for searching products.
@@ -22,9 +23,6 @@ const ProductSearchOutputSchema = z.object({
   ).describe('An array of product slugs that match the search query.'),
 });
 
-const productCatalog = products.map(p => 
-  `- Slug: ${p.slug}\n  Name: ${p.name}\n  Description: ${p.description}`
-).join('\n\n');
 
 export async function searchProducts(input: ProductSearchInput): Promise<ProductSearchOutput> {
   return productSearchFlow(input);
@@ -58,14 +56,17 @@ const productSearchFlow = ai.defineFlow(
     outputSchema: ProductSearchOutputSchema,
   },
   async (input) => {
+    // Construct the product catalog string inside the flow
     const productCatalog = products.map(p => 
       `- Slug: ${p.slug}\n  Name: ${p.name}\n  Description: ${p.description}`
     ).join('\n\n');
       
+    // Pass the constructed catalog to the prompt
     const { output } = await prompt({
         ...input,
         productCatalog: productCatalog,
     });
+
     return output || { results: [] };
   }
 );
