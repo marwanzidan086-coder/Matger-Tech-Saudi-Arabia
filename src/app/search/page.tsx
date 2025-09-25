@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { searchProducts } from '@/ai/flows/product-search-flow';
 import { products } from '@/data/products';
 import { Product } from '@/lib/types';
-import ProductCard from '@/components/ProductCard';
+import ProductListItem from '@/components/ProductListItem';
 import { Loader2, Search } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
@@ -61,9 +61,9 @@ function SearchResults() {
           <p className="mt-4 text-muted-foreground">جاري البحث...</p>
         </div>
       ) : results.length > 0 ? (
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+        <div className="max-w-4xl mx-auto space-y-6">
           {results.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductListItem key={product.id} product={product} />
           ))}
         </div>
       ) : (
