@@ -34,7 +34,7 @@ export default function Hero() {
                 <ArrowLeft className="me-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-bold text-lg bg-transparent hover:bg-white/10 text-white border-white/50 hover:border-white">
+            <Button asChild size="lg" className="font-bold text-lg">
               <Link href="#gift-advisor">
                  البحث عن هدية
                 <Gift className="me-2 h-5 w-5" />
