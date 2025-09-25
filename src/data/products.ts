@@ -30,6 +30,7 @@ const electronicsProducts: Product[] = [
         price: 95.00,
         images: getImages('soundcore-r100'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             {
                 question: "ما هي مدة عمل بطارية سماعة ساوند كور R100؟",
@@ -67,6 +68,7 @@ const electronicsProducts: Product[] = [
       price: 220.00,
       images: getImages('dlc-multi-use-lantern'),
       category: categories.electronics.slug,
+      warranty: 'عامين',
       faq: [
           { question: "هل يمكن استخدام الكشاف أثناء المطر؟", answer: "نعم، الكشاف مقاوم للمطر والغبار، مما يجعله مناسبًا للاستخدام في الظروف الجوية المختلفة." },
           { question: "كيف يعمل الباور بانك المدمج؟", answer: "يحتوي الكشاف على منفذ USB يمكنك استخدامه لشحن هاتفك أو الأجهزة الأخرى." },
@@ -89,6 +91,7 @@ const electronicsProducts: Product[] = [
         price: 150.00,
         images: getImages('anker-powercore-10000'),
         category: categories.electronics.slug,
+        warranty: '18 شهرًا',
         faq: [
             { question: "كم مرة يمكن لهذا الباور بانك شحن هاتفي؟", answer: "يمكنه شحن معظم الهواتف الذكية الحديثة حوالي مرتين." },
             { question: "هل هو آمن لأجهزتي؟", answer: "نعم، يحتوي على نظام MultiProtect من Anker الذي يوفر حماية من زيادة التيار والحرارة الزائدة." },
@@ -111,6 +114,7 @@ const electronicsProducts: Product[] = [
         price: 250.00,
         images: getImages('gaming-mouse-x1'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني تخصيص إضاءة الماوس؟", answer: "نعم، يمكنك تخصيص إضاءة RGB بالكامل عبر البرنامج المرفق." },
             { question: "هل الماوس مناسب لألعاب التصويب (FPS)؟", answer: "بالتأكيد، المستشعر عالي الدقة يجعله مثاليًا لألعاب التصويب التي تتطلب دقة عالية." },
@@ -133,6 +137,7 @@ const electronicsProducts: Product[] = [
         price: 350.00,
         images: getImages('mechanical-keyboard-k7'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما نوع المفاتيح الميكانيكية المستخدمة؟", answer: "تستخدم مفاتيح بنية (Brown)، وهي توفر توازنًا جيدًا بين الكتابة والألعاب." },
             { question: "هل لوحة المفاتيح كاملة الحجم؟", answer: "لا، هي من نوع TKL (Tenkeyless) أي بدون قسم الأرقام المنفصل، مما يوفر مساحة أكبر على المكتب." },
@@ -155,6 +160,7 @@ const electronicsProducts: Product[] = [
         price: 450.00,
         images: getImages('4k-webcam-w900'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل تحتوي الكاميرا على غطاء للخصوصية؟", answer: "نعم، تحتوي على غطاء خصوصية مدمج يمكنك إغلاقه عند عدم استخدام الكاميرا." },
             { question: "هل تعمل الكاميرا مع برامج الاجتماعات مثل Zoom و Teams؟", answer: "نعم، هي متوافقة تمامًا مع جميع برامج الاجتماعات والبث المباشر الشهيرة." },
@@ -177,6 +183,7 @@ const electronicsProducts: Product[] = [
         price: 280.00,
         images: getImages('usb-c-hub-8in1'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني شحن اللابتوب من خلال هذا الموزع؟", answer: "نعم، يدعم منفذ USB-C الشحن بقوة تصل إلى 100 واط (Power Delivery)." },
             { question: "هل يدعم منفذ HDMI دقة 4K؟", answer: "نعم، يدعم دقة 4K بمعدل تحديث 30 هرتز." },
@@ -199,6 +206,7 @@ const electronicsProducts: Product[] = [
         price: 210.00,
         images: getImages('wireless-charging-stand'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يعمل مع جميع أنواع الهواتف؟", answer: "يعمل مع أي هاتف يدعم الشحن اللاسلكي بمعيار Qi، مثل هواتف iPhone و Samsung الحديثة." },
             { question: "هل أحتاج إلى شراء شاحن حائط منفصل؟", answer: "نعم، يوصى باستخدام شاحن حائط بقوة 18 واط أو أعلى للحصول على أفضل أداء." },
@@ -221,6 +229,7 @@ const electronicsProducts: Product[] = [
         price: 320.00,
         images: getImages('bluetooth-speaker-x5'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما مدى مقاومته للماء؟", answer: "مقاوم للماء والغبار بمعيار IP67، مما يعني أنه يمكن غمره في الماء حتى عمق متر واحد لمدة 30 دقيقة." },
             { question: "هل يمكنني ربط مكبري صوت معًا؟", answer: "نعم، يمكنك ربط مكبري صوت من نفس النوع لاسلكيًا للحصول على صوت ستيريو حقيقي." },
@@ -243,6 +252,7 @@ const electronicsProducts: Product[] = [
         price: 550.00,
         images: getImages('noise-cancelling-headphones-q30'),
         category: categories.electronics.slug,
+        warranty: '18 شهرًا',
         faq: [
             { question: "ما الفرق بين أوضاع إلغاء الضوضاء؟", answer: "تحتوي على أوضاع مخصصة للحد من ضوضاء الطائرات (Transport)، ضوضاء المقاهي (Indoor)، وضوضاء الشارع (Outdoor)." },
             { question: "هل يمكن استخدامها مع كابل؟", answer: "نعم، يمكن استخدامها مع كابل AUX المرفق حتى لو كانت البطارية فارغة." },
@@ -265,6 +275,7 @@ const electronicsProducts: Product[] = [
         price: 130.00,
         images: getImages('laptop-stand-ls01'),
         category: categories.electronics.slug,
+        warranty: '6 أشهر',
         faq: [
             { question: "هل الحامل ثابت؟", answer: "نعم، مصنوع من الألومنيوم المتين ويحتوي على وسادات سيليكون لمنع انزلاق اللابتوب." },
             { question: "هل يساعد على تبريد اللابتوب؟", answer: "نعم، التصميم المفتوح يرفع اللابتوب عن سطح المكتب مما يسمح بمرور الهواء وتبريد أفضل." },
@@ -309,6 +320,7 @@ const electronicsProducts: Product[] = [
         price: 450.00,
         images: getImages('external-ssd-500gb'),
         category: categories.electronics.slug,
+        warranty: '3 سنوات',
         faq: [
             { question: "ما الفرق بينه وبين القرص الصلب العادي (HDD)؟", answer: "الـ SSD أسرع بكثير وأكثر متانة ومقاومة للصدمات لأنه لا يحتوي على أجزاء متحركة." },
             { question: "هل يعمل مع أجهزة Mac و Windows؟", answer: "نعم، يعمل مع كلا النظامين. قد يتطلب إعادة تهيئة بسيطة للانتقال بينهما." },
@@ -331,6 +343,7 @@ const electronicsProducts: Product[] = [
         price: 220.00,
         images: getImages('wifi-range-extender-re300'),
         category: categories.electronics.slug,
+        warranty: 'عامان',
         faq: [
             { question: "كيف أحدد أفضل مكان لوضع المقوي؟", answer: "يحتوي الجهاز على مؤشر ضوئي ذكي يساعدك على إيجاد أفضل موقع للحصول على أقوى إشارة." },
             { question: "هل يقوم بإنشاء شبكة جديدة؟", answer: "يقوم بإنشاء شبكة واحدة موحدة باستخدام نفس اسم الشبكة وكلمة المرور لشبكتك الحالية." },
@@ -353,6 +366,7 @@ const electronicsProducts: Product[] = [
         price: 190.00,
         images: getImages('smart-power-strip'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني التحكم في كل مقبس على حدة؟", answer: "نعم، يمكنك تشغيل وإيقاف كل مقبس من المقابس الثلاثة بشكل مستقل عبر التطبيق." },
             { question: "هل أحتاج إلى جهاز Hub لتشغيله؟", answer: "لا، لا يتطلب أي Hub إضافي، فقط يتصل بشبكة الواي فاي مباشرة." },
@@ -375,6 +389,7 @@ const electronicsProducts: Product[] = [
         price: 240.00,
         images: getImages('drawing-tablet-s640'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل القلم يحتاج إلى شحن؟", answer: "لا، القلم يعمل بتقنية الرنين الكهرومغناطيسي ولا يحتاج إلى بطارية أو شحن." },
             { question: "هل يمكن استخدامه مع برامج مثل Photoshop؟", answer: "نعم، هو متوافق مع جميع برامج الرسم والتصميم الشهيرة مثل Photoshop, Illustrator, وغيرها." },
@@ -419,6 +434,7 @@ const electronicsProducts: Product[] = [
         price: 600.00,
         images: getImages('document-scanner-es50'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنه مسح بطاقات الهوية؟", answer: "نعم، يمكنه مسح المستندات الصغيرة مثل بطاقات الهوية والإيصالات." },
             { question: "ما هي وظيفة OCR؟", answer: "تقنية OCR (التعرف الضوئي على الحروف) تقوم بتحويل المستندات الممسوحة ضوئيًا إلى ملفات نصية قابلة للتحرير والبحث." },
@@ -441,6 +457,7 @@ const electronicsProducts: Product[] = [
         price: 290.00,
         images: getImages('gaming-headset-gh20'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل الصوت المحيطي حقيقي أم افتراضي؟", answer: "الصوت المحيطي 7.1 هو افتراضي (Virtual Surround)، لكنه يوفر تجربة غامرة لتحديد اتجاه الأصوات في الألعاب." },
             { question: "هل الميكروفون قابل للفصل؟", answer: "الميكروفون قابل للتعديل ولكنه غير قابل للفصل." },
@@ -463,6 +480,7 @@ const electronicsProducts: Product[] = [
         price: 850.00,
         images: getImages('portable-monitor-15-inch'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل تحتاج إلى مصدر طاقة منفصل؟", answer: "إذا كان جهازك يدعم DisplayPort over USB-C، فيمكن توصيلها وتشغيلها بكابل واحد فقط. وإلا، ستحتاج إلى توصيل كابل طاقة إضافي." },
             { question: "هل تأتي مع غطاء حماية؟", answer: "نعم، تأتي مع غطاء ذكي مغناطيسي يعمل كحامل وحماية للشاشة." },
@@ -507,6 +525,7 @@ const electronicsProducts: Product[] = [
         price: 650.00,
         images: getImages('anker-powerconf-s3'),
         category: categories.electronics.slug,
+        warranty: '18 شهرًا',
         faq: [
             { question: "كم عدد الأشخاص الذين يمكنهم المشاركة في اجتماع باستخدام هذا الجهاز؟", answer: "هو مثالي للاجتماعات الصغيرة والمتوسطة التي تضم ما يصل إلى 8 أشخاص." },
             { question: "هل يمكن استخدامه كمكبر صوت للموسيقى؟", answer: "نعم، يمكن استخدامه كمكبر صوت بلوتوث عادي بجودة صوت جيدة." },
@@ -551,6 +570,7 @@ const electronicsProducts: Product[] = [
         price: 980.00,
         images: getImages('3d-printer-ender3'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد على الأجزاء الرئيسية',
         faq: [
             { question: "هل هي صعبة التجميع؟", answer: "تأتي الطابعة مجمعة جزئيًا، وعادة ما يستغرق تجميعها بالكامل حوالي ساعة إلى ساعتين باتباع التعليمات." },
             { question: "ما هي ميزة استئناف الطباعة؟", answer: "إذا انقطع التيار الكهربائي، يمكن للطابعة استئناف الطباعة من حيث توقفت، مما يوفر الوقت والمواد." },
@@ -573,6 +593,7 @@ const electronicsProducts: Product[] = [
         price: 250.00,
         images: getImages('wireless-presenter-r500'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يتم توصيله بالكمبيوتر؟", answer: "يمكن توصيله إما عبر مستقبل USB المرفق أو مباشرة عبر البلوتوث." },
             { question: "هل يعمل مع أجهزة Mac؟", answer: "نعم، هو متوافق تمامًا مع أجهزة Windows و macOS." },
@@ -595,6 +616,7 @@ const electronicsProducts: Product[] = [
         price: 290.00,
         images: getImages('electric-screwdriver-set'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل الرؤوس ممغنطة؟", answer: "نعم، الرؤوس والعلبة ممغنطة لتسهيل التقاط البراغي الصغيرة ومنعها من الضياع." },
             { question: "هل هو قوي بما يكفي لجميع أنواع البراغي؟", answer: "هو مصمم للإلكترونيات الدقيقة والبراغي الصغيرة، وقد لا يكون مناسبًا للبراغي الكبيرة التي تتطلب عزمًا عاليًا." },
@@ -617,6 +639,7 @@ const electronicsProducts: Product[] = [
         price: 1800.00,
         images: getImages('gopro-hero-10'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هو أفضل شيء في معالج GP2 الجديد؟", answer: "يوفر أداءً أسرع بشكل عام، ومعدلات إطارات أعلى، وجودة صورة أفضل، وتثبيت فيديو أكثر سلاسة." },
             { question: "هل أحتاج إلى غطاء حماية للغوص؟", answer: "الكاميرا مقاومة للماء حتى 10 أمتار بدون غطاء. للغوص أعمق من ذلك، ستحتاج إلى غطاء حماية مخصص." },
@@ -639,6 +662,7 @@ const electronicsProducts: Product[] = [
         price: 480.00,
         images: getImages('anker-soundcore-liberty-air-2-pro'),
         category: categories.electronics.slug,
+        warranty: '18 شهرًا',
         faq: [
             { question: "ما هي تقنية HearID؟", answer: "هي تقنية تقوم بإجراء اختبار سمعي بسيط عبر التطبيق ثم تقوم بتعديل إعدادات الصوت لتناسب قدرتك السمعية الفريدة." },
             { question: "هل تدعم الشحن اللاسلكي؟", answer: "نعم، علبة الشحن تدعم الشحن اللاسلكي بمعيار Qi." },
@@ -661,6 +685,7 @@ const electronicsProducts: Product[] = [
         price: 550.00,
         images: getImages('wd-my-passport-4tb'),
         category: categories.electronics.slug,
+        warranty: '3 سنوات',
         faq: [
             { question: "هل يحتاج إلى مصدر طاقة خارجي؟", answer: "لا، يعمل بالطاقة مباشرة من منفذ USB." },
             { question: "ماذا لو نسيت كلمة المرور؟", answer: "للأسف، لا يمكن استعادة البيانات بدون كلمة المرور بسبب التشفير القوي. تأكد من حفظها في مكان آمن." },
@@ -683,6 +708,7 @@ const electronicsProducts: Product[] = [
         price: 650.00,
         images: getImages('logitech-g-pro-x-superlight'),
         category: categories.electronics.slug,
+        warranty: 'عامان',
         faq: [
             { question: "لماذا الوزن الخفيف مهم في ماوس الألعاب؟", answer: "الوزن الخفيف يسمح بحركة أسرع وأكثر سلاسة وبجهد أقل، مما يقلل من التعب ويزيد من سرعة ردة الفعل." },
             { question: "ما هي تقنية LIGHTSPEED؟", answer: "هي تقنية لاسلكية من Logitech توفر اتصالاً فائق السرعة ومستقرًا بزمن استجابة يضاهي الماوسات السلكية." },
@@ -705,6 +731,7 @@ const electronicsProducts: Product[] = [
         price: 700.00,
         images: getImages('elgato-stream-deck-mk2'),
         category: categories.electronics.slug,
+        warranty: 'عامان',
         faq: [
             { question: "هل يقتصر استخدامه على البث المباشر فقط؟", answer: "لا، يمكن استخدامه للتحكم في أي برنامج تقريبًا، مثل برامج تحرير الفيديو (Adobe Premiere)، برامج الصوت، أو حتى كاختصارات لنظام التشغيل." },
             { question: "هل يمكنني إنشاء مجلدات للمفاتيح؟", answer: "نعم، يمكنك إنشاء مجلدات لتنظيم إجراءاتك، مما يمنحك عددًا لا نهائيًا من الأزرار القابلة للتخصيص." },
@@ -727,6 +754,7 @@ const electronicsProducts: Product[] = [
         price: 1200.00,
         images: getImages('bose-soundlink-revolve-plus'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما معنى صوت 360 درجة؟", answer: "يعني أن مكبر الصوت يوزع الصوت بالتساوي في جميع الاتجاهات، لذلك يحصل كل شخص في الغرفة على نفس التجربة الصوتية الرائعة." },
             { question: "هل يمكن استخدامه كمكبر صوت للمكالمات؟", answer: "نعم، يحتوي على ميكروفون مدمج ويمكن استخدامه لإجراء المكالمات الهاتفية أو الوصول إلى المساعد الصوتي." },
@@ -749,6 +777,7 @@ const electronicsProducts: Product[] = [
         price: 450.00,
         images: getImages('razer-kishi-v2'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يعمل مع ألعاب معينة فقط؟", answer: "يعمل مع أي لعبة تدعم وحدات التحكم، بما في ذلك الألعاب السحابية مثل Xbox Cloud Gaming و GeForce NOW." },
             { question: "هل يمكنني شحن هاتفي أثناء اللعب؟", answer: "نعم، يحتوي على منفذ USB-C إضافي يسمح لك بشحن هاتفك أثناء استخدام وحدة التحكم." },
@@ -771,6 +800,7 @@ const electronicsProducts: Product[] = [
         price: 750.00,
         images: getImages('kindle-paperwhite-2023'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما فائدة الإضاءة الدافئة؟", answer: "تتيح لك تغيير لون الشاشة من الأبيض إلى الكهرماني، مما يريح العين عند القراءة ليلًا." },
             { question: "هل يمكنني القراءة به في ضوء الشمس المباشر؟", answer: "نعم، الشاشة مصممة لتكون بدون وهج، مما يجعلها تبدو وكأنها ورقة حقيقية حتى تحت أشعة الشمس." },
@@ -793,6 +823,7 @@ const electronicsProducts: Product[] = [
         price: 2100.00,
         images: getImages('insta360-x3-camera'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هي ميزة إعادة التأطير (Reframing)؟", answer: "بما أنك تسجل بزاوية 360 درجة، يمكنك بعد التصوير اختيار الزاوية التي تريدها وتحويل الفيديو إلى فيديو عادي (مسطح) باللقطة المثالية." },
             { question: "هل عصا السيلفي تظهر في الفيديو؟", answer: "لا، تقوم الكاميرا تلقائيًا بإخفاء عصا السيلفي من لقطات 360 درجة، مما يعطي تأثيرًا يشبه التصوير بطائرة درون." },
@@ -815,6 +846,7 @@ const electronicsProducts: Product[] = [
         price: 550.00,
         images: getImages('logitech-mx-master-3s'),
         category: categories.electronics.slug,
+        warranty: 'عامان',
         faq: [
             { question: "ما هي ميزة تمرير MagSpeed؟", answer: "هي عجلة تمرير كهرومغناطيسية يمكنها التمرير 1000 سطر في الثانية وتكون صامتة تقريبًا ودقيقة للغاية." },
             { question: "هل يمكنني استخدامه مع عدة أجهزة؟", answer: "نعم، يمكنك توصيله بما يصل إلى 3 أجهزة والتبديل بينها بسهولة بضغطة زر." },
@@ -837,6 +869,7 @@ const electronicsProducts: Product[] = [
         price: 750.00,
         images: getImages('samsung-t7-shield-ssd-1tb'),
         category: categories.electronics.slug,
+        warranty: '3 سنوات',
         faq: [
             { question: "ماذا يعني معيار IP65؟", answer: "يعني أنه محمي تمامًا من الغبار ومحمي من رذاذ الماء من أي اتجاه." },
             { question: "هل يعمل مع أجهزة الألعاب (Consoles)؟", answer: "نعم، يمكن استخدامه لتوسيع مساحة التخزين على أجهزة مثل PlayStation و Xbox." },
@@ -859,6 +892,7 @@ const electronicsProducts: Product[] = [
         price: 1300.00,
         images: getImages('rode-wireless-go-ii'),
         category: categories.electronics.slug,
+        warranty: 'عامان',
         faq: [
             { question: "ما معنى نظام ثنائي القناة؟", answer: "يعني أنه يمكنك تسجيل شخصين في نفس الوقت، حيث يكون لكل شخص جهاز إرسال (ميكروفون) خاص به." },
             { question: "ما فائدة التسجيل الداخلي؟", answer: "يقوم كل جهاز إرسال بتسجيل نسخة احتياطية من الصوت، لذلك حتى لو انقطع الاتصال اللاسلكي، لن تفقد التسجيل أبدًا." },
@@ -881,6 +915,7 @@ const electronicsProducts: Product[] = [
         price: 450.00,
         images: getImages('apple-airtag-4pack'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يعمل إذا كان بعيدًا عني؟", answer: "يستخدم شبكة Find My الضخمة والمجهولة الهوية. أي جهاز Apple قريب سيلتقط إشارة الـ AirTag ويرسل موقعه بشكل آمن ومشفر إليك." },
             { question: "هل يمكن لشخص آخر تتبعي باستخدام AirTag؟", answer: "لا، صممته Apple بميزات لمنع التتبع غير المرغوب فيه. إذا كان AirTag غريب يتحرك معك، سيقوم جهاز iPhone الخاص بك بتنبيهك." },
@@ -903,6 +938,7 @@ const electronicsProducts: Product[] = [
         price: 680.00,
         images: getImages('philips-hue-play-bar'),
         category: categories.electronics.slug,
+        warranty: 'عامان',
         faq: [
             { question: "هل أحتاج إلى جهاز Hue Bridge لتشغيلها؟", answer: "نعم، للحصول على كامل الميزات بما في ذلك المزامنة مع الشاشة والتحكم عن بعد، ستحتاج إلى جهاز Hue Bridge." },
             { question: "كيف تتزامن مع ما يظهر على الشاشة؟", answer: "تتطلب استخدام تطبيق Hue Sync على الكمبيوتر أو جهاز Hue Play HDMI Sync Box الذي يتصل بالتلفزيون." },
@@ -925,6 +961,7 @@ const electronicsProducts: Product[] = [
         price: 1600.00,
         images: getImages('netgear-orbi-rbk752'),
         category: categories.electronics.slug,
+        warranty: 'عامان',
         faq: [
             { question: "ما هو نظام الشبكة (Mesh)؟", answer: "هو نظام يستخدم عدة وحدات (راوتر وقمر صناعي) لإنشاء شبكة واي فاي واحدة قوية وموحدة تغطي منزلك بالكامل بدون مناطق ميتة." },
             { question: "ما فائدة تقنية Tri-band؟", answer: "تستخدم نطاقًا ثالثًا مخصصًا للتواصل بين الراوتر والأقمار الصناعية، مما يضمن عدم انخفاض سرعة الإنترنت لديك." },
@@ -947,6 +984,7 @@ const electronicsProducts: Product[] = [
         price: 1550.00,
         images: getImages('oculus-quest-2-128gb'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل أحتاج إلى كمبيوتر لتشغيلها؟", answer: "لا، هي جهاز مستقل تمامًا. يمكنك أيضًا توصيلها بالكمبيوتر (اختياري) للعب ألعاب الواقع الافتراضي الخاصة بالكمبيوتر." },
             { question: "هل يمكنني ارتداء نظارتي الطبية معها؟", answer: "نعم، تأتي مع فاصل مخصص للنظارات الطبية لتوفير مساحة إضافية." },
@@ -969,6 +1007,7 @@ const electronicsProducts: Product[] = [
         price: 850.00,
         images: getImages('logitech-brio-4k-webcam'),
         category: categories.electronics.slug,
+        warranty: '3 سنوات',
         faq: [
             { question: "ما هي ميزة Windows Hello؟", answer: "تتيح لك تسجيل الدخول إلى جهاز الكمبيوتر الخاص بك بنظام Windows بمجرد النظر إلى الكاميرا باستخدام تقنية التعرف على الوجه." },
             { question: "ما فائدة مجال الرؤية القابل للتعديل؟", answer: "يمنحك القدرة على التركيز على وجهك (65 درجة)، أو إظهار المزيد من الخلفية (78 درجة)، أو عرض الغرفة بأكملها (90 درجة)." },
@@ -991,6 +1030,7 @@ const electronicsProducts: Product[] = [
         price: 250.00,
         images: getImages('amazon-echo-dot-5th-gen'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ماذا يمكنني أن أفعل بمستشعر درجة الحرارة؟", answer: "يمكنك استخدامه لتشغيل إجراءات معينة، مثل تشغيل المروحة تلقائيًا عندما تصل الغرفة إلى درجة حرارة معينة." },
             { question: "هل تدعم اللغة العربية؟", answer: "نعم، المساعد الصوتي Alexa يدعم اللغة العربية بلهجة خليجية." },
@@ -1013,6 +1053,7 @@ const electronicsProducts: Product[] = [
         price: 3500.00,
         images: getImages('dji-mini-3-pro'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "لماذا وزن 249 جرامًا مهم؟", answer: "في العديد من البلدان، لا تتطلب الطائرات بدون طيار التي يقل وزنها عن 250 جرامًا تسجيلًا أو تراخيص خاصة، مما يسهل استخدامها." },
             { question: "هل يمكنها التصوير بشكل عمودي؟", answer: "نعم، يمكن للكاميرا الدوران 90 درجة للتصوير الرأسي الحقيقي، وهو مثالي لمحتوى وسائل التواصل الاجتماعي." },
@@ -1035,6 +1076,7 @@ const electronicsProducts: Product[] = [
         price: 1400.00,
         images: getImages('anker-nebula-capsule-projector'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني تثبيت تطبيقات مثل Netflix و YouTube؟", answer: "نعم، يعمل بنظام Android ويمكنك تنزيل التطبيقات مباشرة من متجر التطبيقات المدمج." },
             { question: "هل يعمل في غرفة مضيئة؟", answer: "يعمل بشكل أفضل في غرفة مظلمة أو معتمة. سطوعه البالغ 100 لومن قد لا يكون كافيًا للغرف المضيئة جدًا." },
@@ -1057,6 +1099,7 @@ const electronicsProducts: Product[] = [
         price: 650.00,
         images: getImages('logitech-streamcam'),
         category: categories.electronics.slug,
+        warranty: 'عامان',
         faq: [
             { question: "ما فائدة 60 إطارًا في الثانية؟", answer: "توفر حركة أكثر سلاسة وطبيعية في الفيديو، وهو أمر رائع للبث المباشر للألعاب أو أي محتوى سريع الحركة." },
             { question: "كيف تعمل ميزة التصوير الرأسي؟", answer: "يمكنك ببساطة قلب الكاميرا 90 درجة لتبدأ بالتصوير بفيديو عمودي، وهو مثالي للمنصات مثل TikTok و Instagram Stories." },
@@ -1079,6 +1122,7 @@ const electronicsProducts: Product[] = [
         price: 450.00,
         images: getImages('google-nest-hub-2nd-gen'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف تعمل ميزة تتبع النوم؟", answer: "تستخدم مستشعر Soli (رادار منخفض الطاقة) لتحليل حركتك وتنفسك أثناء النوم دون الحاجة لارتداء أي جهاز." },
             { question: "هل تحتوي على كاميرا؟", answer: "لا، هذا الإصدار لا يحتوي على كاميرا لضمان الخصوصية في الأماكن الحساسة مثل غرف النوم." },
@@ -1101,6 +1145,7 @@ const electronicsProducts: Product[] = [
         price: 1600.00,
         images: getImages('sony-wh-1000xm5-headphones'),
         category: categories.electronics.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هو الاتصال متعدد النقاط (Multipoint)؟", answer: "يتيح لك توصيل السماعات بجهازين في نفس الوقت (مثل اللابتوب والهاتف) والتبديل بينهما بسلاسة." },
             { question: "هل جودة المكالمات جيدة؟", answer: "نعم، تستخدم 8 ميكروفونات وخوارزميات متقدمة لعزل صوتك عن الضوضاء المحيطة، مما يوفر جودة مكالمات ممتازة." },
@@ -1126,6 +1171,7 @@ const miscProducts: Product[] = [
         slug: 'smart-coffee-mug',
         images: getImages('smart-coffee-mug'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يتم التحكم في درجة الحرارة؟", answer: "يمكنك ضبط درجة الحرارة المطلوبة من خلال تطبيق خاص على هاتفك الذكي." },
             { question: "كم من الوقت يحافظ على درجة الحرارة؟", answer: "يحافظ على درجة الحرارة لمدة تصل إلى 1.5 ساعة على بطارية الكوب، أو طوال اليوم عند وضعه على قاعدة الشحن." },
@@ -1148,6 +1194,7 @@ const miscProducts: Product[] = [
         slug: 'led-desk-lamp',
         images: getImages('led-desk-lamp'),
         category: categories.misc.slug,
+        warranty: '6 أشهر',
         faq: [
             { question: "هل يمكنني شحن هاتفي وساعة ذكية في نفس الوقت؟", answer: "يمكنك شحن هاتفك لاسلكيًا باستخدام القاعدة، واستخدام منفذ USB الإضافي لشحن جهاز آخر مثل ساعة ذكية." },
             { question: "هل يمكن تعديل لون الإضاءة؟", answer: "نعم، يحتوي على 5 أوضاع للإضاءة تتراوح بين الأبيض الدافئ والأبيض البارد لتناسب القراءة أو العمل أو الاسترخاء." },
@@ -1170,6 +1217,7 @@ const miscProducts: Product[] = [
         slug: 'smart-water-bottle',
         images: getImages('smart-water-bottle'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف تعرف متى تذكرني بشرب الماء؟", answer: "يمكنك تخصيص جدول التذكيرات في التطبيق، أو تركها تستخدم خوارزمية ذكية لتذكيرك بناءً على استهلاكك." },
             { question: "هل هي آمنة لغسالة الصحون؟", answer: "الغطاء الذكي يجب غسله يدويًا، لكن جسم الزجاجة آمن للغسل في غسالة الصحون." },
@@ -1192,6 +1240,7 @@ const miscProducts: Product[] = [
         slug: 'portable-projector-p5',
         images: getImages('portable-projector-p5'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني توصيله بهاتفي؟", answer: "نعم، يمكنك توصيل هاتفك لاسلكيًا عبر Wi-Fi (Miracast/AirPlay) أو سلكيًا باستخدام محول مناسب." },
             { question: "هل يعمل في غرفة مضيئة؟", answer: "يعمل بشكل أفضل في بيئة مظلمة أو معتمة للحصول على أفضل جودة للصورة." },
@@ -1214,6 +1263,7 @@ const miscProducts: Product[] = [
         slug: 'digital-photo-frame',
         images: getImages('digital-photo-frame'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكن لأفراد العائلة الآخرين إرسال الصور؟", answer: "نعم، يمكنك دعوة أفراد العائلة والأصدقاء لإرسال الصور إلى إطارك عبر التطبيق." },
             { question: "هل يعرض مقاطع الفيديو؟", answer: "نعم، يدعم عرض مقاطع الفيديو القصيرة (عادةً حتى 15 ثانية)." },
@@ -1258,6 +1308,7 @@ const miscProducts: Product[] = [
         price: 180.00,
         images: getImages('portable-blender'),
         category: categories.misc.slug,
+        warranty: '6 أشهر',
         faq: [
             { question: "هل هو قوي بما يكفي لخلط الثلج؟", answer: "هو مصمم للفواكه والمساحيق والسوائل. يمكنه خلط قطع الثلج الصغيرة، ولكن ليس قطع الثلج الكبيرة." },
             { question: "كيف يتم تنظيفه؟", answer: "أسهل طريقة هي إضافة قطرة صابون وبعض الماء ثم تشغيله لبضع ثوانٍ وشطفه." },
@@ -1280,6 +1331,7 @@ const miscProducts: Product[] = [
         price: 250.00,
         images: getImages('sunrise-alarm-clock'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكن استخدامه كمصباح عادي؟", answer: "نعم، يمكنك استخدامه كمصباح بجانب السرير مع 7 ألوان مختلفة و 20 مستوى سطوع." },
             { question: "ما فائدة محاكاة غروب الشمس؟", answer: "تساعدك على الاسترخاء والنوم، حيث يخفت الضوء تدريجيًا مع أصوات مهدئة." },
@@ -1302,6 +1354,7 @@ const miscProducts: Product[] = [
         price: 320.00,
         images: getImages('weather-station'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "أين يجب أن أضع المستشعر الخارجي؟", answer: "ضعه في مكان مظلل وجيد التهوية في الخارج للحصول على قراءات دقيقة لدرجة الحرارة." },
             { question: "هل تتصل بالإنترنت؟", answer: "هذا الطراز لا يتصل بالإنترنت، بل يعتمد على مستشعراته الخاصة للتنبؤ بالطقس المحلي." },
@@ -1368,6 +1421,7 @@ const miscProducts: Product[] = [
         price: 130.00,
         images: getImages('fingerprint-padlock'),
         category: categories.misc.slug,
+        warranty: '6 أشهر',
         faq: [
             { question: "ماذا يحدث إذا نفدت البطارية؟", answer: "يمكنك شحنه مؤقتًا باستخدام باور بانك لفتحه، ثم إعادة شحنه بالكامل." },
             { question: "هل يمكن استخدامه في الخارج؟", answer: "نعم، هو مقاوم للماء والغبار بمعيار IP65، مما يجعله مناسبًا للاستخدام الخارجي." },
@@ -1390,6 +1444,7 @@ const miscProducts: Product[] = [
         price: 190.00,
         images: getImages('digital-tape-measure'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنه قياس المساحة؟", answer: "نعم، يمكنه حساب المساحة والحجم تلقائيًا بعد أخذ قياسات الطول والعرض والارتفاع." },
             { question: "هل شريط القياس قوي؟", answer: "نعم، الشريط المعدني قوي ومطلي بالنايلون لمزيد من المتانة." },
@@ -1412,6 +1467,7 @@ const miscProducts: Product[] = [
         price: 280.00,
         images: getImages('mini-fridge-4l'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "لماذا يجب أن أحفظ منتجات العناية بالبشرة باردة؟", answer: "التبريد يمكن أن يطيل عمر المنتجات، ويهدئ البشرة، ويقلل من الانتفاخ، ويعطي إحساسًا منعشًا عند الاستخدام." },
             { question: "هل يمكن استخدامها لتسخين الأشياء؟", answer: "نعم، تحتوي على وضع تسخين يمكن استخدامه للحفاظ على دفء المناشف الصغيرة أو المشروبات." },
@@ -1434,6 +1490,7 @@ const miscProducts: Product[] = [
         price: 550.00,
         images: getImages('sous-vide-cooker'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هي فائدة الطبخ بهذه الطريقة؟", answer: "تضمن طهي الطعام بشكل متساوٍ تمامًا من الحافة إلى الحافة، وتحافظ على رطوبته ونكهته، وتمنع الطهي الزائد." },
             { question: "هل أحتاج إلى جهاز تفريغ الهواء (Vacuum sealer)؟", answer: "هو موصى به للحصول على أفضل النتائج، ولكن يمكنك أيضًا استخدام أكياس Ziplock العادية باستخدام طريقة إزاحة الماء." },
@@ -1456,6 +1513,7 @@ const miscProducts: Product[] = [
         price: 750.00,
         images: getImages('pet-feeder-camera'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني إطعام حيواني الأليف يدويًا من التطبيق؟", answer: "نعم، بالإضافة إلى الجدولة، يمكنك تقديم وجبة إضافية في أي وقت من خلال التطبيق." },
             { question: "ماذا يحدث إذا انقطع الإنترنت؟", answer: "سيستمر المغذي في تقديم الوجبات المجدولة مسبقًا، ولكنك لن تتمكن من استخدام الكاميرا أو التحكم فيه عن بعد." },
@@ -1544,6 +1602,7 @@ const miscProducts: Product[] = [
         price: 170.00,
         images: getImages('wine-opener-electric'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل تعمل مع جميع أنواع السدادات؟", answer: "تعمل مع السدادات الطبيعية والاصطناعية." },
             { question: "هل هي سهلة الاستخدام؟", answer: "نعم، بسيطة جدًا. فقط ضعها فوق الزجاجة واضغط على الزر السفلي لإدخال البرغي، ثم الزر العلوي لإخراج السدادة." },
@@ -1588,6 +1647,7 @@ const miscProducts: Product[] = [
         price: 480.00,
         images: getImages('portable-photo-printer'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف تعمل بدون حبر؟", answer: "تستخدم ورق ZINK (Zero Ink) الذي يحتوي على بلورات ألوان يتم تنشيطها بالحرارة." },
             { question: "هل الصور ذاتية اللصق؟", answer: "نعم، يمكنك نزع الطبقة الخلفية من الورق واستخدام الصور كملصقات." },
@@ -1610,6 +1670,7 @@ const miscProducts: Product[] = [
         price: 650.00,
         images: getImages('air-fryer-smart'),
         category: categories.misc.slug,
+        warranty: 'عامان',
         faq: [
             { question: "هل يمكنني التحكم فيها وأنا خارج المنزل؟", answer: "نعم، طالما أنها متصلة بالواي فاي، يمكنك بدء الطهي ومراقبته من أي مكان عبر التطبيق." },
             { question: "ما هي سعة 5.5 لتر؟", answer: "السعة كبيرة بما يكفي لطهي دجاجة كاملة أو كمية كافية من البطاطس لأسرة مكونة من 3-5 أفراد." },
@@ -1654,6 +1715,7 @@ const miscProducts: Product[] = [
         price: 580.00,
         images: getImages('foot-massager-shiatsu'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل التدليك قوي؟", answer: "نعم، يوفر تدليكًا عميقًا للأنسجة. يمكنك ضبط شدة ضغط الهواء لتناسب تفضيلاتك." },
             { question: "هل يناسب جميع مقاسات الأقدام؟", answer: "نعم، يناسب معظم مقاسات الأقدام." },
@@ -1676,6 +1738,7 @@ const miscProducts: Product[] = [
         price: 850.00,
         images: getImages('dog-camera-treat-tosser'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني استخدام أي نوع من الحلوى؟", answer: "يوصى باستخدام حلوى جافة ومستديرة بقطر حوالي 1 سم للحصول على أفضل أداء." },
             { question: "ما هي ميزة تنبيهات النباح؟", answer: "ترسل الكاميرا إشعارًا إلى هاتفك عندما تكتشف نباح كلبك، حتى تتمكن من التحقق منه والتحدث إليه." },
@@ -1742,6 +1805,7 @@ const miscProducts: Product[] = [
         price: 1500.00,
         images: getImages('cocktail-maker-machine'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل أحتاج إلى كبسولات خاصة؟", answer: "لا، يمكنك استخدام الكبسولات الزجاجية المرفقة وملئها بأي مكونات تختارها." },
             { question: "كيف يتم تنظيفها؟", answer: "تحتوي على دورة تنظيف ذاتي. يمكنك أيضًا غسل الكبسولات الزجاجية يدويًا أو في غسالة الصحون." },
@@ -1764,6 +1828,7 @@ const miscProducts: Product[] = [
         price: 160.00,
         images: getImages('led-light-strips'),
         category: categories.misc.slug,
+        warranty: '6 أشهر',
         faq: [
             { question: "كيف تعمل ميزة المزامنة مع الموسيقى؟", answer: "يحتوي جهاز التحكم على ميكروفون مدمج يلتقط الصوت المحيط ويجعل الأضواء تتراقص مع إيقاع الموسيقى." },
             { question: "هل يمكنني قص الشريط؟", answer: "نعم، يمكنك قص الشريط عند العلامات المحددة لتناسب الطول الذي تحتاجه." },
@@ -1808,6 +1873,7 @@ const miscProducts: Product[] = [
         price: 240.00,
         images: getImages('solar-power-bank-20000mah'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكن الاعتماد على الطاقة الشمسية لشحنه بالكامل؟", answer: "الشحن الشمسي مخصص لحالات الطوارئ وهو أبطأ بكثير من الشحن عبر الكهرباء. الطريقة الأساسية لشحنه هي عبر منفذ USB." },
             { question: "هل هو ثقيل؟", answer: "نظرًا لسعته الكبيرة وتصميمه المتين، فهو أثقل قليلاً من الباور بانك العادي بنفس السعة." },
@@ -1830,6 +1896,7 @@ const miscProducts: Product[] = [
         price: 450.00,
         images: getImages('smart-meat-thermometer'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يعمل بدون أسلاك داخل الفرن؟", answer: "المسبار نفسه لاسلكي بالكامل ويرسل إشارة إلى قاعدة الشحن التي بدورها ترسل البيانات إلى هاتفك عبر البلوتوث." },
             { question: "هل هو آمن للاستخدام في الشوايات المغلقة؟", answer: "نعم، هو مصمم لتحمل درجات الحرارة العالية داخل الأفران والشوايات." },
@@ -1874,6 +1941,7 @@ const miscProducts: Product[] = [
         price: 600.00,
         images: getImages('ember-mug-2'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني وضعه في الميكروويف؟", answer: "لا، لا يجب وضعه في الميكروويف أبدًا بسبب المكونات الإلكترونية." },
             { question: "هل هو آمن للغسل؟", answer: "يمكن غسله يدويًا. هو مقاوم للماء بمعيار IPX7، لكن لا يوصى بوضعه في غسالة الصحون." },
@@ -1896,6 +1964,7 @@ const miscProducts: Product[] = [
         price: 550.00,
         images: getImages('click-and-grow-smart-garden'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هي كبسولات النباتات؟", answer: "هي كبسولات تحتوي على تربة ذكية وبذور ومغذيات. كل ما عليك هو وضعها في الحديقة وإضافة الماء." },
             { question: "هل يمكنني زراعة أي شيء؟", answer: "يمكنك شراء كبسولات لمجموعة متنوعة من الأعشاب والخضروات والزهور من الشركة المصنعة." },
@@ -1918,6 +1987,7 @@ const miscProducts: Product[] = [
         price: 950.00,
         images: getImages('theragun-mini'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل هو قوي مثل أجهزة Theragun الأكبر حجمًا؟", answer: "على الرغم من صغر حجمه، إلا أنه يوفر قوة تدليك كبيرة ومناسبة للاستخدام أثناء التنقل." },
             { question: "هل هو صاخب؟", answer: "يستخدم تقنية QuietForce ليكون هادئًا بشكل ملحوظ مقارنة بأجهزة التدليك الأخرى." },
@@ -1940,6 +2010,7 @@ const miscProducts: Product[] = [
         price: 900.00,
         images: getImages('nanoleaf-shapes'),
         category: categories.misc.slug,
+        warranty: 'عامان',
         faq: [
             { question: "كيف تتفاعل مع الموسيقى؟", answer: "تحتوي على وحدة Rhythm مدمجة تستمع إلى الموسيقى وتجعل الألواح تتراقص مع الإيقاع في الوقت الفعلي." },
             { question: "هل تركيبها صعب؟", answer: "لا، يتم تركيبها بسهولة على الحائط باستخدام شريط لاصق على الوجهين مرفق معها." },
@@ -1984,6 +2055,7 @@ const miscProducts: Product[] = [
         price: 850.00,
         images: getImages('temperature-control-travel-mug'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما الفرق بينه وبين كوب Ember؟", answer: "هذا الكوب مصمم للسفر، ببطارية تدوم أطول وغطاء مانع للتسرب. يمكنك أيضًا ضبط الحرارة مباشرة من الكوب بدون تطبيق." },
             { question: "هل هو آمن لوضعه في حامل الأكواب في السيارة؟", answer: "نعم، تصميمه يناسب معظم حاملات الأكواب القياسية." },
@@ -2028,6 +2100,7 @@ const miscProducts: Product[] = [
         price: 1400.00,
         images: getImages('smart-guitar'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يبدو وكأنه جيتار حقيقي؟", answer: "نعم، يستخدم أوتارًا حقيقية وله نفس ملمس الجيتار الصوتي، ولكنه مصمم ليكون أسهل للمبتدئين." },
             { question: "هل التطبيق مجاني؟", answer: "نعم، يأتي مع تطبيق مجاني يحتوي على دروس تفاعلية وتمارين." },
@@ -2050,6 +2123,7 @@ const miscProducts: Product[] = [
         price: 700.00,
         images: getImages('handwriting-to-text-pen'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يدعم اللغة العربية؟", answer: "نعم، يدعم التعرف على الكتابة اليدوية باللغة العربية والعديد من اللغات الأخرى." },
             { question: "هل أحتاج إلى ورق خاص؟", answer: "لا، يمكنك الكتابة على أي ورق عادي. القلم يستخدم كاميرا صغيرة لتتبع حركته." },
@@ -2072,6 +2146,7 @@ const miscProducts: Product[] = [
         price: 1800.00,
         images: getImages('smart-chess-board'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف تتحرك القطع؟", answer: "تستخدم اللوحة نظامًا مغناطيسيًا وروبوتيًا لتحريك القطع عبر السطح بسلاسة." },
             { question: "هل يمكنني اللعب ضد الذكاء الاصطناعي للوحة؟", answer: "نعم، تحتوي على محرك ذكاء اصطناعي مدمج بمستويات صعوبة متعددة." },
@@ -2094,6 +2169,7 @@ const miscProducts: Product[] = [
         price: 650.00,
         images: getImages('air-quality-monitor'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هي جسيمات PM2.5؟", answer: "هي جسيمات ملوثات دقيقة جدًا في الهواء يمكن أن تدخل إلى الرئتين وتسبب مشاكل صحية." },
             { question: "هل يعطيني نصائح لتحسين جودة الهواء؟", answer: "نعم، يقدم التطبيق نصائح بناءً على القراءات، مثل فتح النوافذ أو تشغيل منقي الهواء." },
@@ -2116,6 +2192,7 @@ const miscProducts: Product[] = [
         price: 2500.00,
         images: getImages('automatic-cocktail-maker'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني إنشاء وصفاتي الخاصة؟", answer: "نعم، يتيح لك التطبيق إنشاء وتخصيص وحفظ وصفات الكوكتيل الخاصة بك." },
             { question: "هل الخزانات محكمة الإغلاق؟", answer: "نعم، الخزانات مصممة للحفاظ على المكونات طازجة ومحكمة الإغلاق." },
@@ -2138,6 +2215,7 @@ const miscProducts: Product[] = [
         price: 2200.00,
         images: getImages('self-cleaning-cat-litter-box'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يعمل نظام التنظيف؟", answer: "بعد أن تغادر القطة، يقوم نظام غربلة تلقائي بفصل الفضلات المتكتلة ووضعها في درج نفايات مغلق." },
             { question: "هل هو آمن لقطتي؟", answer: "نعم، يحتوي على مستشعرات وزن وأمان توقف عملية التنظيف فورًا إذا عادت القطة." },
@@ -2160,6 +2238,7 @@ const miscProducts: Product[] = [
         price: 250.00,
         images: getImages('smart-dog-collar'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "لماذا يتطلب اشتراكًا؟", answer: "الاشتراك يغطي تكلفة استخدام شبكة الهاتف المحمول للاتصال بين الطوق وخوادم GPS." },
             { question: "ما هي ميزة مراقبة النشاط؟", answer: "تتيح لك تتبع مقدار الوقت الذي يقضيه كلبك في اللعب والراحة والنوم، وتحديد أهداف للياقته البدنية." },
@@ -2182,6 +2261,7 @@ const miscProducts: Product[] = [
         price: 800.00,
         images: getImages('language-translator-earbuds'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يعمل وضع المحادثة؟", answer: "تعطي سماعة أذن واحدة للشخص الآخر، ويتحدث كل منكما بلغته، وستسمع الترجمة في أذنك." },
             { question: "هل تعمل بدون إنترنت؟", answer: "معظم اللغات تتطلب اتصالاً بالإنترنت للترجمة. بعض اللغات الأساسية قد تكون متاحة للترجمة بدون إنترنت." },
@@ -2204,6 +2284,7 @@ const miscProducts: Product[] = [
         price: 2800.00,
         images: getImages('smart-whiteboard'),
         category: categories.misc.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل أحتاج إلى أقلام خاصة؟", answer: "لا، يمكنك استخدام أي أقلام مسح جاف عادية وممحاة." },
             { question: "كيف يشارك المحتوى؟", answer: "يمكنك مشاركة رابط آمن مع فريقك ليتمكنوا من مشاهدة ما تكتبه على السبورة مباشرة في متصفحهم." },
@@ -2226,6 +2307,7 @@ const miscProducts: Product[] = [
         price: 2300.00,
         images: getImages('electric-longboard'),
         category: categories.misc.slug,
+        warranty: '6 أشهر',
         faq: [
             { question: "هل هو مناسب للمبتدئين؟", answer: "يحتوي على أوضاع سرعة مختلفة، بما في ذلك وضع للمبتدئين. لكن السرعات العالية تتطلب خبرة وتوازنًا." },
             { question: "هل يمكن استخدامه على التلال؟", answer: "نعم، المحركات المزدوجة قوية بما يكفي لصعود معظم التلال الحضرية." },
@@ -2252,6 +2334,7 @@ const healthProducts: Product[] = [
         slug: 'smart-scale',
         images: getImages('smart-scale'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يقيس نسبة الدهون في الجسم؟", answer: "يستخدم تقنية تحليل المعاوقة الكهربائية الحيوية (BIA) عن طريق إرسال تيار كهربائي صغير وغير محسوس عبر الجسم." },
             { question: "هل يمكن لجميع أفراد الأسرة استخدامه؟", answer: "نعم، يمكنه التعرف تلقائيًا على مستخدمين مختلفين وحفظ بيانات كل شخص على حدة." },
@@ -2274,6 +2357,7 @@ const healthProducts: Product[] = [
         slug: 'handheld-massager',
         images: getImages('handheld-massager'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما فائدة الرؤوس المختلفة؟", answer: "كل رأس مصمم لمنطقة معينة من الجسم، مثل الرأس الكروي للعضلات الكبيرة، والرأس على شكل رصاصة لنقاط الزناد." },
             { question: "هل هو صاخب؟", answer: "يستخدم محركًا بدون فرش ليكون هادئًا نسبيًا، حتى عند السرعات العالية." },
@@ -2296,6 +2380,7 @@ const healthProducts: Product[] = [
         slug: 'electric-toothbrush-s1',
         images: getImages('electric-toothbrush-s1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هو المؤقت الذكي؟", answer: "يتوقف الجهاز مؤقتًا كل 30 ثانية لتذكيرك بالانتقال إلى ربع آخر من فمك، ويتوقف تلقائيًا بعد دقيقتين." },
             { question: "كم مرة يجب أن أغير رأس الفرشاة؟", answer: "يوصي أطباء الأسنان بتغيير رأس الفرشاة كل 3 أشهر." },
@@ -2340,6 +2425,7 @@ const healthProducts: Product[] = [
         slug: 'smart-watch-h5',
         images: getImages('smart-watch-h5'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني الرد على المكالمات من الساعة؟", answer: "يمكنك رؤية إشعارات المكالمات ورفضها، لكن لا يمكنك التحدث مباشرة من خلال الساعة." },
             { question: "هل تدعم اللغة العربية؟", answer: "نعم، واجهة الساعة والإشعارات تدعم اللغة العربية." },
@@ -2362,6 +2448,7 @@ const healthProducts: Product[] = [
         slug: 'water-flosser-wf1',
         images: getImages('water-flosser-wf1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل هو بديل عن فرشاة الأسنان؟", answer: "لا، هو مكمل لفرشاة الأسنان وليس بديلاً عنها. يجب استخدامه بعد تنظيف الأسنان بالفرشاة." },
             { question: "هل هو آمن للثة الحساسة؟", answer: "نعم، يحتوي على وضع 'ناعم' (Soft) مصمم خصيصًا للثة الحساسة." },
@@ -2406,6 +2493,7 @@ const healthProducts: Product[] = [
         slug: 'led-face-mask-lm3',
         images: getImages('led-face-mask-lm3'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما فائدة الألوان المختلفة؟", answer: "لكل لون طول موجي مختلف يستهدف مشكلة معينة. على سبيل المثال، الضوء الأحمر يحفز الكولاجين (مضاد للتجاعيد)، والضوء الأزرق يقتل بكتيريا حب الشباب." },
             { question: "هل هو مريح للارتداء؟", answer: "نعم، مصنوع من السيليكون الطبي المرن الذي يتناسب مع شكل الوجه، ويحتوي على فتحات للعينين والفم." },
@@ -2428,6 +2516,7 @@ const healthProducts: Product[] = [
         slug: 'supersonic-hair-dryer-hd08',
         images: getImages('supersonic-hair-dryer-hd08'),
         category: categories.health.slug,
+        warranty: 'عامان',
         faq: [
             { question: "كيف يحمي الشعر من التلف الحراري؟", answer: "يقيس درجة حرارة الهواء أكثر من 40 مرة في الثانية لمنع الحرارة الزائدة والحفاظ على لمعان الشعر الطبيعي." },
             { question: "هل هو مناسب لجميع أنواع الشعر؟", answer: "نعم، يأتي مع ملحقات مغناطيسية مختلفة مصممة لأنواع الشعر المختلفة، من الناعم إلى المجعد." },
@@ -2450,6 +2539,7 @@ const healthProducts: Product[] = [
         slug: 'hair-straightener-hs1',
         images: getImages('hair-straightener-hs1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما فائدة الألواح العائمة؟", answer: "تتحرك الألواح العائمة لتتكيف مع سمك خصلة الشعر، مما يضمن توزيع الضغط والحرارة بالتساوي ويقلل من تلف الشعر." },
             { question: "هل يمكن استخدامها في دول أخرى؟", answer: "نعم، تدعم الجهد العالمي (110-240 فولت)، لذا يمكنك استخدامها أثناء السفر." },
@@ -2472,6 +2562,7 @@ const healthProducts: Product[] = [
         slug: 'automatic-curling-iron-ac1',
         images: getImages('automatic-curling-iron-ac1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل هو آمن للشعر؟", answer: "نعم، حجرة السيراميك توزع الحرارة بلطف، والجهاز يحتوي على تنبيهات لمنع تشابك الشعر." },
             { question: "هل هو مناسب للشعر الطويل؟", answer: "نعم، هو مناسب لجميع أطوال وأنواع الشعر." },
@@ -2494,6 +2585,7 @@ const healthProducts: Product[] = [
         slug: 'electric-shaver-es9',
         images: getImages('electric-shaver-es9'),
         category: categories.health.slug,
+        warranty: 'عامان',
         faq: [
             { question: "هل يمكنني استخدامها مع رغوة الحلاقة؟", answer: "نعم، هي مقاومة للماء بالكامل ومصممة للاستخدام الجاف أو الرطب مع الرغوة أو الجل." },
             { question: "كيف يتم تنظيفها؟", answer: "يمكن فتح رؤوس الحلاقة بسهولة وشطفها مباشرة تحت الماء الجاري." },
@@ -2516,6 +2608,7 @@ const healthProducts: Product[] = [
         slug: 'epilator-silk-epil-9',
         images: getImages('epilator-silk-epil-9'),
         category: categories.health.slug,
+        warranty: 'عامان',
         faq: [
             { question: "هل عملية إزالة الشعر مؤلمة؟", answer: "قد يكون هناك بعض الانزعاج في البداية، لكن استخدامها بانتظام ومع الماء الدافئ يقلل من الألم بشكل كبير." },
             { question: "ما فائدة رأس التدليك؟", answer: "يساعد رأس التدليك عالي التردد على تحفيز البشرة وجعل عملية إزالة الشعر أكثر لطفًا." },
@@ -2582,6 +2675,7 @@ const healthProducts: Product[] = [
         slug: 'back-massager-chair-bm1',
         images: getImages('back-massager-chair-bm1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكن تعديل ارتفاع تدليك الرقبة؟", answer: "نعم، يمكن تعديل ارتفاع رؤوس تدليك الرقبة لتناسب طولك." },
             { question: "هل يمكن استخدامها في السيارة؟", answer: "نعم، تأتي مع محول خاص لولاعة السيارة." },
@@ -2604,6 +2698,7 @@ const healthProducts: Product[] = [
         slug: 'neck-shoulder-massager-nsm1',
         images: getImages('neck-shoulder-massager-nsm1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف أتحكم في قوة التدليك؟", answer: "يمكنك التحكم في الشدة عن طريق سحب المقابض. كلما سحبت أكثر، زادت قوة التدليك." },
             { question: "هل يمكن استخدامه على أجزاء أخرى من الجسم؟", answer: "نعم، تصميمه المرن يجعله مناسبًا لتدليك الظهر والبطن والساقين أيضًا." },
@@ -2626,6 +2721,7 @@ const healthProducts: Product[] = [
         slug: 'eye-massager-em1',
         images: getImages('eye-massager-em1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل هو آمن للعيون؟", answer: "نعم، يركز التدليك على منطقة الصدغ ومحيط العين، ولا يضغط على مقلة العين مباشرة." },
             { question: "هل يمكنني إيقاف الموسيقى؟", answer: "نعم، يمكنك إيقاف الموسيقى المدمجة أو توصيل هاتفك عبر البلوتوث لتشغيل ما تفضله." },
@@ -2670,6 +2766,7 @@ const healthProducts: Product[] = [
         slug: 'blood-pressure-monitor-bpm1',
         images: getImages('blood-pressure-monitor-bpm1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل هو دقيق؟", answer: "نعم، الجهاز معتمد إكلينيكيًا ويوفر قراءات دقيقة يمكنك الاعتماد عليها." },
             { question: "كيف تعمل ميزة كشف عدم انتظام ضربات القلب؟", answer: "يعرض الجهاز رمزًا تحذيريًا إذا اكتشف نمطًا غير منتظم لضربات القلب أثناء القياس." },
@@ -2736,6 +2833,7 @@ const healthProducts: Product[] = [
         slug: 'white-noise-machine-wnm1',
         images: getImages('white-noise-machine-wnm1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هي الضوضاء البيضاء؟", answer: "هي صوت يحتوي على جميع الترددات التي يمكن للإنسان سماعها، ويساعد على حجب الأصوات المزعجة الأخرى مثل حركة المرور أو الشخير." },
             { question: "هل يمكن أن يعمل طوال الليل؟", answer: "نعم، يمكنك تركه يعمل بشكل مستمر أو استخدام المؤقت لإيقافه تلقائيًا." },
@@ -2912,6 +3010,7 @@ const healthProducts: Product[] = [
         slug: 'heating-pad-hp1',
         images: getImages('heating-pad-hp1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكن استخدامها مع الرطوبة؟", answer: "نعم، يمكنك رش القليل من الماء على سطحها للحصول على علاج بالحرارة الرطبة." },
             { question: "هل هي آمنة للنوم بها؟", answer: "تحتوي على ميزة الإيقاف التلقائي بعد ساعتين للأمان." },
@@ -2978,6 +3077,7 @@ const healthProducts: Product[] = [
         slug: 'facial-cleansing-brush-fcb1',
         images: getImages('facial-cleansing-brush-fcb1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل هي أفضل من فرش النايلون؟", answer: "السيليكون أكثر صحية لأنه غير مسامي ويمنع تراكم البكتيريا، كما أنه ألطف على البشرة." },
             { question: "هل أحتاج إلى استبدال رأس الفرشاة؟", answer: "لا، رأس السيليكون لا يحتاج إلى استبدال أبدًا." },
@@ -3000,6 +3100,7 @@ const healthProducts: Product[] = [
         slug: 'microdermabrasion-kit-mdk1',
         images: getImages('microdermabrasion-kit-mdk1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كم مرة يجب أن أستخدمه؟", answer: "يوصى باستخدامه مرة واحدة في الأسبوع للحصول على أفضل النتائج." },
             { question: "هل هو مؤلم؟", answer: "لا، إنه غير مؤلم. قد تشعرين بشفط خفيف وتقشير لطيف." },
@@ -3044,6 +3145,7 @@ const healthProducts: Product[] = [
         slug: 'hair-growth-laser-comb-hglc1',
         images: getImages('hair-growth-laser-comb-hglc1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "متى يمكنني رؤية النتائج؟", answer: "قد تختلف النتائج، ولكن معظم المستخدمين يلاحظون انخفاضًا في تساقط الشعر وتحسنًا في كثافته بعد 3-6 أشهر من الاستخدام المنتظم." },
             { question: "هل له أي آثار جانبية؟", answer: "العلاج بالليزر منخفض المستوى آمن وليس له آثار جانبية معروفة عند استخدامه وفقًا للتعليمات." },
@@ -3066,6 +3168,7 @@ const healthProducts: Product[] = [
         slug: 'beard-trimmer-bt1',
         images: getImages('beard-trimmer-bt1'),
         category: categories.health.slug,
+        warranty: 'عامان',
         faq: [
             { question: "هل يمكن استخدامها لحلاقة الشعر؟", answer: "هي مصممة بشكل أساسي لتشذيب اللحية، ولكن يمكن استخدامها لتشذيب الشعر القصير أيضًا." },
             { question: "هل الشفرات تحتاج إلى تزييت؟", answer: "الشفرات ذاتية الشحذ ولا تتطلب تزييتًا." },
@@ -3088,6 +3191,7 @@ const healthProducts: Product[] = [
         slug: 'foot-spa-bath-fsb1',
         images: getImages('foot-spa-bath-fsb1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني إضافة أملاح الاستحمام؟", answer: "نعم، يمكنك إضافة أملاح إبسوم أو زيوت عطرية لتعزيز تجربة السبا." },
             { question: "هل بكرات التدليك آلية؟", answer: "لا، بكرات التدليك يدوية، تقوم بتحريك قدميك فوقها للحصول على التدليك." },
@@ -3110,6 +3214,7 @@ const healthProducts: Product[] = [
         slug: 'light-therapy-lamp-ltl1',
         images: getImages('light-therapy-lamp-ltl1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف أستخدمه؟", answer: "ضعه على مكتبك أو طاولة جانبية على بعد حوالي 30-60 سم منك، واستخدمه لمدة 20-30 دقيقة كل صباح." },
             { question: "هل هو ضوء نمو للنباتات؟", answer: "لا، هو مصمم للاستخدام البشري ولا يوفر الطيف الكامل الذي تحتاجه النباتات للنمو." },
@@ -3154,6 +3259,7 @@ const healthProducts: Product[] = [
         slug: 'kegel-trainer-kt1',
         images: getImages('kegel-trainer-kt1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هي فوائد تمارين كيجل؟", answer: "تساعد على تحسين التحكم في المثانة، ودعم أعضاء الحوض، ويمكن أن تعزز الشفاء بعد الولادة." },
             { question: "هل هو آمن للاستخدام؟", answer: "نعم، مصنوع من السيليكون الطبي بنسبة 100% وهو آمن تمامًا للجسم." },
@@ -3176,6 +3282,7 @@ const healthProducts: Product[] = [
         slug: 'sleep-tracker-st1',
         images: getImages('sleep-tracker-st1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يعمل مع أي نوع من المراتب؟", answer: "نعم، يعمل مع معظم أنواع المراتب (الإسفنج، الزنبرك، اللاتكس)." },
             { question: "هل يمكن أن يتتبع نوم شخصين في نفس السرير؟", answer: "لا، هو مصمم لتتبع الشخص الذي ينام فوقه مباشرة. ستحتاج إلى جهازين لتتبع شخصين." },
@@ -3264,6 +3371,7 @@ const healthProducts: Product[] = [
         slug: 'sauna-blanket-sb1',
         images: getImages('sauna-blanket-sb1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما الفرق بينها وبين الساونا العادية؟", answer: "تسخن الأشعة تحت الحمراء الجسم مباشرة بدلاً من تسخين الهواء، مما يسمح باختراق أعمق للحرارة في درجات حرارة أقل." },
             { question: "كيف يتم تنظيفها؟", answer: "بعد الاستخدام، اتركها تبرد ثم امسحها من الداخل بمنشفة و مطهر." },
@@ -3308,6 +3416,7 @@ const healthProducts: Product[] = [
         slug: 'smart-pill-organizer-spo1',
         images: getImages('smart-pill-organizer-spo1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ماذا يحدث إذا نسيت جرعة؟", answer: "سيسجل التطبيق الجرعة على أنها فائتة، ويمكن إعداد تنبيهات متكررة لتذكيرك." },
             { question: "هل يمكن استخدامه لعدة جرعات في اليوم؟", answer: "المنظم مصمم لجرعة واحدة يوميًا. للجرعات المتعددة، قد تحتاج إلى عدة منظمات." },
@@ -3330,6 +3439,7 @@ const healthProducts: Product[] = [
         slug: 'portable-ecg-monitor-pem1',
         images: getImages('portable-ecg-monitor-pem1'),
         category: categories.health.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف أقوم بتسجيل تخطيط القلب؟", answer: "تفتح التطبيق على هاتفك وتضع إصبعين على مستشعرات الجهاز لمدة 30 ثانية." },
             { question: "هل النتائج دقيقة؟", answer: "نعم، الجهاز معتمد من إدارة الغذاء والدواء الأمريكية ويوفر نتائج دقيقة يمكن مشاركتها مع طبيبك." },
@@ -3356,6 +3466,7 @@ const homeProducts: Product[] = [
         slug: 'robot-vacuum-cleaner',
         images: getImages('robot-vacuum-cleaner'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل تتجنب السلالم والعوائق؟", answer: "نعم، تحتوي على مستشعرات لمنع السقوط من على السلالم ومستشعرات لتجنب الاصطدام بالأثاث." },
             { question: "هل يمكنها تنظيف السجاد؟", answer: "نعم، تزيد من قوة الشفط تلقائيًا عند الانتقال من الأرضيات الصلبة إلى السجاد." },
@@ -3378,6 +3489,7 @@ const homeProducts: Product[] = [
         slug: 'smart-air-purifier',
         images: getImages('smart-air-purifier'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "متى يجب تغيير الفلتر؟", answer: "عادة كل 6-8 أشهر. سيقوم التطبيق بتنبيهك عندما يحين وقت تغيير الفلتر." },
             { question: "ما هو وضع النوم؟", answer: "في وضع النوم، يعمل المنقي بأدنى سرعة للمروحة ويطفئ جميع الأضواء لتوفير بيئة نوم هادئة." },
@@ -3400,6 +3512,7 @@ const homeProducts: Product[] = [
         slug: 'smart-lock-l3',
         images: getImages('smart-lock-l3'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكن تركيبه على أي باب؟", answer: "يناسب معظم الأبواب القياسية، ولكن من الأفضل التحقق من سمك الباب والتوافق قبل الشراء." },
             { question: "ماذا يحدث إذا نفدت البطارية؟", answer: "سينبهك القفل قبل نفاد البطارية بوقت كافٍ. في حالة الطوارئ، يمكنك استخدام المفتاح الميكانيكي أو توصيل باور بانك بمنفذ USB مخفي." },
@@ -3422,6 +3535,7 @@ const homeProducts: Product[] = [
         slug: 'video-doorbell-v2',
         images: getImages('video-doorbell-v2'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يتطلب اشتراكًا شهريًا؟", answer: "بعض الميزات مثل تخزين الفيديو السحابي قد تتطلب اشتراكًا، لكن الميزات الأساسية مثل البث المباشر والتنبيهات تعمل بدونه." },
             { question: "هل يمكنه التمييز بين الأشخاص والسيارات؟", answer: "نعم، تستخدم ميزة كشف الحركة الذكية خوارزميات للتمييز بين الأشخاص والحيوانات والسيارات لتقليل التنبيهات الكاذبة." },
@@ -3444,6 +3558,7 @@ const homeProducts: Product[] = [
         slug: 'smart-lighting-kit',
         images: getImages('smart-lighting-kit'),
         category: categories.home.slug,
+        warranty: 'عامان',
         faq: [
             { question: "ما هو جسر التحكم (Bridge)؟", answer: "هو الجهاز المركزي الذي يتصل بالراوتر ويسمح لك بالتحكم في جميع اللمبات والميزات الذكية عن بعد." },
             { question: "هل يمكنني إضافة المزيد من اللمبات لاحقًا؟", answer: "نعم، يمكنك إضافة ما يصل إلى 50 لمبة وملحقًا إلى جسر التحكم الواحد." },
@@ -3465,6 +3580,7 @@ const homeProducts: Product[] = [
         price: 1800.00,
         images: getImages('robot-mop-m6'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يعمل مع مكانس Roomba؟", answer: "باستخدام تقنية Imprint Link، يمكن لروبوت Roomba إخبار روبوت Braava ببدء المسح تلقائيًا بعد انتهاء الكنس." },
             { question: "هل يستخدم الماء فقط؟", answer: "يمكن استخدام الماء أو محلول التنظيف الخاص بالأرضيات الصلبة من iRobot." },
@@ -3487,6 +3603,7 @@ const homeProducts: Product[] = [
         price: 800.00,
         images: getImages('smart-thermostat-t9'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما فائدة مستشعر الغرف؟", answer: "يقيس درجة الحرارة في الغرفة التي تقضي فيها معظم وقتك، مما يضمن الراحة في المكان الذي يهمك، وليس فقط حول منظم الحرارة." },
             { question: "هل يمكنه اكتشاف ما إذا كنت في المنزل؟", answer: "نعم، يستخدم تقنية Geofencing لتحديد موقع هاتفك ليعرف متى تكون في المنزل أو بعيدًا عنه ويوفر الطاقة وفقًا لذلك." },
@@ -3509,6 +3626,7 @@ const homeProducts: Product[] = [
         price: 500.00,
         images: getImages('smart-blinds-kit'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل أحتاج إلى hub إضافي للتحكم الصوتي؟", answer: "نعم، للتحكم الصوتي والتحكم عن بعد خارج المنزل، ستحتاج إلى جهاز Hub الخاص بالشركة المصنعة." },
             { question: "هل اللوح الشمسي كافٍ لتشغيله؟", answer: "نعم، في معظم الحالات، يوفر اللوح الشمسي طاقة كافية لتشغيل المحرك دون الحاجة إلى شحن إضافي." },
@@ -3531,6 +3649,7 @@ const homeProducts: Product[] = [
         price: 250.00,
         images: getImages('smart-indoor-camera-c1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هو الصوت ثنائي الاتجاه؟", answer: "يسمح لك بالتحدث والاستماع عبر الكاميرا باستخدام هاتفك، حتى تتمكن من التحدث إلى أفراد عائلتك أو حيواناتك الأليفة." },
             { question: "هل يمكنني إيقاف التسجيل للحفاظ على الخصوصية؟", answer: "نعم، يمكنك ضبط جداول زمنية للتسجيل أو إيقاف تشغيلها يدويًا من التطبيق." },
@@ -3553,6 +3672,7 @@ const homeProducts: Product[] = [
         price: 600.00,
         images: getImages('smart-outdoor-camera-o2'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف تعمل الرؤية الليلية الملونة؟", answer: "تستخدم الكشاف المدمج لإضاءة المنطقة عند اكتشاف الحركة، مما يسمح بتسجيل فيديو ملون بدلاً من الأسود والأبيض." },
             { question: "هل تركيبها صعب؟", answer: "لا، بما أنها لاسلكية، يمكنك تركيبها في أي مكان في دقائق باستخدام الحامل المغناطيسي أو اللولبي المرفق." },
@@ -3575,6 +3695,7 @@ const homeProducts: Product[] = [
         price: 900.00,
         images: getImages('smart-garden-sg9'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل أحتاج إلى أي خبرة في الزراعة؟", answer: "لا على الإطلاق. النظام مؤتمت بالكامل، كل ما عليك فعله هو إضافة الماء عندما ينبهك الجهاز." },
             { question: "ما نوع النباتات التي يمكنني زراعتها؟", answer: "يمكنك زراعة مجموعة واسعة من الأعشاب (مثل الريحان والنعناع)، والخضروات الورقية (مثل الخس)، والطماطم الكرزية، والزهور." },
@@ -3597,6 +3718,7 @@ const homeProducts: Product[] = [
         price: 2500.00,
         images: getImages('smart-frame-sf1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "لماذا تبدو الشاشة وكأنها لوحة؟", answer: "تستخدم تقنية خاصة مضادة للوهج تجعل الصورة تبدو غير لامعة، بالإضافة إلى مستشعر يضبط سطوع الصورة لتتناسب مع إضاءة الغرفة." },
             { question: "هل يمكنني عرض صوري الخاصة؟", answer: "نعم، يمكنك بسهولة تحميل صورك الخاصة من هاتفك أو جهاز الكمبيوتر لعرضها." },
@@ -3619,8 +3741,9 @@ const homeProducts: Product[] = [
         price: 550.00,
         images: getImages('smart-smoke-detector-sd1'),
         category: categories.home.slug,
+        warranty: '10 سنوات',
         faq: [
-            { question: "ما فائدة التنبيه الصوتي البشري؟", answer: 'بدلاً من مجرد صفير، يخبرك بصوت واضح "هناك دخان في غرفة المعيشة"، مما يساعد على الاستجابة بشكل أسرع وأكثر هدوءًا.' },
+            { question: 'ما فائدة التنبيه الصوتي البشري؟', answer: 'بدلاً من مجرد صفير، يخبرك بصوت واضح "هناك دخان في غرفة المعيشة"، مما يساعد على الاستجابة بشكل أسرع وأكثر هدوءًا.' },
             { question: "هل يمكنه إيقاف الإنذار من الهاتف؟", answer: "نعم، إذا كان إنذارًا كاذبًا (مثل بخار الطهي)، يمكنك إسكاته مؤقتًا من التطبيق دون الحاجة للوصول إلى السقف." },
         ]
     },
@@ -3641,6 +3764,7 @@ const homeProducts: Product[] = [
         price: 200.00,
         images: getImages('smart-water-leak-detector-wld1'),
         category: categories.home.slug,
+        warranty: 'عامان',
         faq: [
             { question: "أين أفضل الأماكن لوضعه؟", answer: "يوصى بوضعه في الأماكن المعرضة للتسرب مثل تحت أحواض المطبخ والحمام، بالقرب من سخانات المياه، وفي القبو." },
             { question: "هل يمكنه إيقاف تسرب المياه؟", answer: "هذا الجهاز يكتشف التسرب وينبهك فقط. لإيقاف التسرب، ستحتاج إلى صمام مياه ذكي منفصل." },
@@ -3685,6 +3809,7 @@ const homeProducts: Product[] = [
         price: 1500.00,
         images: getImages('compost-bin-cb1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يصدر أي رائحة؟", answer: "لا، يستخدم فلاتر كربونية للقضاء على أي روائح أثناء عملية التجفيف والطحن." },
             { question: "ماذا يمكنني أن أضع فيه؟", answer: "يمكنك وضع معظم بقايا الطعام، بما في ذلك الخضروات والفواكه وبقايا اللحوم ومنتجات الألبان." },
@@ -3707,6 +3832,7 @@ const homeProducts: Product[] = [
         price: 380.00,
         images: getImages('smart-curtain-robot-cr1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يتم تركيبه؟", answer: "يتم تعليقه ببساطة على قضيب الستارة الموجود لديك. لا حاجة لأي أدوات." },
             { question: "هل يعمل مع الستائر الثقيلة؟", answer: "يمكنه دفع ستائر يصل وزنها إلى 8 كجم." },
@@ -3729,6 +3855,7 @@ const homeProducts: Product[] = [
         price: 550.00,
         images: getImages('wireless-charging-furniture-wcf1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "أين منطقة الشحن بالضبط؟", answer: "توجد علامة صغيرة على سطح الطاولة تشير إلى منطقة الشحن اللاسلكي." },
             { question: "هل أحتاج إلى تجميعها؟", answer: "نعم، تتطلب تجميعًا بسيطًا وعادة ما تأتي مع جميع الأدوات والتعليمات اللازمة." },
@@ -3751,6 +3878,7 @@ const homeProducts: Product[] = [
         price: 150.00,
         images: getImages('smart-laundry-sensor-ls1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يعمل؟", answer: "يكتشف اهتزازات الغسالة أو المجفف. عندما تتوقف الاهتزازات لفترة معينة، فإنه يفترض أن الدورة قد انتهت ويرسل لك تنبيهًا." },
             { question: "أين أضعه؟", answer: "يمكنك تثبيته مغناطيسيًا على جانب الغسالة أو المجفف." },
@@ -3795,6 +3923,7 @@ const homeProducts: Product[] = [
         price: 350.00,
         images: getImages('smart-trash-can-stc1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما مدى حساسية المستشعر؟", answer: "يفتح المستشعر عندما تكون على بعد 15-25 سم، مما يمنع الفتح العرضي." },
             { question: "هل الغطاء يغلق ببطء؟", answer: "نعم، يستخدم آلية إغلاق ناعمة وهادئة." },
@@ -3817,6 +3946,7 @@ const homeProducts: Product[] = [
         price: 120.00,
         images: getImages('smart-wifi-plug-swp1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني استخدامه لجدولة تشغيل الأجهزة؟", answer: "نعم، يمكنك إنشاء جداول زمنية لتشغيل وإيقاف الأجهزة تلقائيًا في أوقات محددة." },
             { question: "هل يقيس استهلاك الطاقة؟", answer: "هذا الطراز لا يقيس استهلاك الطاقة. هناك طرازات أخرى توفر هذه الميزة." },
@@ -3839,6 +3969,7 @@ const homeProducts: Product[] = [
         price: 280.00,
         images: getImages('smart-diffuser-sd1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنه العمل كمرطب هواء؟", answer: "نعم، يعمل بتقنية الموجات فوق الصوتية التي تضيف رطوبة إلى الهواء مع نشر الرائحة." },
             { question: "هل أحتاج إلى زيوت عطرية خاصة؟", answer: "لا، يمكنك استخدام أي زيوت عطرية قابلة للذوبان في الماء." },
@@ -3883,6 +4014,7 @@ const homeProducts: Product[] = [
         price: 220.00,
         images: getImages('smart-food-scale-sfs1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يعرف التطبيق القيمة الغذائية؟", answer: "بعد وزن المكون، يمكنك البحث عنه في قاعدة بيانات التطبيق للحصول على جميع معلوماته الغذائية." },
             { question: "هل يمكنني استخدامه كميزان مطبخ عادي؟", answer: "نعم، يمكنك استخدامه كميزان عالي الدقة حتى بدون استخدام التطبيق." },
@@ -3905,6 +4037,7 @@ const homeProducts: Product[] = [
         price: 350.00,
         images: getImages('bbq-thermometer-bt1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل المسبار مقاوم للحرارة؟", answer: "نعم، المسبار وسلكه مصممان لتحمل درجات الحرارة العالية داخل الشواية أو الفرن." },
             { question: "هل يمكنني استخدامه للتدخين (Smoking)؟", answer: "بالتأكيد، يمكنك استخدام مسبار لمراقبة درجة حرارة اللحم والآخر لمراقبة درجة حرارة المدخن." },
@@ -3927,6 +4060,7 @@ const homeProducts: Product[] = [
         price: 650.00,
         images: getImages('smart-photo-printer-spp1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هي تقنية التسامي الصبغي (Dye-sublimation)؟", answer: "هي تقنية طباعة تستخدم الحرارة لنقل الصبغة إلى الورق، وتنتج صورًا ذات ألوان غنية وتدرجات ناعمة تشبه الصور الفوتوغرافية التقليدية." },
             { question: "هل أحتاج إلى شراء حبر وورق خاص؟", answer: "نعم، تعمل الطابعة مع خراطيش خاصة تحتوي على الحبر والورق معًا." },
@@ -3949,6 +4083,7 @@ const homeProducts: Product[] = [
         price: 1400.00,
         images: getImages('smart-mirror-sm1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف تعمل ميزة إزالة الضباب؟", answer: "تحتوي المرآة على لوحة تسخين خلفية تمنع تكثف البخار عليها بعد الاستحمام." },
             { question: "كيف تحصل على معلومات الطقس والأخبار؟", answer: "تتصل بشبكة الواي فاي في منزلك لجلب المعلومات المحدثة من الإنترنت." },
@@ -4015,6 +4150,7 @@ const homeProducts: Product[] = [
         price: 850.00,
         images: getImages('smart-sous-vide-ssv1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما فائدة اتصال الواي فاي؟", answer: "يسمح لك ببدء الطهي ومراقبته والتحكم فيه من أي مكان، حتى عندما تكون خارج المنزل." },
             { question: "هل أحتاج إلى وعاء خاص؟", answer: "لا، يمكنك تثبيته على جانب أي وعاء أو قدر كبير بما يكفي." },
@@ -4037,6 +4173,7 @@ const homeProducts: Product[] = [
         price: 150.00,
         images: getImages('smart-button-pusher-sbp1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يعمل مع مفاتيح الإضاءة؟", answer: "نعم، يأتي مع ملحق لاصق صغير يمكنك استخدامه لسحب أو دفع مفاتيح الإضاءة." },
             { question: "هل أحتاج إلى hub؟", answer: "للتحكم عبر البلوتوث من مسافة قريبة، لا تحتاج إلى hub. للتحكم عن بعد عبر الإنترنت أو بالأوامر الصوتية، ستحتاج إلى Hub خاص بالشركة." },
@@ -4058,6 +4195,7 @@ const homeProducts: Product[] = [
         price: 750.00,
         images: getImages('cordless-stick-vacuum-csv1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل هي مناسبة لشعر الحيوانات الأليفة؟", answer: "نعم، الشفط القوي والفرشاة الدوارة يجعلانها فعالة في التقاط شعر الحيوانات الأليفة من السجاد والأرضيات." },
             { question: "هل البطارية قابلة للاستبدال؟", answer: "نعم، البطارية قابلة للفصل، مما يسمح لك بشحنها بشكل منفصل أو استبدالها ببطارية إضافية." },
@@ -4080,6 +4218,7 @@ const homeProducts: Product[] = [
         price: 1200.00,
         images: getImages('smart-window-cleaner-swc1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ماذا يحدث إذا انقطع التيار الكهربائي؟", answer: "يحتوي على بطارية احتياطية مدمجة تبقيه ملتصقًا بالنافذة لمدة 20 دقيقة وتطلق إنذارًا." },
             { question: "هل ينظف الحواف والزوايا جيدًا؟", answer: "ينظف معظم السطح بكفاءة، لكن الزوايا قد تحتاج إلى مسح يدوي بسيط." },
@@ -4124,6 +4263,7 @@ const homeProducts: Product[] = [
         price: 550.00,
         images: getImages('smart-rice-cooker-src1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما فائدة التسخين بالحث؟", answer: "يوفر تسخينًا سريعًا ومتساويًا للوعاء بأكمله، مما ينتج عنه أرز مطبوخ بشكل مثالي." },
             { question: "هل يمكنها طهي أشياء أخرى غير الأرز؟", answer: "نعم، يمكن استخدامها لطهي الحساء، والعصيدة، وحتى الكعك باستخدام الإعدادات المناسبة في التطبيق." },
@@ -4146,6 +4286,7 @@ const homeProducts: Product[] = [
         price: 280.00,
         images: getImages('electric-kettle-ek1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "لماذا أحتاج إلى درجات حرارة مختلفة؟", answer: "أنواع الشاي المختلفة (الأخضر، الأسود، الأبيض) والقهوة تتطلب درجات حرارة مختلفة لاستخلاص أفضل نكهة دون حرقها." },
             { question: "هل هي آمنة للمس من الخارج؟", answer: "الجدران مزدوجة ومعزولة، مما يجعلها باردة الملمس من الخارج." },
@@ -4212,6 +4353,7 @@ const homeProducts: Product[] = [
         price: 320.00,
         images: getImages('smart-picture-light-spl1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كم تدوم البطارية؟", answer: "تدوم لعدة أسابيع أو أشهر حسب الاستخدام ومستوى السطوع." },
             { question: "هل يمكن تعديل زاوية الإضاءة؟", answer: "نعم، رأس الإضاءة قابل للدوران لتوجيه الضوء بدقة على اللوحة." },
@@ -4234,6 +4376,7 @@ const homeProducts: Product[] = [
         price: 700.00,
         images: getImages('automatic-pet-door-apd1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف يعمل؟", answer: "يقرأ الباب شريحة RFID فريدة في طوق حيوانك الأليف ويفتح فقط عند تطابقها." },
             { question: "هل يمكنني ضبط أوقات الدخول والخروج؟", answer: "نعم، يمكنك برمجته للسماح بالخروج فقط، أو الدخول فقط، أو القفل الكامل في أوقات معينة (وضع حظر التجول)." },
@@ -4278,6 +4421,7 @@ const homeProducts: Product[] = [
         price: 950.00,
         images: getImages('smart-coffee-grinder-scg1'),
         category: categories.home.slug,
+        warranty: 'عامان',
         faq: [
             { question: "ما فائدة الشفرات المخروطية؟", answer: "تطحن الشفرات المخروطية القهوة بشكل متساوٍ وتقلل من الحرارة الناتجة عن الاحتكاك، مما يحافظ على نكهة القهوة." },
             { question: "هل يمكنني التحكم في كمية القهوة المطحونة؟", answer: "نعم، يمكنك ضبط وقت الطحن بالثواني أو اختيار عدد الأكواب التي تريد تحضيرها." },
@@ -4300,6 +4444,7 @@ const homeProducts: Product[] = [
         price: 320.00,
         images: getImages('smart-humidifier-sh1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "هل يمكنني إضافة زيوت عطرية؟", answer: "لا يوصى بإضافة الزيوت العطرية مباشرة إلى خزان الماء، حيث يمكن أن تتلف البلاستيك. بعض الطرز تأتي مع درج منفصل للزيوت." },
             { question: "كيف يعمل الوضع التلقائي؟", answer: "يستخدم مستشعر رطوبة مدمج لتشغيل وإيقاف المرطب تلقائيًا للحفاظ على مستوى الرطوبة الذي حددته." },
@@ -4322,6 +4467,7 @@ const homeProducts: Product[] = [
         price: 450.00,
         images: getImages('bedside-lamp-bl1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "كيف تعمل محاكاة شروق الشمس؟", answer: "قبل 30 دقيقة من وقت الاستيقاظ، يبدأ المصباح في الإضاءة بلون أحمر خافت ويزداد سطوعًا ولونًا تدريجيًا ليحاكي شروق الشمس الطبيعي." },
             { question: "هل يمكنني استخدامه كإضاءة عادية؟", answer: "نعم، يمكنك استخدامه كمصباح عادي واختيار أي لون أو درجة من الأبيض من خلال التطبيق." },
@@ -4344,6 +4490,7 @@ const homeProducts: Product[] = [
         price: 250.00,
         images: getImages('smart-wine-aerator-swa1'),
         category: categories.home.slug,
+        warranty: 'عام واحد',
         faq: [
             { question: "ما هي التهوية ولماذا هي مهمة للنبيذ؟", answer: "التهوية هي عملية تعريض النبيذ للأكسجين، مما يساعد على تليين العفص (Tannins) وإطلاق النكهات والروائح المعقدة." },
             { question: "كيف يتم تنظيفه؟", answer: "ببساطة، املأ زجاجة فارغة بالماء وقم بتشغيل الجهاز ليمر الماء من خلاله وينظفه." },

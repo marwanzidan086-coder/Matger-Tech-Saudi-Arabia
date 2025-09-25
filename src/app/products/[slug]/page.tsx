@@ -11,7 +11,7 @@ import { OrderNowButton } from '@/components/OrderNowButton';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, Truck, Clock, Zap, BatteryCharging, Droplets, Usb, Speaker, Bluetooth, Weight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ShieldCheck, Truck, Clock, Zap, BatteryCharging, Droplets, Usb, Speaker, Bluetooth, Weight, ChevronLeft, ChevronRight, HelpCircle } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import type { LucideProps } from 'lucide-react';
@@ -30,6 +30,59 @@ function ParsedDescription({ description }: { description: string }) {
             <p className="text-base leading-relaxed text-foreground/80">
                 {intro.trim()}
             </p>
+        </div>
+    );
+}
+
+function ProductFeatures({ description }: { description: string }) {
+    const { features, details } = useMemo(() => {
+        const parts = description.split(/###(FEATURES|DETAILS)###/);
+        
+        const featuresIndex = description.includes('###FEATURES###') ? parts.findIndex(p => p === 'FEATURES') + 1 : -1;
+        const featuresList = featuresIndex !== -1 
+          ? parts[featuresIndex].trim().split('\n').map(f => f.replace(/^- /, '')).filter(f => f) 
+          : [];
+
+        const detailsIndex = description.includes('###DETAILS###') ? parts.findIndex(p => p === 'DETAILS') + 1 : -1;
+        const detailsList = detailsIndex !== -1
+          ? parts[detailsIndex].trim().split('\n').map(d => {
+              const [key, ...valueParts] = d.replace(/^- /, '').split(':');
+              return { key: key.trim(), value: valueParts.join(':').trim() };
+            }).filter(d => d.key && d.value)
+          : [];
+          
+        return { features: featuresList, details: detailsList };
+    }, [description]);
+
+    if (features.length === 0 && details.length === 0) {
+        return null;
+    }
+
+    return (
+        <div className="space-y-6">
+            {features.length > 0 && (
+                <div>
+                    <h3 className="text-xl font-bold mb-3">أبرز المميزات</h3>
+                    <ul className="space-y-2 list-disc list-inside text-foreground/80">
+                        {features.map((feature, index) => (
+                            <li key={index}>{feature}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+            {details.length > 0 && (
+                 <div>
+                    <h3 className="text-xl font-bold mb-3">المواصفات الفنية</h3>
+                    <ul className="space-y-2 text-foreground/80">
+                        {details.map((detail, index) => (
+                            <li key={index} className="flex justify-between border-b pb-2">
+                                <span className="font-semibold">{detail.key}</span>
+                                <span>{detail.value}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     );
 }
@@ -133,14 +186,18 @@ export default function ProductPage() {
             </CardContent>
           </Card>
           
+          <ProductFeatures description={product.description} />
+
           <ProductFaq product={product} />
 
           <Card>
             <CardContent className="p-4 grid grid-cols-3 gap-4 text-center">
-                <div className="flex flex-col items-center gap-2">
-                    <ShieldCheck className="h-8 w-8 text-primary"/>
-                    <span className="text-sm font-semibold text-muted-foreground">ضمان لمدة عامين</span>
-                </div>
+                {product.warranty && (
+                    <div className="flex flex-col items-center gap-2">
+                        <ShieldCheck className="h-8 w-8 text-primary"/>
+                        <span className="text-sm font-semibold text-muted-foreground">ضمان لمدة {product.warranty}</span>
+                    </div>
+                )}
                 <div className="flex flex-col items-center gap-2">
                     <Truck className="h-8 w-8 text-primary"/>
                     <span className="text-sm font-semibold text-muted-foreground">شحن سريع</span>
