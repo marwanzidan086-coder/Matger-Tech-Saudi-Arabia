@@ -49,7 +49,16 @@ const AccordionContent = React.forwardRef<
     className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    {children ? (
+      <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    ) : (
+      // If dangerouslySetInnerHTML is used, children will be undefined.
+      // We still need a div to apply padding, so we render it with the props.
+      <div
+        className={cn("pb-4 pt-0", className)}
+        {...props}
+      />
+    )}
   </AccordionPrimitive.Content>
 ))
 
