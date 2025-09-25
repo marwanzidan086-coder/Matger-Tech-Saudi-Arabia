@@ -12,14 +12,26 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from '@/components/ui/button';
 import Fuse from 'fuse.js';
 
+function getSessionCache(key: string) {
+    if (typeof window === 'undefined') return null;
+    const cached = sessionStorage.getItem(key);
+    return cached ? JSON.parse(cached) : null;
+}
+
+function setSessionCache(key: string, value: any) {
+    if (typeof window === 'undefined') return;
+    sessionStorage.setItem(key, JSON.stringify(value));
+}
+
+
 function SearchResults() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q');
+  
   const [localResults, setLocalResults] = useState<Product[]>([]);
   const [aiResults, setAiResults] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isAiLoading, setIsAiLoading] = useState(false);
-  const [lastSearchedQuery, setLastSearchedQuery] = useState<string | null>(null);
 
   const fuse = new Fuse(products, {
     keys: ['name', 'description', 'category'],
@@ -28,24 +40,30 @@ function SearchResults() {
   });
 
   useEffect(() => {
-    if (query !== lastSearchedQuery) {
-      setLocalResults([]);
-      setAiResults([]);
-      setIsLoading(true);
-      setLastSearchedQuery(query);
+    // This effect runs only when the query changes
+    setIsLoading(true);
+    setLocalResults([]);
+    setAiResults([]);
 
-      if (!query) {
-        setIsLoading(false);
-        return;
-      }
-
-      const results = fuse.search(query).map(result => result.item);
-      setLocalResults(results);
+    if (!query) {
       setIsLoading(false);
-    } else {
-        setIsLoading(false);
+      return;
     }
-  }, [query, lastSearchedQuery, fuse]);
+    
+    // Check cache for this query
+    const cacheKey = `ai_search_${query}`;
+    const cachedResults = getSessionCache(cacheKey);
+
+    if (cachedResults) {
+        setAiResults(cachedResults);
+    }
+
+    // Perform local search
+    const results = fuse.search(query).map(result => result.item);
+    setLocalResults(results);
+    setIsLoading(false);
+
+  }, [query, fuse]);
 
   const handleAiSuggestion = async () => {
     if (!query) return;
@@ -55,7 +73,11 @@ function SearchResults() {
       const foundProducts = response.results
         .map(res => products.find(p => p.slug === res.slug))
         .filter((p): p is Product => !!p);
+      
+      const cacheKey = `ai_search_${query}`;
+      setSessionCache(cacheKey, foundProducts);
       setAiResults(foundProducts);
+
     } catch (error) {
       console.error("AI suggestion failed:", error);
       setAiResults([]);
@@ -63,10 +85,15 @@ function SearchResults() {
       setIsAiLoading(false);
     }
   };
+  
+  // Combine and deduplicate results
+  const combinedResults = [...aiResults, ...localResults];
+  const displayedProducts = combinedResults.filter(
+    (product, index, self) => index === self.findIndex((p) => p.id === product.id)
+  );
 
-  const hasLocalResults = localResults.length > 0;
-  const hasAiResults = aiResults.length > 0;
-  const noResultsFound = !isLoading && !hasLocalResults && !hasAiResults;
+  const hasResults = displayedProducts.length > 0;
+  const noResultsFound = !isLoading && !hasResults;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -88,9 +115,18 @@ function SearchResults() {
         </div>
       ) : (
         <>
-          {hasLocalResults && (
+          {hasResults && (
             <div className="max-w-4xl mx-auto space-y-6">
-              {localResults.map((product) => (
+              {aiResults.length > 0 && (
+                <Alert variant="default" className="border-primary/30 bg-primary/5 text-primary-foreground">
+                    <Sparkles className="h-5 w-5 text-primary" />
+                    <AlertTitle className="font-bold text-primary">نتائج البحث الذكي</AlertTitle>
+                    <AlertDescription className="text-primary/90">
+                        هذه هي أفضل النتائج التي وجدها خبيرنا الذكي لك.
+                    </AlertDescription>
+                </Alert>
+              )}
+              {displayedProducts.map((product) => (
                 <ProductListItem key={product.id} product={product} />
               ))}
             </div>
@@ -130,25 +166,6 @@ function SearchResults() {
         </div>
       )}
 
-      {isAiLoading && (
-         <div className="text-center py-10">
-          <Loader2 className="mx-auto h-12 w-12 text-primary animate-spin" />
-          <p className="mt-4 text-lg text-muted-foreground">يقوم خبيرنا بالبحث لك...</p>
-        </div>
-      )}
-
-      {hasAiResults && (
-        <div className="mt-12">
-            <h3 className="text-2xl font-headline font-bold text-center mb-8">
-                نتائج البحث الذكي
-            </h3>
-            <div className="max-w-4xl mx-auto space-y-6">
-            {aiResults.map((product) => (
-                <ProductListItem key={`ai-${product.id}`} product={product} />
-            ))}
-            </div>
-        </div>
-      )}
     </div>
   );
 }
