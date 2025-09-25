@@ -11,10 +11,11 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function ProductListItem({ product }: { product: Product }) {
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-lg">
-      <CardContent className="p-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
-          <div className="md:col-span-1">
+    <Card className="overflow-hidden transition-all hover:shadow-md">
+      <CardContent className="p-3">
+        <div className="grid grid-cols-5 gap-3 items-center">
+          
+          <div className="col-span-2 md:col-span-1">
              <Link href={`/products/${product.slug}`} className="block">
                 <div className="relative aspect-square w-full bg-muted rounded-md overflow-hidden">
                     <Image
@@ -28,28 +29,21 @@ export default function ProductListItem({ product }: { product: Product }) {
                 </div>
              </Link>
           </div>
-          <div className="md:col-span-3 flex flex-col h-full">
-            <h3 className="text-xl font-bold">
-              <Link href={`/products/${product.slug}`}>{product.name}</Link>
-            </h3>
-            <p className="text-sm text-muted-foreground mt-1 mb-4 line-clamp-2">
-                {product.description.split('###')[0].trim()}
-            </p>
-            <div className="mt-auto flex flex-col sm:flex-row sm:items-center gap-4">
-                <p className="text-2xl font-mono font-bold text-primary">
-                    {product.price.toFixed(2)} ر.س
-                </p>
-                <div className="flex items-center gap-2">
-                    <AddToCartButton product={product} variant="default" size="lg" />
-                    <Button asChild variant="outline" size="lg">
-                        <Link href={`/products/${product.slug}`}>
-                            <span>التفاصيل</span>
-                            <ArrowLeft className="me-2 h-4 w-4" />
-                        </Link>
-                    </Button>
-                </div>
+          
+          <div className="col-span-3 md:col-span-4 flex flex-col justify-between h-full">
+            <div>
+              <h3 className="text-base font-semibold line-clamp-2 leading-tight">
+                <Link href={`/products/${product.slug}`}>{product.name}</Link>
+              </h3>
+              <p className="text-lg font-mono font-bold text-primary mt-1">
+                  {product.price.toFixed(2)} ر.س
+              </p>
+            </div>
+             <div className="mt-2">
+                <AddToCartButton product={product} size="sm" className="w-full sm:w-auto" />
             </div>
           </div>
+
         </div>
       </CardContent>
     </Card>
