@@ -16,6 +16,7 @@ import ProductFaq from '@/components/ProductFaq';
 import ProductStory from '@/components/ProductStory';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import ProductQnA from '@/components/ProductQnA';
 
 
 function ParsedDescription({ description }: { description: string }) {
@@ -159,6 +160,11 @@ export default function ProductPage() {
           <ProductFeatures description={product.description} />
 
           <ProductFaq product={product} />
+
+          {/* This is the new Product Q&A component. It will only render for the 'soundcore-r100' product */}
+          {product.slug === 'soundcore-r100' && (
+            <ProductQnA product={product} />
+          )}
 
           <Card>
             <CardContent className="p-4 grid grid-cols-3 gap-4 text-center">
