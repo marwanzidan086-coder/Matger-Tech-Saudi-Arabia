@@ -108,15 +108,15 @@ function SearchResults() {
             <Button 
               onClick={handleAiSuggestion} 
               disabled={isAiLoading}
-              size="lg"
-              className="font-bold text-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/50"
+              size="default"
+              className="font-bold bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/50"
           >
             {isAiLoading ? (
-              <Loader2 className="me-2 h-5 w-5 animate-spin" />
+              <Loader2 className="me-2 h-4 w-4 animate-spin" />
             ) : (
-              <Sparkles className="me-2 h-5 w-5" />
+              <Sparkles className="me-2 h-4 w-4" />
             )}
-            ✨ لست متأكدًا؟ دع الذكاء الاصطناعي يساعدك ✨
+            ✨ بحـث ذكـي ✨
           </Button>
         </div>
       )}
