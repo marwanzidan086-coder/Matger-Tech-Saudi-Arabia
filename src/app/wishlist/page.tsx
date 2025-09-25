@@ -53,7 +53,6 @@ export default function WishlistPage() {
                     alt={item.name}
                     fill
                     className="object-cover"
-                    data-ai-hint="product image"
                   />
                 </div>
               </Link>

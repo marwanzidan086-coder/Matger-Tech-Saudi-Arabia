@@ -22,7 +22,6 @@ export default function ProductListItem({ product }: { product: Product }) {
                         fill
                         className="object-cover transition-transform group-hover:scale-105"
                         sizes="(max-width: 768px) 30vw, 15vw"
-                        data-ai-hint="product image"
                     />
                 </div>
              </Link>

@@ -49,7 +49,6 @@ export default function CartPage() {
                           width={80}
                           height={80}
                           className="rounded-md object-cover"
-                          data-ai-hint="product image"
                         />
                         <div className="flex-grow">
                           <h3 className="font-semibold">{item.name}</h3>

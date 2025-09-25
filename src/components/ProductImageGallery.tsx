@@ -44,7 +44,6 @@ export default function ProductImageGallery({ images, productName }: ProductImag
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             key={mainImage}
             priority
-            data-ai-hint="product image"
         />
         <div 
           className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
@@ -91,7 +90,6 @@ export default function ProductImageGallery({ images, productName }: ProductImag
               fill
               className="object-cover"
               sizes="10vw"
-              data-ai-hint="product image"
             />
           </button>
         ))}

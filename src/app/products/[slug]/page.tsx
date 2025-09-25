@@ -115,7 +115,6 @@ export default function ProductPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     key={mainImage}
                     priority
-                    data-ai-hint="product image"
                 />
             </div>
             <div className="grid grid-cols-5 gap-2">
@@ -134,7 +133,6 @@ export default function ProductPage() {
                     fill
                     className="object-cover"
                     sizes="10vw"
-                    data-ai-hint="product image"
                     />
                 </button>
                 ))}

@@ -131,7 +131,7 @@ export default function Search() {
                       <Link key={`local-${product.id}`} href={`/products/${product.slug}`} passHref>
                         <CommandItem onSelect={handleSelectResult} className="cursor-pointer">
                           <div className="flex items-center gap-4">
-                            <Image src={product.images[0]} alt={product.name} width={40} height={40} className="rounded-md object-cover" data-ai-hint="product image"/>
+                            <Image src={product.images[0]} alt={product.name} width={40} height={40} className="rounded-md object-cover"/>
                             <div className="flex flex-col">
                               <span>{product.name}</span>
                               <span className="text-xs text-primary">{product.price.toFixed(2)} ر.س</span>
@@ -150,7 +150,7 @@ export default function Search() {
                         <CommandItem onSelect={handleSelectResult} className="cursor-pointer">
                           <div className="flex items-center gap-4">
                              <Sparkles className="h-4 w-4 text-primary shrink-0" />
-                            <Image src={product.images[0]} alt={product.name} width={40} height={40} className="rounded-md object-cover" data-ai-hint="product image"/>
+                            <Image src={product.images[0]} alt={product.name} width={40} height={40} className="rounded-md object-cover"/>
                             <div className="flex flex-col">
                               <span>{product.name}</span>
                               <span className="text-xs text-primary">{product.price.toFixed(2)} ر.س</span>

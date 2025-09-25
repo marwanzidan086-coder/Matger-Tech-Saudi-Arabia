@@ -202,7 +202,7 @@ function OrderNowContent() {
             <CardContent className="space-y-4">
               <div className="flex justify-between items-center gap-4">
                 <div className="relative w-16 h-16 rounded-md overflow-hidden">
-                    <Image src={product.images[0]} alt={product.name} fill className="object-cover" data-ai-hint="product image" />
+                    <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
                 </div>
                 <div className="flex-grow">
                   <p className="font-semibold">{product.name}</p>

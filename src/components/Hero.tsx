@@ -14,7 +14,6 @@ export default function Hero() {
         className="object-cover"
         quality={80}
         priority
-        data-ai-hint="modern technology"
       />
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60" />
