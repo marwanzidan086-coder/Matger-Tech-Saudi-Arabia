@@ -290,6 +290,102 @@
       ]
     },
     {
+      "id": "small-solar-charging-station",
+      "images": [
+        "https://i.ibb.co/m5TLGFbs/image-1.jpg",
+        "https://i.ibb.co/My38bG4C/image-2.jpg",
+        "https://i.ibb.co/zhbw7s4d/image-3.jpg",
+        "https://i.ibb.co/bjq3vZ1x/image-4.jpg",
+        "https://i.ibb.co/N2Pm7Sxx/image-5.jpg",
+        "https://i.ibb.co/s91DD9CW/image-6.jpg",
+        "https://i.ibb.co/jPMYJKxv/image-7.jpg"
+      ]
+    },
+    {
+      "id": "bulb-shaped-security-camera",
+      "images": [
+        "https://i.ibb.co/wN8CZBQ0/image-1.jpg",
+        "https://i.ibb.co/9JFqJb8/image-2.jpg",
+        "https://i.ibb.co/YFd1kyBC/image-3.jpg",
+        "https://i.ibb.co/ksd37Vms/image-4.jpg",
+        "https://i.ibb.co/1GgW2DZW/image-5.jpg"
+      ]
+    },
+    {
+      "id": "solar-power-system-light-strip",
+      "images": [
+        "https://i.ibb.co/LXwQns9f/image-1.jpg",
+        "https://i.ibb.co/k2QSKrLZ/image-2.jpg",
+        "https://i.ibb.co/79k748Y/image-3.jpg"
+      ]
+    },
+    {
+      "id": "smart-ring-health-monitor",
+      "images": [
+        "https://i.ibb.co/fVmjRMm2/image-1.jpg",
+        "https://i.ibb.co/7txPNjTz/image-2.jpg",
+        "https://i.ibb.co/VpqTNP2T/image-3.jpg",
+        "https://i.ibb.co/B2Wgryt0/image-4.jpg"
+      ]
+    },
+    {
+      "id": "mobile-signal-booster-sticker",
+      "images": [
+        "https://i.ibb.co/nGwBDnx/image-1.jpg",
+        "https://i.ibb.co/C530MZty/image-2.jpg",
+        "https://i.ibb.co/R4ZzfcfH/image-3.jpg",
+        "https://i.ibb.co/fGS1DQBr/image-4.jpg",
+        "https://i.ibb.co/GvSS875D/image-5.jpg",
+        "https://i.ibb.co/q3s28j10/image-6.jpg",
+        "https://i.ibb.co/xS3DmMfH/image-7.jpg"
+      ]
+    },
+    {
+      "id": "android-tv-gaming-console",
+      "images": [
+        "https://i.ibb.co/7tzzxN9R/image-1.jpg",
+        "https://i.ibb.co/N2yW9YFt/image-2.jpg",
+        "https://i.ibb.co/SDqnLBh4/image-3.jpg",
+        "https://i.ibb.co/vxzsKVGf/image-4.jpg",
+        "https://i.ibb.co/kZFTHdx/image-5.jpg"
+      ]
+    },
+    {
+      "id": "ai-translator-pen",
+      "images": [
+        "https://i.ibb.co/4nc0g166/image-1.jpg",
+        "https://i.ibb.co/xqDMMhRB/image-2.jpg",
+        "https://i.ibb.co/XZv4yhSX/image-3.jpg",
+        "https://i.ibb.co/23WgJRWw/image-4.jpg"
+      ]
+    },
+    {
+      "id": "travel-backpack",
+      "images": [
+        "https://i.ibb.co/35tXsypG/image-1.jpg",
+        "https://i.ibb.co/Hp96gYkD/image-2.jpg",
+        "https://i.ibb.co/ds2RngB6/image-3.jpg",
+        "https://i.ibb.co/CFFPN6D/image-4.jpg",
+        "https://i.ibb.co/xtDf43kg/image-5.jpg",
+        "https://i.ibb.co/rGD3xrjP/image-6.jpg"
+      ]
+    },
+    {
+      "id": "mini-security-camera",
+      "images": [
+        "https://i.ibb.co/RpyNgf4c/image-1.jpg",
+        "https://i.ibb.co/TM2D7zMN/image-2.jpg",
+        "https://i.ibb.co/jB6wDKx/image-3.jpg"
+      ]
+    },
+    {
+      "id": "smart-body-analysis-scale",
+      "images": [
+        "https://i.ibb.co/whKwHyzv/image-1.jpg",
+        "https://i.ibb.co/NgGfBHvm/image-2.jpg"
+      ]
+    },
+    {
       "id": "extra-product-31",
       "images": [ "https://picsum.photos/seed/extra-product-31/600/600" ]
     },
@@ -391,5 +487,3 @@
     }
   ]
 }
-
-    
