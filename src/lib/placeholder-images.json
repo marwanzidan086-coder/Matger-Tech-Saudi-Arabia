@@ -100,44 +100,110 @@
       ]
     },
     {
-      "id": "extra-product-1",
-      "images": [ "https://picsum.photos/seed/extra-product-1/600/600" ]
+      "id": "denx-7-in-1-adapter",
+      "images": [
+        "https://i.ibb.co/HL5Xw2pb/image-1.jpg",
+        "https://i.ibb.co/NMxxjj3/image-2.jpg",
+        "https://i.ibb.co/5hb4XwZY/image-3.jpg",
+        "https://i.ibb.co/8Dv1spjV/image-4.jpg",
+        "https://i.ibb.co/HprZ3RpH/image-5.jpg",
+        "https://i.ibb.co/j9FgyFz9/image-6.jpg",
+        "https://i.ibb.co/gZ9hMTc2/image-7.jpg",
+        "https://i.ibb.co/XZpMB36P/image-8.jpg",
+        "https://i.ibb.co/Xx5VsLmc/image-9.jpg"
+      ]
     },
     {
-      "id": "extra-product-2",
-      "images": [ "https://picsum.photos/seed/extra-product-2/600/600" ]
+      "id": "tablet-07-bundle",
+      "images": [
+        "https://i.ibb.co/NgS7X1rN/image-1.jpg",
+        "https://i.ibb.co/yFfCLvGJ/image-2.jpg",
+        "https://i.ibb.co/qMGrPz35/image-3.jpg",
+        "https://i.ibb.co/C36PndMx/image-4.jpg",
+        "https://i.ibb.co/5XGQmTBQ/image-5.jpg"
+      ]
     },
     {
-      "id": "extra-product-3",
-      "images": [ "https://picsum.photos/seed/extra-product-3/600/600" ]
+      "id": "moog-max-smart-bottle",
+      "images": [
+        "https://i.ibb.co/FqJCfyV1/image-1.jpg",
+        "https://i.ibb.co/j9kd2mV4/image-2.jpg",
+        "https://i.ibb.co/NgkXdP8Z/image-3.jpg",
+        "https://i.ibb.co/QFHdxNcg/image-4.jpg",
+        "https://i.ibb.co/TxLPPLH3/image-5.jpg"
+      ]
     },
     {
-      "id": "extra-product-4",
-      "images": [ "https://picsum.photos/seed/extra-product-4/600/600" ]
+      "id": "iphone-15-pro-max-power-case",
+      "images": [
+        "https://i.ibb.co/tphvzgXD/image-1.jpg",
+        "https://i.ibb.co/WvKyhYkt/image-2.jpg",
+        "https://i.ibb.co/dxFQvwM/image-3.jpg",
+        "https://i.ibb.co/C53Q8f5M/image-4.jpg",
+        "https://i.ibb.co/93sG80Yn/image-5.jpg"
+      ]
     },
     {
-      "id": "extra-product-5",
-      "images": [ "https://picsum.photos/seed/extra-product-5/600/600" ]
+      "id": "solar-power-bank-spotlight",
+      "images": [
+        "https://i.ibb.co/9kHb8Tsn/image-1.jpg",
+        "https://i.ibb.co/qY5Np1nN/image-2.jpg",
+        "https://i.ibb.co/dJ0Xq3Mp/image-3.jpg",
+        "https://i.ibb.co/WTY5Wm3/image-4.jpg",
+        "https://i.ibb.co/MDyB41C1/image-5.jpg",
+        "https://i.ibb.co/cX24Bg8w/image-6.jpg",
+        "https://i.ibb.co/ZRcXVYQf/image-7.jpg"
+      ]
     },
     {
-      "id": "extra-product-6",
-      "images": [ "https://picsum.photos/seed/extra-product-6/600/600" ]
+      "id": "noxon-airpods",
+      "images": [
+        "https://i.ibb.co/NdGWH6wp/image-1.jpg",
+        "https://i.ibb.co/rfq35v7Q/image-2.jpg",
+        "https://i.ibb.co/Q7Wd9bN3/image-3.jpg"
+      ]
     },
     {
-      "id": "extra-product-7",
-      "images": [ "https://picsum.photos/seed/extra-product-7/600/600" ]
+      "id": "i12-tws-airpods",
+      "images": [
+        "https://i.ibb.co/dJ0j5yK7/image-1.jpg",
+        "https://i.ibb.co/vxRF1pXK/image-2.jpg",
+        "https://i.ibb.co/tPvnHTSD/image-3.jpg",
+        "https://i.ibb.co/b5pL2CSL/image-4.jpg",
+        "https://i.ibb.co/3mcHtGqP/image-5.jpg"
+      ]
     },
     {
-      "id": "extra-product-8",
-      "images": [ "https://picsum.photos/seed/extra-product-8/600/600" ]
+      "id": "national-day-bundle",
+      "images": [
+        "https://i.ibb.co/pBg3Y6Zw/image-1.jpg",
+        "https://i.ibb.co/Ngtp7r7z/image-2.jpg",
+        "https://i.ibb.co/zVJdMHRQ/image-3.jpg",
+        "https://i.ibb.co/8Dc4L8CM/image-4.jpg",
+        "https://i.ibb.co/tpBbhLFs/image-5.jpg",
+        "https://i.ibb.co/9Jqc9Wp/image-6.jpg"
+      ]
     },
     {
-      "id": "extra-product-9",
-      "images": [ "https://picsum.photos/seed/extra-product-9/600/600" ]
+      "id": "professional-camera-hd-05",
+      "images": [
+        "https://i.ibb.co/4nfsgykM/image-1.jpg",
+        "https://i.ibb.co/v4vcwbRZ/image-2.jpg",
+        "https://i.ibb.co/TpMMKC8/image-3.jpg",
+        "https://i.ibb.co/FkwrY6ZN/image-4.jpg",
+        "https://i.ibb.co/vCzcmT3m/image-5.jpg",
+        "https://i.ibb.co/mF8JJTyt/image-6.jpg"
+      ]
     },
     {
-      "id": "extra-product-10",
-      "images": [ "https://picsum.photos/seed/extra-product-10/600/600" ]
+      "id": "full-screen-smart-watch",
+      "images": [
+        "https://i.ibb.co/zH7n13HL/image-1.jpg",
+        "https://i.ibb.co/pm4pv9x/image-2.jpg",
+        "https://i.ibb.co/x4yLk64/image-3.jpg",
+        "https://i.ibb.co/HTb1QLY7/image-4.png",
+        "https://i.ibb.co/dJrVN4qC/image-5.jpg"
+      ]
     },
     {
       "id": "extra-product-11",
