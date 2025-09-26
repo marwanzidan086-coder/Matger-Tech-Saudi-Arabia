@@ -16,6 +16,10 @@ const electronicsProducts: Product[] = [
         id: 'dlc-multi-use-lantern',
         name: 'راعى الكشتات: فانوس متعدد الاستخدامات مع بور بنك',
         slug: 'dlc-multi-use-lantern',
+        price: 220.00,
+        category: categories.electronics.slug,
+        warranty: 'عامين',
+        images: getImages('dlc-multi-use-lantern'),
         description: `رفيقك الأمثل في كل مغامرة! هذا الكشاف القوي ليس مجرد مصدر إضاءة، بل هو أداة متكاملة للطوارئ والرحلات.
 ###FEATURES###
 - إضاءة LED قوية تنور لك المكان بوضوح.
@@ -48,10 +52,6 @@ const electronicsProducts: Product[] = [
 - اختَر الزاوية اللي تناسبك.
 - شغّل زر التشغيل لتشغيل أو إيقاف الإضاءة.
 - بعد الاستخدام نظفه وخزنه بمكان جاف.`,
-        price: 220.00,
-        images: getImages('dlc-multi-use-lantern'),
-        category: categories.electronics.slug,
-        warranty: 'عامين',
         story: "عندما انقطعت الكهرباء في ليلة عاصفة، لم يشعر 'خالد' بالقلق. أخرج فانوس 'راعي الكشتات' وثبته مغناطيسيًا على الثلاجة، فأضاء المطبخ بالكامل، وشحن هاتفه في نفس الوقت. كان أكثر من مجرد كشاف، كان شعلة أمان في الظلام.",
         faq: [
             { question: "هل يمكن استخدام الفانوس أثناء المطر؟", answer: "نعم، الفانوس مصمم ليكون مقاومًا للمطر والغبار، مما يجعله مناسبًا للاستخدام في الظروف الجوية القاسية." },
@@ -63,6 +63,10 @@ const electronicsProducts: Product[] = [
         id: 'denx-solar-spotlight',
         name: 'كشاف دينكس الأكبر حجما',
         slug: 'denx-solar-spotlight',
+        price: 350.00,
+        category: categories.electronics.slug,
+        warranty: 'عامين',
+        images: getImages('denx-solar-spotlight'),
         description: `أنر مساحاتك الخارجية بذكاء وتوفير مع كشاف دينكس الذي يعمل بالطاقة الشمسية.
 ###FEATURES###
 - إضاءة قوية بفضل لمبات LED 5730 الموفرة.
@@ -90,10 +94,6 @@ const electronicsProducts: Product[] = [
 - خلّه يشحن من الشمس طول النهار.
 - شغّله بزر التشغيل أو الريموت المرفق.
 - يشتغل تلقائي مع الغروب ويطفي مع الشروق.`,
-        price: 350.00,
-        images: getImages('denx-solar-spotlight'),
-        category: categories.electronics.slug,
-        warranty: 'عامين',
         story: "في حديقة منزله الخلفية، كان 'علي' يعاني من الظلام الدامس ليلاً. بعد تركيب كشاف دينكس، تحولت الحديقة إلى واحة مضيئة وآمنة. أفضل ما في الأمر؟ لم ترتفع فاتورة الكهرباء ريالاً واحداً.",
         faq: [
             { question: "ماذا يعني حساس الرادار؟", answer: "يعني أن الكشاف يضيء تلقائيًا عندما يرصد حركة في محيطه، مما يوفر الطاقة ويزيد من الأمان." },
@@ -105,6 +105,10 @@ const electronicsProducts: Product[] = [
         id: 'alfaris-32-inch-screen',
         name: 'شاشة الفارس 32 بوصة',
         slug: 'alfaris-32-inch-screen',
+        price: 450.00,
+        category: categories.electronics.slug,
+        warranty: '5 سنوات',
+        images: getImages('alfaris-32-inch-screen'),
         description: `استمتع بمشاهدة واضحة وألوان حية مع شاشة الفارس بحجم 32 بوصة.
 ###FEATURES###
 - ألوان واضحة وحية لتجربة مشاهدة ممتعة.
@@ -130,10 +134,6 @@ const electronicsProducts: Product[] = [
 - ركّب الرسيفر أو أي جهاز عبر HDMI.
 - شغّل من الريموت واختر المصدر.
 - استمتع بمشاهدة أفلامك وبرامجك.`,
-        price: 450.00,
-        images: getImages('alfaris-32-inch-screen'),
-        category: categories.electronics.slug,
-        warranty: '5 سنوات',
         story: "اشترى 'سعيد' شاشة الفارس لغرفة نومه. في المساء، شعر وكأنه في سينما صغيرة خاصة به. الصوت الواضح والصورة النقية جعلت مشاهدة فيلمه المفضل تجربة لا تُنسى.",
         faq: [
             { question: "هل يمكنني تعليق الشاشة على الحائط؟", answer: "نعم، الشاشة متوافقة مع معظم حوامل الحائط القياسية (VESA)." },
@@ -144,6 +144,10 @@ const electronicsProducts: Product[] = [
         id: 'r36s-gaming-device',
         name: 'جهاز ألعاب R36S محمول',
         slug: 'r36s-gaming-device',
+        price: 280.00,
+        category: categories.electronics.slug,
+        warranty: 'لا يوجد',
+        images: getImages('r36s-gaming-device'),
         description: `استرجع ذكريات طفولتك مع آلاف الألعاب الكلاسيكية في جهاز واحد محمول.
 ###FEATURES###
 - يحتوي على أكثر من 10,000 لعبة.
@@ -169,9 +173,6 @@ const electronicsProducts: Product[] = [
 - اشحن الجهاز بالكامل قبل أول استخدام.
 - اختر اللعبة من الواجهة الرئيسية.
 - استخدم الأزرار للتنقل واللعب.`,
-        price: 280.00,
-        images: getImages('r3s-gaming-device'),
-        category: categories.electronics.slug,
         story: "في رحلة طويلة بالقطار، أخرج 'أحمد' جهاز R36S من جيبه. خلال دقائق، كان غارقًا في عالم سوبر ماريو. لم تكن مجرد لعبة، بل كانت آلة زمن أعادته إلى أسعد لحظات طفولته.",
         faq: [
             { question: "هل يمكنني إضافة ألعاب جديدة؟", answer: "نعم، يمكنك إضافة المزيد من الألعاب عبر بطاقة الذاكرة، فالنظام مفتوح المصدر ويدعم ذلك." },
@@ -182,6 +183,10 @@ const electronicsProducts: Product[] = [
         id: 'denx-solar-power-bank',
         name: 'بور بنك وكشاف بالطاقة الشمسية من دينكس',
         slug: 'denx-solar-power-bank',
+        price: 180.00,
+        category: categories.electronics.slug,
+        warranty: 'عامين',
+        images: getImages('denx-solar-power-bank'),
         description: `لا تقلق بشأن نفاذ البطارية في رحلاتك. هذا الباور بانك يشحن من الشمس ومزود بكشاف للطوارئ.
 ###FEATURES###
 - يشحن بالطاقة الشمسية ويناسب الطلعات والسفر.
@@ -206,10 +211,6 @@ const electronicsProducts: Product[] = [
 - اشحن الجهاز بالكهرباء أو ضعه تحت الشمس.
 - وصل جهازك بالسلك المناسب أو استخدم الشحن اللاسلكي.
 - تابع لمبات المؤشر لمعرفة نسبة الشحن.`,
-        price: 180.00,
-        images: getImages('denx-solar-power-bank'),
-        category: categories.electronics.slug,
-        warranty: 'عامين',
         story: "في وسط الصحراء، فرغت بطارية هاتف 'مريم' وجهاز الـ GPS. بهدوء، فتحت الألواح الشمسية للباور بانك ووضعته تحت الشمس. بعد قليل، عادت أجهزتها للحياة. لم يكن مجرد شاحن، بل كان طوق نجاة.",
         faq: [
             { question: "كم من الوقت يستغرق شحنه بالكامل عبر الطاقة الشمسية؟", answer: "الشحن بالطاقة الشمسية مخصص للطوارئ وقد يستغرق وقتًا طويلاً. يُنصح بشحنه بالكامل عبر الكهرباء قبل الرحلات واستخدام الطاقة الشمسية كدعم." },
@@ -220,6 +221,10 @@ const electronicsProducts: Product[] = [
         id: 'portable-hard-drive-500gb',
         name: 'هارد محمول سعة 500 جيجابايت',
         slug: 'portable-hard-drive-500gb',
+        price: 150.00,
+        category: categories.electronics.slug,
+        warranty: '3 سنوات',
+        images: getImages('portable-hard-drive-500gb'),
         description: `مساحة تخزين إضافية سريعة وآمنة لجميع ملفاتك.
 ###FEATURES###
 - سعة 500GB فعلية (465GB).
@@ -243,10 +248,6 @@ const electronicsProducts: Product[] = [
 - شبك مباشر على أي جهاز بمنفذ USB.
 - يشتغل تلقائياً بدون أي إعدادات.
 - اسحب الملفات أو انسخها بسهولة.`,
-        price: 150.00,
-        images: getImages('portable-hard-drive-500gb'),
-        category: categories.electronics.slug,
-        warranty: '3 سنوات',
         story: "قبل تقديم مشروع تخرجه، تعطل لابتوب 'فهد'. لحسن الحظ، كان قد حفظ نسخة احتياطية من كل شيء على الهارد المحمول. في دقائق، نقل ملفاته لجهاز زميله وقدم عرضه بنجاح. كان الهارد بمثابة بوليصة تأمين لمستقبله.",
         faq: [
             { question: "ما الفرق بين USB 3.0 و 2.0؟", answer: "واجهة USB 3.0 أسرع بعشر مرات تقريبًا من USB 2.0، مما يعني نقل الملفات الكبيرة يتم في وقت أقل بكثير." },
@@ -257,6 +258,10 @@ const electronicsProducts: Product[] = [
         id: 'solar-lighting-columns-6pcs',
         name: 'ست عواميد إنارة بالطاقة الشمسية',
         slug: 'solar-lighting-columns-6pcs',
+        price: 250.00,
+        category: categories.home.slug, // Corrected category
+        warranty: '14 يوم',
+        images: getImages('solar-lighting-columns-6pcs'),
         description: `أضف لمسة جمالية وإضاءة عملية لحديقتك بدون فواتير كهرباء.
 ###FEATURES###
 - تشتغل بالطاقة الشمسية، لا تحتاج كهرباء.
@@ -268,7 +273,6 @@ const electronicsProducts: Product[] = [
 - تصميم مودرن أنيق.
 ###DETAILS###
 - الماركة: جينيريك
-- الضمان: 14 يوم
 - البطارية: 3.7V 2000mAh
 - عدد الليدات: 60 قطعة
 - وقت الشحن: 5-6 ساعات
@@ -280,19 +284,20 @@ const electronicsProducts: Product[] = [
 ###USAGE###
 - ركّب القاعدة وثبت العمود في مكان مكشوف للشمس.
 - في النهار تشحن نفسها، وفي الليل تشتغل تلقائيًا.`,
-        price: 250.00,
-        images: getImages('solar-lighting-columns-6pcs'),
-        category: categories.home.slug,
         story: "بعد تركيب أعمدة الإنارة الشمسية في ممر حديقتها، أصبحت 'نورة' تستمتع بالمشي ليلاً. لم تكن مجرد إضاءة، بل كانت ترسم مسارًا ساحرًا في الظلام، يجعل حديقتها تبدو وكأنها من عالم الخيال.",
         faq: [
             { question: "هل يمكنني إطفاء الأنوار يدويًا؟", answer: "عادةً ما تعمل هذه الأنوار تلقائيًا، لكن بعض الموديلات قد تحتوي على زر تشغيل/إيقاف للتحكم اليدوي." },
-            { question: "كم يبلغ ارتفاع العمود الواحد؟", answer: "يبلغ ارتفاع العمود حوالي 41 سم، وهو حجم مثالي لإنارة الممرات والحدائق الصغيرة." }
+            { question: "كم يبلغ ارتفاع العمود الواحد؟", answer: "يبلغ ارتفاع العمود حوالي 41.3 سم، وهو حجم مثالي لإنارة الممرات والحدائق الصغيرة." }
         ]
     },
     {
         id: 'denx-power-bank-10000mah',
         name: 'باور بنك 10000 ملي امبير من دينكس',
         slug: 'denx-power-bank-10000mah',
+        price: 120.00,
+        category: categories.electronics.slug,
+        warranty: 'عامين',
+        images: getImages('denx-power-bank-10000mah'),
         description: `شحن سريع وقوة يمكنك الاعتماد عليها في جهاز صغير وأنيق.
 ###FEATURES###
 - قوة شحن 30 واط لشحن أجهزتك بسرعة.
@@ -302,7 +307,6 @@ const electronicsProducts: Product[] = [
 - حماية من الحرارة الزائدة والتماس.
 ###DETAILS###
 - الماركة: دينيكس
-- الضمان: عامين
 - الموديل: DX432
 - القدرة: 30W
 - السعة: 10000 mAh
@@ -310,11 +314,10 @@ const electronicsProducts: Product[] = [
 ###CONTENTS###
 - 1 x باور بانك DENX
 - 1 x كيبل شحن Type-C
-- 1 x كتيّب التعليمات`,
-        price: 120.00,
-        images: getImages('denx-power-bank-10000mah'),
-        category: categories.electronics.slug,
-        warranty: 'عامين',
+- 1 x كتيّب التعليمات
+###USAGE###
+- قم بتوصيل الباور بانك بجهازك باستخدام الكيبل.
+- سيبدأ الشحن تلقائيًا.`,
         story: "في يوم حافل بالاجتماعات خارج المكتب، كان هاتف 'طارق' على وشك النفاد. أخرج باور بانك دينكس الصغير من جيبه، وفي دقائق، حصل على شحن كافٍ لإكمال يومه بنجاح. كان رفيقه الصغير ذا القوة الكبيرة.",
         faq: [
             { question: "كم مرة يمكنه شحن الآيفون؟", answer: "يمكنه شحن معظم هواتف الآيفون الحديثة حوالي مرتين إلى مرتين ونصف." },
@@ -325,6 +328,10 @@ const electronicsProducts: Product[] = [
         id: 'waterproof-vlog-camera',
         name: 'كاميرا الفلوج الذكية ضد الماء',
         slug: 'waterproof-vlog-camera',
+        price: 199.00,
+        category: categories.electronics.slug,
+        warranty: '14 يوم',
+        images: getImages('waterproof-vlog-camera'),
         description: `وثّق مغامراتك فوق وتحت الماء بجودة عالية وسعر مناسب.
 ###FEATURES###
 - يأتي معها غلاف ضد الماء للتصوير حتى عمق 30 مترًا.
@@ -335,7 +342,6 @@ const electronicsProducts: Product[] = [
 - تصميم صغير وخفيف.
 ###DETAILS###
 - الماركة: جينيريك
-- الضمان: 14 يوم
 - دقة الفيديو: 1080p (تدعم 4K)
 - حجم الشاشة: 2 إنش
 - زاوية العدسة: 140 درجة
@@ -349,9 +355,6 @@ const electronicsProducts: Product[] = [
 - حمّل الكاميرا وركّب بطاقة الذاكرة.
 - ثبّت الغلاف المقاوم للماء إذا كنت ستصور تحت الماء.
 - شغّل الكاميرا واختر وضع التصوير.`,
-        price: 199.00,
-        images: getImages('waterproof-vlog-camera'),
-        category: categories.electronics.slug,
         story: "في رحلة غطس، استخدمت 'لمى' كاميرا الفلوج الصغيرة لتصوير الشعاب المرجانية. عندما شاهدت الفيديو، ذُهلت بجمال الألوان ووضوح التفاصيل تحت الماء. كانت نافذتها الصغيرة لاستكشاف عالم جديد.",
         faq: [
             { question: "هل تأتي مع بطاقة ذاكرة؟", answer: "لا، تحتاج إلى شراء بطاقة ذاكرة MicroSD بشكل منفصل، وهي تدعم حتى 32 جيجابايت." },
@@ -362,6 +365,10 @@ const electronicsProducts: Product[] = [
         id: 'bastec-node-earphones',
         name: 'سماعة بحامل مانع للسقوط',
         slug: 'bastec-node-earphones',
+        price: 99.00,
+        category: categories.electronics.slug,
+        warranty: '14 يوم',
+        images: getImages('bastec-node-earphones'),
         description: `استمتع بموسيقاك ومكالماتك أثناء الحركة دون قلق من سقوط السماعة.
 ###FEATURES###
 - بلوتوث V5.0 لاتصال سريع وثابت.
@@ -372,7 +379,6 @@ const electronicsProducts: Product[] = [
 - مثالية للجري والمشي والرياضة.
 ###DETAILS###
 - الماركة: BASTEC
-- الضمان: 14 يوم
 - إصدار البلوتوث: V5.0
 - مدة الاستخدام: حوالي 30 ساعة
 - التحكم: مغناطيسي
@@ -384,90 +390,27 @@ const electronicsProducts: Product[] = [
 - اشحن السماعات بالكامل.
 - شغل البلوتوث في جوالك وابحث عن 'Node' للاتصال.
 - للتحكم في الموسيقى، افصل السماعتين عن بعضهما للتشغيل، وألصقهما معًا للإيقاف.`,
-        price: 99.00,
-        images: getImages('bastec-node-earphones'),
-        category: categories.electronics.slug,
         story: "أثناء جريه في الحديقة، تلقى 'ماجد' مكالمة مهمة. فصل السماعتين المغناطيسيتين ورد على المكالمة بوضوح. بعد انتهاء المكالمة، عادت الموسيقى تلقائيًا. كانت السماعة شريكه المثالي الذي يفهم احتياجاته أثناء الحركة.",
         faq: [
             { question: "كيف يعمل التحكم المغناطيسي؟", answer: "عندما تلصق السماعتين معًا، تتوقف الموسيقى أو تنتهي المكالمة. عند فصلهما، تعمل الموسيقى أو يمكنك الرد على المكالمة." },
             { question: "هل هي مريحة للارتداء لفترات طويلة؟", answer: "نعم، تصميمها خفيف ومصنوع من السيليكون الناعم لتوفير الراحة أثناء الاستخدام الطويل." }
         ]
     },
-    {
-        id: 'extra-product-1',
-        name: 'منتج إضافي 1',
-        slug: 'extra-product-1',
-        description: `وصف مؤقت للمنتج الإضافي الأول.
+    ...Array.from({ length: 45 }, (_, i) => ({
+        id: `extra-product-${i + 1}`,
+        name: `منتج إلكتروني إضافي ${i + 1}`,
+        slug: `extra-product-${i + 1}`,
+        description: `وصف مؤقت للمنتج الإلكتروني الإضافي رقم ${i + 1}.
 ###FEATURES###
 - ميزة 1
 - ميزة 2
 ###DETAILS###
 - تفصيل 1: قيمة 1`,
-        price: 100.00,
-        images: getImages('extra-product-1'),
+        price: 100.00 + (i * 10),
+        images: getImages(`extra-product-${i + 1}`),
         category: categories.electronics.slug,
         warranty: 'عام واحد'
-    },
-    {
-        id: 'extra-product-2',
-        name: 'منتج إضافي 2',
-        slug: 'extra-product-2',
-        description: `وصف مؤقت للمنتج الإضافي الثاني.
-###FEATURES###
-- ميزة 1
-- ميزة 2
-###DETAILS###
-- تفصيل 1: قيمة 1`,
-        price: 200.00,
-        images: getImages('extra-product-2'),
-        category: categories.electronics.slug,
-        warranty: 'عام واحد'
-    },
-    {
-        id: 'extra-product-3',
-        name: 'منتج إضافي 3',
-        slug: 'extra-product-3',
-        description: `وصف مؤقت للمنتج الإضافي الثالث.
-###FEATURES###
-- ميزة 1
-- ميزة 2
-###DETAILS###
-- تفصيل 1: قيمة 1`,
-        price: 300.00,
-        images: getImages('extra-product-3'),
-        category: categories.electronics.slug,
-        warranty: 'عام واحد'
-    },
-    {
-        id: 'extra-product-4',
-        name: 'منتج إضافي 4',
-        slug: 'extra-product-4',
-        description: `وصف مؤقت للمنتج الإضافي الرابع.
-###FEATURES###
-- ميزة 1
-- ميزة 2
-###DETAILS###
-- تفصيل 1: قيمة 1`,
-        price: 400.00,
-        images: getImages('extra-product-4'),
-        category: categories.electronics.slug,
-        warranty: 'عام واحد'
-    },
-    {
-        id: 'extra-product-5',
-        name: 'منتج إضافي 5',
-        slug: 'extra-product-5',
-        description: `وصف مؤقت للمنتج الإضافي الخامس.
-###FEATURES###
-- ميزة 1
-- ميزة 2
-###DETAILS###
-- تفصيل 1: قيمة 1`,
-        price: 500.00,
-        images: getImages('extra-product-5'),
-        category: categories.electronics.slug,
-        warranty: 'عام واحد'
-    }
+    }))
 ];
 
 // Combine all product arrays here

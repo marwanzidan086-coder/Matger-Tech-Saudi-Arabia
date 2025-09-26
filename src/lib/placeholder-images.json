@@ -101,33 +101,183 @@
     },
     {
       "id": "extra-product-1",
-      "images": [
-        "https://picsum.photos/seed/extra-product-1/600/600"
-      ]
+      "images": [ "https://picsum.photos/seed/extra-product-1/600/600" ]
     },
     {
       "id": "extra-product-2",
-      "images": [
-        "https://picsum.photos/seed/extra-product-2/600/600"
-      ]
+      "images": [ "https://picsum.photos/seed/extra-product-2/600/600" ]
     },
     {
       "id": "extra-product-3",
-      "images": [
-        "https://picsum.photos/seed/extra-product-3/600/600"
-      ]
+      "images": [ "https://picsum.photos/seed/extra-product-3/600/600" ]
     },
     {
       "id": "extra-product-4",
-      "images": [
-        "https://picsum.photos/seed/extra-product-4/600/600"
-      ]
+      "images": [ "https://picsum.photos/seed/extra-product-4/600/600" ]
     },
     {
       "id": "extra-product-5",
-      "images": [
-        "https://picsum.photos/seed/extra-product-5/600/600"
-      ]
+      "images": [ "https://picsum.photos/seed/extra-product-5/600/600" ]
+    },
+    {
+      "id": "extra-product-6",
+      "images": [ "https://picsum.photos/seed/extra-product-6/600/600" ]
+    },
+    {
+      "id": "extra-product-7",
+      "images": [ "https://picsum.photos/seed/extra-product-7/600/600" ]
+    },
+    {
+      "id": "extra-product-8",
+      "images": [ "https://picsum.photos/seed/extra-product-8/600/600" ]
+    },
+    {
+      "id": "extra-product-9",
+      "images": [ "https://picsum.photos/seed/extra-product-9/600/600" ]
+    },
+    {
+      "id": "extra-product-10",
+      "images": [ "https://picsum.photos/seed/extra-product-10/600/600" ]
+    },
+    {
+      "id": "extra-product-11",
+      "images": [ "https://picsum.photos/seed/extra-product-11/600/600" ]
+    },
+    {
+      "id": "extra-product-12",
+      "images": [ "https://picsum.photos/seed/extra-product-12/600/600" ]
+    },
+    {
+      "id": "extra-product-13",
+      "images": [ "https://picsum.photos/seed/extra-product-13/600/600" ]
+    },
+    {
+      "id": "extra-product-14",
+      "images": [ "https://picsum.photos/seed/extra-product-14/600/600" ]
+    },
+    {
+      "id": "extra-product-15",
+      "images": [ "https://picsum.photos/seed/extra-product-15/600/600" ]
+    },
+    {
+      "id": "extra-product-16",
+      "images": [ "https://picsum.photos/seed/extra-product-16/600/600" ]
+    },
+    {
+      "id": "extra-product-17",
+      "images": [ "https://picsum.photos/seed/extra-product-17/600/600" ]
+    },
+    {
+      "id": "extra-product-18",
+      "images": [ "https://picsum.photos/seed/extra-product-18/600/600" ]
+    },
+    {
+      "id": "extra-product-19",
+      "images": [ "https://picsum.photos/seed/extra-product-19/600/600" ]
+    },
+    {
+      "id": "extra-product-20",
+      "images": [ "https://picsum.photos/seed/extra-product-20/600/600" ]
+    },
+    {
+      "id": "extra-product-21",
+      "images": [ "https://picsum.photos/seed/extra-product-21/600/600" ]
+    },
+    {
+      "id": "extra-product-22",
+      "images": [ "https://picsum.photos/seed/extra-product-22/600/600" ]
+    },
+    {
+      "id": "extra-product-23",
+      "images": [ "https://picsum.photos/seed/extra-product-23/600/600" ]
+    },
+    {
+      "id": "extra-product-24",
+      "images": [ "https://picsum.photos/seed/extra-product-24/600/600" ]
+    },
+    {
+      "id": "extra-product-25",
+      "images": [ "https://picsum.photos/seed/extra-product-25/600/600" ]
+    },
+    {
+      "id": "extra-product-26",
+      "images": [ "https://picsum.photos/seed/extra-product-26/600/600" ]
+    },
+    {
+      "id": "extra-product-27",
+      "images": [ "https://picsum.photos/seed/extra-product-27/600/600" ]
+    },
+    {
+      "id": "extra-product-28",
+      "images": [ "https://picsum.photos/seed/extra-product-28/600/600" ]
+    },
+    {
+      "id": "extra-product-29",
+      "images": [ "https://picsum.photos/seed/extra-product-29/600/600" ]
+    },
+    {
+      "id": "extra-product-30",
+      "images": [ "https://picsum.photos/seed/extra-product-30/600/600" ]
+    },
+    {
+      "id": "extra-product-31",
+      "images": [ "https://picsum.photos/seed/extra-product-31/600/600" ]
+    },
+    {
+      "id": "extra-product-32",
+      "images": [ "https://picsum.photos/seed/extra-product-32/600/600" ]
+    },
+    {
+      "id": "extra-product-33",
+      "images": [ "https://picsum.photos/seed/extra-product-33/600/600" ]
+    },
+    {
+      "id": "extra-product-34",
+      "images": [ "https://picsum.photos/seed/extra-product-34/600/600" ]
+    },
+    {
+      "id": "extra-product-35",
+      "images": [ "https://picsum.photos/seed/extra-product-35/600/600" ]
+    },
+    {
+      "id": "extra-product-36",
+      "images": [ "https://picsum.photos/seed/extra-product-36/600/600" ]
+    },
+    {
+      "id": "extra-product-37",
+      "images": [ "https://picsum.photos/seed/extra-product-37/600/600" ]
+    },
+    {
+      "id": "extra-product-38",
+      "images": [ "https://picsum.photos/seed/extra-product-38/600/600" ]
+    },
+    {
+      "id": "extra-product-39",
+      "images": [ "https://picsum.photos/seed/extra-product-39/600/600" ]
+    },
+    {
+      "id": "extra-product-40",
+      "images": [ "https://picsum.photos/seed/extra-product-40/600/600" ]
+    },
+    {
+      "id": "extra-product-41",
+      "images": [ "https://picsum.photos/seed/extra-product-41/600/600" ]
+    },
+    {
+      "id": "extra-product-42",
+      "images": [ "https://picsum.photos/seed/extra-product-42/600/600" ]
+    },
+    {
+      "id": "extra-product-43",
+      "images": [ "https://picsum.photos/seed/extra-product-43/600/600" ]
+    },
+    {
+      "id": "extra-product-44",
+      "images": [ "https://picsum.photos/seed/extra-product-44/600/600" ]
+    },
+    {
+      "id": "extra-product-45",
+      "images": [ "https://picsum.photos/seed/extra-product-45/600/600" ]
     }
   ]
 }
