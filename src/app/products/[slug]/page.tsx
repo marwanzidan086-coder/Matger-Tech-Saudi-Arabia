@@ -15,6 +15,7 @@ import { useMemo } from 'react';
 import ProductFaq from '@/components/ProductFaq';
 import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
+import ProductStory from '@/components/ProductStory';
 
 
 function ParsedDescription({ description }: { description: string }) {
@@ -110,6 +111,8 @@ export default function ProductPage() {
               {product.price.toFixed(2)} ر.س
             </p>
           </div>
+
+          {product.story && <ProductStory story={product.story} />}
 
           <Card className="bg-muted/40 border-dashed">
             <CardContent className="p-6">

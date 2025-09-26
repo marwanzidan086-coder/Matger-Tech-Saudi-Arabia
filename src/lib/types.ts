@@ -9,6 +9,7 @@ export type Product = {
     category: string;
     warranty?: string; // Optional warranty field
     faq?: { question: string; answer: string }[];
+    story?: string;
 };
   
 export type CartItem = Product & {
