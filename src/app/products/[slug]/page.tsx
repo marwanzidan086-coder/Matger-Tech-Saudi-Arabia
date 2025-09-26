@@ -13,7 +13,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ShieldCheck, Truck, Clock } from 'lucide-react';
 import { useMemo } from 'react';
 import ProductFaq from '@/components/ProductFaq';
-import ProductStory from '@/components/ProductStory';
 import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
 
@@ -118,7 +117,6 @@ export default function ProductPage() {
             </CardContent>
           </Card>
 
-          {product.story && <ProductStory story={product.story} />}
           
           <ProductFeatures description={product.description} />
 
@@ -161,3 +159,5 @@ export default function ProductPage() {
     </div>
   );
 }
+
+    
