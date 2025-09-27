@@ -52,7 +52,7 @@ function OrderNowContent() {
       setProduct({
         id,
         name,
-        price: parseFloat(price),
+        price: parseFloat(price), // FIX: Ensure price is a number
         images: JSON.parse(images),
         slug,
         description,
@@ -85,7 +85,7 @@ function OrderNowContent() {
     
     const result = await sendOrderViaWhatsApp({
       ...data,
-      cartItems: [singleCartItem], // FIX: Ensure cartItems is an array
+      cartItems: [singleCartItem],
       total: finalTotal,
       shippingCost: siteConfig.shippingCost,
     });

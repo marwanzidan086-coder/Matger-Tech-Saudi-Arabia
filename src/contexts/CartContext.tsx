@@ -30,7 +30,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       }
       return {
         ...state,
-        cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
+        cartItems: [...state.cartItems, { ...action.payload, quantity: 1, price: Number(action.payload.price) }], // Ensure price is a number
       };
     }
     case 'REMOVE_FROM_CART':
@@ -87,7 +87,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const updateQuantity = (id: string, quantity: number) => dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
   const clearCart = () => dispatch({ type: 'CLEAR_CART' });
 
-  const total = state.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = state.cartItems.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
 
   return (
     <CartContext.Provider value={{ cartItems: state.cartItems, addToCart, removeFromCart, updateQuantity, clearCart, total }}>
