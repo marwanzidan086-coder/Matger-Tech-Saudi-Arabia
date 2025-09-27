@@ -23,7 +23,8 @@ function generateOrderNumber() {
 function buildOrderMessage(
   orderData: z.infer<typeof orderSchema> & { orderNumber: string; orderDate: string }
 ) {
-  const subTotal = orderData.total - orderData.shippingCost;
+  // Correctly calculate subTotal by summing item prices, instead of subtracting shipping.
+  const subTotal = orderData.cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
   const productLines = orderData.cartItems
     .map(
