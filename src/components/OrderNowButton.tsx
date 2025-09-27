@@ -4,21 +4,27 @@ import { type Product } from '@/lib/types';
 import { Button } from './ui/button';
 import { Rocket } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useCart } from '@/contexts/CartContext';
+import { useToast } from '@/hooks/use-toast';
 
 export function OrderNowButton({ product }: { product: Product }) {
   const router = useRouter();
+  const { addToCart } = useCart();
+  const { toast } = useToast();
 
   const handleOrderNow = () => {
-    const params = new URLSearchParams();
-    params.set('id', product.id);
-    params.set('name', product.name);
-    params.set('price', product.price.toString());
-    params.set('images', JSON.stringify(product.images));
-    params.set('slug', product.slug);
-    params.set('description', product.description);
-    params.set('category', product.category);
+    // 1. Add the product to the cart
+    addToCart(product);
+
+    // 2. Show a confirmation toast
+    toast({
+      title: 'تمت إضافة المنتج للسلة!',
+      description: 'سيتم توجيهك الآن لإتمام الطلب.',
+      variant: 'success',
+    });
     
-    router.push(`/order-now?${params.toString()}`);
+    // 3. Redirect to the checkout page
+    router.push('/checkout');
   };
 
   return (
