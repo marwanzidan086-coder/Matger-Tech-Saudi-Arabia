@@ -1,5 +1,6 @@
 'use server';
 
+require('dotenv').config();
 import { z } from 'zod';
 import { siteConfig } from '@/config/site';
 
