@@ -64,7 +64,7 @@ export default function CheckoutPage() {
     
     const result = await sendOrderViaWhatsApp({
       ...data,
-      cartItems: cartItems, // This is already an array from useCart()
+      cartItems: cartItems,
       total: finalTotal,
       shippingCost: siteConfig.shippingCost,
     });
