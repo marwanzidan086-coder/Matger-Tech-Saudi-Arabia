@@ -22,6 +22,8 @@ function generateOrderNumber() {
 function buildOrderMessage(
   orderData: z.infer<typeof orderSchema> & { orderNumber: string; orderDate: string }
 ) {
+  const subTotal = orderData.total - siteConfig.shippingCost;
+
   const productLines = orderData.cartItems
     .map(
       (item) =>
@@ -47,7 +49,10 @@ function buildOrderMessage(
 *المنتجات:*
 ${productLines}
 
-*الإجمالي:* ${orderData.total.toFixed(2)}
+*إجمالي المنتجات:* ${subTotal.toFixed(2)}
+*سعر الشحن:* ${siteConfig.shippingCost.toFixed(2)}
+--------------------
+*الإجمالي النهائي:* ${orderData.total.toFixed(2)}
   `.trim();
 }
 

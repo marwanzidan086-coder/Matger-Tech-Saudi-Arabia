@@ -9,10 +9,13 @@ import { Trash2, ShoppingCart } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useIsMounted } from '@/hooks/use-is-mounted';
+import { siteConfig } from '@/config/site';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, total } = useCart();
   const isMounted = useIsMounted();
+  const finalTotal = total + siteConfig.shippingCost;
+
 
   if (!isMounted) {
     return <div className="text-center py-10">جاري تحميل السلة...</div>;
@@ -88,13 +91,17 @@ export default function CartPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
-                  <span>الإجمالي الفرعي</span>
+                  <span>إجمالي المنتجات</span>
                   <span>{total.toFixed(2)} ر.س</span>
+                </div>
+                 <div className="flex justify-between text-muted-foreground">
+                  <span>سعر الشحن</span>
+                  <span>{siteConfig.shippingCost.toFixed(2)} ر.س</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
-                  <span>الإجمالي</span>
-                  <span>{total.toFixed(2)} ر.س</span>
+                  <span>الإجمالي النهائي (شامل الشحن)</span>
+                  <span>{finalTotal.toFixed(2)} ر.س</span>
                 </div>
               </CardContent>
               <CardFooter>

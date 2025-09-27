@@ -17,6 +17,7 @@ import { sendOrderViaWhatsApp } from '@/app/actions';
 import { useOrder } from '@/contexts/OrderContext';
 import { type CartItem, type Product } from '@/lib/types';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site';
 
 const checkoutSchema = z.object({
   name: z.string().min(3, 'يجب أن يكون الاسم 3 أحرف على الأقل'),
@@ -76,7 +77,8 @@ function OrderNowContent() {
   }
 
   const singleCartItem: CartItem = { ...product, quantity: 1 };
-  const total = product.price;
+  const subTotal = product.price;
+  const finalTotal = subTotal + siteConfig.shippingCost;
 
   const onSubmit = async (data: CheckoutFormValues) => {
     setIsSubmitting(true);
@@ -84,7 +86,7 @@ function OrderNowContent() {
     const result = await sendOrderViaWhatsApp({
       ...data,
       cartItems: [singleCartItem],
-      total,
+      total: finalTotal,
     });
 
     if (!result.success) {
@@ -113,7 +115,7 @@ function OrderNowContent() {
       id: orderNumber,
       date: orderDate,
       items: [singleCartItem],
-      total,
+      total: finalTotal,
       status: 'قيد المراجعة',
     });
 
@@ -212,12 +214,23 @@ function OrderNowContent() {
                      </Link>
                   </p>
                 </div>
-                <p className="font-mono text-sm">{total.toFixed(2)} ر.س</p>
+                <p className="font-mono text-sm">{subTotal.toFixed(2)} ر.س</p>
+              </div>
+              <Separator />
+               <div className="space-y-2 text-sm">
+                 <div className="flex justify-between">
+                    <p>إجمالي المنتج</p>
+                    <p className="font-mono">{subTotal.toFixed(2)} ر.س</p>
+                  </div>
+                   <div className="flex justify-between">
+                    <p>سعر الشحن</p>
+                    <p className="font-mono">{siteConfig.shippingCost.toFixed(2)} ر.س</p>
+                  </div>
               </div>
               <Separator />
               <div className="flex justify-between font-bold text-lg">
                 <p>الإجمالي النهائي</p>
-                <p className="font-mono">{total.toFixed(2)} ر.س</p>
+                <p className="font-mono">{finalTotal.toFixed(2)} ر.س</p>
               </div>
             </CardContent>
           </Card>

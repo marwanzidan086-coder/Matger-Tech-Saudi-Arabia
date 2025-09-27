@@ -17,6 +17,7 @@ import { useState, useEffect } from 'react';
 import { Loader2, Truck, ShoppingBag } from 'lucide-react';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 import { sendOrderViaWhatsApp } from '@/app/actions';
+import { siteConfig } from '@/config/site';
 
 const checkoutSchema = z.object({
   name: z.string().min(3, 'يجب أن يكون الاسم 3 أحرف على الأقل'),
@@ -37,6 +38,8 @@ export default function CheckoutPage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const isMounted = useIsMounted();
+  
+  const finalTotal = total + siteConfig.shippingCost;
 
   const {
     register,
@@ -62,7 +65,7 @@ export default function CheckoutPage() {
     const result = await sendOrderViaWhatsApp({
       ...data,
       cartItems,
-      total,
+      total: finalTotal,
     });
 
     if (!result.success) {
@@ -92,7 +95,7 @@ export default function CheckoutPage() {
       id: orderNumber,
       date: orderDate,
       items: cartItems,
-      total,
+      total: finalTotal,
       status: 'قيد المراجعة',
     });
     clearCart();
@@ -200,9 +203,20 @@ export default function CheckoutPage() {
                 ))}
               </div>
               <Separator />
+               <div className="space-y-2 text-sm">
+                 <div className="flex justify-between">
+                    <p>إجمالي المنتجات</p>
+                    <p className="font-mono">{total.toFixed(2)} ر.س</p>
+                  </div>
+                   <div className="flex justify-between">
+                    <p>سعر الشحن</p>
+                    <p className="font-mono">{siteConfig.shippingCost.toFixed(2)} ر.س</p>
+                  </div>
+              </div>
+              <Separator />
               <div className="flex justify-between font-bold text-lg">
                 <p>الإجمالي النهائي</p>
-                <p className="font-mono">{total.toFixed(2)} ر.س</p>
+                <p className="font-mono">{finalTotal.toFixed(2)} ر.س</p>
               </div>
             </CardContent>
           </Card>
