@@ -100,7 +100,7 @@ export default function CartPage() {
                 </div>
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
-                  <span>الإجمالي النهائي (شامل الشحن)</span>
+                  <span>الإجمالي النهائي</span>
                   <span>{finalTotal.toFixed(2)} ر.س</span>
                 </div>
               </CardContent>
