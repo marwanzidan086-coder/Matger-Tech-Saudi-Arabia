@@ -1,6 +1,5 @@
 'use server';
 
-require('dotenv').config();
 import { z } from 'zod';
 import { siteConfig } from '@/config/site';
 
@@ -60,11 +59,12 @@ ${productLines}
 }
 
 export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
+  // Next.js automatically loads environment variables. No need for dotenv.
   const validation = orderSchema.safeParse(data);
 
   if (!validation.success) {
     console.error("Validation errors:", validation.error.issues);
-    return { success: false, message: 'بيانات غير صالحة.' };
+    return { success: false, message: 'بيانات الطلب غير صالحة أو ناقصة.' };
   }
 
   const SID = process.env.TWILIO_ACCOUNT_SID;
@@ -72,6 +72,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const FROM = process.env.TWILIO_PHONE_NUMBER;
 
   if (!SID || !TOKEN || !FROM) {
+    console.error('Twilio credentials are not configured in .env file.');
     return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر.' };
   }
   
@@ -102,7 +103,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error('Twilio Error:', errorData);
+        console.error('Twilio API Error:', errorData);
 
         if (errorData.code === 21211) { 
              return { success: false, message: 'رقم Twilio الذي تحاول الإرسال إليه غير صالح.' };
@@ -110,17 +111,19 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
         if (errorData.code === 63018) {
             return { success: false, message: 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي.' };
         }
-        throw new Error(`Twilio API Error: ${errorData.message}`);
+        // Generic error for auth and other issues
+        if (errorData.status === 401) {
+            return { success: false, message: 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN) في ملف .env.' };
+        }
+
+        return { success: false, message: `خطأ من Twilio: ${errorData.message}` };
       }
     }
 
     return { success: true, orderNumber, orderDate };
   } catch (err) {
-    console.error(err);
+    console.error('Unexpected error in sendOrderViaWhatsApp:', err);
     const errorMessage = (err as Error).message;
-    if (errorMessage.includes('Authenticate')) {
-      return { success: false, message: 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN).' };
-    }
-    return { success: false, message: 'حدث خطأ أثناء إرسال الرسالة عبر واتساب. تحقق من الكونسول لمزيد من التفاصيل.' };
+    return { success: false, message: `حدث خطأ غير متوقع أثناء إرسال الطلب: ${errorMessage}` };
   }
 }
