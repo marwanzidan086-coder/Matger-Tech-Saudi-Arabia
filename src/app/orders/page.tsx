@@ -91,7 +91,7 @@ export default function OrdersPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                {order.status === 'قيد المراجعة' && (
+                {order.status === 'قيد المراجعة' && order.createdAt && (
                     <Alert className="mb-4 border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-100">
                         <Clock className="h-5 w-5 !text-blue-500" />
                         <AlertTitle className="font-bold">ملاحظة حول طلبك</AlertTitle>
@@ -110,7 +110,7 @@ export default function OrdersPage() {
                              <div className="flex items-center gap-3 flex-grow">
                                <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
                                   <Image 
-                                    src={item.images[0]} 
+                                    src={(item.images && item.images.length > 0) ? item.images[0] : 'https://placehold.co/80x80/EEE/31343C?text=?'} 
                                     alt={item.name} 
                                     fill
                                     className="object-cover"
