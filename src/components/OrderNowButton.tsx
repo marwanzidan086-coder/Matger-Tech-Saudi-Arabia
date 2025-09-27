@@ -9,21 +9,23 @@ import { useToast } from '@/hooks/use-toast';
 
 export function OrderNowButton({ product }: { product: Product }) {
   const router = useRouter();
-  const { addToCart } = useCart();
+  const { addToCart, clearCart } = useCart();
   const { toast } = useToast();
 
   const handleOrderNow = () => {
-    // 1. Add the product to the cart
+    // 1. Clear the cart first
+    clearCart();
+    // 2. Add only the desired product to the cart
     addToCart(product);
 
-    // 2. Show a confirmation toast
+    // 3. Show a confirmation toast
     toast({
       title: 'تمت إضافة المنتج للسلة!',
       description: 'سيتم توجيهك الآن لإتمام الطلب.',
       variant: 'success',
     });
     
-    // 3. Redirect to the checkout page
+    // 4. Redirect to the checkout page
     router.push('/checkout');
   };
 
