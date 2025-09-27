@@ -50,10 +50,10 @@ export default function CheckoutPage() {
   });
 
   useEffect(() => {
-    if (isMounted && cartItems.length === 0) {
+    if (isMounted && cartItems.length === 0 && !isSubmitting) {
       router.replace('/cart');
     }
-  }, [isMounted, cartItems.length, router]);
+  }, [isMounted, cartItems.length, router, isSubmitting]);
   
   if (!isMounted || cartItems.length === 0) {
     return <div className="flex items-center justify-center min-h-[60vh]"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
@@ -90,6 +90,8 @@ export default function CheckoutPage() {
         setIsSubmitting(false);
         return;
     }
+    
+    router.push('/orders');
 
     addOrder({
       id: orderNumber,
@@ -104,7 +106,6 @@ export default function CheckoutPage() {
       description: `رقم طلبك هو: ${orderNumber}`,
       variant: 'success',
     });
-    router.push('/orders');
   };
 
   return (
