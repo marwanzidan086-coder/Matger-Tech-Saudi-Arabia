@@ -85,7 +85,7 @@ function OrderNowContent() {
     
     const result = await sendOrderViaWhatsApp({
       ...data,
-      cartItems: [singleCartItem],
+      cartItems: [singleCartItem], // FIX: Ensure cartItems is an array
       total: finalTotal,
       shippingCost: siteConfig.shippingCost,
     });
