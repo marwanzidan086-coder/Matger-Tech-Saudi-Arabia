@@ -205,7 +205,7 @@ function OrderNowContent() {
             <CardContent className="space-y-4">
               <div className="flex justify-between items-center gap-4">
                 <div className="relative w-16 h-16 rounded-md overflow-hidden">
-                    <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
+                    <Image src={(product.images && product.images.length > 0) ? product.images[0] : 'https://placehold.co/80x80/EEE/31343C?text=?'} alt={product.name} fill className="object-cover" />
                 </div>
                 <div className="flex-grow">
                   <p className="font-semibold">{product.name}</p>

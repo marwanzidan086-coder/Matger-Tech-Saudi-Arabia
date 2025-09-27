@@ -79,8 +79,7 @@ export default function CheckoutPage() {
       return;
     }
 
-    const orderNumber = result.orderNumber;
-    const orderDate = result.orderDate;
+    const { orderNumber, orderDate } = result;
 
     if (!orderNumber || !orderDate) {
         toast({
@@ -193,7 +192,7 @@ export default function CheckoutPage() {
                 {cartItems.map(item => (
                   <div key={item.id} className="flex justify-between items-center gap-4">
                     <div className="relative w-16 h-16 rounded-md overflow-hidden">
-                       <Image src={item.images[0]} alt={item.name} fill className="object-cover" />
+                       <Image src={(item.images && item.images.length > 0) ? item.images[0] : 'https://placehold.co/80x80/EEE/31343C?text=?'} alt={item.name} fill className="object-cover" />
                     </div>
                     <div className="flex-grow">
                       <p className="font-semibold">{item.name}</p>
