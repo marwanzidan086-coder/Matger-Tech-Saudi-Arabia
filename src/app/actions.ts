@@ -13,6 +13,7 @@ const orderSchema = z.object({
   notes: z.string().optional(),
   cartItems: z.array(z.any()),
   total: z.number(),
+  shippingCost: z.number(),
 });
 
 function generateOrderNumber() {
@@ -22,7 +23,7 @@ function generateOrderNumber() {
 function buildOrderMessage(
   orderData: z.infer<typeof orderSchema> & { orderNumber: string; orderDate: string }
 ) {
-  const subTotal = orderData.total - siteConfig.shippingCost;
+  const subTotal = orderData.total - orderData.shippingCost;
 
   const productLines = orderData.cartItems
     .map(
@@ -50,7 +51,7 @@ function buildOrderMessage(
 ${productLines}
 
 *إجمالي المنتجات:* ${subTotal.toFixed(2)}
-*سعر الشحن:* ${siteConfig.shippingCost.toFixed(2)}
+*سعر الشحن:* ${orderData.shippingCost.toFixed(2)}
 --------------------
 *الإجمالي النهائي:* ${orderData.total.toFixed(2)}
   `.trim();
@@ -60,6 +61,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const validation = orderSchema.safeParse(data);
 
   if (!validation.success) {
+    console.error("Validation errors:", validation.error.issues);
     return { success: false, message: 'بيانات غير صالحة.' };
   }
 

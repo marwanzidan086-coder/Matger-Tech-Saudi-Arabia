@@ -87,6 +87,7 @@ function OrderNowContent() {
       ...data,
       cartItems: [singleCartItem],
       total: finalTotal,
+      shippingCost: siteConfig.shippingCost,
     });
 
     if (!result.success) {

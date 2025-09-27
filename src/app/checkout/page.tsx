@@ -66,6 +66,7 @@ export default function CheckoutPage() {
       ...data,
       cartItems,
       total: finalTotal,
+      shippingCost: siteConfig.shippingCost,
     });
 
     if (!result.success) {
