@@ -22,23 +22,29 @@ const allProducts: Product[] = [
 - تصميم مغناطيسي يثبت على أي سطح معدني.
 - قابل للتعديل بزوايا تناسب احتياجك.
 - مقاوم للمطر والغبار والظروف القاسية.
-- بطارية قوية تدوم معك لفترة طويلة.###DETAILS###- الماركة: DLC
+- بطارية قوية تدوم معك لفترة طويلة.
+- خفيف الوزن وسهل تحمله بأي مكان.
+- مناسب للبيت والرحلات والطوارئ.
+- سهل الفك والتركيب والاستخدام اليومي.
+- مصنوع من خامات قوية تعيش معك أكثر.###DETAILS###- الماركة: DLC
 - الموديل: DLC-32898
+- الضمان: عامين
 - القدرة: 6 – 10 واط`,
     price: 119.99,
     images: getImages('product-1'),
     category: 'electronics',
     warranty: 'عامين',
+    story: "في إحدى ليالي التخييم الباردة، كان الفانوس القديم بالكاد يضيء الخيمة، بينما بطارية الهاتف توشك على النفاد. من هنا ولدت فكرة 'راعي الكشتات'، فانوس لا يضيء لك ليلك فحسب، بل يشحن أجهزتك ويبقيك على اتصال. أصبح اليوم رفيق كل مغامر لا يستغني عنه في رحلاته.",
     faq: [
       {
-        question: "هل يمكنني استخدامه أثناء المطر؟",
-        answer: "نعم، الفانوس مقاوم للمطر والغبار، مما يجعله مثاليًا للاستخدام في الظروف الجوية المختلفة."
+        question: 'هل يمكنني استخدامه أثناء المطر؟',
+        answer: 'نعم، الفانوس مقاوم للمطر والغبار، مما يجعله مثاليًا للاستخدام في الظروف الجوية المختلفة.',
       },
       {
-        question: "كم تدوم بطاريته تقريبًا؟",
-        answer: "يحتوي الفانوس على بطارية قوية تدوم لفترة طويلة، مما يجعله رفيقًا موثوقًا في الرحلات الطويلة والطوارئ."
-      }
-    ]
+        question: 'كم تدوم بطاريته تقريبًا؟',
+        answer: 'يحتوي الفانوس على بطارية قوية تدوم لفترة طويلة، مما يجعله رفيقًا موثوقًا في الرحلات الطويلة والطوارئ.',
+      },
+    ],
   },
   {
     id: 'product-2',
@@ -49,24 +55,29 @@ const allProducts: Product[] = [
 - بطارية 25000mAh تدوم حتى 16 ساعة.
 - يدعم التحكم بالريموت عن بعد بكل سهولة.
 - فيه حساس رادار يشتغل أوتوماتيكي مع الحركة.
-- مقاوم للمطر والغبار بمعيار حماية IP67.###DETAILS###- الماركة: دينيكس
+- مقاوم للمطر والغبار بمعيار حماية IP67.
+- يتحمل أصعب الأجواء مثل المطر والعواصف الرملية.
+- إضاءة ذكية تشتغل تلقائي مع الغروب وتطفي مع الشروق.###DETAILS###- الماركة: دينيكس
+- الضمان: عامين 
 - نوع اللمبات: LED 5730
 - سعة البطارية: 25000mAh ليثيوم
-- معيار الحماية: IP67`,
+- معيار الحماية: IP67 ضد الماء والغبار`,
     price: 249.99,
     images: getImages('product-2'),
     category: 'electronics',
-    warranty: 'عامين'
+    warranty: 'عامين',
   },
   {
     id: 'product-3',
     name: 'شاشة الفارس 32 بوصة',
     slug: 'alfaris-32-inch-screen',
     description: `حوّل غرفة جلوسك إلى سينما صغيرة مع شاشة الفارس! استمتع بألوان زاهية وتفاصيل واضحة تجعل كل مشهد ينبض بالحياة.###FEATURES###- ألوان واضحة وحية تعطيك تجربة مشاهدة ممتعة.
-- يدعم مدخل HDMI و USB لتوصيل مختلف الأجهزة.
+- يدعم مدخل HDMI لتوصيل الأجهزة بسهولة.
+- فيه مدخل USB لتشغيل الفيديو والصور.
 - نظام AVL يعطي صوت متوازن بدون تشويش.
 - إضاءة LED أوضح وتوفير أكثر للطاقة.
 - دقة HD Ready تعطي تفاصيل أوضح بالصورة.###DETAILS###- الماركة: الفارس
+- الضمان: 5 سنين 
 - المقاس: 32 بوصة
 - الدقة: 720p HD Ready
 - المنافذ: HDMI + USB
@@ -74,7 +85,7 @@ const allProducts: Product[] = [
     price: 499.99,
     images: getImages('product-3'),
     category: 'electronics',
-    warranty: '5 سنين'
+    warranty: '5 سنين',
   },
   {
     id: 'product-4',
@@ -93,7 +104,7 @@ const allProducts: Product[] = [
 - البطارية: 3500mAh`,
     price: 299.99,
     images: getImages('product-4'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-5',
@@ -105,13 +116,14 @@ const allProducts: Product[] = [
 - مزود بألواح شمسية قابلة للطي.
 - إضاءته قوية تنفع للطوارئ والرحلات.###DETAILS###- الموديل: DX421
 - الماركة: دينيكس
+- الضمان: عامين
 - سعة البطارية: 20000 mAh
 - مخرج لاسلكي: 5V/1A
 - قدرة الطاقة الشمسية: 5V/0.3A`,
     price: 159.99,
     images: getImages('product-5'),
     category: 'electronics',
-    warranty: 'عامين'
+    warranty: 'عامين',
   },
   {
     id: 'product-6',
@@ -129,7 +141,7 @@ const allProducts: Product[] = [
     price: 189.99,
     images: getImages('product-6'),
     category: 'electronics',
-    warranty: '3 سنوات'
+    warranty: '3 سنوات',
   },
   {
     id: 'product-7',
@@ -140,6 +152,7 @@ const allProducts: Product[] = [
 - مقاومة للمطر والغبار (تصنيف IP65).
 - تحتوي على 60 لمبة LED قوية.
 - عمر افتراضي طويل يصل إلى 50 ألف ساعة.###DETAILS###- الماركة: جينيريك
+- الضمان: 14 يوم
 - البطارية: 3.7V 2000mAh
 - وقت الشحن: 5-6 ساعات
 - وقت التشغيل: 6 إلى 12 ساعة
@@ -147,7 +160,7 @@ const allProducts: Product[] = [
     price: 199.99,
     images: getImages('product-7'),
     category: 'home',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-8',
@@ -158,6 +171,7 @@ const allProducts: Product[] = [
 - حجم صغير ومناسب للجيب أو الشنطة.
 - منافذ متعددة لشحن أكثر من جهاز.
 - حماية من الحرارة الزائدة والتماس الكهربائي.###DETAILS###- الماركة: دينيكس
+- الضمان: عامين
 - الموديل: DX432
 - القدرة: 30W
 - السعة: 10000 mAh
@@ -165,7 +179,7 @@ const allProducts: Product[] = [
     price: 89.99,
     images: getImages('product-8'),
     category: 'electronics',
-    warranty: 'عامين'
+    warranty: 'عامين',
   },
   {
     id: 'product-9',
@@ -176,6 +190,7 @@ const allProducts: Product[] = [
 - عدسة واسعة 140 درجة لالتقاط مشهد كامل.
 - تصوير بدقّة 4K لجودة احترافية.
 - تصميم صغير وخفيف، يسهل حملها.###DETAILS###- الماركة: جينيريك
+- الضمان: 14 يوم
 - دقة الفيديو: 1080p / 4K
 - مقاومة للماء: حتى 30 متر
 - زاوية العدسة: 140 درجة
@@ -183,7 +198,7 @@ const allProducts: Product[] = [
     price: 129.99,
     images: getImages('product-9'),
     category: 'electronics',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-10',
@@ -194,6 +209,7 @@ const allProducts: Product[] = [
 - تصميم مغناطيسي يحول السماعات إلى عقد أنيق.
 - مقاومة للماء والعرق، مثالية للرياضة.
 - سطح ناعم من السيليكون لراحة فائقة.###DETAILS###- الماركة: BASTEC
+- الضمان: 14 يوم
 - إصدار البلوتوث: V5.0
 - مسافة التشغيل: 10 أمتار
 - سعة البطارية: 250mAh
@@ -201,7 +217,7 @@ const allProducts: Product[] = [
     price: 79.99,
     images: getImages('product-10'),
     category: 'electronics',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-11',
@@ -218,7 +234,7 @@ const allProducts: Product[] = [
     price: 149.99,
     images: getImages('product-11'),
     category: 'electronics',
-    warranty: 'عامين'
+    warranty: 'عامين',
   },
   {
     id: 'product-12',
@@ -238,7 +254,7 @@ const allProducts: Product[] = [
     price: 699.99,
     images: getImages('product-12'),
     category: 'electronics',
-    warranty: '6 أشهر'
+    warranty: '6 أشهر',
   },
   {
     id: 'product-13',
@@ -254,7 +270,7 @@ const allProducts: Product[] = [
 - مكبر الصوت: بلوتوث 0.5`,
     price: 99.99,
     images: getImages('product-13'),
-    category: 'home'
+    category: 'home',
   },
   {
     id: 'product-14',
@@ -270,7 +286,7 @@ const allProducts: Product[] = [
 - نوع البطارية: ليثيوم بوليمر`,
     price: 179.99,
     images: getImages('product-14'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-15',
@@ -280,15 +296,16 @@ const allProducts: Product[] = [
 - تشتغل بالطاقة الشمسية بدون كهرباء.
 - مقاومة للماء ومناسبة للاستخدام الخارجي.
 - بطارية قابلة للشحن مدمجة.
-- شحن USB للطوارئ والأجهزة الصغيرة.###DETAILS###- المادة: ABS
+- شحن USB للطوارئ والأجهزة الصغيرة.###DETAILS###- الماركة: جينيريك
+- الضمان: 14 يوم
+- المادة: ABS
 - مقاوم للماء: نعم
 - زاوية الإضاءة: 140°
-- شدة السطوع: 6000 لومن
-- عمر المصباح: 50,000 ساعة`,
+- شدة السطوع: 6000 لومن`,
     price: 139.99,
     images: getImages('product-15'),
     category: 'electronics',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-16',
@@ -299,13 +316,14 @@ const allProducts: Product[] = [
 - تدعم التحكم باللمس بدون أزرار.
 - تتوافق مع كل الأنظمة (أندرويد/آيفون).
 - صوت نقي وواضح في المكالمات.###DETAILS###- الماركة: نوكسون
+- الضمان: 14 يوم
 - وقت التشغيل: 2.5 ساعة مكالمات متواصلة
 - مدى الاتصال: 10 أمتار
 - إعادة الشحن من العلبة: 2–3 مرات`,
     price: 99.99,
     images: getImages('product-16'),
     category: 'electronics',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-17',
@@ -316,13 +334,14 @@ const allProducts: Product[] = [
 - تدعم البلوتوث 5.0 لاتصال سريع وثابت.
 - تتوافق مع الآيفون والأندرويد.
 - علبة الشحن توفر شحن إضافي.###DETAILS###- الموديل: i12 TWS
+- الضمان: 14 يوم
 - إصدار البلوتوث: 5.0
 - مدة التشغيل: 2 إلى 3 ساعات
-- زمن الشحن: ساعة ونصف تقريبًا`,
+- زمن الشحن: ساعة ونص تقريبًا`,
     price: 69.99,
     images: getImages('product-17'),
     category: 'electronics',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-18',
@@ -338,7 +357,7 @@ const allProducts: Product[] = [
 - السماعة: Type-C سلكية`,
     price: 249.99,
     images: getImages('product-18'),
-    category: 'misc'
+    category: 'misc',
   },
   {
     id: 'product-19',
@@ -349,6 +368,7 @@ const allProducts: Product[] = [
 - تصوير فيديو بدقة 720p.
 - شاشة 2.4 إنش للمعاينة.
 - تثبيت إلكتروني لتقليل الاهتزاز.###DETAILS###- الموديل: HD - 05
+- الضمان: 14 يوم
 - الدقة: 16 ميجا بيكسل
 - الزوم: 16x رقمي
 - الشاشة: 2.4 إنش
@@ -356,7 +376,7 @@ const allProducts: Product[] = [
     price: 299.99,
     images: getImages('product-19'),
     category: 'electronics',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-20',
@@ -372,7 +392,7 @@ const allProducts: Product[] = [
 - الشحن: لاسلكي`,
     price: 159.99,
     images: getImages('product-20'),
-    category: 'health'
+    category: 'health',
   },
   {
     id: 'product-21',
@@ -390,7 +410,7 @@ const allProducts: Product[] = [
     price: 499.99,
     images: getImages('product-21'),
     category: 'electronics',
-    warranty: '6 أشهر'
+    warranty: '6 أشهر',
   },
   {
     id: 'product-22',
@@ -406,7 +426,7 @@ const allProducts: Product[] = [
 - الشحن: لاسلكي`,
     price: 189.99,
     images: getImages('product-22'),
-    category: 'health'
+    category: 'health',
   },
   {
     id: 'product-23',
@@ -421,7 +441,7 @@ const allProducts: Product[] = [
 - الجهد: 5 فولت/200mA`,
     price: 129.99,
     images: getImages('product-23'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-24',
@@ -438,7 +458,7 @@ const allProducts: Product[] = [
 - البطارية: 5000 مللي أمبير`,
     price: 549.99,
     images: getImages('product-24'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-25',
@@ -455,7 +475,7 @@ const allProducts: Product[] = [
 - البطارية: 5000 مللي أمبير`,
     price: 749.99,
     images: getImages('product-25'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-26',
@@ -471,7 +491,7 @@ const allProducts: Product[] = [
 - البطارية: 320 مللي أمبير`,
     price: 199.99,
     images: getImages('product-26'),
-    category: 'health'
+    category: 'health',
   },
   {
     id: 'product-27',
@@ -487,7 +507,7 @@ const allProducts: Product[] = [
 - المحاكيات المدعومة: 9 أنواع`,
     price: 249.99,
     images: getImages('product-27'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-28',
@@ -503,7 +523,7 @@ const allProducts: Product[] = [
 - الاتصال: واي فاي، بلوتوث 4.1, HDMI`,
     price: 399.99,
     images: getImages('product-28'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-29',
@@ -519,7 +539,7 @@ const allProducts: Product[] = [
 - الاتصال: واي فاي، بلوتوث 4.1, HDMI`,
     price: 399.99,
     images: getImages('product-29'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-30',
@@ -535,7 +555,7 @@ const allProducts: Product[] = [
 - نوع البطارية: ليثيوم بوليمر`,
     price: 169.99,
     images: getImages('product-30'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-31',
@@ -545,14 +565,16 @@ const allProducts: Product[] = [
 - بطارية قابلة للشحن بسعة 4000mAh.
 - 4 مستويات للإضاءة عبر 3 لمبات LED.
 - منفذ USB لشحن الجوال.
-- حماية من الجهد المنخفض والعالي.###DETAILS###- البطارية: 6 فولت / 4 أمبير
+- حماية من الجهد المنخفض والعالي.###DETAILS###- الماركة: جينريك
+- الضمان: 14 يوم
+- البطارية: 6 فولت / 4 أمبير
 - مدة الشحن: 6-7 ساعات
 - مدة التشغيل: 4 ساعات تقريبًا
 - مخرج الشحن USB: 5 فولت / 1 أمبير`,
     price: 249.99,
     images: getImages('product-31'),
     category: 'home',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-32',
@@ -562,14 +584,16 @@ const allProducts: Product[] = [
 - تركيب سهل مثل أي لمبة عادية.
 - تغطية 360 درجة ورؤية بانورامية.
 - تدعم الرؤية الليلية والتسجيل عند الحركة.
-- إمكانية التحكم والمشاهدة عبر تطبيق بالجوال.###DETAILS###- الدقة: 1080p (فل اتش دي)
+- إمكانية التحكم والمشاهدة عبر تطبيق بالجوال.###DETAILS###- الماركة: جينريك
+- الضمان: 14 يوم
+- الدقة: 1080p (فل اتش دي)
 - الاتصال: واي فاي
 - الرؤية الليلية: تصل إلى 10 أمتار
 - زاوية الحركة: 355° أفقي، 90° عمودي`,
     price: 149.99,
     images: getImages('product-32'),
     category: 'home',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-33',
@@ -579,13 +603,15 @@ const allProducts: Product[] = [
 - يشحن بالطاقة الشمسية خلال 10-12 ساعة.
 - منفذ USB لشحن الجوالات.
 - مخرج DC لتشغيل 4 لمبات LED مرفقة.
-- هدية: شريط إضاءة 10 متر للتخييم.###DETAILS###- البطارية: 12 فولت / 7 أمبير ساعة
+- هدية: شريط إضاءة 10 متر للتخييم.###DETAILS###- الماركة: جينريك
+- الضمان: 14 يوم
+- البطارية: 12 فولت / 7 أمبير ساعة
 - اللوح الشمسي: 18 فولت / 12 واط
 - مخرج USB: 5 فولت / 2 أمبير`,
     price: 349.99,
     images: getImages('product-33'),
     category: 'home',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-34',
@@ -597,11 +623,12 @@ const allProducts: Product[] = [
 - شحن مغناطيسي سريع يدوم 3-5 أيام.
 - تصميم معدني أنيق وخفيف.###DETAILS###- النظام: BT5.1
 - مقاومة الماء: IP68
-- البطارية: 18mAh (3-5 أيام)
+- وضعيات الرياضة: أكثر من 100 وضع
+- بطارية: حوالي 18mAh تدوم 3–5 أيام
 - الخامة: ستانلس ستيل`,
     price: 299.99,
     images: getImages('product-34'),
-    category: 'health'
+    category: 'health',
   },
   {
     id: 'product-35',
@@ -611,13 +638,15 @@ const allProducts: Product[] = [
 - تقلل التشويش أثناء المكالمات.
 - تعمل مع جميع الجوالات الذكية.
 - تصميم خفيف وصغير يسهل لصقه.
-- مناسبة للسيارات والمصاعد والمباني.###DETAILS###- المادة: PCB عالية الجودة
+- مناسبة للسيارات والمصاعد والمباني.###DETAILS###- الماركة: جينريك
+- الضمان: 14 يوم
+- المادة: PCB عالية الجودة
 - الوزن: 10 جرام
 - متوافقة مع: جميع الأجهزة الذكية`,
     price: 49.99,
     images: getImages('product-35'),
     category: 'misc',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-36',
@@ -632,7 +661,7 @@ const allProducts: Product[] = [
 - يدعم: التلفزيونات، اللابتوبات، البروجكترات`,
     price: 349.99,
     images: getImages('product-36'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-37',
@@ -648,7 +677,7 @@ const allProducts: Product[] = [
 - لغات الصوت: 134 لغة`,
     price: 499.99,
     images: getImages('product-37'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-38',
@@ -664,7 +693,7 @@ const allProducts: Product[] = [
 - الأبعاد: 32 × 15 × 44 سم`,
     price: 199.99,
     images: getImages('product-38'),
-    category: 'misc'
+    category: 'misc',
   },
   {
     id: 'product-39',
@@ -674,14 +703,16 @@ const allProducts: Product[] = [
 - رؤية ليلية وتسجيل عند الحركة.
 - زاوية تصوير عريضة 180 درجة.
 - اتصال واي فاي للمشاهدة المباشرة من الجوال.
-- بطارية مدمجة وتدعم كرت ذاكرة.###DETAILS###- الدقة: 1080P / 720P
+- بطارية مدمجة وتدعم كرت ذاكرة.###DETAILS###- الماركة: جينريك
+- الضمان: 14 يوم
+- الدقة: 1080P / 720P
 - زاوية التصوير: 180 درجة
 - الاتصال: واي فاي 2.4GHz
 - التخزين: تدعم كرت TF حتى 32GB`,
     price: 129.99,
     images: getImages('product-39'),
     category: 'electronics',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-40',
@@ -691,14 +722,15 @@ const allProducts: Product[] = [
 - شاشة LCD واضحة.
 - يقيس الوزن، الدهون، الماء، العضلات، وأكثر.
 - يدعم تطبيق ذكي لمتابعة التقدم.
-- يتحمل وزن حتى 180 كيلو.###DETAILS###- الاتصال: بلوتوث
+- يتحمل وزن حتى 180 كيلو.###DETAILS###- الضمان: عامين
+- الاتصال: بلوتوث
 - سعة الوزن: حتى 180 كجم
 - البطارية: 2 × بطارية AAA
 - المواد: زجاج مقوّى`,
     price: 99.99,
     images: getImages('product-40'),
     category: 'health',
-    warranty: 'عامين'
+    warranty: 'عامين',
   },
   {
     id: 'product-41',
@@ -708,13 +740,15 @@ const allProducts: Product[] = [
 - تشحن بالكامل خلال 10-12 ساعة من الشمس.
 - منفذ USB لشحن الجوالات والأجهزة الصغيرة.
 - مخرج DC لتشغيل 4 لمبات LED.
-- صغيرة الحجم وسهلة الحمل.###DETAILS###- البطارية: 12 فولت / 7 أمبير ساعة
+- صغيرة الحجم وسهلة الحمل.###DETAILS###- الماركة: جينريك
+- الضمان: 14 يوم
+- البطارية: 12 فولت / 7 أمبير ساعة
 - اللوح الشمسي: 18 فولت / 12 واط
 - مخرج USB: 5 فولت / 2 أمبير`,
     price: 329.99,
     images: getImages('product-41'),
     category: 'home',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-42',
@@ -730,7 +764,7 @@ const allProducts: Product[] = [
     price: 399.99,
     images: getImages('product-42'),
     category: 'electronics',
-    warranty: 'سنتين'
+    warranty: 'سنتين',
   },
   {
     id: 'product-43',
@@ -741,13 +775,14 @@ const allProducts: Product[] = [
 - منفذين USB لشحن جهازين في نفس الوقت.
 - تصميم صغير وسهل الحمل.
 - متوافق مع أغلب الجوالات والأجهزة.###DETAILS###- الماركة: budi
+- الضمان: عامين
 - السعة: 20,000 مللي أمبير
 - عدد المنافذ: 2 منفذ USB
 - يدعم الشحن السريع`,
     price: 129.99,
     images: getImages('product-43'),
     category: 'electronics',
-    warranty: 'عامين'
+    warranty: 'عامين',
   },
   {
     id: 'product-44',
@@ -763,7 +798,7 @@ const allProducts: Product[] = [
 - موديل الجهاز: HB10`,
     price: 119.99,
     images: getImages('product-44'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-45',
@@ -773,14 +808,16 @@ const allProducts: Product[] = [
 - لونين للإضاءة: أبيض دافئ وألوان RGB.
 - تعمل تلقائيًا في الليل.
 - مقاومة للماء (IP44).
-- سهلة التركيب بالغرز في الأرض.###DETAILS###- نوع الإنارة: LED
+- سهلة التركيب بالغرز في الأرض.###DETAILS###- الماركة: جينيريك
+- الضمان: 14 يوم
+- نوع الإنارة: LED
 - لومن: 60 لومن
 - البطارية: NiMH 300mAh
 - مقاومة الماء: IP44`,
     price: 59.99,
     images: getImages('product-45'),
     category: 'home',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-46',
@@ -792,11 +829,12 @@ const allProducts: Product[] = [
 - لا تعمل في وجود ضوء لتوفير الطاقة.
 - سهلة التركيب على طرف المكتب.###DETAILS###- نوع الإضاءة: LED
 - عدد الألوان: 8 ألوان
+- الجهد الكهربائي: 4.5V
 - مصدر الطاقة: 3 بطاريات AAA
 - الخامة: بلاستيك ABS`,
     price: 39.99,
     images: getImages('product-46'),
-    category: 'home'
+    category: 'home',
   },
   {
     id: 'product-47',
@@ -806,14 +844,16 @@ const allProducts: Product[] = [
 - تتحمل وزن حتى 30 كجم.
 - سطح واسع يناسب لابتوبات حتى 17 إنش.
 - مساحة تخزين داخلية.
-- سهلة التنظيف والحمل.###DETAILS###- الأبعاد: 60×40×30 سم
+- سهلة التنظيف والحمل.###DETAILS###- الماركة: جينيريك
+- الضمان: 14 يوم
+- الأبعاد: 60×40×30 سم
 - الخامة: إطار ألمنيوم مع سطح MDF
 - الوزن: 1.3 كجم
 - التحمل الأقصى: 30 كجم`,
     price: 89.99,
     images: getImages('product-47'),
     category: 'home',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-48',
@@ -828,7 +868,7 @@ const allProducts: Product[] = [
 - الخامة: نايلون مقاوم للماء + PU`,
     price: 79.99,
     images: getImages('product-48'),
-    category: 'misc'
+    category: 'misc',
   },
   {
     id: 'product-49',
@@ -839,13 +879,14 @@ const allProducts: Product[] = [
 - تستقبل إشعارات المكالمات والرسائل.
 - بطارية تدوم لأكثر من 15 يومًا (استعداد).
 - مقاومة لرذاذ الماء.###DETAILS###- الموديل: Shivay M3 Smart Band
+- الضمان: 14 يوم
 - الاتصال: بلوتوث 4.0
 - سعة البطارية: 40mAh
 - مقاومة للماء: مناسبة للرذاذ`,
     price: 89.99,
     images: getImages('product-49'),
     category: 'health',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-50',
@@ -861,7 +902,7 @@ const allProducts: Product[] = [
 - المخرج اللاسلكي: 10 واط`,
     price: 119.99,
     images: getImages('product-50'),
-    category: 'electronics'
+    category: 'electronics',
   },
   {
     id: 'product-51',
@@ -871,13 +912,15 @@ const allProducts: Product[] = [
 - رأس يدور 360 درجة.
 - يناسب جوالات وتابلت من 4 إلى 9.5 إنش.
 - يمكن تعليقه على الرقبة أو تثبيته على سطح.
-- يخفف آلام الرقبة واليدين.###DETAILS###- الخامة: ألمنيوم + بلاستيك
+- يخفف آلام الرقبة واليدين.###DETAILS###- الماركة: جينريك.
+- الضمان: 14 يوم
+- الخامة: ألمنيوم + بلاستيك
 - الوزن: 218 جرام
 - خاصية الدوران: نعم، 360 درجة`,
     price: 59.99,
     images: getImages('product-51'),
     category: 'misc',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-52',
@@ -887,13 +930,16 @@ const allProducts: Product[] = [
 - تقنية بلوتوث 5.4 لاتصال سريع ومستقر.
 - صوت محيطي 360 درجة.
 - مايك ENC يعزل الضوضاء للمكالمات.
-- مقاومة للتعرق ومريحة للأذن.###DETAILS###- الإصدار: بلوتوث 5.4
+- مقاومة للتعرق ومريحة للأذن.###DETAILS###- الماركة: جينيريك.
+- الضمان: 14 يوم.
+- الإصدار: بلوتوث 5.4
+- نطاق التشغيل: حتى 10 أمتار
 - سعة البطارية: 30mAh لكل سماعة
 - معيار مقاومة الماء: IPX-5`,
     price: 139.99,
     images: getImages('product-52'),
     category: 'electronics',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-53',
@@ -903,13 +949,15 @@ const allProducts: Product[] = [
 - شاشة LED تعرض الساعة والمنبه.
 - شحن لاسلكي سريع 15 واط.
 - حامل جوال مدمج.
-- ذراع مرن يتحرك 180 درجة.###DETAILS###- نوع التحكم: لمس
+- ذراع مرن يتحرك 180 درجة.###DETAILS###- الماركة: جينيريك.
+- الضمان: 14 يوم.
+- نوع التحكم: لمس
 - الشحن اللاسلكي: 15 واط
 - مادة التصنيع: ألومنيوم وبلاستيك ABS`,
     price: 189.99,
     images: getImages('product-53'),
     category: 'home',
-    warranty: '14 يوم'
+    warranty: '14 يوم',
   },
   {
     id: 'product-54',
@@ -925,7 +973,7 @@ const allProducts: Product[] = [
 - التحمل الأقصى: 30 كجم`,
     price: 89.99,
     images: getImages('product-54'),
-    category: 'home'
+    category: 'home',
   },
   {
     id: 'product-55',
@@ -936,14 +984,15 @@ const allProducts: Product[] = [
 - يمكن استخدام الشاشة والتصوير من خلاله.
 - يناسب أغلب أنواع الجوالات.
 - يأتي مع حبل تعليق.###DETAILS###- الماركة: MOOGMAX
+- الضمان: 14 يوم.
 - معيار الحماية: IP68
 - الخامة: PVC ناعم وقوي
 - الوزن: 100 جرام`,
     price: 49.99,
     images: getImages('product-55'),
     category: 'misc',
-    warranty: '14 يوم'
-  }
+    warranty: '14 يوم',
+  },
 ];
 
 // Helper function to create product lists for different categories
