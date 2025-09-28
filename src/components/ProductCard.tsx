@@ -89,7 +89,7 @@ export default function ProductCard({ product, size }: ProductCardProps) {
         </p>
         <div className={cn("mt-auto pt-3 flex flex-col gap-2")}>
             <div className="flex items-center gap-2">
-              <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'icon'} variant="default" iconOnly={true} className="flex-grow" />
+              <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'icon'} variant="outline" iconOnly={true} className="flex-grow" />
               <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'icon'} variant="outline" iconOnly={true} className="flex-grow" />
             </div>
             <AddToCompareButton product={product} size={size === 'small' ? 'sm' : 'default'} variant="outline" />
