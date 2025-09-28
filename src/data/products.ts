@@ -11,7 +11,7 @@ const getImages = (productId: string): string[] => {
   return Array.from({length: 1}, (_, i) => `https://picsum.photos/seed/${productId}-${i + 1}/600/600`);
 };
 
-const electronicsProducts: Product[] = [
+const allProducts: Product[] = [
     {
         id: 'dlc-multi-use-lantern',
         name: 'راعى الكشتات فانوس متعدد الاستخدامات مع بور بنك',
@@ -807,9 +807,6 @@ const electronicsProducts: Product[] = [
 - 1 × كيبل HDMI
 - 1 × كيبل USB`
     },
-];
-
-const homeProducts: Product[] = [
     {
         id: 'moog-max-smart-bottle',
         name: 'حافظة مشروبات Moog max الذكية مع سبيكر',
@@ -991,10 +988,7 @@ const homeProducts: Product[] = [
 ###CONTENTS###
 - 1 x طاولة لابتوب قابلة للطي`
     },
-];
-
-const healthProducts: Product[] = [
-     {
+    {
         id: 'smart-sports-watch',
         name: 'ساعة رياضية ذكية',
         slug: 'smart-sports-watch',
@@ -1086,9 +1080,6 @@ const healthProducts: Product[] = [
 - كابل شحن USB
 - دليل الاستخدام`
     },
-];
-
-const miscProducts: Product[] = [
     {
         id: 'modern-waterproof-bag',
         name: 'حقيبة مقاومة للماء حديثة',
@@ -1259,10 +1250,6 @@ const miscProducts: Product[] = [
 - نوع البطارية: ليثيوم (4000mAh)
 - خرج الشحن عبر USB: 5 فولت / 1 أمبير
 - طريقة الشحن: طاقة شمسية أو تيار مباشر
-###USAGE###
-- ضع اللوح الشمسي في مكان مشمس.
-- قم بتوصيل اللوح بالجهاز للشحن.
-- استخدم اللمبات المرفقة للإضاءة أو منفذ USB لشحن هاتفك.
 ###CONTENTS###
 - 1 × جهاز الطاقة (البطارية مدمجة)
 - 1 × لوح شمسي مع كابل 5 متر
@@ -1270,6 +1257,418 @@ const miscProducts: Product[] = [
 - 1 × شاحن كهربائي
 - 1 × كابل شحن USB للجوالات
 - 1 × دليل الاستخدام`
+    },
+    {
+        id: 'portable-cinema-projector',
+        name: 'جهاز السينما المتنقل الذكي',
+        slug: 'portable-cinema-projector',
+        price: 380,
+        category: categories.electronics.slug,
+        images: getImages('portable-cinema-projector'),
+        description: `حوّل أي مكان إلى سينما خاصة بك مع هذا البروجكتر الذكي والمحمول.
+###FEATURES###
+- تصميم دوار 180 درجة لعرض الصور على الحائط أو السقف.
+- يدعم دقة 4K مع سطوع 120 لومن لصورة واضحة.
+- تصحيح تلقائي للصورة للحصول على أفضل زاوية عرض.
+- مكبرات صوت ستيريو مدمجة بنظام هاي فاي.
+- نظام تشغيل أندرويد 11.0 للوصول للتطبيقات.
+- اتصال لاسلكي عبر واي فاي وبلوتوث 5.0.
+- متوافق مع أجهزة الألعاب والهواتف الذكية.
+###DETAILS###
+- الموديل: HY-300
+- نظام التشغيل: أندرويد 11.0
+- الدقة الأصلية: 1280 × 720 بكسل
+- السطوع: 120 لومن ANSI
+- الاتصال: HDMI, USB, واي فاي, بلوتوث
+###CONTENTS###
+- 1 × جهاز عرض (بروجكتر)
+- 1 × كابل كهرباء
+- 1 × ريموت تحكم
+- 1 × كتيب تعليمات`,
+    },
+    {
+        id: 'iphone-13-pro-max-power-case',
+        name: 'كافر جوال وباوربنك للأيفون 13 Pro Max',
+        slug: 'iphone-13-pro-max-power-case',
+        price: 179,
+        category: categories.electronics.slug,
+        images: getImages('iphone-13-pro-max-power-case'),
+        description: `حماية وأناقة وطاقة إضافية في كفر واحد لجهازك الأيفون 13 برو ماكس.
+###FEATURES###
+- بطارية مدمجة بسعة 6800mAh.
+- تصميم نحيف وأنيق وخفيف الوزن.
+- يشحن الجهاز لاسلكيًا بلمسة زر.
+- يحمي الجوال من الصدمات والخدوش.
+- شاشة LED لعرض مستوى الشحن.
+- متوافق مع مقاس 6.7 إنش.
+###DETAILS###
+- السعة: 6800mAh
+- الإدخال: 5V/1.5A
+- الإخراج: 5V/1.0A
+- الخامة: ABS + TPU
+###USAGE###
+- ضع الآيفون في الكفر.
+- اضغط زر التشغيل خلف الكفر لبدء الشحن.
+- اشحن الكفر باستخدام كابل Micro USB.
+###CONTENTS###
+- 1 × كفر باور بنك للآيفون
+- 1 × كابل شحن
+- 1 × دليل الاستخدام`,
+    },
+    {
+        id: 'bulb-shaped-security-camera',
+        name: 'كاميرا على شكل لمبة',
+        slug: 'bulb-shaped-security-camera',
+        price: 150,
+        category: categories.home.slug,
+        images: getImages('bulb-shaped-security-camera'),
+        description: `راقب منزلك بذكاء وسرية مع هذه الكاميرا الأمنية المبتكرة.
+###FEATURES###
+- تصور بجودة عالية 1080p HD.
+- تتركب بسهولة في أي مقبس لمبة E27.
+- رؤية ليلية بالأشعة تحت الحمراء.
+- تغطية بانورامية 360 درجة.
+- تدعم كرت ذاكرة حتى 128 جيجا.
+- صوت تنبيه عند استشعار الحركة.
+- شكلها لا يلفت الانتباه.
+###DETAILS###
+- الدقة: 1080p (فل اتش دي)
+- الاتصال: واي فاي
+- الرؤية الليلية: تصل لـ 10 متر
+- زاوية التحريك: 355° أفقي / 90° رأسي
+###CONTENTS###
+- 1 × كاميرا مراقبة على شكل لمبة
+- 1 × قاعدة تثبيت
+- 1 × كتيب تعليمات
+- 1 × براغي تثبيت`,
+    },
+    {
+        id: 'solar-power-system-light-strip',
+        name: 'جهاز الطاقة الشمسية + شريط الإضاءة',
+        slug: 'solar-power-system-light-strip',
+        price: 349,
+        category: categories.home.slug,
+        images: getImages('solar-power-system-light-strip'),
+        description: `نظام طاقة شمسي متكامل للطوارئ والرحلات، مع شريط إضاءة هدية.
+###FEATURES###
+- يشحن بالطاقة الشمسية ويوفر الكهرباء.
+- بطارية 12 فولت / 7 أمبير لتشغيل طويل.
+- مخرج USB لشحن الجوالات.
+- 4 لمبات LED مرفقة للإضاءة.
+- شريط إضاءة 10 متر هدية، مقاوم للماء ومثالي للتخييم.
+###DETAILS###
+- البطارية: 12 فولت / 7 أمبير ساعة
+- اللوح الشمسي: 18 فولت / 12 واط
+- وقت الشحن: 10-12 ساعة
+- مخرج USB: 5 فولت / 2 أمبير
+###CONTENTS###
+- 1 × جهاز الطاقة الشمسية
+- 1 × لوح شمسي
+- 4 × لمبات إضاءة LED
+- 1 × كابل شحن متعدد الرؤوس
+- 1 × شريط إضاءة للتخييم (هدية)`,
+    },
+    {
+        id: 'mobile-signal-booster-sticker',
+        name: 'شريحة لتقوية شبكة الجوال',
+        slug: 'mobile-signal-booster-sticker',
+        price: 50,
+        category: categories.electronics.slug,
+        images: getImages('mobile-signal-booster-sticker'),
+        description: `حسّن استقبال شبكة هاتفك في الأماكن ضعيفة الإشارة مع هذه الشريحة اللاصقة.
+###FEATURES###
+- تحسن استقبال الشبكة وتقلل التشويش.
+- تعمل مع الجوالات الذكية والأجهزة اللاسلكية.
+- تصميم خفيف وصغير يسهل لصقه.
+- مناسبة للاستخدام في السيارة، المصعد، أو المباني.
+###DETAILS###
+- المادة: PCB عالية الجودة
+- الوزن: 10 جرام
+- التوافق: جميع الأجهزة الذكية
+###CONTENTS###
+- 5 × لصقة تقوية إشارة الجوال`,
+    },
+    {
+        id: 'android-tv-gaming-console',
+        name: 'محول الشاشة العادية للأندرويد +مجموعة ألعاب',
+        slug: 'android-tv-gaming-console',
+        price: 299,
+        category: categories.electronics.slug,
+        images: getImages('android-tv-gaming-console'),
+        description: `حوّل تلفزيونك إلى جهاز ألعاب ذكي مع آلاف الألعاب الكلاسيكية.
+###FEATURES###
+- يدعم دقة 8K Ultra HD لجودة صورة فائقة.
+- يأتي مع ذراعي تحكم لاسلكيين.
+- نظام أندرويد لتحميل التطبيقات ومشاهدة الأفلام.
+- يدعم اتصال 5G لتجربة سريعة.
+- يشغل آلاف الألعاب الكلاسيكية.
+- متوافق مع التلفزيونات والبروجكترات.
+###DETAILS###
+- النظام: أندرويد
+- الاتصال: 5G, HDMI, لاسلكي
+- الوزن: 450 جرام
+###CONTENTS###
+- 1 x جهاز SNAPTRON 8K
+- 2 x يد تحكم لاسلكية
+- 1 x كابل HDMI
+- 1 x كابل طاقة
+- 1 x كارت ذاكرة محمّل بالألعاب`,
+    },
+    {
+        id: 'ai-translator-pen',
+        name: 'مترجم فوري شامل 5 في 1 بالذكاء الاصطناعي',
+        slug: 'ai-translator-pen',
+        price: 450,
+        category: categories.electronics.slug,
+        images: getImages('ai-translator-pen'),
+        description: `تواصل بلا حدود مع هذا القلم المترجم الفوري الذي يدعم أكثر من 130 لغة.
+###FEATURES###
+- ترجمة النصوص والصور والخطاب الصوتي.
+- يدعم الترجمة بدون اتصال بالإنترنت لـ 9 لغات.
+- شاشة لمس 5 بوصة عالية الدقة.
+- تصميم أنيق وسهل الاستخدام.
+- ذاكرة 8 جيجا بايت مع دعم بطاقة ذاكرة.
+###DETAILS###
+- حجم الشاشة: 5.0 بوصة
+- الذاكرة: 8 جيجا بايت
+- لغة الصوت: 134 لغة
+- ترجمة الصور: 119 لغة
+###CONTENTS###
+- 1 x قلم مترجم فوري
+- كابل شحن
+- دليل استخدام`,
+    },
+    {
+        id: 'yosonda-wireless-power-bank',
+        name: 'بنك طاقة لاسلكي 10000 مللي أمبير',
+        slug: 'yosonda-wireless-power-bank',
+        price: 150,
+        category: categories.electronics.slug,
+        images: getImages('yosonda-wireless-power-bank'),
+        description: `اشحن جميع أجهزتك في وقت واحد مع بنك الطاقة العملي هذا.
+###FEATURES###
+- يشحن أكثر من جوال في نفس الوقت.
+- يدعم الشحن اللاسلكي مع شفاط لتثبيت الهاتف.
+- تصميم مميز مع حيز لحفظ الكابلات.
+- خفيف ومحمول، مثالي للرحلات.
+- سريع الشحن بقدرة 10 واط لاسلكيًا.
+###DETAILS###
+- العلامة التجارية: YOSONDA
+- الموديل: YXD-A40
+- البطارية: 10000 مللي أمبير
+- المخرج اللاسلكي: 10 واط
+- الكابلات المدمجة: Type-C, Micro USB, USB, iPhone
+###CONTENTS###
+- 1 x بنك طاقة لاسلكي
+- كابلات مدمجة`,
+    },
+    {
+        id: 'modern-airpods-5-4',
+        name: 'أيربودز حديثة',
+        slug: 'modern-airpods-5-4',
+        price: 120,
+        category: categories.electronics.slug,
+        images: getImages('modern-airpods-5-4'),
+        description: `استمتع بصوت نقي واتصال مستقر مع هذه السماعات اللاسلكية الأنيقة.
+###FEATURES###
+- تصميم مريح وثابت على الأذن.
+- بطارية تدوم حتى 72 ساعة مع علبة الشحن.
+- بلوتوث 5.4 لاتصال سريع ومستقر.
+- صوت محيطي 360 درجة.
+- مايكروفون ENC لعزل الضوضاء في المكالمات.
+- مقاومة للتعرق ومناسبة للرياضة.
+###DETAILS###
+- الضمان: 14 يوم
+- إصدار البلوتوث: 5.4
+- سعة البطارية: 30mAh لكل سماعة
+- مقاومة الماء: IPX-5
+###CONTENTS###
+- 2 x سماعة لاسلكية
+- 1 x علبة شحن محمولة
+- 1 x كابل شحن
+- 1 x دليل الاستخدام`,
+    },
+    {
+        id: 'alraei-almakshat-station-7amp',
+        name: 'محطة الراعي والمكشات 7 أمبير',
+        slug: 'alraei-almakshat-station-7amp',
+        price: 250,
+        category: categories.electronics.slug,
+        warranty: 'عام',
+        images: getImages('alraei-almakshat-station-7amp'),
+        description: `نظام طاقة شمسي متكامل للرحلات والطوارئ، لا غنى عنه في كل بيت وسيارة.
+###FEATURES###
+- حجم صغير وسهل الحمل والتخزين.
+- يشحن بالطاقة الشمسية ويوفر عليك فواتير الكهرباء.
+- بطارية قوية 12 فولت / 7 أمبير تدوم طويلاً.
+- منفذ USB لشحن الجوال والأجهزة الصغيرة.
+- مخرج DC لتشغيل 4 لمبات LED مرفقة.
+- مؤشر ضوئي يوضح حالة الشحن.
+###DETAILS###
+- الضمان: عام
+- البطارية: 12 فولت / 7 أمبير ساعة
+- اللوح الشمسي: 18 فولت / 12 واط
+- وقت الشحن: 10-12 ساعة
+- مخرج USB: 5 فولت / 2 أمبير
+###CONTENTS###
+- 1 × جهاز الطاقة الشمسية
+- 1 × لوح شمسي 18V/12W
+- 4 × لمبات إضاءة LED
+- 1 × كابل شحن متعدد الرؤوس`,
+    },
+    {
+        id: 'denx-power-bank-100000mah',
+        name: 'باور بانك بسعة كبيرة 100 ألف مللي أمبير',
+        slug: 'denx-power-bank-100000mah',
+        price: 400,
+        category: categories.electronics.slug,
+        warranty: 'عامين',
+        images: getImages('denx-power-bank-100000mah'),
+        description: `قوة هائلة تكفيك لأيام، مع شحن سريع ومنافذ متعددة.
+###FEATURES###
+- سعة ضخمة 100,000mAh تكفي لشحن أجهزتك عدة مرات.
+- شحن سريع بقوة 22.5 واط.
+- كابلات مدمجة (USB و Type-C).
+- 4 مخارج لشحن أكثر من جهاز في نفس الوقت.
+- حماية من الحرارة والشحن الزائد.
+- مؤشر LED لمعرفة مستوى البطارية.
+###DETAILS###
+- السعة: 100,000mAh
+- الطاقة الخارجة: 22.5W
+- الكابلات: USB و Type-C مدمجة
+- الضمان: عامين
+###CONTENTS###
+- 1 × باور بانك DENX
+- كابلات مدمجة
+- دليل استخدام`,
+    },
+    {
+        id: 'budi-power-bank-20000',
+        name: 'budi power bank 20000',
+        slug: 'budi-power-bank-20000',
+        price: 150,
+        category: categories.electronics.slug,
+        warranty: 'عامين',
+        images: getImages('budi-power-bank-20000'),
+        description: `شحن سريع وسعة كبيرة في تصميم صغير وأنيق.
+###FEATURES###
+- سعة بطارية كبيرة 20000mAh.
+- يدعم الشحن السريع.
+- منفذان USB لشحن جهازين في نفس الوقت.
+- تصميم صغير وسهل الحمل.
+- نظام حماية ذكي لأجهزتك.
+###DETAILS###
+- الماركة: budi
+- الضمان: عامين
+- السعة: 20000 مللي أمبير
+- عدد المنافذ: 2 منفذ USB
+###CONTENTS###
+- 1 × باور بانك Budi 20000mAh
+- 1 × كابل شحن
+- 1 × كتيب تعليمات`,
+    },
+    {
+        id: 'yesido-6-port-hub',
+        name: 'محول الجوال إلى جهاز كمبيوتر',
+        slug: 'yesido-6-port-hub',
+        price: 150,
+        category: categories.electronics.slug,
+        images: getImages('yesido-6-port-hub'),
+        description: `حوّل هاتفك أو حاسوبك المحمول إلى محطة عمل متكاملة مع هذا المحول الأنيق.
+###FEATURES###
+- سهل الاستخدام، يعمل بمجرد التوصيل.
+- سرعة نقل عالية مع منافذ USB 3.0.
+- منافذ لبطاقات SD و Micro SD للوصول السريع للصور.
+- تصميم عملي ومحمول.
+- متوافق مع أجهزة الماك بوك والأجهزة الأخرى التي تدعم Type-C.
+###DETAILS###
+- العلامة التجارية: Yesido.
+- نوع الموصل: Type-C HUB.
+- عدد المنافذ: 6 منافذ.
+- موديل الجهاز: HB10.
+###CONTENTS###
+- 1 × محول Yesido 6 في 1`,
+    },
+    {
+        id: 'dash-cam-3-cameras-1080p',
+        name: 'داش كام 3 كاميرات 1080P',
+        slug: 'dash-cam-3-cameras-1080p',
+        price: 250,
+        category: categories.electronics.slug,
+        warranty: 'عام',
+        images: getImages('dash-cam-3-cameras-1080p'),
+        description: `وثّق رحلاتك من كل الزوايا مع هذه الداش كام المتكاملة.
+###FEATURES###
+- 3 كاميرات (أمامية، خلفية, وداخلية).
+- تصوير بجودة 1080P.
+- عدسة واسعة 170 درجة.
+- تسجيل ليلي واضح بالأشعة تحت الحمراء.
+- تسجيل حلقي تلقائي.
+- قفل فيديو الطوارئ عند الحوادث.
+- تدعم كرت ذاكرة حتى 128GB.
+###DETAILS###
+- الدقة: أمامية 1080P / وسطى 720P / خلفية 720P
+- الشاشة: 2 إنش IPS
+- زاوية الرؤية: أمامية 170°
+###CONTENTS###
+- 1 × كاميرا سيارة
+- 1 × كاميرا رجوع للخلف
+- 1 × سلك طاقة
+- 1 × كتيب تعليمات`,
+    },
+    {
+        id: 'wifi-dash-cam-3-cameras',
+        name: 'داش كام 3 كاميرات تعمل بالواي فاي',
+        slug: 'wifi-dash-cam-3-cameras',
+        price: 300,
+        category: categories.electronics.slug,
+        warranty: 'عام',
+        images: getImages('wifi-dash-cam-3-cameras'),
+        description: `كاميرا سيارة ذكية تتصل بهاتفك عبر الواي فاي لمشاهدة التسجيلات مباشرة.
+###FEATURES###
+- 3 كاميرات لتغطية شاملة.
+- تعمل عن طريق ربطها بالهاتف عبر WIFI.
+- تصوير بجودة 1080P.
+- عدسة واسعة 170 درجة.
+- تسجيل ليلي بالأشعة تحت الحمراء.
+- مستشعر حركة للتسجيل التلقائي.
+###DETAILS###
+- الدقة: أمامية 1080P / وسطى 720P / خلفية 720P
+- الشاشة: 2 إنش IPS
+- البطارية: 150mAh
+###CONTENTS###
+- 1 × كاميرا سيارة
+- 1 × كاميرا رجوع للخلف
+- 1 × سلك طاقة
+- 1 × كتيب تعليمات`,
+    },
+    {
+        id: 'solar-powered-fan',
+        name: 'مروحة تعمل بالطاقة الشمسية',
+        slug: 'solar-powered-fan',
+        price: 350,
+        category: categories.home.slug,
+        warranty: '14 يوم',
+        images: getImages('solar-powered-fan'),
+        description: `استمتع بالهواء البارد في أي مكان مع هذه المروحة العملية التي تعمل بالطاقة الشمسية والكهرباء.
+###FEATURES###
+- تعمل بالطاقة الشمسية لتوفير الطاقة.
+- يمكن استخدامها داخل المنزل عن طريق الكهرباء.
+- تصميم خفيف الوزن وسهل النقل.
+- 5 شفرات لتدفق هواء قوي.
+- سرعة قابلة للتعديل.
+- مصباح LED مدمج للإضاءة.
+###DETAILS###
+- المادة: بلاستيك
+- حجم الشفرة: 16 بوصة
+- الأبعاد: 43*39*129 سم
+###CONTENTS###
+- 1 x مروحة تعمل بالطاقة الشمسية
+- 2 x مصباح
+- 1 x ريموت كنترول
+- 1 x كابل كهرباء
+- 1 x لوح طاقة شمسية
+- 1 x مفك`,
     },
     {
         id: 'denx-electric-air-blower',
@@ -2626,17 +3025,21 @@ const miscProducts: Product[] = [
     }
 ];
 
+// Helper function to create product lists for different categories
+const createProductList = (products: Product[], category: string): Product[] => {
+    return products.filter(p => p.category === category);
+};
+
+// Create lists for each category
+export const electronicsProducts: Product[] = createProductList(allProducts, categories.electronics.slug);
+export const homeProducts: Product[] = createProductList(allProducts, categories.home.slug);
+export const healthProducts: Product[] = createProductList(allProducts, categories.health.slug);
+export const miscProducts: Product[] = createProductList(allProducts, categories.misc.slug);
+
 
 // Combine all product arrays here
 export const products: Product[] = [
-    ...electronicsProducts,
-    ...homeProducts,
-    ...healthProducts,
-    ...miscProducts
+    ...allProducts
 ];
 
-    
-
-    
-
-    
+  
