@@ -29,7 +29,6 @@ const allProducts: Product[] = [
     images: getImages('product-1'),
     category: 'electronics',
     warranty: 'عامين',
-    story: "في ليلة ظلماء، وأثناء رحلة تخييم في قلب الصحراء، انقطعت الكهرباء فجأة. لكن بفضل فانوس DLC، لم تكن هناك مشكلة. بقوته وضوئه الساطع، تحولت العتمة إلى نور، واستمرت السهرة وكأن شيئًا لم يكن، بل وشحن هواتف الجميع ليظلوا على تواصل.",
     faq: [
       {
         question: "هل يمكنني استخدامه أثناء المطر؟",
@@ -458,7 +457,7 @@ const allProducts: Product[] = [
     images: getImages('product-25'),
     category: 'electronics'
   },
-    {
+  {
     id: 'product-26',
     name: 'ساعة سمارت Ultra T8',
     slug: 'smart-watch-ultra-t8',
@@ -963,3 +962,5 @@ export const miscProducts: Product[] = createProductList(allProducts, categories
 export const products: Product[] = [
     ...allProducts
 ];
+
+    
