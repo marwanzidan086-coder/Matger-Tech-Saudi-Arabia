@@ -87,11 +87,11 @@ export default function ProductCard({ product, size }: ProductCardProps) {
         <p className={cn("mt-1 font-bold text-primary", size === 'small' ? 'text-base' : 'text-lg')}>
           {product.price.toFixed(2)} ر.س
         </p>
-        <div className={cn("mt-3 flex flex-col gap-2")}>
+        <div className={cn("mt-auto pt-3 flex flex-col gap-2")}>
           <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'default'} />
-          <div className="grid grid-cols-2 gap-2">
-            <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'default'} />
-            <AddToCompareButton product={product} size={size === 'small' ? 'sm' : 'default'} />
+          <div className="flex flex-col sm:flex-row gap-2">
+            <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'default'} className="w-full" />
+            <AddToCompareButton product={product} size={size === 'small' ? 'sm' : 'default'} className="w-full" />
           </div>
         </div>
       </div>
