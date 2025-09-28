@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useCart } from '@/contexts/CartContext';
@@ -8,9 +9,11 @@ import { ShoppingCart } from 'lucide-react';
 
 interface AddToCartButtonProps extends ButtonProps {
   product: Product;
+  iconOnly?: boolean;
+  text?: string;
 }
 
-export function AddToCartButton({ product, size, variant, ...props }: AddToCartButtonProps) {
+export function AddToCartButton({ product, size, variant, iconOnly = false, text = "أضف إلى السلة", ...props }: AddToCartButtonProps) {
   const { addToCart } = useCart();
   const { toast } = useToast();
 
@@ -22,10 +25,18 @@ export function AddToCartButton({ product, size, variant, ...props }: AddToCartB
     });
   };
 
+  if (iconOnly) {
+    return (
+        <Button onClick={handleAddToCart} size={size || "icon"} variant={variant || "outline"} aria-label={text} {...props}>
+            <ShoppingCart className="h-5 w-5" />
+        </Button>
+    )
+  }
+
   return (
     <Button onClick={handleAddToCart} size={size || "lg"} variant={variant || "outline"} className="w-full" {...props}>
       <ShoppingCart className="me-2 h-5 w-5" />
-      أضف إلى السلة
+      {text}
     </Button>
   );
 }

@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useWishlist } from '@/contexts/WishlistContext';
@@ -10,10 +11,11 @@ import { useIsMounted } from '@/hooks/use-is-mounted';
 
 interface AddToWishlistButtonProps extends ButtonProps {
   product: Product;
+  iconOnly?: boolean;
 }
 
 
-export function AddToWishlistButton({ product, size, ...props }: AddToWishlistButtonProps) {
+export function AddToWishlistButton({ product, size, iconOnly = false, ...props }: AddToWishlistButtonProps) {
   const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
   const { toast } = useToast();
   const [isInWishlist, setIsInWishlist] = useState(false);
@@ -39,6 +41,16 @@ export function AddToWishlistButton({ product, size, ...props }: AddToWishlistBu
       });
     }
   };
+  
+  const text = isInWishlist ? 'إزالة من المفضلة' : 'أضف إلى المفضلة';
+
+  if (iconOnly) {
+    return (
+        <Button onClick={handleToggleWishlist} variant="outline" size={size || "icon"} aria-label={text} {...props}>
+            <Heart className={`h-5 w-5 transition-colors ${isInWishlist ? 'fill-red-500 text-red-500' : ''}`} />
+        </Button>
+    )
+  }
 
   return (
     <Button
@@ -49,7 +61,7 @@ export function AddToWishlistButton({ product, size, ...props }: AddToWishlistBu
       {...props}
     >
       <Heart className={`me-2 h-5 w-5 transition-colors ${isInWishlist ? 'fill-red-500 text-red-500' : ''}`} />
-      {isInWishlist ? 'إزالة من المفضلة' : 'أضف إلى المفضلة'}
+      {text}
     </Button>
   );
 }
