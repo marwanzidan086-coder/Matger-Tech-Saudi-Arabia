@@ -27,7 +27,7 @@ export function AddToCartButton({ product, size, variant, iconOnly = false, text
 
   if (iconOnly) {
     return (
-        <Button onClick={handleAddToCart} size={size || "icon"} variant={variant || "outline"} aria-label={text} {...props}>
+        <Button onClick={handleAddToCart} size={size || "lg"} variant={variant || "outline"} aria-label={text} {...props}>
             <ShoppingCart className="h-5 w-5" />
         </Button>
     )

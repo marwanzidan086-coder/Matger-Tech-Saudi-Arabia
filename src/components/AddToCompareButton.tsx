@@ -31,7 +31,7 @@ export function AddToCompareButton({ product, size, iconOnly = false, ...props }
         <Button
           onClick={() => addToCompare(product)}
           variant="outline"
-          size={size || "icon"}
+          size={size || "lg"}
           disabled={isInCompareList}
           aria-label={text}
           {...props}

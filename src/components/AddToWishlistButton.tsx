@@ -46,7 +46,7 @@ export function AddToWishlistButton({ product, size, iconOnly = false, ...props 
 
   if (iconOnly) {
     return (
-        <Button onClick={handleToggleWishlist} variant="outline" size={size || "icon"} aria-label={text} {...props}>
+        <Button onClick={handleToggleWishlist} variant="outline" size={size || "lg"} aria-label={text} {...props}>
             <Heart className={`h-5 w-5 transition-colors ${isInWishlist ? 'fill-red-500 text-red-500' : ''}`} />
         </Button>
     )
