@@ -61,7 +61,15 @@ export default function ProductCard({
   };
 
   return (
-    <div className={cn(productCardVariants({ size }), isLoading && "animated-border")}>
+    <div className={cn(productCardVariants({ size }))}>
+      {isLoading && (
+        <>
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 rounded-lg">
+            <Loader2 className="h-12 w-12 text-primary animate-spin" />
+          </div>
+          <div className="absolute inset-[-2px] z-20 animate-spin rounded-lg bg-gradient-to-r from-primary via-transparent to-primary"></div>
+        </>
+      )}
       <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isLoading}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
           <Image
@@ -74,11 +82,6 @@ export default function ProductCard({
             )}
             sizes="(max-width: 768px) 50vw, 33vw"
           />
-          {isLoading && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20">
-              <Loader2 className="h-12 w-12 text-primary animate-spin" />
-            </div>
-          )}
         </div>
       </Link>
       <div className={cn("flex flex-1 flex-col", size === 'small' ? 'p-2' : 'p-3')}>
