@@ -35,7 +35,7 @@ export default function ProductCard({ product, size }: ProductCardProps) {
   const [isPending, startTransition] = useTransition();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // If another transition is already happening, do nothing.
+    // If another transition is already happening, prevent a new one.
     if (isPending) {
         e.preventDefault();
         return;
@@ -77,8 +77,8 @@ export default function ProductCard({ product, size }: ProductCardProps) {
         </p>
         <div className={cn("mt-auto pt-3 flex flex-col gap-2")}>
             <div className="flex items-center gap-2">
-              <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'icon'} variant="outline" iconOnly={true} />
-              <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'icon'} iconOnly={true} />
+              <AddToCartButton product={product} size="icon" variant="outline" iconOnly={true} className="flex-grow" />
+              <AddToWishlistButton product={product} size="icon" iconOnly={true} />
             </div>
             <AddToCompareButton product={product} size={size === 'small' ? 'sm' : 'default'} variant="outline" />
         </div>
