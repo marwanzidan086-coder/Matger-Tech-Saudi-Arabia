@@ -76,7 +76,7 @@ export default function ProductCard({
           />
           {isLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20">
-              <Loader2 className="h-12 w-12 text-white animate-spin" />
+              <Loader2 className="h-12 w-12 text-primary animate-spin" />
             </div>
           )}
         </div>
