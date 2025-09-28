@@ -9,7 +9,7 @@ import { AddToWishlistButton } from './AddToWishlistButton';
 import { AddToCompareButton } from './AddToCompareButton';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useTransition } from 'react';
 import { Loader2 } from 'lucide-react';
 
 
@@ -32,41 +32,30 @@ type ProductCardProps = {
   product: Product;
 } & VariantProps<typeof productCardVariants>;
 
-// A global flag to manage the loading state across all product cards
-let isAnyProductLoading = false;
-
 export default function ProductCard({ product, size }: ProductCardProps) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [isNavigating, setIsNavigating] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
-  useEffect(() => {
-    // Reset the global flag if the component unmounts (e.g., page navigation)
-    return () => {
-      isAnyProductLoading = false;
-    };
-  }, []);
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (isAnyProductLoading) {
-      e.preventDefault();
-      return;
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If another transition is already happening, don't start a new one.
+    if (isPending) {
+        e.preventDefault();
+        return;
     }
-    isAnyProductLoading = true;
-    setIsLoading(true);
-    setIsNavigating(true); // A local state to re-render this component if needed
+    // This marks the navigation as a transition, allowing us to show a pending UI.
+    startTransition(() => {
+        // The navigation will happen here. We don't need to manually call router.push.
+        // The Link component's default behavior will trigger the navigation within the transition.
+    });
   };
-
-  const isDisabled = isAnyProductLoading && !isLoading;
 
   return (
     <div className={cn(
         productCardVariants({ size }), 
-        isLoading && 'ring-2 ring-primary ring-offset-2 ring-offset-background shadow-lg shadow-primary/30',
-        isDisabled && 'opacity-50 pointer-events-none'
+        isPending && 'opacity-50 ring-2 ring-primary ring-offset-2 ring-offset-background',
       )}>
       <Link href={`/products/${product.slug}`} className="block" onClick={handleClick}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
-           {isLoading && (
+           {isPending && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/60 backdrop-blur-sm">
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
