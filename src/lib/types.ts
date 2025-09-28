@@ -33,7 +33,6 @@ export type Category = {
 };
 
 export type ComparisonItem = {
-    id: string;
     name: string;
     description: string;
     price: number;
