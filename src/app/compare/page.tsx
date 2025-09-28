@@ -11,9 +11,9 @@ import { Loader2, GitCompareArrows, Sparkles, AlertTriangle } from 'lucide-react
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import ProductCard from '@/components/ProductCard';
+import { Separator } from '@/components/ui/separator';
 
 
 function ComparisonPageContent() {
@@ -108,25 +108,25 @@ function ComparisonPageContent() {
           {result && !isLoading && (
             <div className="space-y-8">
               <div>
-                <h3 className="text-xl font-bold mb-4">جدول المقارنة</h3>
-                 <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-[200px]">الميزة</TableHead>
-                      <TableHead>{product1.name}</TableHead>
-                      <TableHead>{product2.name}</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {result.comparisonTable.map((row, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{row.feature}</TableCell>
-                        <TableCell>{row.product1Value}</TableCell>
-                        <TableCell>{row.product2Value}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                <h3 className="text-xl font-bold mb-4 text-center">جدول المقارنة</h3>
+                <div className="border rounded-lg p-4 space-y-4">
+                  {result.comparisonTable.map((row, index) => (
+                    <div key={index}>
+                      <div className="text-center font-bold text-lg mb-3">{row.feature}</div>
+                      <div className="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                          <p className="text-sm font-semibold text-muted-foreground truncate">{product1.name}</p>
+                          <p className="mt-1 text-base">{row.product1Value}</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-muted-foreground truncate">{product2.name}</p>
+                          <p className="mt-1 text-base">{row.product2Value}</p>
+                        </div>
+                      </div>
+                      {index < result.comparisonTable.length - 1 && <Separator className="mt-4" />}
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div>
