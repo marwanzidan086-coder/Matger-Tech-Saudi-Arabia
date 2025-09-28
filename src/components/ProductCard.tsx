@@ -62,32 +62,60 @@ export default function ProductCard({
       router.push(`/products/${product.slug}`);
   };
 
-  const isCardLoading = isLoading && isNavigating;
+  const isCardLoading = isLoading;
+
+  if (isCardLoading) {
+    return (
+      <div className="animated-border">
+        <div className={cn(productCardVariants({ size }), "h-full w-full")}>
+           <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-lg">
+             <Loader2 className="h-12 w-12 text-primary animate-spin" />
+           </div>
+          <div className="relative aspect-square w-full bg-muted overflow-hidden opacity-50">
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+          </div>
+          <div className={cn("flex flex-1 flex-col opacity-50", size === 'small' ? 'p-2' : 'p-3')}>
+             <h3 className={cn("font-semibold", size === 'small' ? 'text-sm h-10' : 'text-base h-12 overflow-hidden')}>
+                {product.name}
+            </h3>
+            <p className={cn("mt-1 font-bold text-primary", size === 'small' ? 'text-base' : 'text-lg')}>
+              {product.price.toFixed(2)} ر.س
+            </p>
+            <div className={cn("mt-auto pt-3 flex flex-col gap-2")}>
+                <div className="flex items-center gap-2">
+                  <AddToCartButton product={product} size="icon" variant="outline" iconOnly={true} className="w-full" disabled />
+                  <AddToWishlistButton product={product} size="icon" variant="outline" iconOnly={true} className="w-full" disabled />
+                </div>
+                <AddToCompareButton product={product} size={size === 'small' ? 'sm' : 'default'} variant="outline" disabled />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className={cn(productCardVariants({ size }), isCardLoading && 'animated-border')}>
-      {isCardLoading && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 backdrop-blur-sm rounded-lg">
-          <Loader2 className="h-12 w-12 text-primary animate-spin" />
-        </div>
-      )}
-      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isCardLoading}>
+    <div className={cn(productCardVariants({ size }))}>
+      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isNavigating}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
           <Image
             src={product.images[0]}
             alt={product.name}
             fill
-            className={cn(
-                "object-cover transition-all duration-300 group-hover:scale-105",
-                isCardLoading && "opacity-50"
-            )}
+            className="object-cover transition-all duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 50vw, 33vw"
           />
         </div>
       </Link>
       <div className={cn("flex flex-1 flex-col", size === 'small' ? 'p-2' : 'p-3')}>
         <h3 className={cn("font-semibold", size === 'small' ? 'text-sm h-10' : 'text-base h-12 overflow-hidden')}>
-          <Link href={`/products/${product.slug}`} onClick={handleClick} className="cursor-pointer" aria-disabled={isCardLoading}>{product.name}</Link>
+          <Link href={`/products/${product.slug}`} onClick={handleClick} className="cursor-pointer" aria-disabled={isNavigating}>{product.name}</Link>
         </h3>
         <p className={cn("mt-1 font-bold text-primary", size === 'small' ? 'text-base' : 'text-lg')}>
           {product.price.toFixed(2)} ر.س
