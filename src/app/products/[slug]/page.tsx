@@ -17,7 +17,6 @@ import ProductFaq from '@/components/ProductFaq';
 import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
 import ProductStory from '@/components/ProductStory';
-import ProductReviews from '@/components/ProductReviews';
 
 
 function ParsedDescription({ description }: { description: string }) {
@@ -128,8 +127,6 @@ export default function ProductPage() {
           
           <ProductFeatures description={product.description} />
           
-          <ProductReviews product={product} />
-
           <ProductFaq product={product} />
 
           <ProductQnA product={product} />

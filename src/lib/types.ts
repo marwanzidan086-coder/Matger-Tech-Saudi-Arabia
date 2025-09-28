@@ -1,10 +1,4 @@
 
-export type ProductReview = {
-    rating: number;
-    comment: string;
-    author: string;
-};
-
 export type Product = {
     id: string;
     name: string;
@@ -16,7 +10,6 @@ export type Product = {
     warranty?: string; // Optional warranty field
     faq?: { question: string; answer: string }[];
     story?: string;
-    reviews?: ProductReview[];
 };
   
 export type CartItem = Product & {
