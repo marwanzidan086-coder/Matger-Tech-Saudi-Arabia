@@ -9,8 +9,7 @@ import { AddToWishlistButton } from './AddToWishlistButton';
 import { AddToCompareButton } from './AddToCompareButton';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { useState, useEffect, useTransition } from 'react';
-import { Loader2 } from 'lucide-react';
+import { useTransition } from 'react';
 
 
 const productCardVariants = cva(
@@ -36,7 +35,7 @@ export default function ProductCard({ product, size }: ProductCardProps) {
   const [isPending, startTransition] = useTransition();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // If another transition is already happening, don't start a new one.
+    // If another transition is already happening, do nothing.
     if (isPending) {
         e.preventDefault();
         return;
@@ -51,15 +50,15 @@ export default function ProductCard({ product, size }: ProductCardProps) {
   return (
     <div className={cn(
         productCardVariants({ size }), 
-        isPending && 'opacity-50', // Simplified loading state appearance
+        isPending && 'opacity-75',
       )}>
+       {isPending && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/50 backdrop-blur-sm rounded-lg">
+            <div className="h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+        </div>
+      )}
       <Link href={`/products/${product.slug}`} className="block" onClick={handleClick}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
-           {isPending && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/60 backdrop-blur-sm">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            </div>
-          )}
           <Image
             src={product.images[0]}
             alt={product.name}
@@ -78,8 +77,8 @@ export default function ProductCard({ product, size }: ProductCardProps) {
         </p>
         <div className={cn("mt-auto pt-3 flex flex-col gap-2")}>
             <div className="flex items-center gap-2">
-              <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'icon'} variant="outline" iconOnly={true} className="flex-grow" />
-              <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'icon'} iconOnly={true} className="flex-grow" />
+              <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'icon'} variant="outline" iconOnly={true} />
+              <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'icon'} iconOnly={true} />
             </div>
             <AddToCompareButton product={product} size={size === 'small' ? 'sm' : 'default'} variant="outline" />
         </div>
