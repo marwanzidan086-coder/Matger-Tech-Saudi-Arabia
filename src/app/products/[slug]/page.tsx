@@ -10,7 +10,7 @@ import { OrderNowButton } from '@/components/OrderNowButton';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, Truck, Clock } from 'lucide-react';
+import { ShieldCheck, Truck, Clock, Check } from 'lucide-react';
 import { useMemo } from 'react';
 import ProductFaq from '@/components/ProductFaq';
 import ProductQnA from '@/components/ProductQnA';
@@ -20,7 +20,7 @@ import ProductStory from '@/components/ProductStory';
 
 function ParsedDescription({ description }: { description: string }) {
     const intro = useMemo(() => {
-        const parts = description.split(/###(FEATURES|DETAILS)###/);
+        const parts = description.split(/###(FEATURES|DETAILS|CONTENTS|USAGE)###/);
         return parts[0] || '';
     }, [description]);
 
@@ -35,7 +35,7 @@ function ParsedDescription({ description }: { description: string }) {
 
 function ProductFeatures({ description }: { description: string }) {
     const { features, details } = useMemo(() => {
-        const parts = description.split(/###(FEATURES|DETAILS)###/);
+        const parts = description.split(/###(FEATURES|DETAILS|CONTENTS|USAGE)###/);
         
         const featuresIndex = description.includes('###FEATURES###') ? parts.findIndex(p => p === 'FEATURES') + 1 : -1;
         const featuresList = featuresIndex !== -1 
@@ -62,9 +62,12 @@ function ProductFeatures({ description }: { description: string }) {
             {features.length > 0 && (
                 <div>
                     <h3 className="text-xl font-bold mb-3">أبرز المميزات</h3>
-                    <ul className="space-y-2 list-disc list-inside text-foreground/80">
+                    <ul className="space-y-2 text-foreground/80">
                         {features.map((feature, index) => (
-                            <li key={index}>{feature}</li>
+                            <li key={index} className="flex items-start gap-2">
+                                <Check className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                                <span>{feature}</span>
+                            </li>
                         ))}
                     </ul>
                 </div>
