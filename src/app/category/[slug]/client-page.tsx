@@ -3,7 +3,6 @@
 
 import { products } from '@/data/products';
 import { categories } from '@/lib/categories';
-import { notFound } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -26,7 +25,8 @@ export default function CategoryClientPage({ params }: CategoryClientPageProps) 
   const [sortOption, setSortOption] = useState<SortOption>('newest');
 
   const sortedProducts = useMemo(() => {
-    // This check is important because on initial render, category might be undefined
+    // The check for category existence is now primarily handled by the server component.
+    // This check remains as a safeguard during client-side rendering.
     if (!category) {
         return [];
     }
@@ -54,9 +54,11 @@ export default function CategoryClientPage({ params }: CategoryClientPageProps) 
   }, [sortOption, category]);
 
 
+  // notFound() is a server-only function and should not be called here.
+  // The parent server component `page.tsx` is responsible for handling not found cases.
   if (!category) {
-    // This will trigger the not-found.tsx file if the slug is invalid
-    notFound();
+    // Render a fallback or null, as the server component should have already handled the 404.
+    return null;
   }
   
   const Icon = category.icon;
