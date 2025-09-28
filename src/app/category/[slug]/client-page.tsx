@@ -26,8 +26,13 @@ export default function CategoryClientPage({ params }: CategoryClientPageProps) 
   const [sortOption, setSortOption] = useState<SortOption>('newest');
 
   const sortedProducts = useMemo(() => {
+    // This check is important because on initial render, category might be undefined
+    if (!category) {
+        return [];
+    }
+
     const categoryProducts = products.filter(
-      (product) => product.category === category?.slug
+      (product) => product.category === category.slug
     );
     
     let sorted = [...categoryProducts];
@@ -40,17 +45,17 @@ export default function CategoryClientPage({ params }: CategoryClientPageProps) 
         sorted.sort((a, b) => b.price - a.price);
         break;
       case 'newest':
-        // Assuming products are already somewhat ordered by date, or we can just reverse for a pseudo-newest
-        sorted.reverse();
-        break;
       default:
+         // Assuming products are ordered by ID, we can reverse to get "newest"
+        sorted.reverse();
         break;
     }
     return sorted;
-  }, [sortOption, category?.slug]);
+  }, [sortOption, category]);
 
 
   if (!category) {
+    // This will trigger the not-found.tsx file if the slug is invalid
     notFound();
   }
   
