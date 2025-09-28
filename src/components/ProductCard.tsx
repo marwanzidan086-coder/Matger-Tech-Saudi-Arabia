@@ -45,6 +45,8 @@ export default function ProductCard({
   useEffect(() => {
     // Reset the lock when the component mounts or when navigation might have completed
     isNavigating = false;
+    // Also reset its own loading state if it was stuck
+    setIsLoading(false);
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -60,17 +62,16 @@ export default function ProductCard({
       router.push(`/products/${product.slug}`);
   };
 
+  const isCardLoading = isLoading && isNavigating;
+
   return (
-    <div className={cn(productCardVariants({ size }))}>
-      {isLoading && (
-        <>
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 rounded-lg">
-            <Loader2 className="h-12 w-12 text-primary animate-spin" />
-          </div>
-          <div className="absolute inset-[-2px] z-20 animate-spin rounded-lg bg-gradient-to-r from-primary via-transparent to-primary"></div>
-        </>
+    <div className={cn(productCardVariants({ size }), isCardLoading && 'animated-border')}>
+      {isCardLoading && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 backdrop-blur-sm rounded-lg">
+          <Loader2 className="h-12 w-12 text-primary animate-spin" />
+        </div>
       )}
-      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isLoading}>
+      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isCardLoading}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
           <Image
             src={product.images[0]}
@@ -78,7 +79,7 @@ export default function ProductCard({
             fill
             className={cn(
                 "object-cover transition-all duration-300 group-hover:scale-105",
-                isLoading && "opacity-50"
+                isCardLoading && "opacity-50"
             )}
             sizes="(max-width: 768px) 50vw, 33vw"
           />
@@ -86,7 +87,7 @@ export default function ProductCard({
       </Link>
       <div className={cn("flex flex-1 flex-col", size === 'small' ? 'p-2' : 'p-3')}>
         <h3 className={cn("font-semibold", size === 'small' ? 'text-sm h-10' : 'text-base h-12 overflow-hidden')}>
-          <Link href={`/products/${product.slug}`} onClick={handleClick} className="cursor-pointer" aria-disabled={isLoading}>{product.name}</Link>
+          <Link href={`/products/${product.slug}`} onClick={handleClick} className="cursor-pointer" aria-disabled={isCardLoading}>{product.name}</Link>
         </h3>
         <p className={cn("mt-1 font-bold text-primary", size === 'small' ? 'text-base' : 'text-lg')}>
           {product.price.toFixed(2)} ر.س
