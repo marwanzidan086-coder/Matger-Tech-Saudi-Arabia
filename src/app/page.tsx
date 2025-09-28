@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
 import Hero from '@/components/Hero';
@@ -13,8 +13,6 @@ const PRODUCTS_PER_PAGE = 12;
 export default function Home() {
   const [visibleProducts, setVisibleProducts] = useState(PRODUCTS_PER_PAGE);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [isPending, startTransition] = useTransition();
-  const [activeProductId, setActiveProductId] = useState<string | null>(null);
 
   const loadMoreProducts = () => {
     setIsLoadingMore(true);
@@ -40,10 +38,6 @@ export default function Home() {
             <ProductCard 
               key={product.id} 
               product={product}
-              isPending={isPending}
-              startTransition={startTransition}
-              activeProductId={activeProductId}
-              setActiveProductId={setActiveProductId}
             />
           ))}
         </div>

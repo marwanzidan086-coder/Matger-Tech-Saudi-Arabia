@@ -11,6 +11,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
+import React, { useState } from 'react';
 
 
 const productCardVariants = cva(
@@ -30,50 +31,34 @@ const productCardVariants = cva(
 
 type ProductCardProps = {
   product: Product;
-  isPending: boolean;
-  startTransition: React.TransitionStartFunction;
-  activeProductId: string | null;
-  setActiveProductId: (id: string | null) => void;
 } & VariantProps<typeof productCardVariants>;
 
 export default function ProductCard({ 
   product, 
   size,
-  isPending,
-  startTransition,
-  activeProductId,
-  setActiveProductId
  }: ProductCardProps) {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (isPending) {
-        e.preventDefault();
-        return;
-    }
-    e.preventDefault();
-    setActiveProductId(product.id);
-    startTransition(() => {
+      e.preventDefault();
+      setIsLoading(true);
       router.push(`/products/${product.slug}`);
-    });
   };
-
-  const isLoading = isPending && activeProductId === product.id;
 
   return (
     <div className={cn(productCardVariants({ size }), isLoading && 'opacity-60')}>
-      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer">
+      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isLoading}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
           <Image
             src={product.images[0]}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className={cn("object-cover transition-transform duration-300 group-hover:scale-105", isLoading && "blur-sm")}
             sizes="(max-width: 768px) 50vw, 33vw"
           />
           {isLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20">
-               <div className="absolute inset-0 rounded-lg ring-2 ring-primary animate-spin" />
               <Loader2 className="h-12 w-12 text-white animate-spin" />
             </div>
           )}
