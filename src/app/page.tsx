@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
 import Hero from '@/components/Hero';
@@ -12,14 +12,16 @@ const PRODUCTS_PER_PAGE = 12;
 
 export default function Home() {
   const [visibleProducts, setVisibleProducts] = useState(PRODUCTS_PER_PAGE);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const [activeProductId, setActiveProductId] = useState<string | null>(null);
 
   const loadMoreProducts = () => {
-    setIsLoading(true);
+    setIsLoadingMore(true);
     // Simulate a network request for a better UX
     setTimeout(() => {
       setVisibleProducts((prev) => prev + PRODUCTS_PER_PAGE);
-      setIsLoading(false);
+      setIsLoadingMore(false);
     }, 500);
   };
 
@@ -35,13 +37,20 @@ export default function Home() {
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {products.slice(0, visibleProducts).map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard 
+              key={product.id} 
+              product={product}
+              isPending={isPending}
+              startTransition={startTransition}
+              activeProductId={activeProductId}
+              setActiveProductId={setActiveProductId}
+            />
           ))}
         </div>
         {hasMoreProducts && (
           <div className="text-center mt-10">
-            <Button onClick={loadMoreProducts} size="lg" disabled={isLoading}>
-              {isLoading ? (
+            <Button onClick={loadMoreProducts} size="lg" disabled={isLoadingMore}>
+              {isLoadingMore ? (
                 <>
                   <Loader2 className="me-2 h-5 w-5 animate-spin" />
                   جاري التحميل...

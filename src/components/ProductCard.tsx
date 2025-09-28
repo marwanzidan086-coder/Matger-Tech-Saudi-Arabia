@@ -9,7 +9,6 @@ import { AddToWishlistButton } from './AddToWishlistButton';
 import { AddToCompareButton } from './AddToCompareButton';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 
@@ -31,15 +30,23 @@ const productCardVariants = cva(
 
 type ProductCardProps = {
   product: Product;
+  isPending: boolean;
+  startTransition: React.TransitionStartFunction;
+  activeProductId: string | null;
+  setActiveProductId: (id: string | null) => void;
 } & VariantProps<typeof productCardVariants>;
 
-export default function ProductCard({ product, size }: ProductCardProps) {
-  const [isPending, startTransition] = useTransition();
-  const [activeProductId, setActiveProductId] = useState<string | null>(null);
+export default function ProductCard({ 
+  product, 
+  size,
+  isPending,
+  startTransition,
+  activeProductId,
+  setActiveProductId
+ }: ProductCardProps) {
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Prevent new clicks if a transition is already pending
     if (isPending) {
         e.preventDefault();
         return;
@@ -66,9 +73,7 @@ export default function ProductCard({ product, size }: ProductCardProps) {
           />
           {isLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20">
-               {/* Spinning border element */}
                <div className="absolute inset-0 rounded-lg ring-2 ring-primary animate-spin" />
-               {/* Central loader icon */}
               <Loader2 className="h-12 w-12 text-white animate-spin" />
             </div>
           )}
@@ -92,4 +97,3 @@ export default function ProductCard({ product, size }: ProductCardProps) {
     </div>
   );
 }
-
