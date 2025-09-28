@@ -32,4 +32,21 @@ export type Category = {
     description: string;
 };
 
+export type ComparisonItem = {
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    category: string;
+    warranty?: string;
+};
+
+export type ComparisonResult = {
+    comparisonTable: {
+        feature: string;
+        product1Value: string;
+        product2Value: string;
+    }[];
+    summary: string;
+};
     

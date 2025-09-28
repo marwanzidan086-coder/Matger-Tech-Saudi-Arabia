@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Product } from '@/lib/types';
 import { AddToCartButton } from './AddToCartButton';
+import { AddToCompareButton } from './AddToCompareButton';
 import { Card, CardContent } from './ui/card';
 
 export default function ProductListItem({ product }: { product: Product }) {
@@ -28,7 +29,7 @@ export default function ProductListItem({ product }: { product: Product }) {
           </div>
           
           <div className="col-span-3 md:col-span-4 flex flex-col sm:flex-row sm:items-center sm:justify-between h-full gap-4">
-            <div className="flex flex-col h-full justify-between">
+            <div className="flex flex-col h-full justify-between flex-grow">
               <h3 className="text-lg font-semibold line-clamp-2 leading-tight">
                 <Link href={`/products/${product.slug}`}>{product.name}</Link>
               </h3>
@@ -36,8 +37,9 @@ export default function ProductListItem({ product }: { product: Product }) {
                   {product.price.toFixed(2)} ر.س
               </p>
             </div>
-             <div className="mt-2 sm:mt-0 flex-shrink-0">
+             <div className="mt-2 sm:mt-0 flex flex-col gap-2 sm:flex-row sm:items-center flex-shrink-0">
                 <AddToCartButton product={product} size="lg" className="w-full sm:w-auto" />
+                <AddToCompareButton product={product} size="lg" className="w-full sm:w-auto" />
             </div>
           </div>
 

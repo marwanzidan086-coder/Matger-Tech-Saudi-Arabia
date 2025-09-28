@@ -6,6 +6,7 @@ import Link from 'next/link';
 import type { Product } from '@/lib/types';
 import { AddToCartButton } from './AddToCartButton';
 import { AddToWishlistButton } from './AddToWishlistButton';
+import { AddToCompareButton } from './AddToCompareButton';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
@@ -86,9 +87,12 @@ export default function ProductCard({ product, size }: ProductCardProps) {
         <p className={cn("mt-1 font-bold text-primary", size === 'small' ? 'text-base' : 'text-lg')}>
           {product.price.toFixed(2)} ر.س
         </p>
-        <div className={cn("mt-3 flex gap-2", size === 'small' ? 'flex-col' : 'flex-col')}>
+        <div className={cn("mt-3 flex flex-col gap-2")}>
           <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'default'} />
-          <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'default'} />
+          <div className="grid grid-cols-2 gap-2">
+            <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'default'} />
+            <AddToCompareButton product={product} size={size === 'small' ? 'sm' : 'default'} />
+          </div>
         </div>
       </div>
     </div>

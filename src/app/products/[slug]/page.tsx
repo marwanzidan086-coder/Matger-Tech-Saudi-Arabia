@@ -6,6 +6,7 @@ import { products } from '@/data/products';
 import { notFound, useParams } from 'next/navigation';
 import { AddToCartButton } from '@/components/AddToCartButton';
 import { AddToWishlistButton } from '@/components/AddToWishlistButton';
+import { AddToCompareButton } from '@/components/AddToCompareButton';
 import { OrderNowButton } from '@/components/OrderNowButton';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
@@ -151,9 +152,10 @@ export default function ProductPage() {
 
           <div className="flex flex-col gap-3 pt-4">
             <OrderNowButton product={product} />
-            <div className="grid grid-cols-2 gap-3">
-                <AddToCartButton product={product} />
+            <div className="grid grid-cols-3 gap-3">
+                <AddToCartButton product={product} className="col-span-1" />
                 <AddToWishlistButton product={product} />
+                <AddToCompareButton product={product} />
             </div>
           </div>
         </div>

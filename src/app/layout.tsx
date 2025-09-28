@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { siteConfig } from '@/config/site';
 import BottomNav from '@/components/BottomNav';
+import CompareBar from '@/components/CompareBar';
 
 export const metadata: Metadata = {
   title: {
@@ -36,6 +37,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <FloatingWhatsApp />
+          <CompareBar />
           <Toaster />
           <BottomNav />
         </Providers>
