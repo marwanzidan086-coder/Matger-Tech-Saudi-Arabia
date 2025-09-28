@@ -78,7 +78,7 @@ function ComparisonPageContent() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-2 gap-4 md:gap-8 mb-12">
         <ProductCard product={product1} />
         <ProductCard product={product2} />
       </div>
