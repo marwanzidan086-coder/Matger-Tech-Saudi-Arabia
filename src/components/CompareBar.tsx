@@ -55,7 +55,7 @@ export default function CompareBar() {
               <span className="hidden sm:inline"> ({comparisonList.length}/2)</span>
             </Link>
           </Button>
-          <Button variant="ghost" onClick={clearCompare}>مسح الكل</Button>
+          <Button variant="destructive" onClick={clearCompare}>مسح الكل</Button>
         </div>
       </div>
     </div>
