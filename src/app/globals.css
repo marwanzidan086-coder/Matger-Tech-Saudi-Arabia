@@ -74,6 +74,9 @@
 
 @layer utilities {
   @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
     to {
       transform: rotate(360deg);
     }
@@ -83,6 +86,7 @@
     position: relative;
     z-index: 0;
     overflow: hidden;
+    border-radius: var(--radius);
   }
 
   .animated-border::before {
@@ -93,15 +97,12 @@
     top: -50%;
     width: 200%;
     height: 200%;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-size: 50% 50%, 50% 50%;
-    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(hsl(var(--primary)), hsl(var(--primary))),
-      linear-gradient(hsl(var(--muted)), hsl(var(--muted))),
-      linear-gradient(hsl(var(--primary)), hsl(var(--primary))),
-      linear-gradient(hsl(var(--muted)), hsl(var(--muted)));
-    animation: rotate 2s linear infinite;
+    background: conic-gradient(
+      transparent,
+      hsl(var(--primary)),
+      transparent 30%
+    );
+    animation: rotate 1.5s linear infinite;
   }
   
   .animated-border::after {
@@ -113,6 +114,6 @@
     width: calc(100% - 8px);
     height: calc(100% - 8px);
     background: hsl(var(--card));
-    border-radius: var(--radius);
+    border-radius: inherit;
   }
 }
