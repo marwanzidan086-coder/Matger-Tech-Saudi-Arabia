@@ -1,9 +1,17 @@
+
+'use client';
+
 import { products } from '@/data/products';
 import { categories, categoriesList } from '@/lib/categories';
-import { notFound } from 'next/navigation';
+import { notFound, usePathname } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { ArrowUpDown, DollarSign, Clock } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { type Product } from '@/lib/types';
+import { cn } from '@/lib/utils';
+
 
 type CategoryPageProps = {
   params: {
@@ -11,24 +19,56 @@ type CategoryPageProps = {
   };
 };
 
+// This part needs to be outside the component
 export async function generateStaticParams() {
   return categoriesList.map((category) => ({
     slug: category.slug,
   }));
 }
 
+type SortOption = 'newest' | 'price-asc' | 'price-desc';
+
+
 export default function CategoryPage({ params }: CategoryPageProps) {
   const category = categories[params.slug];
+  const [sortOption, setSortOption] = useState<SortOption>('newest');
+
+  const sortedProducts = useMemo(() => {
+    const categoryProducts = products.filter(
+      (product) => product.category === category?.slug
+    );
+    
+    let sorted = [...categoryProducts];
+
+    switch (sortOption) {
+      case 'price-asc':
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case 'price-desc':
+        sorted.sort((a, b) => b.price - a.price);
+        break;
+      case 'newest':
+        // Assuming products are already somewhat ordered by date, or we can just reverse for a pseudo-newest
+        sorted.reverse();
+        break;
+      default:
+        break;
+    }
+    return sorted;
+  }, [sortOption, category?.slug]);
+
 
   if (!category) {
     notFound();
   }
-
-  const categoryProducts = products.filter(
-    (product) => product.category === category.slug
-  );
   
   const Icon = category.icon;
+
+  const sortButtons: { label: string; value: SortOption, icon: React.ElementType }[] = [
+    { label: 'الأحدث', value: 'newest', icon: Clock },
+    { label: 'السعر: من الأقل للأعلى', value: 'price-asc', icon: ArrowUpDown },
+    { label: 'السعر: من الأعلى للأقل', value: 'price-desc', icon: ArrowUpDown },
+  ];
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -42,9 +82,24 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         <p className="text-muted-foreground mt-2 max-w-2xl">{category.description}</p>
       </div>
 
-      {categoryProducts.length > 0 ? (
+       <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+        <p className="font-semibold hidden sm:block">ترتيب حسب:</p>
+        {sortButtons.map(({ label, value, icon: Icon }) => (
+          <Button
+            key={value}
+            variant={sortOption === value ? 'default' : 'outline'}
+            onClick={() => setSortOption(value)}
+            className={cn("gap-2 transition-all", sortOption === value && "scale-105 shadow-md")}
+          >
+            <Icon className="h-4 w-4" />
+            {label}
+          </Button>
+        ))}
+      </div>
+
+      {sortedProducts.length > 0 ? (
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
-          {categoryProducts.map((product) => (
+          {sortedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
