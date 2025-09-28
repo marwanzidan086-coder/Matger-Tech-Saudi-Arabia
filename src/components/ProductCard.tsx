@@ -51,7 +51,7 @@ export default function ProductCard({ product, size }: ProductCardProps) {
   return (
     <div className={cn(
         productCardVariants({ size }), 
-        isPending && 'opacity-50 ring-2 ring-primary ring-offset-2 ring-offset-background',
+        isPending && 'opacity-50', // Simplified loading state appearance
       )}>
       <Link href={`/products/${product.slug}`} className="block" onClick={handleClick}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
@@ -79,7 +79,7 @@ export default function ProductCard({ product, size }: ProductCardProps) {
         <div className={cn("mt-auto pt-3 flex flex-col gap-2")}>
             <div className="flex items-center gap-2">
               <AddToCartButton product={product} size={size === 'small' ? 'sm' : 'icon'} variant="outline" iconOnly={true} className="flex-grow" />
-              <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'icon'} variant="outline" iconOnly={true} className="flex-grow" />
+              <AddToWishlistButton product={product} size={size === 'small' ? 'sm' : 'icon'} iconOnly={true} className="flex-grow" />
             </div>
             <AddToCompareButton product={product} size={size === 'small' ? 'sm' : 'default'} variant="outline" />
         </div>
