@@ -11,7 +11,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Global navigation lock to prevent multiple clicks
 let isNavigating = false;
@@ -42,16 +42,15 @@ export default function ProductCard({
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  // Reset the lock if the user navigates back to the page
-  React.useEffect(() => {
+  useEffect(() => {
+    // Reset the lock when the component mounts or when navigation might have completed
     isNavigating = false;
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault();
-      
-      // If a navigation is already in progress, do nothing.
+      // If a navigation is already in progress, prevent new clicks
       if (isNavigating) {
+          e.preventDefault();
           return;
       }
       
@@ -62,7 +61,7 @@ export default function ProductCard({
   };
 
   return (
-    <div className={cn(productCardVariants({ size }))}>
+    <div className={cn(productCardVariants({ size }), isLoading && "animated-border")}>
       <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isLoading}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
           <Image
