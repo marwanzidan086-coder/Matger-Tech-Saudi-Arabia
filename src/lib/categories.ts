@@ -28,7 +28,7 @@ const categoryInfo: CategoryInfo = {
     },
 };
 
-// Add slug to each category and export as an array and an object
+// This is the definitive list (array) of categories, used for generating pages and listings.
 export const categoriesList: Category[] = Object.entries(categoryInfo).map(
     ([slug, category]) => ({
       ...category,
@@ -40,6 +40,7 @@ type CategoriesObject = {
     [key: string]: Category;
 };
 
+// This is a helper object for quick lookups by slug (e.g., categories['electronics']).
 export const categories: CategoriesObject = categoriesList.reduce((acc, category) => {
     acc[category.slug] = category;
     return acc;
