@@ -36,7 +36,7 @@ export async function suggestGift(input: GiftAdvisorInput): Promise<GiftAdvisorO
 
 const prompt = ai.definePrompt({
   name: 'giftAdvisorPrompt',
-  input: { schema: z.object({ ...GiftAdvisorInputSchema.shape, productCatalog: z.string() }) },
+  input: { schema: GiftAdvisorInputSchema.extend({ productCatalog: z.string() }) },
   output: { schema: GiftAdvisorOutputSchema },
   prompt: `
 You are "خبير الهدايا الذكي" (The Smart Gift Expert) for an online tech store. Your personality is friendly, smart, and helpful. Your goal is to help users find the perfect tech gift from the full product catalog.
@@ -52,7 +52,7 @@ For each recommendation, you MUST provide the product slug, name, and a short, p
 
 **Full Product Catalog:**
 ---
-{{productCatalog}}
+{{{productCatalog}}}
 ---
 
 Analyze the user's request and the provided product catalog carefully. Select the most suitable gifts and provide your response in the required JSON format. If no products seem suitable, return an empty recommendations array.
