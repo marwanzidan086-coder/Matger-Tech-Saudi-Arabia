@@ -8,18 +8,25 @@ import { Button } from '@/components/ui/button';
 import { ArrowUpDown, Clock } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
-import { Category } from '@/lib/types';
+import type { Category } from '@/lib/types';
+import { categories } from '@/lib/categories';
+import { notFound } from 'next/navigation';
 
 type CategoryClientPageProps = {
   initialProducts: Product[];
-  category: Category;
+  categorySlug: string;
 };
 
 type SortOption = 'newest' | 'price-asc' | 'price-desc';
 
 
-export default function CategoryClientPage({ initialProducts, category }: CategoryClientPageProps) {
+export default function CategoryClientPage({ initialProducts, categorySlug }: CategoryClientPageProps) {
   const [sortOption, setSortOption] = useState<SortOption>('newest');
+
+  const category = categories[categorySlug];
+  if (!category) {
+    notFound();
+  }
 
   const sortedProducts = useMemo(() => {
     let sorted = [...initialProducts];

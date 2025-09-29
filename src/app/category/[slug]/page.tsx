@@ -1,8 +1,9 @@
 
-import { categories, categoriesList } from '@/lib/categories';
+import { categoriesList } from '@/lib/categories';
 import { products } from '@/data/products';
 import CategoryClientPage from './client-page';
 import { notFound } from 'next/navigation';
+import { categories } from '@/lib/categories';
 
 type CategoryPageProps = {
   params: {
@@ -29,5 +30,5 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   const categoryProducts = products.filter(p => p.category === slug);
 
   // 3. Pass the filtered products and category info to the Client Component
-  return <CategoryClientPage initialProducts={categoryProducts} category={category} />;
+  return <CategoryClientPage initialProducts={categoryProducts} categorySlug={slug} />;
 }
