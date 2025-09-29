@@ -1,16 +1,19 @@
 
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { searchProducts } from '@/ai/flows/product-search-flow';
 import { products } from '@/data/products';
 import { Product } from '@/lib/types';
 import ProductListItem from '@/components/ProductListItem';
-import { Loader2, Search, Sparkles } from 'lucide-react';
+import { Loader2, Search, Sparkles, ArrowUpDown, Clock } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import Fuse from 'fuse.js';
+
+type SortOption = 'relevance' | 'newest' | 'price-asc' | 'price-desc';
 
 function getSessionCache(key: string) {
     if (typeof window === 'undefined') return null;
@@ -23,7 +26,6 @@ function setSessionCache(key: string, value: any) {
     sessionStorage.setItem(key, JSON.stringify(value));
 }
 
-// Initialize Fuse.js outside the component to prevent re-creation on every render
 const fuse = new Fuse(products, {
   keys: ['name', 'description', 'category'],
   includeScore: true,
@@ -38,19 +40,20 @@ function SearchResults() {
   const [aiResults, setAiResults] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isAiLoading, setIsAiLoading] = useState(false);
+  const [sortOption, setSortOption] = useState<SortOption>('relevance');
 
 
   useEffect(() => {
     setIsLoading(true);
     setAiResults([]);
     setLocalResults([]);
+    setSortOption('relevance');
     
     if (!query) {
       setIsLoading(false);
       return;
     }
     
-    // Check cache for this query for AI results
     const cacheKey = `ai_search_${query}`;
     const cachedResults = getSessionCache(cacheKey);
 
@@ -58,7 +61,6 @@ function SearchResults() {
         setAiResults(cachedResults);
     }
 
-    // Perform local search
     const results = fuse.search(query).map(result => result.item);
     setLocalResults(results);
     setIsLoading(false);
@@ -86,14 +88,34 @@ function SearchResults() {
     }
   };
   
-  // Combine and deduplicate results
-  const combinedResults = [...aiResults, ...localResults];
-  const displayedProducts = combinedResults.filter(
-    (product, index, self) => index === self.findIndex((p) => p.id === product.id)
-  );
+  const displayedProducts = useMemo(() => {
+    const combined = [...aiResults, ...localResults];
+    const uniqueProducts = combined.filter(
+      (product, index, self) => index === self.findIndex((p) => p.id === product.id)
+    );
+
+    switch (sortOption) {
+      case 'price-asc':
+        return uniqueProducts.sort((a, b) => a.price - b.price);
+      case 'price-desc':
+        return uniqueProducts.sort((a, b) => b.price - a.price);
+      case 'newest':
+         return uniqueProducts.sort((a, b) => parseInt(b.id.split('-')[1]) - parseInt(a.id.split('-')[1]));
+      case 'relevance':
+      default:
+        return uniqueProducts; // Default order is already by relevance
+    }
+  }, [aiResults, localResults, sortOption]);
 
   const hasResults = displayedProducts.length > 0;
   const noResultsFound = !isLoading && !hasResults;
+
+  const sortButtons: { label: string; value: SortOption, icon: React.ElementType }[] = [
+    { label: 'الأكثر صلة', value: 'relevance', icon: Search },
+    { label: 'الأحدث', value: 'newest', icon: Clock },
+    { label: 'السعر: من الأقل للأعلى', value: 'price-asc', icon: ArrowUpDown },
+    { label: 'السعر: من الأعلى للأقل', value: 'price-desc', icon: ArrowUpDown },
+  ];
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -116,8 +138,25 @@ function SearchResults() {
       ) : (
         <>
           {hasResults && (
+            <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+              <p className="font-semibold hidden sm:block">ترتيب حسب:</p>
+              {sortButtons.map(({ label, value, icon: Icon }) => (
+                <Button
+                  key={value}
+                  variant={sortOption === value ? 'default' : 'outline'}
+                  onClick={() => setSortOption(value)}
+                  className={cn("gap-2 transition-all", sortOption === value && "scale-105 shadow-md")}
+                >
+                  <Icon className="h-4 w-4" />
+                  {label}
+                </Button>
+              ))}
+            </div>
+          )}
+
+          {hasResults && (
             <div className="max-w-4xl mx-auto space-y-6">
-              {aiResults.length > 0 && (
+              {aiResults.length > 0 && sortOption === 'relevance' && (
                 <Alert variant="default" className="border-primary/30 bg-primary/5 text-primary-foreground">
                     <Sparkles className="h-5 w-5 text-primary" />
                     <AlertTitle className="font-bold text-primary">نتائج البحث الذكي</AlertTitle>
