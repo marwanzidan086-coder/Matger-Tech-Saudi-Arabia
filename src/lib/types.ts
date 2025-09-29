@@ -1,4 +1,5 @@
 
+
 export type Product = {
     id: string;
     name: string;
@@ -10,6 +11,7 @@ export type Product = {
     warranty?: string; // Optional warranty field
     faq?: { question: string; answer: string }[];
     story?: string;
+    reviews?: { author: string; rating: number; comment: string }[]; // Added back reviews
 };
   
 export type CartItem = Product & {
