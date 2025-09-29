@@ -1,6 +1,6 @@
 
 import { type Product } from '@/lib/types';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { getImagesForProduct } from '@/lib/placeholder-images';
 import { categories } from '@/lib/categories';
 
 // Import all individual products
@@ -60,18 +60,8 @@ import product53 from './products-data/product-53';
 import product54 from './products-data/product-54';
 import product55 from './products-data/product-55';
 
-const getImages = (productId: string): string[] => {
-  const imageSet = PlaceHolderImages.find(img => img.id === productId);
-  if (imageSet && imageSet.images.length > 0) {
-    return imageSet.images;
-  }
-  // Fallback in case images are not found for a specific product
-  return Array.from({length: 1}, (_, i) => `https://picsum.photos/seed/${productId}-${i + 1}/600/600`);
-};
-
-
-// Combine all imported products into one array
-const allProducts: Product[] = [
+// Simplified and robust way to create the final products list.
+export const products: Product[] = [
     product1, product2, product3, product4, product5, product6, product7, product8, product9, product10,
     product11, product12, product13, product14, product15, product16, product17, product18, product19, product20,
     product21, product22, product23, product24, product25, product26, product27, product28, product29, product30,
@@ -80,23 +70,8 @@ const allProducts: Product[] = [
     product51, product52, product53, product54, product55
 ].map(product => ({
     ...product,
-    images: getImages(product.id)
+    images: getImagesForProduct(product.id) // Attach images directly
 }));
 
-
-// Helper function to create product lists for different categories
-const createProductList = (products: Product[], category: string): Product[] => {
-    return products.filter(p => p.category === category);
-};
-
-// Create lists for each category
-export const electronicsProducts: Product[] = createProductList(allProducts, categories.electronics.slug);
-export const homeProducts: Product[] = createProductList(allProducts, categories.home.slug);
-export const healthProducts: Product[] = createProductList(allProducts, categories.health.slug);
-export const miscProducts: Product[] = createProductList(allProducts, categories.misc.slug);
-
-
-// Combine all product arrays here
-export const products: Product[] = [
-    ...allProducts
-];
+// We no longer need to export separate lists for each category.
+// The filtering will be done directly in the page components where needed.

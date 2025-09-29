@@ -1,41 +1,28 @@
 
 'use client';
 
-import { products } from '@/data/products';
-import { categories } from '@/lib/categories';
+import { Product } from '@/lib/types';
 import ProductCard from '@/components/ProductCard';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowUpDown, Clock } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
-
+import { Category } from '@/lib/types';
 
 type CategoryClientPageProps = {
-  params: {
-    slug: string;
-  };
+  initialProducts: Product[];
+  category: Category;
 };
 
 type SortOption = 'newest' | 'price-asc' | 'price-desc';
 
 
-export default function CategoryClientPage({ params }: CategoryClientPageProps) {
-  const category = categories[params.slug];
+export default function CategoryClientPage({ initialProducts, category }: CategoryClientPageProps) {
   const [sortOption, setSortOption] = useState<SortOption>('newest');
 
   const sortedProducts = useMemo(() => {
-    // The check for category existence is now primarily handled by the server component.
-    // This check remains as a safeguard during client-side rendering.
-    if (!category) {
-        return [];
-    }
-
-    const categoryProducts = products.filter(
-      (product) => product.category === category.slug
-    );
-    
-    let sorted = [...categoryProducts];
+    let sorted = [...initialProducts];
 
     switch (sortOption) {
       case 'price-asc':
@@ -47,20 +34,12 @@ export default function CategoryClientPage({ params }: CategoryClientPageProps) 
       case 'newest':
       default:
          // Assuming products are ordered by ID, we can reverse to get "newest"
-        sorted.reverse();
+        sorted.sort((a, b) => parseInt(b.id.split('-')[1]) - parseInt(a.id.split('-')[1]));
         break;
     }
     return sorted;
-  }, [sortOption, category]);
+  }, [sortOption, initialProducts]);
 
-
-  // notFound() is a server-only function and should not be called here.
-  // The parent server component `page.tsx` is responsible for handling not found cases.
-  if (!category) {
-    // Render a fallback or null, as the server component should have already handled the 404.
-    return null;
-  }
-  
   const Icon = category.icon;
 
   const sortButtons: { label: string; value: SortOption, icon: React.ElementType }[] = [
