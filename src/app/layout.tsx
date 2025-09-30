@@ -8,6 +8,20 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { siteConfig } from '@/config/site';
 import BottomNav from '@/components/BottomNav';
 import CompareBar from '@/components/CompareBar';
+import { Playfair_Display, PT_Sans } from 'next/font/google';
+import { cn } from '@/lib/utils';
+
+const ptSans = PT_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-pt-sans',
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  variable: '--font-playfair-display',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -24,12 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased min-h-screen bg-background text-foreground">
+      <body className={cn("font-body antialiased min-h-screen bg-background text-foreground", ptSans.variable, playfairDisplay.variable)}>
         <Providers>
           <div className="relative flex min-h-dvh flex-col">
             <Header />
