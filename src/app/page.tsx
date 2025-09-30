@@ -31,7 +31,7 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-10">
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg">
               <Link href="/categories">
                 مزيد من المنتجات
               </Link>
