@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-117',
   name: 'منظم تخزين ملابس 3 أقسام',
   slug: '3-section-laundry-sorter',
@@ -13,6 +13,10 @@ const product: Omit<Product, 'images'> = {
 - الأبعاد: 61 × 35 × 65 سم
 - الوزن: 1.8 كجم`,
   price: 115.00,
+  images: [
+    'https://i.ibb.co/TM5LDhWr/image-1.jpg',
+    'https://i.ibb.co/m174wRb/image-2.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

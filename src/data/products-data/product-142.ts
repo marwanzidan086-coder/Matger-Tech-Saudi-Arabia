@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-142',
   name: 'قطاعة بطاطس يدوية',
   slug: 'manual-potato-cutter',
@@ -12,6 +12,14 @@ const product: Omit<Product, 'images'> = {
 - المادة: ستانلس ستيل
 - تعليمات العناية: آمنة في غسالة الصحون`,
   price: 99.00,
+  images: [
+    'https://i.ibb.co/DDHTw2CN/image-1.jpg',
+    'https://i.ibb.co/nqsYh3Xr/image-2.jpg',
+    'https://i.ibb.co/chx7dgZv/image-3.jpg',
+    'https://i.ibb.co/35YMhRK3/image-4.jpg',
+    'https://i.ibb.co/x81xsK3z/image-5.jpg',
+    'https://i.ibb.co/LD4BjCn1/image-6.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

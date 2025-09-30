@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-114',
   name: 'ممسحة الزجاج 3 في 1 DLC',
   slug: 'dlc-3-in-1-glass-cleaner',
@@ -14,6 +14,12 @@ const product: Omit<Product, 'images'> = {
 - عرض الممسحة: 260 مم
 - البطارية: 1500mAh`,
   price: 75.00,
+  images: [
+    'https://i.ibb.co/kfhzh4B/image-1.jpg',
+    'https://i.ibb.co/v6zqsFvW/image-2.jpg',
+    'https://i.ibb.co/DfBZwBkb/image-3.jpg',
+    'https://i.ibb.co/TxGhxYG2/image-4.jpg'
+  ],
   category: 'home',
   warranty: 'عامين',
 };

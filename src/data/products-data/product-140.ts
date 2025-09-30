@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-140',
   name: 'قاعدة متحركة للغسالة الكهربائية',
   slug: 'movable-washing-machine-base',
@@ -11,6 +11,15 @@ const product: Omit<Product, 'images'> = {
 - تقلل اهتزاز الغسالة.###DETAILS###- الأبعاد: 40*60 سم (قابلة للتعديل)
 - أقصى حمولة: 138 كيلوجرام`,
   price: 65.00,
+  images: [
+    'https://i.ibb.co/WNK3mp0W/image-1.jpg',
+    'https://i.ibb.co/HLSZHbkq/image-2.jpg',
+    'https://i.ibb.co/dJprmPZn/image-3.jpg',
+    'https://i.ibb.co/Xr9GJWdC/image-4.jpg',
+    'https://i.ibb.co/MDXMtzPL/image-5.jpg',
+    'https://i.ibb.co/1YvS9wZg/image-7.jpg',
+    'https://i.ibb.co/Fbs4DPXK/image-8.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

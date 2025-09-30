@@ -1,9 +1,9 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-107',
   name: 'جرس الباب الأصلى بكاميرا وتطبيق',
-  slug: 'original-doorbell-with-camera',
+  slug: 'original-doorbell-with-camera-app',
   description: `كاميرا مدمجة تعرض صورة واضحة للزوار مباشرة على جوالك. يرسل إشعارات على هاتفك بمجرد ما يضغط أحد على الجرس. تقدر تتكلم مع الزائر من خلال التطبيق بدون ما تفتح الباب. خيار فتح الباب أو رفض الزوار بكل سهولة عبر التطبيق. يسجل أي حركة عند الباب, مما يعزز الأمان في البيت. تركيب سهل بدون تعقيد, حتى لو ما عندك خبرة تقنية. متوافق مع الجوالات الذكية مثل iOS وAndroid. تصميم مقاوم للماء يتحمل كل الأجواء الخارجية. يدعم تخزين التسجيلات على بطاقة microSD أو في السحابة.###FEATURES###- كاميرا مدمجة تعرض صورة واضحة للزوار.
 - إشعارات فورية عند ضغط الجرس.
 - تحدث ثنائي الاتجاه مع الزوار.
@@ -17,6 +17,11 @@ const product: Omit<Product, 'images'> = {
 - الرؤية الليلية: تعمل بالأشعة تحت الحمراء
 - درجة حرارة التشغيل: -10 إلى 60 درجة مئوية`,
   price: 80.00,
+  images: [
+    'https://i.ibb.co/d4SfZrqC/image-1.jpg',
+    'https://i.ibb.co/WNtBKQwW/image-2.jpg',
+    'https://i.ibb.co/DPd0FdGz/image-3.png'
+  ],
   category: 'electronics',
   warranty: '14 يوم',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-122',
   name: 'كوب خلط ذكي اوتوماتيكي',
   slug: 'automatic-self-stirring-mug',
@@ -13,6 +13,13 @@ const product: Omit<Product, 'images'> = {
 - المادة: بلاستيك وفولاذ مقاوم للصدأ
 - يعمل بالبطاريات`,
   price: 50.00,
+  images: [
+    'https://i.ibb.co/7dKJr08d/image-1.jpg',
+    'https://i.ibb.co/fYmRXKPb/image-2.jpg',
+    'https://i.ibb.co/27YFqqwD/image-3.jpg',
+    'https://i.ibb.co/hxJ8zMKj/image-4.jpg',
+    'https://i.ibb.co/d0sLSTNw/image-5.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

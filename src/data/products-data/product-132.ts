@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-132',
   name: 'واقي من رذاذ القلي',
   slug: 'splatter-screen-for-frying',
@@ -12,6 +12,13 @@ const product: Omit<Product, 'images'> = {
 - اللون: فضي
 - السعة: 13 إنش`,
   price: 49.00,
+  images: [
+    'https://i.ibb.co/ccP6ZJcq/image-1.jpg',
+    'https://i.ibb.co/rK881ZvM/image-2.jpg',
+    'https://i.ibb.co/1JhKnRsH/image-3.jpg',
+    'https://i.ibb.co/Mx8RCCzz/image-4.jpg',
+    'https://i.ibb.co/L39WR3L/image-5.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

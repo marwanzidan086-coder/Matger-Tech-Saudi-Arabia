@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-155',
   name: 'مجموعة صنع العصائر من دينكس',
   slug: 'denx-juice-maker-set',
@@ -13,6 +13,14 @@ const product: Omit<Product, 'images'> = {
 - الجهد: 220-240 فولت
 - الخامة: ABS + PC + ستانلس ستيل`,
   price: 170.00,
+  images: [
+    'https://i.ibb.co/F4WLg02B/image-1.jpg',
+    'https://i.ibb.co/6JDHr42C/image-2.jpg',
+    'https://i.ibb.co/Q38Zd4Hx/image-3.jpg',
+    'https://i.ibb.co/Tdk22GK/image-4.jpg',
+    'https://i.ibb.co/HDwS5W0X/image-5.jpg',
+    'https://i.ibb.co/N2BcStTW/image-6.jpg'
+  ],
   category: 'home',
   warranty: 'عامين',
 };

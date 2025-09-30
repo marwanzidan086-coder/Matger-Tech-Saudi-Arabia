@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-154',
   name: 'مفرمة اللحوم المتينة 3 لتر',
   slug: '3l-durable-meat-grinder',
@@ -13,6 +13,9 @@ const product: Omit<Product, 'images'> = {
 - الجهد: 220/240V
 - الخامة: ستانلس ستيل`,
   price: 125.00,
+  images: [
+    'https://i.ibb.co/Rk05M1dn/image-2.jpg'
+  ],
   category: 'home',
   warranty: '6 شهور',
 };

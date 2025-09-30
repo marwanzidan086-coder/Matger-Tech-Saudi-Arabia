@@ -1,9 +1,9 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-108',
   name: 'غسالة ملابس و أحذية Denx',
-  slug: 'denx-clothes-shoe-washer',
+  slug: 'denx-clothes-and-shoe-washer',
   description: `تزيل الأوساخ والأتربة والبقع العالقة في أعماق الحذاء بشكل فعال. تساعد على قتل الجراثيم والبكتيريا التي تتراكم داخل الحذاء. تخلصك من عناء تنظيف الأحذية يدويًا, مما يوفر لك الكثير من الوقت والجهد. يمكن استخدامها لتنظيف معظم أنواع الأحذية. تمنع انتقال الأوساخ والأتربة من الأحذية إلى سجاد أو أرضيات منزلك. سهلة الاستخدام وتأتي مع تعليمات واضحة. تقلل من استخدام المنتجات الكيميائية. تطيل عمر أحذيتك. تقدر كمان تستخدمها لغسل الملابس البسيطة.###FEATURES###- تنظيف عميق للأحذية والملابس.
 - تقتل الجراثيم والبكتيريا.
 - توفر الوقت والجهد مقارنة بالغسيل اليدوي.
@@ -16,6 +16,11 @@ const product: Omit<Product, 'images'> = {
 - مستوى مقاومة الماء: IPX4
 - الخامة: ABS بلاستيك + ستانلس ستيل`,
   price: 220.00,
+  images: [
+    'https://i.ibb.co/5ghMMTD4/image-1.jpg',
+    'https://i.ibb.co/qLhsMppg/image-2.jpg',
+    'https://i.ibb.co/VcHvL593/image-3.jpg'
+  ],
   category: 'home',
   warranty: 'عامين',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-123',
   name: 'فرامة كهربائية 2 لتر DLC',
   slug: 'dlc-2l-electric-chopper',
@@ -14,6 +14,12 @@ const product: Omit<Product, 'images'> = {
 - القدرة: 400-500 واط
 - سعة الوعاء: 500 مل`,
   price: 105.00,
+  images: [
+    'https://i.ibb.co/Z1bR60vD/image-1.jpg',
+    'https://i.ibb.co/rR9jnTYK/image-2.jpg',
+    'https://i.ibb.co/0pjX646p/image-3.jpg',
+    'https://i.ibb.co/QFRyKMz9/image-4.jpg'
+  ],
   category: 'home',
   warranty: 'عامين',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-143',
   name: 'كشاف يعمل بالطاقة الشمسية',
   slug: 'solar-powered-spotlight',
@@ -12,6 +12,13 @@ const product: Omit<Product, 'images'> = {
 - عدد المصابيح: 20 مصباح LED
 - وقت العمل: أكثر من 10 ساعات`,
   price: 49.00,
+  images: [
+    'https://i.ibb.co/3mPF65Bv/image-1.jpg',
+    'https://i.ibb.co/x8hXT4QC/image-2.jpg',
+    'https://i.ibb.co/HDhS0ZbC/image-3.jpg',
+    'https://i.ibb.co/ksxQh9VP/image-4.jpg',
+    'https://i.ibb.co/BVgY6T4H/image-5.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

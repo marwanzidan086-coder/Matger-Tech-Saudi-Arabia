@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-131',
   name: 'خزان سمارت 20 لتر للتخييم',
   slug: 'smart-20l-camping-tank',
@@ -13,6 +13,13 @@ const product: Omit<Product, 'images'> = {
 - الأبعاد: 46 × 27 × 20 سم
 - طريقة الصب: مضخة كهربائية`,
   price: 99.00,
+  images: [
+    'https://i.ibb.co/xqtL7PDh/image-1.jpg',
+    'https://i.ibb.co/zTgJmW3f/image-2.jpg',
+    'https://i.ibb.co/wFZRwcKj/image-3.jpg',
+    'https://i.ibb.co/BV5K2G1x/image-4.jpg',
+    'https://i.ibb.co/S10KJn4/image-5.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-151',
   name: 'عرض الخلاط والمفرمة ومكيف الحائط',
   slug: 'blender-chopper-ac-bundle',
@@ -11,6 +11,11 @@ const product: Omit<Product, 'images'> = {
 - الخلاط: Silver Crest, 4500W, 15 سرعة
 - المفرمة: Generic, 3 لتر, 300W`,
   price: 350.00,
+  images: [
+    'https://i.ibb.co/Rk05M1dn/image-2.jpg',
+    'https://i.ibb.co/m5HB6YhC/image-3.jpg',
+    'https://i.ibb.co/yc8hHyzk/image-4.jpg'
+  ],
   category: 'home',
   warranty: 'متعدد',
 };
