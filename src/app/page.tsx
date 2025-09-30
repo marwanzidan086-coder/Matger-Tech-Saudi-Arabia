@@ -21,8 +21,24 @@ export default function Home() {
   const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsLoading(true);
-    router.push(href);
+    // A short delay to allow the loading overlay to be visible
+    setTimeout(() => {
+        router.push(href);
+    }, 300);
   };
+
+  // Hide the loading overlay when the new page is ready
+  const handleRouteChangeComplete = () => {
+    setIsLoading(false);
+  };
+
+  // Listen to route changes to hide the loader
+  // This is a simplified example. For a more robust solution,
+  // you might use Next.js's router events if available in your version.
+  if (typeof window !== 'undefined') {
+    window.addEventListener('next-route-change', handleRouteChangeComplete);
+  }
+
 
   return (
     <>
@@ -46,7 +62,7 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-10">
-            <Button asChild size="lg" className="font-bold text-lg transition-transform duration-300 hover:scale-105">
+            <Button asChild size="lg" className="font-bold text-lg bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-primary/50">
               <Link href="/all-products" onClick={(e) => handleNavigate(e, '/all-products')}>
                 عرض جميع المنتجات
                 <ArrowLeft className="me-2 h-5 w-5" />

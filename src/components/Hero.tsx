@@ -31,7 +31,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           أحدث المنتجات التقنية التي تلهم حياتك اليومية، بأسعار تنافسية وجودة لا تضاهى.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="font-bold text-lg transition-transform duration-300 hover:scale-105">
+            <Button asChild size="lg" className="font-bold text-lg bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-primary/50">
               <Link href="/all-products" onClick={(e) => onNavigate(e, '/all-products')}>
                 تسوق الآن
                 <ArrowLeft className="me-2 h-5 w-5" />
