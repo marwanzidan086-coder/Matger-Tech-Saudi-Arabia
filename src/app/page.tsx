@@ -46,7 +46,7 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-10">
-            <Button asChild size="lg" className="font-bold text-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/50">
+            <Button asChild size="lg" className="font-bold text-lg transition-transform duration-300 hover:scale-105">
               <Link href="/all-products" onClick={(e) => handleNavigate(e, '/all-products')}>
                 عرض جميع المنتجات
                 <ArrowLeft className="me-2 h-5 w-5" />

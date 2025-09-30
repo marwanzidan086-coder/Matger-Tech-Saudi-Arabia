@@ -31,13 +31,13 @@ export default function Hero({ onNavigate }: HeroProps) {
           أحدث المنتجات التقنية التي تلهم حياتك اليومية، بأسعار تنافسية وجودة لا تضاهى.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="font-bold text-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/50">
+            <Button asChild size="lg" className="font-bold text-lg transition-transform duration-300 hover:scale-105">
               <Link href="/all-products" onClick={(e) => onNavigate(e, '/all-products')}>
                 تسوق الآن
                 <ArrowLeft className="me-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-bold text-lg bg-background/20 backdrop-blur-sm border-white/50 text-white hover:bg-background/30 hover:text-white transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" variant="outline" className="font-bold text-lg bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 hover:scale-105">
               <Link href="#gift-advisor">
                  البحث عن هدية
                 <Gift className="me-2 h-5 w-5" />
