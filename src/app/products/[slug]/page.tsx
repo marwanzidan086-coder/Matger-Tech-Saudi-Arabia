@@ -116,7 +116,7 @@ export default function ProductPage() {
             </p>
           </div>
 
-          {product.story && <ProductStory story={product.story} />}
+          <ProductStory story={product.story || ''} />
 
           <Card className="bg-muted/40 border-dashed">
             <CardContent className="p-6">
