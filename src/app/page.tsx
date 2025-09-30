@@ -13,6 +13,11 @@ export default function Home() {
   return (
     <>
       <Hero />
+      
+      <GiftAdvisor />
+      
+      <Separator className="my-12" />
+
       <div id="products" className="container mx-auto px-4 py-12">
         <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-8">
           أحدث المنتجات
@@ -28,13 +33,11 @@ export default function Home() {
         <div className="text-center mt-10">
             <Button asChild size="lg" variant="outline">
               <Link href="/categories">
-                عرض كل المنتجات
+                مزيد من المنتجات
               </Link>
             </Button>
           </div>
       </div>
-      <Separator className="my-8" />
-      <GiftAdvisor />
     </>
   );
 }
