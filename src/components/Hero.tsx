@@ -3,7 +3,11 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Gift } from 'lucide-react';
 
-export default function Hero() {
+type HeroProps = {
+  onNavigate: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
+};
+
+export default function Hero({ onNavigate }: HeroProps) {
   return (
     <div className="relative h-[60vh] min-h-[400px] w-full flex items-center justify-center text-white mb-12">
       {/* Background Image */}
@@ -28,7 +32,7 @@ export default function Hero() {
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" className="font-bold text-lg">
-              <Link href="/all-products">
+              <Link href="/all-products" onClick={(e) => onNavigate(e, '/all-products')}>
                 تسوق الآن
                 <ArrowLeft className="me-2 h-5 w-5" />
               </Link>

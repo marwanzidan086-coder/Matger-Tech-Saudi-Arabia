@@ -1,3 +1,8 @@
+
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
@@ -5,14 +10,23 @@ import Link from 'next/link';
 import Hero from '@/components/Hero';
 import GiftAdvisor from '@/components/GiftAdvisor';
 import { Separator } from '@/components/ui/separator';
+import LoadingOverlay from '@/components/LoadingOverlay';
 
 export default function Home() {
-  // Show the first 8 products on the home page
   const visibleProducts = products.slice(0, 8);
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsLoading(true);
+    router.push(href);
+  };
 
   return (
     <>
-      <Hero />
+      {isLoading && <LoadingOverlay />}
+      <Hero onNavigate={handleNavigate} />
       
       <GiftAdvisor />
       
@@ -32,8 +46,8 @@ export default function Home() {
         </div>
         <div className="text-center mt-10">
             <Button asChild size="lg">
-              <Link href="/all-products">
-                مزيد من المنتجات
+              <Link href="/all-products" onClick={(e) => handleNavigate(e, '/all-products')}>
+                عرض جميع المنتجات
               </Link>
             </Button>
           </div>
