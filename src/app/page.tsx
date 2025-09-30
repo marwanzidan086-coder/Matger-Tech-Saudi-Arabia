@@ -1,7 +1,6 @@
 
 'use client';
 
-import { useRouter } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
@@ -10,24 +9,13 @@ import Hero from '@/components/Hero';
 import GiftAdvisor from '@/components/GiftAdvisor';
 import { Separator } from '@/components/ui/separator';
 import { ArrowLeft } from 'lucide-react';
-import { useLoading } from '@/contexts/LoadingContext';
 
 export default function Home() {
   const visibleProducts = products.slice(0, 8);
-  const router = useRouter();
-  const { showLoader } = useLoading();
-
-
-  const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    showLoader(() => {
-      router.push(href);
-    });
-  };
 
   return (
     <>
-      <Hero onNavigate={handleNavigate} />
+      <Hero />
       
       <GiftAdvisor />
       
@@ -47,7 +35,7 @@ export default function Home() {
         </div>
         <div className="text-center mt-10">
             <Button asChild size="lg" className="font-bold text-lg bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-primary/50">
-              <Link href="/all-products" onClick={(e) => handleNavigate(e, '/all-products')}>
+              <Link href="/all-products">
                 عرض جميع المنتجات
                 <ArrowLeft className="me-2 h-5 w-5" />
               </Link>

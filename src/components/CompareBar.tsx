@@ -6,21 +6,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { X, GitCompareArrows } from 'lucide-react';
 import { useIsMounted } from '@/hooks/use-is-mounted';
-import { useLoading } from '@/contexts/LoadingContext';
-import { useRouter } from 'next/navigation';
 
 export default function CompareBar() {
   const { comparisonList, removeFromCompare, clearCompare } = useComparison();
   const isMounted = useIsMounted();
-  const { showLoader } = useLoading();
-  const router = useRouter();
-
-  const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    showLoader(() => {
-      router.push(href);
-    });
-  };
 
   if (!isMounted || comparisonList.length === 0) {
     return null;
@@ -60,7 +49,7 @@ export default function CompareBar() {
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           <Button asChild disabled={comparisonList.length < 2}>
-            <Link href="/compare" onClick={(e) => handleNavigate(e, '/compare')}>
+            <Link href="/compare">
               <GitCompareArrows className="me-2 h-5 w-5" />
               قارن الآن
               <span className="hidden sm:inline"> ({comparisonList.length}/2)</span>

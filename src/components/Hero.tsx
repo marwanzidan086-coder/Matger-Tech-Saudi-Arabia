@@ -3,11 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Gift } from 'lucide-react';
 
-type HeroProps = {
-  onNavigate: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
-};
-
-export default function Hero({ onNavigate }: HeroProps) {
+export default function Hero() {
   return (
     <div className="relative h-[60vh] min-h-[400px] w-full flex items-center justify-center text-white mb-12">
       {/* Background Image */}
@@ -32,12 +28,12 @@ export default function Hero({ onNavigate }: HeroProps) {
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" className="font-bold text-lg bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-primary/50">
-              <Link href="/all-products" onClick={(e) => onNavigate(e, '/all-products')}>
+              <Link href="/all-products">
                 تسوق الآن
                 <ArrowLeft className="me-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-bold text-lg bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" variant="outline" className="font-bold text-lg bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-white/20">
               <Link href="#gift-advisor">
                  البحث عن هدية
                 <Gift className="me-2 h-5 w-5" />
