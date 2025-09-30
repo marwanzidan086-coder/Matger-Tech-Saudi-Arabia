@@ -32,7 +32,7 @@ export default function Home() {
         </div>
         <div className="text-center mt-10">
             <Button asChild size="lg">
-              <Link href="/categories">
+              <Link href="/all-products">
                 مزيد من المنتجات
               </Link>
             </Button>

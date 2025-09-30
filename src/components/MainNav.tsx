@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, PackageSearch, Heart, ShoppingCart, LayoutGrid } from 'lucide-react';
+import { Home, PackageSearch, Heart, ShoppingCart, LayoutGrid, Store } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { useOrder } from '@/contexts/OrderContext';
@@ -12,6 +12,7 @@ import { useIsMounted } from '@/hooks/use-is-mounted';
 
 const navItems = [
   { href: '/', label: 'المتجر', icon: Home },
+  { href: '/all-products', label: 'المنتجات', icon: Store },
   { href: '/categories', label: 'الأقسام', icon: LayoutGrid },
   { href: '/orders', label: 'طلباتي', icon: PackageSearch, badge: 'orders' },
   { href: '/wishlist', label: 'المفضلة', icon: Heart, badge: 'wishlist' },
