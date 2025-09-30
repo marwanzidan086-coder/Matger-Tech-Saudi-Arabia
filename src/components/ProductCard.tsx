@@ -11,10 +11,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
-
-// Global navigation lock to prevent multiple clicks
-let isNavigating = false;
+import React, { useState, useEffect, useTransition } from 'react';
 
 const productCardVariants = cva(
   "group relative flex flex-col overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md",
@@ -40,29 +37,16 @@ export default function ProductCard({
   size,
  }: ProductCardProps) {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    // Reset the lock when the component mounts or when navigation might have completed
-    isNavigating = false;
-    // Also reset its own loading state if it was stuck
-    setIsLoading(false);
-  }, []);
+  const [isPending, startTransition] = useTransition();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-      // If a navigation is already in progress, prevent new clicks
-      if (isNavigating) {
-          e.preventDefault();
-          return;
-      }
-      
-      // Set the lock, show loading indicator, and then navigate.
-      isNavigating = true;
-      setIsLoading(true);
-      router.push(`/products/${product.slug}`);
+      e.preventDefault();
+      startTransition(() => {
+        router.push(`/products/${product.slug}`);
+      });
   };
 
-  const isCardLoading = isLoading;
+  const isCardLoading = isPending;
 
   if (isCardLoading) {
     return (
@@ -73,7 +57,7 @@ export default function ProductCard({
            </div>
           <div className="relative aspect-square w-full bg-muted overflow-hidden opacity-50">
             <Image
-              src={product.images[0]}
+              src={(product.images && product.images.length > 0) ? product.images[0] : `https://picsum.photos/seed/${product.id}/600/600`}
               alt={product.name}
               fill
               className="object-cover"
@@ -102,10 +86,10 @@ export default function ProductCard({
 
   return (
     <div className={cn(productCardVariants({ size }))}>
-      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isNavigating}>
+      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isPending}>
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
           <Image
-            src={product.images[0]}
+            src={(product.images && product.images.length > 0) ? product.images[0] : `https://picsum.photos/seed/${product.id}/600/600`}
             alt={product.name}
             fill
             className="object-cover transition-all duration-300 group-hover:scale-105"
@@ -115,7 +99,7 @@ export default function ProductCard({
       </Link>
       <div className={cn("flex flex-1 flex-col", size === 'small' ? 'p-2' : 'p-3')}>
         <h3 className={cn("font-semibold", size === 'small' ? 'text-sm h-10' : 'text-base h-12 overflow-hidden')}>
-          <Link href={`/products/${product.slug}`} onClick={handleClick} className="cursor-pointer" aria-disabled={isNavigating}>{product.name}</Link>
+          <Link href={`/products/${product.slug}`} onClick={handleClick} className="cursor-pointer" aria-disabled={isPending}>{product.name}</Link>
         </h3>
         <p className={cn("mt-1 font-bold text-primary", size === 'small' ? 'text-base' : 'text-lg')}>
           {product.price.toFixed(2)} ر.س
