@@ -1,7 +1,6 @@
 
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
@@ -10,39 +9,24 @@ import Link from 'next/link';
 import Hero from '@/components/Hero';
 import GiftAdvisor from '@/components/GiftAdvisor';
 import { Separator } from '@/components/ui/separator';
-import LoadingOverlay from '@/components/LoadingOverlay';
 import { ArrowLeft } from 'lucide-react';
+import { useLoading } from '@/contexts/LoadingContext';
 
 export default function Home() {
   const visibleProducts = products.slice(0, 8);
-  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const { showLoader } = useLoading();
+
 
   const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    setIsLoading(true);
-    // A short delay to allow the loading overlay to be visible
-    setTimeout(() => {
-        router.push(href);
-    }, 300);
+    showLoader(() => {
+      router.push(href);
+    });
   };
-
-  // Hide the loading overlay when the new page is ready
-  const handleRouteChangeComplete = () => {
-    setIsLoading(false);
-  };
-
-  // Listen to route changes to hide the loader
-  // This is a simplified example. For a more robust solution,
-  // you might use Next.js's router events if available in your version.
-  if (typeof window !== 'undefined') {
-    window.addEventListener('next-route-change', handleRouteChangeComplete);
-  }
-
 
   return (
     <>
-      {isLoading && <LoadingOverlay />}
       <Hero onNavigate={handleNavigate} />
       
       <GiftAdvisor />

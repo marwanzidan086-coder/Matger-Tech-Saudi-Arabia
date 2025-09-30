@@ -6,19 +6,22 @@ import { CartProvider } from '@/contexts/CartContext';
 import { WishlistProvider } from '@/contexts/WishlistContext';
 import { OrderProvider } from '@/contexts/OrderContext';
 import { ComparisonProvider } from '@/contexts/ComparisonContext';
+import { LoadingProvider } from '@/contexts/LoadingContext';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <CartProvider>
-        <WishlistProvider>
-          <OrderProvider>
-            <ComparisonProvider>
-              {children}
-            </ComparisonProvider>
-          </OrderProvider>
-        </WishlistProvider>
-      </CartProvider>
+      <LoadingProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <OrderProvider>
+              <ComparisonProvider>
+                {children}
+              </ComparisonProvider>
+            </OrderProvider>
+          </WishlistProvider>
+        </CartProvider>
+      </LoadingProvider>
     </ThemeProvider>
   );
 }
