@@ -11,6 +11,7 @@ import Hero from '@/components/Hero';
 import GiftAdvisor from '@/components/GiftAdvisor';
 import { Separator } from '@/components/ui/separator';
 import LoadingOverlay from '@/components/LoadingOverlay';
+import { ArrowLeft } from 'lucide-react';
 
 export default function Home() {
   const visibleProducts = products.slice(0, 8);
@@ -45,9 +46,10 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-10">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="font-bold text-lg">
               <Link href="/all-products" onClick={(e) => handleNavigate(e, '/all-products')}>
                 عرض جميع المنتجات
+                <ArrowLeft className="me-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
