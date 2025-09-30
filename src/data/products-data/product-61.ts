@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-61',
   name: 'داش كام 3 كاميرات تعمل بالواي فاي',
   slug: 'wifi-3-camera-dash-cam',
@@ -15,6 +15,13 @@ const product: Omit<Product, 'images'> = {
 - دعم كارت ذاكرة: حتى 128GB (غير مشمول)
 - البطارية: 150mAh`,
   price: 279.99,
+  images: [
+    'https://i.ibb.co/Xkz3Z900/image-1.jpg',
+    'https://i.ibb.co/hx0C5Cz0/image-2.jpg',
+    'https://i.ibb.co/Q7YbZNpB/image-3.jpg',
+    'https://i.ibb.co/9mMDtFnn/image-4.jpg',
+    'https://i.ibb.co/dwwpZw2L/image-5.jpg'
+  ],
   category: 'electronics',
   warranty: 'سنة',
 };

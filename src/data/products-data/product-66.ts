@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-66',
   name: '2x1 ثلاجة و ترابيزة قابلة للطي',
   slug: '2-in-1-cooler-folding-table',
@@ -13,6 +13,14 @@ const product: Omit<Product, 'images'> = {
 - السعة التخزينية: 17 لتر
 - المادة: بلاستيك ABS مقاوم للماء`,
   price: 249.99,
+  images: [
+    'https://i.ibb.co/8g3TS9dM/image-1.jpg',
+    'https://i.ibb.co/bjP1TZZ5/image-2.jpg',
+    'https://i.ibb.co/PvCwVHyZ/image-3.jpg',
+    'https://i.ibb.co/0RRjn4mH/image-4.jpg',
+    'https://i.ibb.co/5xJBf7rp/image-5.jpg',
+    'https://i.ibb.co/TDJmbz9v/image-6.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

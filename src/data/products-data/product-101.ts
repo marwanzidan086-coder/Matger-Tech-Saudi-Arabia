@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-101',
   name: 'كرسي بمسند قابل للطي للتخييم',
   slug: 'folding-camping-chair-with-side-table',
@@ -13,6 +13,14 @@ const product: Omit<Product, 'images'> = {
 - الوزن: 4.81 كيلو جرام
 - الخامة: إطار ألمنيوم، قماش أوكسفورد 600D`,
   price: 249.99,
+  images: [
+    'https://i.ibb.co/MD5ffdV9/image-1.jpg',
+    'https://i.ibb.co/CpKKTvWC/image-2.jpg',
+    'https://i.ibb.co/jvwx0pjP/image-3.jpg',
+    'https://i.ibb.co/jvmQ1b07/image-4.jpg',
+    'https://i.ibb.co/yG2zt8S/image-5.jpg',
+    'https://i.ibb.co/CKNfHvcx/image-6.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

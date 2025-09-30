@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-93',
   name: 'مرطب هواء على شكل سفينة تيتانيك',
   slug: 'titanic-air-humidifier',
@@ -14,6 +14,17 @@ const product: Omit<Product, 'images'> = {
 - مدة التشغيل: 10 ساعات تقريبًا
 - مصدر الطاقة: كهرباء`,
   price: 199.99,
+  images: [
+    'https://i.ibb.co/XxYWMz6P/image-1.jpg',
+    'https://i.ibb.co/hqL4mXn/image-2.jpg',
+    'https://i.ibb.co/gbGsv1pt/image-3.jpg',
+    'https://i.ibb.co/zVw8b0Gv/image-4.jpg',
+    'https://i.ibb.co/gbym3dM0/image-5.jpg',
+    'https://i.ibb.co/gbLZ84S5/image-6.jpg',
+    'https://i.ibb.co/qYq4cCMd/image-7.jpg',
+    'https://i.ibb.co/YBX14hfF/image-8.jpg',
+    'https://i.ibb.co/YFtnL2q9/image-9.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

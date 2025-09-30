@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-67',
   name: 'ستائر سيارة قابلة للسحب للحماية من الشمس',
   slug: 'retractable-car-sun-shades',
@@ -12,6 +12,13 @@ const product: Omit<Product, 'images'> = {
 - الأبعاد: 120 × 72 سم للستارة الواحدة
 - اللون: أسود`,
   price: 89.99,
+  images: [
+    'https://i.ibb.co/MDDVWSYb/image-1.jpg',
+    'https://i.ibb.co/p6Ywsd7T/image-2.jpg',
+    'https://i.ibb.co/CpxBNnsL/image-3.jpg',
+    'https://i.ibb.co/XxDvrPQs/image-4.jpg',
+    'https://i.ibb.co/zkHbYV1/image-5.jpg'
+  ],
   category: 'misc',
   warranty: 'عامين',
 };

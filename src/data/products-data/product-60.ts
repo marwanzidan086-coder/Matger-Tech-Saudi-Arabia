@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-60',
   name: 'داش كام 3 كاميرات 1080P تدعم كارت ميموري',
   slug: '3-camera-dash-cam-1080p',
@@ -14,6 +14,15 @@ const product: Omit<Product, 'images'> = {
 - زاوية الرؤية: أمامية 170°
 - دعم كارت ذاكرة: حتى 128GB (غير مشمول)`,
   price: 259.99,
+  images: [
+    'https://i.ibb.co/rfm8n3Rg/image-1.jpg',
+    'https://i.ibb.co/cSYSBvwF/image-2.jpg',
+    'https://i.ibb.co/Zp2M5LF5/image-3.jpg',
+    'https://i.ibb.co/ccPpGzr4/image-4.jpg',
+    'https://i.ibb.co/9mMdzL4M/image-5.jpg',
+    'https://i.ibb.co/prswHSt4/image-6.jpg',
+    'https://i.ibb.co/933tfCn8/image-7.jpg'
+  ],
   category: 'electronics',
   warranty: 'سنة',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-59',
   name: 'ماطور هواء لكفرات السيارة بقوة 288 واط',
   slug: 'car-air-compressor-288w',
@@ -15,6 +15,13 @@ const product: Omit<Product, 'images'> = {
 - تدفق الهواء: 55 لتر/دقيقة
 - الاسطوانة: 30 ملم`,
   price: 189.99,
+  images: [
+    'https://i.ibb.co/TDKvMRdh/image-1.jpg',
+    'https://i.ibb.co/PsFxH8JQ/image-2.png',
+    'https://i.ibb.co/k6vSrq9b/image-3.png',
+    'https://i.ibb.co/wrMv5Spb/image-4.jpg',
+    'https://i.ibb.co/ynvQ2JyT/image-5.jpg'
+  ],
   category: 'electronics',
   warranty: '6 شهور',
 };

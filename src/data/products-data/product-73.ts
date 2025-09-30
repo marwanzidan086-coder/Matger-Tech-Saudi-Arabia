@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-73',
   name: 'جهاز الفقاعات للاطفال',
   slug: 'bubble-machine-for-kids',
@@ -12,6 +12,14 @@ const product: Omit<Product, 'images'> = {
 - التشغيل: بطارية قابلة للشحن
 - الاستخدام: للأطفال والكبار`,
   price: 79.99,
+  images: [
+    'https://i.ibb.co/jZ5MyvHX/image-1.jpg',
+    'https://i.ibb.co/DPXBn6Cp/image-2.jpg',
+    'https://i.ibb.co/0jvHg9fB/image-3.jpg',
+    'https://i.ibb.co/PvWdLd5q/image-4.jpg',
+    'https://i.ibb.co/dSpqFxY/image-5.jpg',
+    'https://i.ibb.co/G3BvDcz0/image-6.jpg'
+  ],
   category: 'misc',
   warranty: '14 يوم',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-96',
   name: 'مثقاب مطرقة كهربائي',
   slug: 'electric-hammer-drill',
@@ -13,6 +13,14 @@ const product: Omit<Product, 'images'> = {
 - الفولت: 220V
 - السرعة القصوى: 2800 دورة/دقيقة`,
   price: 359.99,
+  images: [
+    'https://i.ibb.co/8Dfw24Mj/image-1.jpg',
+    'https://i.ibb.co/W40WGsxV/image-2.jpg',
+    'https://i.ibb.co/6JYBmtj6/image-3.jpg',
+    'https://i.ibb.co/TBMqmhTG/image-4.jpg',
+    'https://i.ibb.co/1tM4F5DF/image-5.jpg',
+    'https://i.ibb.co/M5hFV3LM/image-6.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

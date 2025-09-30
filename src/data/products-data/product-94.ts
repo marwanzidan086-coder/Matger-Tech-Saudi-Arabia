@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-94',
   name: 'ماكينة تلميع السيارات',
   slug: 'car-polishing-machine',
@@ -13,6 +13,16 @@ const product: Omit<Product, 'images'> = {
 - البطارية: 1300mAh
 - السرعة: 2800-5500 دورة بالدقيقة`,
   price: 329.99,
+  images: [
+    'https://i.ibb.co/jvqvZnvW/image-1.jpg',
+    'https://i.ibb.co/NgtgGQJp/image-2.jpg',
+    'https://i.ibb.co/RTPsxhhQ/image-3.jpg',
+    'https://i.ibb.co/rGgQTT3m/image-4.jpg',
+    'https://i.ibb.co/ZzLgXywT/image-5.jpg',
+    'https://i.ibb.co/BVLxSh99/image-6.jpg',
+    'https://i.ibb.co/TByPkB4G/image-7.jpg',
+    'https://i.ibb.co/Lzj2Cr4Y/image-8.jpg'
+  ],
   category: 'electronics',
   warranty: '14 يوم',
 };

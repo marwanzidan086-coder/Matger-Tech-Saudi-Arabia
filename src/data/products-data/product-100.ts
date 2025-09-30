@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-100',
   name: 'رقع إطار الكفرات 10 قطع',
   slug: 'tire-puncture-repair-plugs-10pcs',
@@ -12,6 +12,12 @@ const product: Omit<Product, 'images'> = {
 - المقاسات: تصلح لثقوب 0.1mm – 5mm
 - المادة: مطاط عالي الجودة`,
   price: 39.99,
+  images: [
+    'https://i.ibb.co/ZQsbKND/image-1.jpg',
+    'https://i.ibb.co/JRdC95zv/image-2.jpg',
+    'https://i.ibb.co/qMkrNgrv/image-3.jpg',
+    'https://i.ibb.co/zhRps0nV/image-4.jpg'
+  ],
   category: 'misc',
   warranty: '14 يوم',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-71',
   name: 'دريل كفرات BOSSS',
   slug: 'bosss-tire-drill',
@@ -13,6 +13,13 @@ const product: Omit<Product, 'images'> = {
 - رأس الأداء: 1/2 بوصة
 - البطارية: 2 × 21V ليثيوم أيون`,
   price: 429.99,
+  images: [
+    'https://i.ibb.co/27rkTQfp/image-1.jpg',
+    'https://i.ibb.co/VPC37h7/image-2.jpg',
+    'https://i.ibb.co/nMwLHsC6/image-3.jpg',
+    'https://i.ibb.co/1YHbZFkq/image-4.jpg',
+    'https://i.ibb.co/xtYB2rHG/image-5.jpg'
+  ],
   category: 'electronics',
   warranty: 'عام',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-106',
   name: 'مقص كهربائي متعدد الاستخدامات',
   slug: 'multi-use-electric-scissors',
@@ -14,6 +14,13 @@ const product: Omit<Product, 'images'> = {
 - البطارية: 2000mAh (بطاريتان)
 - مدة العمل: من 3 إلى 6 ساعات`,
   price: 299.99,
+  images: [
+    'https://i.ibb.co/938fWYdF/image-1.jpg',
+    'https://i.ibb.co/Zp5bFZ1r/image-2.jpg',
+    'https://i.ibb.co/Jjm1WyQw/image-3.jpg',
+    'https://i.ibb.co/VpxHGx2C/image-4.jpg',
+    'https://i.ibb.co/4ZxyBnmK/image-5.jpg'
+  ],
   category: 'home',
   warranty: 'عامين',
 };

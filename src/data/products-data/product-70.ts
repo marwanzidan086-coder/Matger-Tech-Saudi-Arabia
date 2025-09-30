@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-70',
   name: 'مصباح ليزر أبيض قابل للتكبير بقوة 100000 لومن',
   slug: '100000-lumen-zoomable-laser-flashlight',
@@ -15,6 +15,11 @@ const product: Omit<Product, 'images'> = {
 - نوع الشحن: Type-C شحن سريع
 - نوع البطارية: يدعم 18650 و26650`,
   price: 189.99,
+  images: [
+    'https://i.ibb.co/NdpKV5bz/image-1.jpg',
+    'https://i.ibb.co/ccC5Dm1k/image-2.jpg',
+    'https://i.ibb.co/60xcLZD2/image-3.jpg'
+  ],
   category: 'electronics',
   warranty: '14 يوم',
 };

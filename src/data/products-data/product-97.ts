@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-97',
   name: 'سيارة كهربائية للأطفال بمحرك 380 واط أحمر',
   slug: 'red-electric-car-for-kids',
@@ -14,6 +14,7 @@ const product: Omit<Product, 'images'> = {
 - المحرك: 380 واط
 - العمر المناسب: من 2 إلى 10 سنوات`,
   price: 299.99,
+  images: [ 'https://i.ibb.co/C3RQPrsG/image-1.jpg', 'https://i.ibb.co/21Wvtfnj/image-2.jpg' ],
   category: 'misc',
   warranty: '14 يوم',
 };

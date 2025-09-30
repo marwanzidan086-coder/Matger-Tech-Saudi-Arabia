@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-89',
   name: 'مضرب بيسبول LED',
   slug: 'led-baseball-bat-flashlight',
@@ -15,8 +15,16 @@ const product: Omit<Product, 'images'> = {
 - نوع الشحن: تايب C
 - نوع البطارية: بطارية قابلة لإعادة الشحن`,
   price: 119.99,
+  images: [
+    'https://i.ibb.co/gMZCqx9r/image-1.jpg',
+    'https://i.ibb.co/3mt9MjZ3/image-2.jpg',
+    'https://i.ibb.co/x87sSqBX/image-3.jpg',
+    'https://i.ibb.co/8nrWBHfn/image-4.jpg',
+    'https://i.ibb.co/1Y6bQBYT/image-5.jpg',
+    'https://i.ibb.co/bMG8RLZ2/image-6.jpg'
+  ],
   category: 'home',
-  warranty: 'سنتين',
+  warranty: 'عامين',
 };
 
 export default product;

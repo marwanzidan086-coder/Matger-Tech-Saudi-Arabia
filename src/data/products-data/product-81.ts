@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-81',
   name: 'مكنسة كهربائية محمولة ومنفاخ',
   slug: 'portable-vacuum-cleaner-and-blower',
@@ -15,6 +15,15 @@ const product: Omit<Product, 'images'> = {
 - نوع التنظيف: جاف
 - طول السلك: 4 أمتار`,
   price: 119.99,
+  images: [
+    'https://i.ibb.co/8yMpB98/image-1.jpg',
+    'https://i.ibb.co/4n8Db2L8/image-2.jpg',
+    'https://i.ibb.co/84ckRGg7/image-3.jpg',
+    'https://i.ibb.co/8Lpvsjrd/image-4.jpg',
+    'https://i.ibb.co/HpKr0Qtk/image-5.jpg',
+    'https://i.ibb.co/9kmBZ9cD/image-6.jpg',
+    'https://i.ibb.co/DPXVC4CH/image-7.jpg'
+  ],
   category: 'electronics',
   warranty: '14 يوم',
 };

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-91',
   name: 'وصلة لضخ المياه',
   slug: 'high-pressure-water-hose-nozzle',
@@ -12,6 +12,13 @@ const product: Omit<Product, 'images'> = {
 - المادة: معدن متين مع وصلة PVC
 - الطول: 17 سم`,
   price: 59.99,
+  images: [
+    'https://i.ibb.co/y76FHqV/image-1.png',
+    'https://i.ibb.co/tMyWx5ZD/image-2.png',
+    'https://i.ibb.co/Y74tCLDc/image-3.png',
+    'https://i.ibb.co/PGwNDsDZ/image-4.png',
+    'https://i.ibb.co/HfHNGhQC/image-5.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

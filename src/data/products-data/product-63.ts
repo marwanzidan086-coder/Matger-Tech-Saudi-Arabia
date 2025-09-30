@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-63',
   name: 'القاطع المتعدد الفولاذي من GREATEC',
   slug: 'greatec-multi-cutter',
@@ -15,6 +15,15 @@ const product: Omit<Product, 'images'> = {
 - سعة القطع (الخشب/البلاستيك): 115 ملم
 - سعة القطع (الفولاذ): 5 ملم`,
   price: 299.99,
+  images: [
+    'https://i.ibb.co/zTth4D2n/image-1.jpg',
+    'https://i.ibb.co/21zCFBRy/image-2.jpg',
+    'https://i.ibb.co/rfqVP6Rx/image-3.png',
+    'https://i.ibb.co/CLf7CH3/image-4.jpg',
+    'https://i.ibb.co/nqn2QwKj/image-5.jpg',
+    'https://i.ibb.co/PZmNT89Z/image-6.jpg',
+    'https://i.ibb.co/NdX5pmHx/image-7.jpg'
+  ],
   category: 'home',
   warranty: 'عام',
 };

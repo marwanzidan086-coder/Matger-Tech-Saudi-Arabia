@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-75',
   name: 'مغسلة السيارات المحمولة',
   slug: 'portable-car-washer',
@@ -13,6 +13,15 @@ const product: Omit<Product, 'images'> = {
 - سعة الخزان: 16 لترًا
 - مصدر الطاقة: موصل ولاعة السجائر`,
   price: 199.99,
+  images: [
+    'https://i.ibb.co/LzzvV51Z/image-1.png',
+    'https://i.ibb.co/Fkh1cHn1/image-2.png',
+    'https://i.ibb.co/7dwBkfh8/image-3.png',
+    'https://i.ibb.co/rfpND33W/image-4.png',
+    'https://i.ibb.co/LzLtpDbM/image-5.png',
+    'https://i.ibb.co/0y9mcFnm/image-6.jpg',
+    'https://i.ibb.co/cS3M3QCG/image-7.jpg'
+  ],
   category: 'misc',
   warranty: '14 يوم',
 };

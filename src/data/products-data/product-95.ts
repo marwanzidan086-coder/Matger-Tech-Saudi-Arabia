@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-95',
   name: 'المنشار المتنقل الكهربائي',
   slug: 'portable-electric-chainsaw',
@@ -14,6 +14,16 @@ const product: Omit<Product, 'images'> = {
 - الوزن: 2.7 كجم
 - نوع البطارية: ليثيوم أيون 18 فولت`,
   price: 399.99,
+  images: [
+    'https://i.ibb.co/DfF9v7Lb/image-1.jpg',
+    'https://i.ibb.co/gMRJYFws/image-2.jpg',
+    'https://i.ibb.co/276GdtHL/image-3.jpg',
+    'https://i.ibb.co/FbtS4rtM/image-4.jpg',
+    'https://i.ibb.co/ns5VPyHM/image-5.jpg',
+    'https://i.ibb.co/spzZbjMZ/image-6.jpg',
+    'https://i.ibb.co/Wv8JLpTT/image-7.jpg',
+    'https://i.ibb.co/TxBjTfZt/image-8.jpg'
+  ],
   category: 'home',
   warranty: '14 يوم',
 };

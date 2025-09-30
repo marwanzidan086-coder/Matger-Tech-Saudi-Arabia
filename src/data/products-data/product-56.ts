@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-56',
   name: 'منفاخ هواء كهربائي لاسلكي شفط و طرد',
   slug: 'denx-wireless-air-blower',
@@ -14,6 +14,11 @@ const product: Omit<Product, 'images'> = {
 - الجهد الكهربائي: 220-240 فولت
 - التردد: 50/60 هرتز`,
   price: 249.99,
+  images: [
+    'https://i.ibb.co/Y4zXtKyJ/image-1.jpg',
+    'https://i.ibb.co/ksQ89JNQ/image-2.jpg',
+    'https://i.ibb.co/gbT6WfF6/image-3.jpg'
+  ],
   category: 'electronics',
   warranty: 'عامين',
 };
