@@ -187,3 +187,4 @@ export const products: Product[] = [
 // The filtering will be done directly in the page components where needed.
 
 
+
