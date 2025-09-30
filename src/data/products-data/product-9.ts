@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-9',
   name: 'كاميرا الفلوج الذكية ضد الماء',
   slug: 'waterproof-smart-vlogging-camera',
@@ -11,26 +11,18 @@ const product: Omit<Product, 'images'> = {
 - تصميم صغير وخفيف، يسهل حملها.###DETAILS###- دقة الفيديو: 1080p / 4K
 - مقاومة للماء: حتى 30 متر
 - زاوية العدسة: 140 درجة
-- حجم الشاشة: 2 إنش
-- وقت التصوير: حوالي 70 دقيقة`,
+- حجم الشاشة: 2 إنش`,
   price: 129.99,
+  images: [
+    "https://i.ibb.co/qLKgDz7t/image-1.jpg",
+    "https://i.ibb.co/dskSsQWb/image-2.png",
+    "https://i.ibb.co/LzKSk86f/image-3.png",
+    "https://i.ibb.co/rKrHypNZ/image-4.jpg",
+    "https://i.ibb.co/nsYzRm5H/image-5.jpg",
+    "https://i.ibb.co/xSStv880/image-6.jpg"
+  ],
   category: 'electronics',
   warranty: '14 يوم',
-  story: 'الحياة مجموعة من اللحظات التي لا تتكرر. هذه الكاميرا لم تُصنع لالتقاط الصور فقط، بل لحفظ هذه اللحظات كما هي، بكل تفاصيلها وألوانها. من قمة جبل إلى أعماق البحر، هي عينك التي لا ترمش، تسجل كل ضحكة، وكل مغامرة، لتحولها إلى ذكرى خالدة يمكنك العودة إليها متى شئت.',
-  faq: [
-    {
-      question: 'إلى أي عمق يمكن استخدامها تحت الماء؟',
-      answer: 'باستخدام الغلاف المقاوم للماء المرفق، يمكنك التصوير تحت الماء حتى عمق 30 مترًا.'
-    },
-    {
-      question: 'هل تدعم التصوير بجودة 4K؟',
-      answer: 'نعم، الكاميرا تدعم تسجيل الفيديو بدقة 4K، مما يوفر لك جودة احترافية لمقاطعك.'
-    },
-    {
-      question: 'كم تدوم البطارية أثناء التصوير؟',
-      answer: 'توفر البطارية حوالي 70 دقيقة من التصوير المستمر، وهي قابلة للفك والاستبدال لمواصلة التصوير لفترات أطول.'
-    }
-  ]
 };
 
 export default product;

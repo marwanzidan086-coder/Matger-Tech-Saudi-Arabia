@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-45',
   name: 'إضاءة دائرية بالطاقة الشمسية للحديقة',
   slug: 'solar-garden-circular-light',
@@ -13,23 +13,16 @@ const product: Omit<Product, 'images'> = {
 - البطارية: NiMH 300mAh
 - مقاومة الماء: IP44`,
   price: 59.99,
+  images: [
+    "https://i.ibb.co/JRjq8Zv1/image-1.jpg",
+    "https://i.ibb.co/Q33gM9ZB/image-2.png",
+    "https://i.ibb.co/21mbFysy/image-3.jpg",
+    "https://i.ibb.co/YTRnZrtt/image-4.jpg",
+    "https://i.ibb.co/PsLwd2Dw/image-5.jpg",
+    "https://i.ibb.co/8nMtBFLr/image-6.jpg"
+  ],
   category: 'home',
   warranty: '14 يوم',
-  story: 'عندما تغيب الشمس، تستيقظ هذه الأضواء لتحول حديقتك إلى لوحة فنية. هي ليست مجرد إنارة، بل هي جواهر صغيرة تُرصع حديقتك، تُرشد خطواتك وتضفي على المكان سحراً وهدوءاً. تعمل بصمت، تتغذى من ضوء النهار، وتهديك نورها في الليل، كأنها جزء من الطبيعة نفسها.',
-  faq: [
-    {
-      question: 'كيف يمكنني التبديل بين وضع الإضاءة البيضاء والملونة؟',
-      answer: 'تحتوي الإضاءة على مفتاح صغير يسمح لك باختيار وضع الإضاءة المفضل لديك قبل تركيبها، سواء كان اللون الأبيض الدافئ أو وضع تغيير الألوان التلقائي (RGB).'
-    },
-    {
-      question: 'هل تعمل في الأيام الغائمة؟',
-      answer: 'نعم، اللوح الشمسي يمكنه الشحن حتى في الأيام الغائمة، لكن قد تكون مدة الإضاءة في الليل أقصر قليلاً مقارنة بيوم مشمس بالكامل.'
-    },
-    {
-      question: 'هل هي آمنة للاستخدام حول الأطفال والحيوانات الأليفة؟',
-      answer: 'نعم، هي آمنة تمامًا. تعمل بجهد منخفض جدًا ولا تسخن، مما يجعلها آمنة للمس.'
-    }
-  ]
 };
 
 export default product;

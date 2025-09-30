@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-27',
   name: 'جهاز ألعاب بدقة 4K مع دراعات تحكم',
   slug: '4k-gaming-console-with-controllers',
@@ -13,22 +13,13 @@ const product: Omit<Product, 'images'> = {
 - التخزين: بطاقة 64 جيجابايت
 - المحاكيات المدعومة: 9 أنواع`,
   price: 249.99,
+  images: [
+    "https://i.ibb.co/gL383yf6/image-1.jpg",
+    "https://i.ibb.co/4RW8y634/image-2.jpg",
+    "https://i.ibb.co/rKjBsQwx/image-3.jpg",
+    "https://i.ibb.co/gF7h3vWy/image-4.jpg"
+  ],
   category: 'electronics',
-  story: 'هناك سحر خاص في ألعاب الطفولة، بساطتها ومتعتها التي لا تضاهى. هذا الجهاز ليس مجرد وحدة تحكم، بل هو كبسولة زمنية تأخذك في رحلة إلى تلك الأيام الجميلة. آلاف الألعاب التي أحببناها، تنتظرك لتعيد اكتشافها وتشاركها مع الأصدقاء والعائلة، هذه المرة بدقة 4K.',
-  faq: [
-    {
-      question: 'هل أحتاج إلى شراء ألعاب بشكل منفصل؟',
-      answer: 'لا، الجهاز يأتي محملاً مسبقًا بأكثر من 18,500 لعبة كلاسيكية جاهزة للعب مباشرة.'
-    },
-    {
-      question: 'هل أذرع التحكم سلكية أم لاسلكية؟',
-      answer: 'يأتي الجهاز مع وحدتي تحكم (يدين) لاسلكيتين تعملان بتقنية 2.4 جيجا، مما يمنحك حرية الحركة أثناء اللعب.'
-    },
-    {
-      question: 'هل يمكنني حفظ تقدمي في الألعاب؟',
-      answer: 'نعم، الجهاز يدعم خاصية حفظ تقدم اللعبة، حتى تتمكن من إكمال مغامرتك من حيث توقفت.'
-    }
-  ]
 };
 
 export default product;

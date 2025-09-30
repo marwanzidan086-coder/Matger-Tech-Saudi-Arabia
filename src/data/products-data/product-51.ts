@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-51',
   name: 'حامل جوال متعدد الاستخدمات',
   slug: 'multi-use-phone-holder',
@@ -12,23 +12,16 @@ const product: Omit<Product, 'images'> = {
 - الوزن: 218 جرام
 - خاصية الدوران: نعم، 360 درجة`,
   price: 59.99,
+  images: [
+    "https://i.ibb.co/FqWjwnjp/image-1.jpg",
+    "https://i.ibb.co/Y4LBdSC8/image-2.jpg",
+    "https://i.ibb.co/tpGstC4t/image-3.jpg",
+    "https://i.ibb.co/9HhZzpRR/image-4.jpg",
+    "https://i.ibb.co/xtgjSNWV/image-5.jpg",
+    "https://i.ibb.co/BHwcRqC3/image-6.jpg"
+  ],
   category: 'misc',
   warranty: '14 يوم',
-  story: 'أحيانًا، الراحة هي أكبر رفاهية. هذا الحامل ليس مجرد قطعة بلاستيك، بل هو يد ثالثة لم تكن تعلم أنك تحتاجها. يحرر يديك لتستمتع بقهوتك أثناء مشاهدة فيلم، أو لتتبع وصفة طبخ دون أن تلطخ هاتفك. هو أداة بسيطة مصممة لجعل حياتك الرقمية أكثر راحة.',
-  faq: [
-    {
-      question: 'هل هو قوي بما يكفي لحمل جهاز تابلت؟',
-      answer: 'نعم، الحامل مصنوع من مواد قوية ومصمم ليناسب ويحمل الأجهزة حتى حجم 9.5 إنش، بما في ذلك معظم أجهزة التابلت الصغيرة والمتوسطة.'
-    },
-    {
-      question: 'هل ارتدائه حول الرقبة مريح؟',
-      answer: 'الجزء الذي يلامس الرقبة مغطى بمادة ناعمة ومريحة لتقليل الضغط وتوفير الراحة أثناء الاستخدام لفترات طويلة.'
-    },
-    {
-      question: 'هل يمكن استخدامه في السيارة؟',
-      answer: 'بفضل تصميمه المرن، يمكنك تشكيله ليتناسب مع العديد من الأوضاع، بما في ذلك تثبيته على مسند رأس المقعد الأمامي للركاب في الخلف، لكنه غير مخصص للتثبيت على لوحة القيادة.'
-    }
-  ]
 };
 
 export default product;

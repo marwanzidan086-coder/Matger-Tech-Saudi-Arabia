@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-19',
   name: 'كاميرا تصوير أحترافي+ عدسة',
   slug: 'professional-camera-with-lens',
@@ -11,26 +11,18 @@ const product: Omit<Product, 'images'> = {
 - تثبيت إلكتروني لتقليل الاهتزاز.###DETAILS###- الموديل: HD - 05
 - الدقة: 16 ميجا بيكسل
 - الزوم: 16x رقمي
-- الشاشة: 2.4 إنش
-- البطارية: 4 بطاريات AA (غير مرفقة)`,
+- الشاشة: 2.4 إنش`,
   price: 299.99,
+  images: [
+    "https://i.ibb.co/4nfsgykM/image-1.jpg",
+    "https://i.ibb.co/v4vcwbRZ/image-2.jpg",
+    "https://i.ibb.co/TpMMKC8/image-3.jpg",
+    "https://i.ibb.co/FkwrY6ZN/image-4.jpg",
+    "https://i.ibb.co/vCzcmT3m/image-5.jpg",
+    "https://i.ibb.co/mF8JJTyt/image-6.jpg"
+  ],
   category: 'electronics',
   warranty: '14 يوم',
-  story: 'أجمل اللحظات في الحياة لا تحتاج إلى كاميرا باهظة الثمن، بل إلى عين ترى الجمال، وأداة بسيطة تلتقطه. هذه الكاميرا هي بوابتك لعالم التصوير، سهلة الاستخدام وقوية بما يكفي لتحويل مشاهدك اليومية إلى صور فنية. ابدأ رحلتك في توثيق الجمال من حولك.',
-  faq: [
-    {
-      question: 'هل الكاميرا مناسبة للمبتدئين؟',
-      answer: 'نعم، الكاميرا مصممة لتكون سهلة الاستخدام مع تشغيل يدوي بسيط، مما يجعلها خيارًا ممتازًا للمبتدئين في عالم التصوير.'
-    },
-    {
-      question: 'ما نوع البطاريات التي تستخدمها؟',
-      answer: 'الكاميرا تعمل باستخدام 4 بطاريات من نوع AA، وهي متوفرة في كل مكان ويسهل استبدالها.'
-    },
-    {
-      question: 'هل تأتي مع بطاقة ذاكرة؟',
-      answer: 'الكاميرا تدعم بطاقات الذاكرة من نوع SD حتى 32 جيجابايت، ولكن بطاقة الذاكرة لا تأتي مرفقة مع العبوة ويجب شراؤها بشكل منفصل.'
-    }
-  ]
 };
 
 export default product;

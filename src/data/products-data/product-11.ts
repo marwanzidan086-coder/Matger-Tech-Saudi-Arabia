@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-11',
   name: 'محول الجوال الى جهاز كمبيوتر من دينكس',
   slug: 'denx-mobile-to-pc-adapter',
@@ -13,23 +13,19 @@ const product: Omit<Product, 'images'> = {
 - المنافذ: USB, Type-C, SD/TF
 - سرعة النقل: تصل إلى 5Gbps`,
   price: 149.99,
+  images: [
+    "https://i.ibb.co/HL5Xw2pb/image-1.jpg",
+    "https://i.ibb.co/NMxxjj3/image-2.jpg",
+    "https://i.ibb.co/5hb4XwZY/image-3.jpg",
+    "https://i.ibb.co/8Dv1spjV/image-4.jpg",
+    "https://i.ibb.co/HprZ3RpH/image-5.jpg",
+    "https://i.ibb.co/j9FgyFz9/image-6.jpg",
+    "https://i.ibb.co/gZ9hMTc2/image-7.jpg",
+    "https://i.ibb.co/XZpMB36P/image-8.jpg",
+    "https://i.ibb.co/Xx5VsLmc/image-9.jpg"
+  ],
   category: 'electronics',
   warranty: 'عامين',
-  story: 'في جيبك يكمن جهاز كمبيوتر قوي، لكنه مقيد. محول دينكس هو المفتاح الذي يطلق العنان لهذه القوة. هو الجسر الذي يربط عالمك الصغير بشاشات العرض الكبيرة، والملفات، والذواكر الخارجية. حوّل جوالك من مجرد هاتف إلى مركز إنتاجية متكامل، أينما كنت.',
-  faq: [
-    {
-      question: 'هل يدعم المحول العرض على شاشة تلفزيون؟',
-      answer: 'نعم، المحول مزود بمنفذ HDMI يدعم إخراج الفيديو بجودة تصل إلى 4K، مما يتيح لك عرض شاشة جوالك أو لابتوبك على التلفزيون بوضوح عالٍ.'
-    },
-    {
-      question: 'ما هي سرعة نقل الملفات عبر منافذ USB؟',
-      answer: 'يدعم المحول منافذ USB 3.0 التي توفر سرعة نقل بيانات عالية تصل إلى 5Gbps، مما يجعل نقل الملفات الكبيرة سريعًا جدًا.'
-    },
-    {
-      question: 'هل أحتاج لبرامج لتشغيل المحول؟',
-      answer: 'لا، المحول يعمل بمبدأ "وصّل وشغّل" (Plug & Play)، ولا يحتاج إلى تثبيت أي برامج أو تعريفات على جهازك.'
-    }
-  ]
 };
 
 export default product;

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-1',
   name: 'راعى الكشتات فانوس متعدد الاستخدامات مع بور بنك من DLC',
   slug: 'dlc-multi-use-lantern-power-bank',
@@ -15,23 +15,19 @@ const product: Omit<Product, 'images'> = {
 - القدرة: 6 – 10 واط
 - مصدر الطاقة: USB`,
   price: 119.99,
+  images: [
+    "https://i.ibb.co/CD3Dp1F/image-1.jpg",
+    "https://i.ibb.co/HfDj1bdF/image-2.jpg",
+    "https://i.ibb.co/5gjfDBnC/image-3.jpg",
+    "https://i.ibb.co/BVxL8Skb/image-4.jpg",
+    "https://i.ibb.co/JwDjmSmj/image-5.jpg",
+    "https://i.ibb.co/Mx10bt9T/image-6.jpg",
+    "https://i.ibb.co/Fq38mxjy/image-7.jpg",
+    "https://i.ibb.co/nNPb8r0J/image-8.jpg",
+    "https://i.ibb.co/hxBhk8nd/image-9.jpg"
+  ],
   category: 'electronics',
   warranty: 'عامين',
-  story: 'في قلب الصحراء أو في عزلة ليلية، يصبح النور أغلى ما تملك. فانوس "راعي الكشتات" من DLC ليس مجرد ضوء، بل هو شعلة أمان وطاقة لا تنطفئ. صُمم ليثبت بقوة المغناطيس على سيارتك، ويقاوم غدرات الطقس، ويشحن جوالك عندما تكون بأمس الحاجة إليه. هو ليس مجرد فانوس، بل صديق الرحلة الذي لن يخذلك أبداً.',
-  faq: [
-    {
-      question: 'هل الفانوس مقاوم للماء؟',
-      answer: 'نعم، الفانوس مقاوم للمطر والغبار، مما يجعله مثاليًا للاستخدام في الظروف الجوية القاسية وأثناء التخييم.'
-    },
-    {
-      question: 'كيف يتم شحن الفانوس؟',
-      answer: 'يتم شحن الفانوس بسهولة عبر منفذ USB، ويمكنك شحنه من خلال أي مصدر طاقة مثل الباور بانك أو شاحن السيارة.'
-    },
-    {
-      question: 'هل يمكن استخدامه لشحن الهاتف؟',
-      answer: 'نعم، الفانوس يعمل كباور بانك أيضًا ويمكن استخدامه لشحن هاتفك والأجهزة الأخرى عبر منفذ USB.'
-    }
-  ]
 };
 
 export default product;

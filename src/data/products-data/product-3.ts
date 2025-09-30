@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-3',
   name: 'شاشة الفارس 32 بوصة',
   slug: 'alfaris-32-inch-screen',
@@ -15,23 +15,13 @@ const product: Omit<Product, 'images'> = {
 - المنافذ: HDMI + USB
 - القدرة: 48 واط`,
   price: 499.99,
+  images: [
+    "https://i.ibb.co/BKgZS65c/image-1.jpg",
+    "https://i.ibb.co/mrF59py8/image-2.jpg",
+    "https://i.ibb.co/TDYT6CBG/image-3.jpg"
+  ],
   category: 'electronics',
   warranty: '5 سنين',
-  story: 'في عالم مليء بالضجيج، تأتي شاشة الفارس لتعيدك إلى بساطة المتعة. لم نصنعها لتكون مجرد شاشة، بل نافذة على عوالم أخرى. نافذة تعرض لك أفلامك المفضلة بألوانها الحقيقية، وصوت يملأ غرفتك بالدفء دون إزعاج. إنها ليست تكنولوجيا معقدة، بل هي دعوة للاسترخاء والاستمتاع بلحظاتك الخاصة.',
-  faq: [
-    {
-      question: 'ما هي دقة الشاشة؟',
-      answer: 'الشاشة تأتي بدقة HD Ready (720p)، مما يوفر تفاصيل واضحة وصورة نقية للمشاهدة اليومية.'
-    },
-    {
-      question: 'هل يمكن توصيل أجهزة الألعاب بها؟',
-      answer: 'نعم، يمكنك توصيل جميع أجهزة الألعاب الحديثة والقديمة بسهولة عبر منفذ HDMI.'
-    },
-    {
-      question: 'هل يمكن تشغيل الأفلام من فلاش ميموري؟',
-      answer: 'بالتأكيد، الشاشة مزودة بمنفذ USB يسمح لك بتشغيل ملفات الفيديو والصور والموسيقى مباشرة من الفلاش ميموري.'
-    }
-  ]
 };
 
 export default product;

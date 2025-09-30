@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-21',
   name: 'تابلت A20',
   slug: 'a20-tablet',
@@ -14,23 +14,14 @@ const product: Omit<Product, 'images'> = {
 - نظام التشغيل: اندرويد 12
 - البطارية: 5000 مللي أمبير`,
   price: 499.99,
+  images: [
+    "https://i.ibb.co/Tqpj0BmW/image-1.jpg",
+    "https://i.ibb.co/p6WFsp8Y/image-2.jpg",
+    "https://i.ibb.co/v4TFHZ6z/image-3.jpg",
+    "https://i.ibb.co/2xGZHFH/image-4.jpg"
+  ],
   category: 'electronics',
   warranty: '6 أشهر',
-  story: 'في عالم يتطلب منك أن تكون متعدد المهام، تحتاج إلى جهاز يواكب سرعتك. تابلت A20 هو بوابتك للإنتاجية والترفيه. شاشة كبيرة لأفكارك الكبيرة، وذاكرة قوية لتطبيقاتك المتعددة، وبطارية لا تستسلم في منتصف يومك. هو أكثر من مجرد تابلت، هو نافذتك على العالم الرقمي.',
-  faq: [
-    {
-      question: 'هل يأتي التابلت مع ملحقات؟',
-      answer: 'نعم، يأتي التابلت مع حزمة هدايا متكاملة تشمل سماعة بلوتوث، جراب شفاف، شاحن، حامي شاشة، وقلم لمس.'
-    },
-    {
-      question: 'هل يمكن استخدام التابلت كهاتف؟',
-      answer: 'نعم، التابلت يدعم تركيب شريحة اتصال ويدعم شبكات 5G، لذا يمكنك استخدامه لإجراء المكالمات والاتصال بالإنترنت من أي مكان.'
-    },
-    {
-      question: 'ما هو نظام التشغيل على الجهاز؟',
-      answer: 'الجهاز يعمل بنظام تشغيل أندرويد 12، مما يمنحك الوصول إلى ملايين التطبيقات على متجر Google Play.'
-    }
-  ]
 };
 
 export default product;

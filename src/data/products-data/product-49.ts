@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-49',
   name: 'ساعة رياضية ذكية',
   slug: 'smart-sports-watch',
@@ -13,23 +13,18 @@ const product: Omit<Product, 'images'> = {
 - سعة البطارية: 40mAh
 - مقاومة للماء: مناسبة للرذاذ`,
   price: 89.99,
+  images: [
+    "https://i.ibb.co/m5dD3q2V/image-1.jpg",
+    "https://i.ibb.co/pv0xkvyb/image-2.jpg",
+    "https://i.ibb.co/gbDxwg9r/image-3.jpg",
+    "https://i.ibb.co/5XZyHVTc/image-4.jpg",
+    "https://i.ibb.co/B2yp7Bqx/image-5.jpg",
+    "https://i.ibb.co/0RcwYZZm/image-6.jpg",
+    "https://i.ibb.co/BKSmk2nT/image-7.jpg",
+    "https://i.ibb.co/hJNrvmTj/image-8.jpg"
+  ],
   category: 'health',
   warranty: '14 يوم',
-  story: 'كل خطوة تخطوها مهمة، وكل نبضة قلب تحكي قصة. هذه الساعة ليست مجرد إكسسوار، بل هي مدربك الشخصي ومساعدك الذكي. هي تذكرك بالحركة، تراقب نومك، وتحتفل معك بكل هدف تحققه. إنها أداة بسيطة تساعدك على كتابة قصة أكثر صحة وسعادة.',
-  faq: [
-    {
-      question: 'هل أحتاج إلى شحنها كل يوم؟',
-      answer: 'لا، تتميز الساعة ببطارية فعالة جدًا تدوم لأيام عديدة من الاستخدام العادي، وتصل إلى أكثر من 15 يومًا في وضع الاستعداد.'
-    },
-    {
-      question: 'هل تعمل مع تطبيق صحتي أو Google Fit؟',
-      answer: 'تعمل الساعة مع تطبيقها الخاص (Veryfit 2.0)، والذي يمكنك من مزامنة بياناتك وتتبع تقدمك. قد لا تتزامن مباشرة مع تطبيقات صحية أخرى.'
-    },
-    {
-      question: 'هل الشاشة ملونة؟',
-      answer: 'نعم، الساعة تأتي بشاشة ملونة تعرض المعلومات بوضوح مثل الوقت، عدد الخطوات، ونبضات القلب.'
-    }
-  ]
 };
 
 export default product;

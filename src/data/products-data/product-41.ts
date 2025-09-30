@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-41',
   name: 'محطة الراعي والمكشات 7 أمبير',
   slug: 'pastor-camping-station-7a',
@@ -12,23 +12,16 @@ const product: Omit<Product, 'images'> = {
 - اللوح الشمسي: 18 فولت / 12 واط
 - مخرج USB: 5 فولت / 2 أمبير`,
   price: 329.99,
+  images: [
+    "https://i.ibb.co/TMCNd4jK/image-1.jpg",
+    "https://i.ibb.co/YTLmSZNy/image-2.jpg",
+    "https://i.ibb.co/tM7Fpq0F/image-3.jpg",
+    "https://i.ibb.co/mntJwfQ/image-4.jpg",
+    "https://i.ibb.co/231d92SH/image-5.jpg",
+    "https://i.ibb.co/bMZPSpdY/image-6.jpg"
+  ],
   category: 'home',
   warranty: '14 يوم',
-  story: 'عندما تكون بعيدًا عن صخب المدينة، آخر ما تريده هو القلق بشأن الكهرباء. هذه المحطة الصغيرة هي استقلالك عن الشبكة. هي قطعة من الشمس تضعها في حقيبتك، تضيء خيمتك، وتشحن هاتفك، لتبقى على اتصال بالعالم أو لتستمتع بعزلتك بسلام.',
-  faq: [
-    {
-      question: 'كم لمبة تأتي مع المحطة؟',
-      answer: 'تأتي المحطة مع 4 لمبات LED، كل لمبة بقوة 3 واط ومزودة بكابل طويل.'
-    },
-    {
-      question: 'هل يمكن شحن المحطة من كهرباء المنزل؟',
-      answer: 'نعم، بالإضافة إلى الشحن بالطاقة الشمسية، تأتي المحطة مع شاحن كهربائي عادي لشحنها من أي مقبس كهرباء قبل الخروج للرحلات.'
-    },
-    {
-      question: 'كم من الوقت يستغرق شحنها بالكامل؟',
-      answer: 'تحتاج المحطة من 10 إلى 12 ساعة من التعرض المباشر لأشعة الشمس لشحن البطارية بالكامل.'
-    }
-  ]
 };
 
 export default product;

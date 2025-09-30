@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-2',
   name: 'كشاف دينكس الأكبر حجما',
   slug: 'denx-large-solar-spotlight',
@@ -14,23 +14,16 @@ const product: Omit<Product, 'images'> = {
 - سعة البطارية: 25000mAh ليثيوم
 - معيار الحماية: IP67 ضد الماء والغبار`,
   price: 249.99,
+  images: [
+    "https://i.ibb.co/r2rr2C8W/image-1.jpg",
+    "https://i.ibb.co/6c4876VS/image-2.jpg",
+    "https://i.ibb.co/tTznjckD/image-3.jpg",
+    "https://i.ibb.co/x4D3kGC/image-4.jpg",
+    "https://i.ibb.co/JRN3gw3d/image-5.jpg",
+    "https://i.ibb.co/VcgWrf49/image-6.jpg"
+  ],
   category: 'electronics',
   warranty: 'عامين',
-  story: 'تخيل أن حديقتك أو مزرعتك تضاء كل ليلة بقوة الشمس، دون أن تدفع ريالًا واحدًا للكهرباء. هذا ليس حلمًا، بل هو الواقع مع كشاف دينكس. صممناه ليكون حارسك الليلي، يستيقظ مع غروب الشمس، ويرصد كل حركة، ويصمد أمام أقسى العواصف. هو استثمار في الأمان والراحة وجمال المكان.',
-  faq: [
-    {
-      question: 'كم ساعة يعمل الكشاف بعد شحنة كاملة؟',
-      answer: 'الكشاف يعمل لمدة تصل إلى 16 ساعة متواصلة بعد شحنه بالكامل من الطاقة الشمسية.'
-    },
-    {
-      question: 'هل الكشاف يعمل تلقائيًا؟',
-      answer: 'نعم، الكشاف مزود بإضاءة ذكية تجعله يعمل تلقائيًا عند غروب الشمس وينطفئ عند الشروق، كما يحتوي على حساس حركة.'
-    },
-    {
-      question: 'هل يمكن التحكم في الكشاف عن بعد؟',
-      answer: 'نعم، يأتي مع الكشاف ريموت كنترول للتحكم في أوضاع الإضاءة وقوتها عن بعد.'
-    }
-  ]
 };
 
 export default product;

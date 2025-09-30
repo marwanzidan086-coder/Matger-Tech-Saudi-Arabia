@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-20',
   name: 'ساعة يد ذكية بشاشة كاملة',
   slug: 'full-screen-smart-watch',
@@ -13,22 +13,14 @@ const product: Omit<Product, 'images'> = {
 - الشاشة: 1.54 HD IPS
 - الشحن: لاسلكي`,
   price: 159.99,
+  images: [
+    "https://i.ibb.co/zH7n13HL/image-1.jpg",
+    "https://i.ibb.co/pm4pv9x/image-2.jpg",
+    "https://i.ibb.co/x4yLk64/image-3.jpg",
+    "https://i.ibb.co/HTb1QLY7/image-4.png",
+    "https://i.ibb.co/dJrVN4qC/image-5.jpg"
+  ],
   category: 'health',
-  story: 'معصمك يستحق أكثر من مجرد ساعة تخبرك بالوقت. يستحق شريكًا ذكيًا يراقب صحتك، يبقيك على اتصال بعالمك، ويعكس أناقتك. هذه الساعة هي مركز التحكم الشخصي الخاص بك، تضع قوة هاتفك ومؤشرات صحتك على معصمك، في تصميم أنيق وشاشة نابضة بالحياة.',
-  faq: [
-    {
-      question: 'هل يمكنني الرد على المكالمات من الساعة؟',
-      answer: 'نعم، بعد ربط الساعة بهاتفك عبر البلوتوث، يمكنك استقبال وإجراء المكالمات مباشرة من الساعة.'
-    },
-    {
-      question: 'هل تدعم اللغة العربية؟',
-      answer: 'نعم، الساعة تدعم عرض الإشعارات والقوائم باللغة العربية بشكل كامل.'
-    },
-    {
-      question: 'كيف يتم شحن الساعة؟',
-      answer: 'يتم شحن الساعة لاسلكيًا باستخدام الشاحن المرفق معها، مما يوفر تجربة شحن سهلة ومريحة.'
-    }
-  ]
 };
 
 export default product;

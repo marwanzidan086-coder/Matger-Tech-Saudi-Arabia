@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-4',
   name: 'جهاز ألعاب حديث R36S',
   slug: 'r36s-retro-gaming-console',
@@ -16,22 +16,14 @@ const product: Omit<Product, 'images'> = {
 - الشاشة: 3.5 إنش (640×480)
 - البطارية: 3500mAh`,
   price: 299.99,
+  images: [
+    "https://i.ibb.co/SDpYCVPF/image-1.jpg",
+    "https://i.ibb.co/HT3WQm1g/image-2.jpg",
+    "https://i.ibb.co/PHV4zGL/image-3.jpg",
+    "https://i.ibb.co/RkCKQx8M/image-4.jpg",
+    "https://i.ibb.co/prn9QfBC/image-5.jpg"
+  ],
   category: 'electronics',
-  story: 'هل تتذكر تلك الأيام التي كنا نجتمع فيها حول التلفاز القديم، ننتظر دورنا لنلعب لعبتنا المفضلة؟ جهاز R36S ليس مجرد جهاز ألعاب، بل هو آلة زمن تعيدك لتلك اللحظات السعيدة. جمعنا لك آلاف الألعاب التي شكلت طفولتنا في جهاز واحد محمول، لتسترجع تلك الذكريات وتشاركها مع جيل جديد.',
-  faq: [
-    {
-      question: 'هل الجهاز يحتوي على ألعاب مدمجة؟',
-      answer: 'نعم، الجهاز يأتي محملاً بأكثر من 10,000 لعبة كلاسيكية من مختلف الأنظمة القديمة.'
-    },
-    {
-      question: 'كم تدوم البطارية؟',
-      answer: 'بطارية الجهاز بسعة 3500mAh وتدوم لعدة ساعات من اللعب المتواصل حسب نوع اللعبة وسطوع الشاشة.'
-    },
-    {
-      question: 'هل يمكنني إضافة ألعاب جديدة؟',
-      answer: 'نعم، الجهاز يعمل بنظام مفتوح المصدر ويحتوي على ذاكرة 128 جيجا، مما يسمح للمستخدمين المتقدمين بإضافة ألعاب جديدة.'
-    }
-  ]
 };
 
 export default product;

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-44',
   name: 'محول الجوال إلى جهاز كمبيوتر',
   slug: 'mobile-to-pc-adapter-yesido',
@@ -13,22 +13,14 @@ const product: Omit<Product, 'images'> = {
 - عدد المنافذ: 6 منافذ
 - موديل الجهاز: HB10`,
   price: 119.99,
+  images: [
+    "https://i.ibb.co/zhxb5tRj/image-1.jpg",
+    "https://i.ibb.co/FbwBpfdb/image-2.jpg",
+    "https://i.ibb.co/YF6FdC5p/image-3.jpg",
+    "https://i.ibb.co/tTfN1mfj/image-4.jpg",
+    "https://i.ibb.co/hxNLKdGY/image-5.jpg"
+  ],
   category: 'electronics',
-  story: 'في جيبك يكمن جهاز كمبيوتر قوي، لكنه مقيد. محول Yesido هو المفتاح الذي يطلق العنان لهذه القوة. هو الجسر الذي يربط عالمك الصغير بشاشات العرض الكبيرة، والملفات، والذواكر الخارجية. حوّل جوالك من مجرد هاتف إلى مركز إنتاجية متكامل، أينما كنت.',
-  faq: [
-    {
-      question: 'هل يدعم المحول أجهزة الماك بوك؟',
-      answer: 'نعم، المحول متوافق تمامًا مع أجهزة الماك بوك والأجهزة الأخرى التي تستخدم منفذ Type-C.'
-    },
-    {
-      question: 'هل يمكنني توصيل فلاش ميموري وقراءة كرت ذاكرة في نفس الوقت؟',
-      answer: 'نعم، يمكنك استخدام جميع المنافذ الستة في نفس الوقت، بما في ذلك منافذ USB وقارئ بطاقات SD و Micro SD.'
-    },
-    {
-      question: 'هل أحتاج لبرامج لتشغيل المحول؟',
-      answer: 'لا، المحول يعمل بمبدأ "وصّل وشغّل" (Plug & Play)، ولا يحتاج إلى تثبيت أي برامج أو تعريفات على جهازك.'
-    }
-  ]
 };
 
 export default product;

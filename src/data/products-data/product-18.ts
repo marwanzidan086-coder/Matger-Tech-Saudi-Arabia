@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-18',
   name: 'عرض اليوم الوطني السعودي (حقيبة - ساعة - سماعة - باور بنك)',
   slug: 'saudi-national-day-bundle',
@@ -13,22 +13,15 @@ const product: Omit<Product, 'images'> = {
 - الحقيبة: yunfan, منفذ USB
 - السماعة: Type-C سلكية`,
   price: 249.99,
+  images: [
+    "https://i.ibb.co/pBg3Y6Zw/image-1.jpg",
+    "https://i.ibb.co/Ngtp7r7z/image-2.jpg",
+    "https://i.ibb.co/zVJdMHRQ/image-3.jpg",
+    "https://i.ibb.co/8Dc4L8CM/image-4.jpg",
+    "https://i.ibb.co/tpBbhLFs/image-5.jpg",
+    "https://i.ibb.co/9Jqc9Wp/image-6.jpg"
+  ],
   category: 'misc',
-  story: 'كل يوم هو رحلة، وهذه المجموعة هي عتادك الكامل لهذه الرحلة. حقيبة لتحمل طموحاتك، وباور بانك لتبقى طاقتك متقدة، وساعة لتذكرك بأهمية كل لحظة، وسماعة لتعزلك عن الضجيج وتبقى مركزًا على هدفك. هذا ليس مجرد عرض، بل هو تجهيز متكامل ليومك.',
-  faq: [
-    {
-      question: 'ما فائدة منفذ USB في الحقيبة؟',
-      answer: 'يمكنك وضع الباور بانك داخل الحقيبة وتوصيله بالمنفذ الداخلي، ثم شحن هاتفك من المنفذ الخارجي للحقيبة بسهولة أثناء تنقلك.'
-    },
-    {
-      question: 'هل الساعة الذكية مقاومة للماء؟',
-      answer: 'الساعة مقاومة لرذاذ الماء والعرق، مما يجعلها مناسبة للأنشطة اليومية والرياضية الخفيفة، ولكنها غير مخصصة للسباحة أو الغطس.'
-    },
-    {
-      question: 'هل الباور بانك يدعم الشحن السريع؟',
-      answer: 'نعم، الباور بانك من دينيكس ويدعم الشحن السريع بقوة 30 واط، مما يضمن شحن أجهزتك في وقت قصير.'
-    }
-  ]
 };
 
 export default product;

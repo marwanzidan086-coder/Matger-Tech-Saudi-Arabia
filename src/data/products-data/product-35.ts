@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-35',
   name: 'شريحة لتقوية شبكة الجوال',
   slug: 'mobile-signal-booster-sticker',
@@ -12,23 +12,17 @@ const product: Omit<Product, 'images'> = {
 - الوزن: 10 جرام
 - متوافقة مع: جميع الأجهزة الذكية`,
   price: 49.99,
+  images: [
+    "https://i.ibb.co/nGwBDnx/image-1.jpg",
+    "https://i.ibb.co/C530MZty/image-2.jpg",
+    "https://i.ibb.co/R4ZzfcfH/image-3.jpg",
+    "https://i.ibb.co/fGS1DQBr/image-4.jpg",
+    "https://i.ibb.co/GvSS875D/image-5.jpg",
+    "https://i.ibb.co/q3s28j10/image-6.jpg",
+    "https://i.ibb.co/xS3DmMfH/image-7.jpg"
+  ],
   category: 'misc',
   warranty: '14 يوم',
-  story: 'في بعض الأحيان، تكون أبسط الحلول هي الأكثر عبقرية. هذه الشريحة الصغيرة هي دليل على ذلك. هي ليست جهازًا معقدًا، بل لاصق ذكي يلتقط الإشارات الضائعة ويعيد توجيهها إلى هاتفك، ليضمن أن مكالمتك المهمة لن تنقطع في اللحظة الحاسمة. هو حل بسيط لمشكلة معقدة.',
-  faq: [
-    {
-      question: 'كيف تعمل هذه الشريحة؟',
-      answer: 'تعمل الشريحة كهوائي سلبي صغير، حيث تقوم بالتقاط الإشارات الضعيفة للشبكة وتركيزها نحو هوائي الهاتف، مما يساعد على تحسين جودة الاستقبال.'
-    },
-    {
-      question: 'أين يجب أن أضع الشريحة على هاتفي؟',
-      answer: 'أفضل مكان لوضعها هو على الجزء الخلفي من الهاتف، بالقرب من مكان وجود هوائي الشبكة الداخلي، ولكنها تعمل بشكل جيد في أي مكان على ظهر الجهاز.'
-    },
-    {
-      question: 'هل تعمل مع شبكات 5G؟',
-      answer: 'الشريحة مصممة لتحسين استقبال الإشارات بشكل عام، ويمكن أن تساعد في تحسين استقرار الاتصال على جميع الشبكات بما في ذلك 4G و 5G في المناطق ذات التغطية الضعيفة.'
-    }
-  ]
 };
 
 export default product;

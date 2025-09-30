@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-17',
   name: 'سماعة أيربودز i12 TWS',
   slug: 'i12-tws-airpods',
@@ -11,26 +11,17 @@ const product: Omit<Product, 'images'> = {
 - علبة الشحن توفر شحن إضافي.###DETAILS###- الموديل: i12 TWS
 - إصدار البلوتوث: 5.0
 - مدة التشغيل: من 2 إلى 3 ساعات
-- زمن الشحن: ساعة ونص تقريبًا
-- اللون: أبيض`,
+- زمن الشحن: ساعة ونص تقريبًا`,
   price: 69.99,
+  images: [
+    "https://i.ibb.co/dJ0j5yK7/image-1.jpg",
+    "https://i.ibb.co/vxRF1pXK/image-2.jpg",
+    "https://i.ibb.co/tPvnHTSD/image-3.jpg",
+    "https://i.ibb.co/b5pL2CSL/image-4.jpg",
+    "https://i.ibb.co/3mcHtGqP/image-5.jpg"
+  ],
   category: 'electronics',
   warranty: '14 يوم',
-  story: 'الجودة العالية لا تعني دائمًا السعر المرتفع. سماعات i12 TWS هي الدليل على ذلك. صممناها لتقدم تجربة صوتية نقية ومريحة للجميع. هي بوابتك للدخول إلى عالم الصوت اللاسلكي، بتصميم بسيط وأداء يمكنك الاعتماد عليه كل يوم.',
-  faq: [
-    {
-      question: 'هل السماعات متوافقة مع هاتفي؟',
-      answer: 'نعم، بفضل تقنية بلوتوث 5.0، السماعات متوافقة مع جميع هواتف آيفون وأندرويد وأي جهاز آخر يدعم البلوتوث.'
-    },
-    {
-      question: 'كيف يتم التحكم في الموسيقى والمكالمات؟',
-      answer: 'تدعم السماعات التحكم باللمس. يمكنك بلمسة واحدة تشغيل أو إيقاف الموسيقى، وبلمستين تخطي المقطع، والرد على المكالمات أو إنهائها بلمسة طويلة.'
-    },
-    {
-      question: 'كم من الوقت تستغرق لإعادة شحنها؟',
-      answer: 'تستغرق السماعات وعلبة الشحن حوالي ساعة ونصف للشحن الكامل.'
-    }
-  ]
 };
 
 export default product;

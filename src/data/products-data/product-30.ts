@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-30',
   name: 'كافر جوال وباوربنك لحماية أيفون 13 pro max',
   slug: 'iphone-13-pro-max-power-bank-case',
@@ -13,22 +13,13 @@ const product: Omit<Product, 'images'> = {
 - الخامة: ABS + TPU
 - نوع البطارية: ليثيوم بوليمر`,
   price: 169.99,
+  images: [
+    "https://i.ibb.co/dsBTnLV8/image-1.jpg",
+    "https://i.ibb.co/93sG80Yn/image-5.jpg",
+    "https://i.ibb.co/C53Q8f5M/image-4.jpg",
+    "https://i.ibb.co/WvKyhYkt/image-2.jpg"
+  ],
   category: 'electronics',
-  story: 'جهاز الآيفون الخاص بك ثمين، وبطاريته هي شريان حياته. هذا الكفر ليس مجرد درع يحميه، بل هو قلب إضافي ينبض بالطاقة. صممناه ليكون امتدادًا طبيعيًا لهاتفك، يمنحه الحماية التي يستحقها، والقوة التي يحتاجها ليكمل معك يومك الطويل دون توقف.',
-  faq: [
-    {
-      question: 'كم مرة يستطيع الكفر شحن الآيفون بالكامل؟',
-      answer: 'بسعة 6800mAh، يمكن للكفر أن يشحن هاتف آيفون 13 برو ماكس مرة كاملة تقريبًا، مما يمنحك ضعف عمر البطارية.'
-    },
-    {
-      question: 'هل يؤثر الكفر على وزن أو حجم الهاتف بشكل كبير؟',
-      answer: 'تم تصميم الكفر ليكون نحيفًا وخفيف الوزن قدر الإمكان، بحيث يوفر الطاقة والحماية دون إضافة حجم كبير مزعج للهاتف.'
-    },
-    {
-      question: 'كيف أعرف كمية الشحن المتبقية في الكفر؟',
-      answer: 'الكفر مزود بشاشة LED خلفية تعرض مستوى الشحن المتبقي في البطارية المدمجة بوضوح.'
-    }
-  ]
 };
 
 export default product;

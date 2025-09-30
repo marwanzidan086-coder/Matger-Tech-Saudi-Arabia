@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-26',
   name: 'ساعة سمارت Ultra T8',
   slug: 'smart-watch-ultra-t8',
@@ -13,22 +13,14 @@ const product: Omit<Product, 'images'> = {
 - البلوتوث: BT 3.5 / 5.0
 - البطارية: 320 مللي أمبير`,
   price: 199.99,
+  images: [
+    "https://i.ibb.co/Rp68R9Bp/image-1.jpg",
+    "https://i.ibb.co/9X8Cw5p/image-2.jpg",
+    "https://i.ibb.co/ZpGwFt4j/image-3.jpg",
+    "https://i.ibb.co/9H9fP1Mz/image-4.jpg",
+    "https://i.ibb.co/3ykrbH80/image-5.jpg"
+  ],
   category: 'health',
-  story: 'الأناقة ليست فقط في المظهر، بل في الذكاء والقوة. ساعة Ultra T8 هي تجسيد لهذه الفكرة. هي ليست مجرد إكسسوار، بل مساعد شخصي على معصمك، يراقب صحتك، ينظم اتصالاتك، ويضيف لمسة من التميز على إطلالتك. إنها دعوة لتعيش حياة أكثر ذكاءً وأناقة.',
-  faq: [
-    {
-      question: 'هل الساعة متوافقة مع هاتفي؟',
-      answer: 'نعم، الساعة متوافقة مع جميع هواتف آيفون وأندرويد عبر البلوتوث.'
-    },
-    {
-      question: 'هل يمكنني تغيير سير (حزام) الساعة؟',
-      answer: 'نعم، تصميم الساعة متوافق مع أحزمة ساعات آبل من نفس المقاس، مما يتيح لك تغييرها بسهولة لتناسب ذوقك.'
-    },
-    {
-      question: 'هل تدعم الساعة اللغة العربية؟',
-      answer: 'نعم، الساعة تدعم اللغة العربية بشكل كامل في القوائم والإشعارات.'
-    }
-  ]
 };
 
 export default product;

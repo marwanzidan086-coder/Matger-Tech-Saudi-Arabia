@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-50',
   name: 'بنك طاقة لاسلكي 10000 مللي أمبير',
   slug: 'yosonda-10000mah-wireless-power-bank',
@@ -13,22 +13,14 @@ const product: Omit<Product, 'images'> = {
 - البطارية: 10000 مللي أمبير
 - المخرج اللاسلكي: 10 واط`,
   price: 119.99,
+  images: [
+    "https://i.ibb.co/y1qzgYW/image-1.jpg",
+    "https://i.ibb.co/mC05vmjK/image-2.jpg",
+    "https://i.ibb.co/tPWLs2jy/image-3.jpg",
+    "https://i.ibb.co/MkQCsXcw/image-4.jpg",
+    "https://i.ibb.co/cKtDkFjZ/image-5.png"
+  ],
   category: 'electronics',
-  story: 'الفوضى هي عدو الراحة. هذا الباور بانك هو الحل الأمثل لفوضى الكابلات. يجمع كل ما تحتاجه في جهاز واحد أنيق: شحن لاسلكي، كابلات مدمجة لجميع الأجهزة، وسعة كافية ليوم كامل. هو ليس مجرد شاحن، بل هو نظام متكامل للطاقة يحررك من قيود الأسلاك.',
-  faq: [
-    {
-      question: 'هل يمكنني شحن هاتفي لاسلكيًا إذا كان به جراب (كفر)؟',
-      answer: 'نعم، يمكنك الشحن اللاسلكي لمعظم الجرابات غير المعدنية والتي لا يتجاوز سمكها 5 مم.'
-    },
-    {
-      question: 'ما فائدة الشفاطات الموجودة على سطح الشاحن؟',
-      answer: 'تعمل الشفاطات على تثبيت هاتفك بإحكام على سطح الشاحن اللاسلكي، مما يضمن استمرار عملية الشحن دون انقطاع حتى أثناء الحركة.'
-    },
-    {
-      question: 'كم جهاز يمكنني شحنه في نفس الوقت؟',
-      answer: 'يمكنك شحن ما يصل إلى 4 أجهزة في نفس الوقت باستخدام الشاحن اللاسلكي والكابلات المدمجة الثلاثة.'
-    }
-  ]
 };
 
 export default product;

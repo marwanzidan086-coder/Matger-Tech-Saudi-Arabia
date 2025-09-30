@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-5',
   name: 'بور بنك وكشاف بالطاقة الشمسية من دينكس',
   slug: 'denx-solar-power-bank-spotlight',
@@ -14,23 +14,15 @@ const product: Omit<Product, 'images'> = {
 - مخرج لاسلكي: 5V/1A
 - قدرة الطاقة الشمسية: 5V/0.3A`,
   price: 159.99,
+  images: [
+    "https://i.ibb.co/Sk1zFZm/image-1.jpg",
+    "https://i.ibb.co/RksbMBz9/image-2.jpg",
+    "https://i.ibb.co/1Jr7DGSc/image-3.jpg",
+    "https://i.ibb.co/qYzFJRKf/image-4.jpg",
+    "https://i.ibb.co/JwRV3X7Y/image-5.jpg"
+  ],
   category: 'electronics',
   warranty: 'عامين',
-  story: 'في كل رحلة، هناك لحظة تقلق فيها على بطارية هاتفك. بور بنك دينكس الشمسي وُلد من رحم هذه الحاجة. هو ليس مجرد شاحن، بل هو رفيق درب يعتمد على أقوى مصدر للطاقة في الكون: الشمس. سواء كنت تائهًا في الصحراء أو مستمتعًا على شاطئ البحر، هو وعد بأن تبقى دائمًا على اتصال.',
-  faq: [
-    {
-      question: 'هل يمكن الاعتماد على الطاقة الشمسية فقط لشحنه؟',
-      answer: 'نعم، يمكنك شحنه بالكامل عبر الألواح الشمسية القابلة للطي، ولكنه يدعم الشحن الكهربائي العادي أيضًا لشحنه بشكل أسرع قبل الرحلات.'
-    },
-    {
-      question: 'كم جهاز يمكنني شحنه في نفس الوقت؟',
-      answer: 'يمكنك شحن عدة أجهزة في نفس الوقت باستخدام المنافذ المتعددة (مايكرو، تايب سي، آيفون، USB) بالإضافة إلى الشحن اللاسلكي.'
-    },
-    {
-      question: 'هل الشحن اللاسلكي سريع؟',
-      answer: 'نعم، الباور بنك يدعم الشحن اللاسلكي السريع والمريح لمعظم الهواتف التي تدعم هذه الميزة.'
-    }
-  ]
 };
 
 export default product;

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-31',
   name: 'محطة شحن صغيرة',
   slug: 'mini-charging-station',
@@ -13,23 +13,17 @@ const product: Omit<Product, 'images'> = {
 - مدة التشغيل: 4 ساعات تقريبًا
 - مخرج الشحن USB: 5 فولت / 1 أمبير`,
   price: 249.99,
+  images: [
+    "https://i.ibb.co/m5TLGFbs/image-1.jpg",
+    "https://i.ibb.co/My38bG4C/image-2.jpg",
+    "https://i.ibb.co/zhbw7s4d/image-3.jpg",
+    "https://i.ibb.co/bjq3vZ1x/image-4.jpg",
+    "https://i.ibb.co/N2Pm7Sxx/image-5.jpg",
+    "https://i.ibb.co/s91DD9CW/image-6.jpg",
+    "https://i.ibb.co/jPMYJKxv/image-7.jpg"
+  ],
   category: 'home',
   warranty: '14 يوم',
-  story: 'عندما تكون بعيدًا عن صخب المدينة، آخر ما تريده هو القلق بشأن الكهرباء. هذه المحطة الصغيرة هي استقلالك عن الشبكة. هي قطعة من الشمس تضعها في حقيبتك، تضيء خيمتك، وتشحن هاتفك، لتبقى على اتصال بالعالم أو لتستمتع بعزلتك بسلام.',
-  faq: [
-    {
-      question: 'كم لمبة تأتي مع المحطة؟',
-      answer: 'تأتي المحطة مع 3 لمبات LED، كل لمبة بقوة 3 واط ومزودة بكابل طوله 3 أمتار.'
-    },
-    {
-      question: 'هل يمكن شحن المحطة من كهرباء المنزل؟',
-      answer: 'نعم، بالإضافة إلى الشحن بالطاقة الشمسية، تأتي المحطة مع شاحن كهربائي عادي لشحنها من أي مقبس كهرباء قبل الخروج للرحلات.'
-    },
-    {
-      question: 'ما هي مدة عمل اللمبات؟',
-      answer: 'عند شحن المحطة بالكامل، يمكن للمبات أن تعمل لمدة 4 ساعات تقريبًا، حسب عدد اللمبات المستخدمة ومستوى السطوع.'
-    }
-  ]
 };
 
 export default product;

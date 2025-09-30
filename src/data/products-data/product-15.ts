@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-15',
   name: 'بور بنك بكشاف بالطاقة الشمسية 5 أوضاع إضاءة',
   slug: 'solar-power-bank-with-spotlight',
@@ -14,23 +14,17 @@ const product: Omit<Product, 'images'> = {
 - شدة السطوع: 6000 لومن
 - عمر المصباح: 50,000 ساعة`,
   price: 139.99,
+  images: [
+    "https://i.ibb.co/9kHb8Tsn/image-1.jpg",
+    "https://i.ibb.co/qY5Np1nN/image-2.jpg",
+    "https://i.ibb.co/dJ0Xq3Mp/image-3.jpg",
+    "https://i.ibb.co/WTY5Wm3/image-4.jpg",
+    "https://i.ibb.co/MDyB41C1/image-5.jpg",
+    "https://i.ibb.co/cX24Bg8w/image-6.jpg",
+    "https://i.ibb.co/ZRcXVYQf/image-7.jpg"
+  ],
   category: 'electronics',
   warranty: '14 يوم',
-  story: 'في الظلام، أنت لا تحتاج إلى ضوء فقط، بل تحتاج إلى أمل. هذا الجهاز هو شعلة الأمل التي تعمل بقوة الشمس. هو ليس مجرد كشاف، بل هو محطة طاقة صغيرة تضيء طريقك، وتشحن هاتفك، وتصمد معك في وجه المطر. هو رفيقك الذي لا غنى عنه في كل مغامرة وكل حالة طارئة.',
-  faq: [
-    {
-      question: 'هل يمكن استخدامه لشحن الهواتف؟',
-      answer: 'نعم، الجهاز مزود بمنفذ USB يمكن استخدامه في حالات الطوارئ لشحن الهواتف والأجهزة الإلكترونية الصغيرة.'
-    },
-    {
-      question: 'هل هو مناسب للاستخدام في المطر؟',
-      answer: 'نعم، الجهاز مصمم ليكون مقاومًا للماء ومناسبًا للاستخدام في جميع الظروف الجوية الخارجية.'
-    },
-    {
-      question: 'كم وضع للإضاءة يوجد به؟',
-      answer: 'يحتوي على 5 أوضاع إضاءة مختلفة، بما في ذلك الأوضاع القوية، والمتوسطة، ووضع الطوارئ (فلاش)، لتناسب جميع احتياجاتك.'
-    }
-  ]
 };
 
 export default product;

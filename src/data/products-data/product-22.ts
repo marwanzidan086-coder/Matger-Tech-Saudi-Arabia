@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-22',
   name: 'ساعة سمارت ULTRA',
   slug: 'ultra-smart-watch',
@@ -13,22 +13,16 @@ const product: Omit<Product, 'images'> = {
 - البطارية: 320 مللي أمبير
 - الشحن: لاسلكي`,
   price: 189.99,
+  images: [
+    "https://i.ibb.co/3mvjDSmQ/image-1.jpg",
+    "https://i.ibb.co/3ykxrScK/image-2.jpg",
+    "https://i.ibb.co/RkdqBYs2/image-3.jpg",
+    "https://i.ibb.co/21Vf0N1t/image-4.jpg",
+    "https://i.ibb.co/hxMhnB6d/image-5.jpg",
+    "https://i.ibb.co/whVRFnkH/image-6.jpg",
+    "https://i.ibb.co/QFRT5pbg/image-7.jpg"
+  ],
   category: 'health',
-  story: 'ساعة Ultra ليست مجرد أداة لمعرفة الوقت، بل هي لوحة قيادة لصحتك وحياتك الرقمية، ترتديها على معصمك. بتصميمها الذي يجمع بين القوة والأناقة، ومميزاتها التي تراقب أدق تفاصيل صحتك، هي تذكير دائم بأن وقتك وصحتك هما أثمن ما تملك.',
-  faq: [
-    {
-      question: 'هل تدعم الساعة استقبال إشعارات واتساب؟',
-      answer: 'نعم، الساعة تستقبل جميع إشعارات التطبيقات من هاتفك، بما في ذلك واتساب، فيسبوك، سناب شات وغيرها.'
-    },
-    {
-      question: 'هل قياسات ضغط الدم والأكسجين دقيقة؟',
-      answer: 'الساعة توفر مؤشرات حيوية للمتابعة الشخصية، ولكنها لا تعتبر جهازًا طبيًا. للحصول على قياسات طبية دقيقة، يجب دائمًا استشارة الطبيب.'
-    },
-    {
-      question: 'هل يمكن تغيير خلفية الساعة؟',
-      answer: 'نعم، يمكنك الاختيار من بين العديد من الخلفيات المدمجة، كما يمكنك إضافة أي صورة من معرض صور هاتفك كخلفية للساعة.'
-    }
-  ]
 };
 
 export default product;

@@ -1,6 +1,6 @@
 import { type Product } from '@/lib/types';
 
-const product: Omit<Product, 'images'> = {
+const product: Product = {
   id: 'product-38',
   name: 'حقيبة السفر وطلعات البر',
   slug: 'travel-and-outdoor-backpack',
@@ -13,22 +13,15 @@ const product: Omit<Product, 'images'> = {
 - السعة: 36 إلى 59 لتر
 - الأبعاد: 32 × 15 × 44 سم`,
   price: 199.99,
+  images: [
+    "https://i.ibb.co/35tXsypG/image-1.jpg",
+    "https://i.ibb.co/Hp96gYkD/image-2.jpg",
+    "https://i.ibb.co/ds2RngB6/image-3.jpg",
+    "https://i.ibb.co/CFFPN6D/image-4.jpg",
+    "https://i.ibb.co/xtDf43kg/image-5.jpg",
+    "https://i.ibb.co/rGD3xrjP/image-6.jpg"
+  ],
   category: 'misc',
-  story: 'الحقيبة ليست مجرد مكان لوضع الأغراض، بل هي بيتك المتنقل. هذه الحقيبة صُممت لتفهم احتياجات الرحالة والمغامرين. جيب لكل شيء، ومكان لكل غرض. من لابتوبك إلى حذائك، كل شيء منظم وآمن وجاف. هي ليست مجرد حقيبة، بل هي رفيق منظم وموثوق لكل رحلاتك.',
-  faq: [
-    {
-      question: 'هل الحقيبة مناسبة كحقيبة يد في الطائرة؟',
-      answer: 'نعم، أبعاد الحقيبة تتوافق مع معظم قيود شركات الطيران لحقائب اليد، مما يجعلها مثالية للسفر.'
-    },
-    {
-      question: 'ما فائدة جيب الأحذية المنفصل؟',
-      answer: 'يسمح لك جيب الأحذية المنفصل بوضع حذائك المتسخ أو الرطب بعيدًا عن ملابسك النظيفة وأجهزتك الإلكترونية، كما أنه مزود بفتحات تهوية لمنع الروائح.'
-    },
-    {
-      question: 'هل تحمي اللابتوب بشكل جيد؟',
-      answer: 'نعم، الحقيبة تحتوي على جيب مبطن ومخصص لحماية أجهزة اللابتوب حتى مقاس 17 إنش من الصدمات والخدوش.'
-    }
-  ]
 };
 
 export default product;
