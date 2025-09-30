@@ -41,7 +41,10 @@ function NavigationEvents() {
         if (href && href.startsWith('/') && href !== window.location.pathname) {
            // Also check for aria-disabled, which is used on product cards during navigation
            if (a.getAttribute('aria-disabled') !== 'true') {
-             setIsLoading(true);
+             // **NEW LOGIC**: Do not show loader for product pages
+             if (!href.startsWith('/products/')) {
+                setIsLoading(true);
+             }
            }
         }
       }
