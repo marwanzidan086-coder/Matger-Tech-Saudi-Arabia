@@ -1,4 +1,5 @@
 
+
 import { type Product } from '@/lib/types';
 import { getImagesForProduct } from '@/lib/placeholder-images';
 import { categories } from '@/lib/categories';
@@ -184,9 +185,3 @@ export const products: Product[] = [
 
 // We no longer need to export separate lists for each category.
 // The filtering will be done directly in the page components where needed.
-
-
-
-
-
-    
