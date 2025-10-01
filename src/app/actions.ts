@@ -39,16 +39,16 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     shippingCost,
   } = validation.data;
   
-  const SID = process.env.TWILIO_ACCOUNT_SID;
-  const TOKEN = process.env.TWILIO_AUTH_TOKEN;
-  const FROM = process.env.TWILIO_PHONE_NUMBER;
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
 
-  if (!SID || !TOKEN || !FROM || SID.startsWith('ACxxx')) {
+  if (!accountSid || !authToken || !twilioPhoneNumber || accountSid.startsWith('ACxxx')) {
     console.error('Twilio credentials are not configured correctly in .env file.');
     return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر لتكوين الإعدادات.' };
   }
   
-  const client = twilio(SID, TOKEN);
+  const client = twilio(accountSid, authToken);
 
   try {
     const orderNumber = `MATG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
@@ -87,14 +87,16 @@ ${productLines}
 *الإجمالي النهائي:* ${total.toFixed(2)}
     `.trim();
 
+    // Ensure numbers are in E.164 format and prefixed for WhatsApp
+    const fromWhatsApp = `whatsapp:${twilioPhoneNumber.startsWith('+') ? twilioPhoneNumber : `+${twilioPhoneNumber}`}`;
+
     for (const to of siteConfig.whatsappNumbers) {
-      const formattedTo = `whatsapp:${to.startsWith('+') ? to : `+${to}`}`;
-      const formattedFrom = `whatsapp:${FROM.startsWith('+') ? FROM : `+${FROM}`}`;
+      const toWhatsApp = `whatsapp:${to.startsWith('+') ? to : `+${to}`}`;
       
       await client.messages.create({
         body: messageBody,
-        from: formattedFrom,
-        to: formattedTo
+        from: fromWhatsApp,
+        to: toWhatsApp
       });
     }
 
@@ -104,20 +106,13 @@ ${productLines}
     console.error('Twilio API Error:', err);
     
     let userMessage = `خطأ من Twilio: ${err.message}`;
-    if (err.code) {
-        switch (err.code) {
-            case 21211:
-                userMessage = "رقم Twilio الذي تحاول الإرسال منه غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.";
-                break;
-            case 21614:
-                userMessage = 'رقم المستلم غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.';
-                break;
-            case 63018:
-                userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي بإرسال كلمة الانضمام المخصصة.';
-                break;
-        }
-    }
-     if (err.status === 401) {
+    if (err.code === 21211) {
+        userMessage = "رقم Twilio الذي تحاول الإرسال منه غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.";
+    } else if (err.code === 21614) {
+        userMessage = 'رقم المستلم غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.';
+    } else if (err.code === 63018) {
+        userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي بإرسال كلمة الانضمام المخصصة.';
+    } else if (err.status === 401) {
         userMessage = 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN) في ملف .env.';
     }
 
