@@ -25,7 +25,7 @@ const product: Product = {
   ],
   category: 'electronics',
   warranty: 'عامين',
-  model3d: 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Streetlight/glTF-Binary/Streetlight.glb'
+  model3d: 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Streetlight/glTF-Binary/Streetlight.glb'
 };
 
 export default product;
