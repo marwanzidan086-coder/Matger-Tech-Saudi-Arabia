@@ -2,22 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, PackageSearch, Heart, ShoppingCart, LayoutGrid, Store } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { useOrder } from '@/contexts/OrderContext';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useIsMounted } from '@/hooks/use-is-mounted';
+import { navItems } from '@/config/nav';
 
-const navItems = [
-  { href: '/', label: 'الرئيسية', icon: Home },
-  { href: '/all-products', label: 'الكل', icon: Store },
-  { href: '/categories', label: 'الأقسام', icon: LayoutGrid },
-  { href: '/orders', label: 'طلباتي', icon: PackageSearch, badge: 'orders' },
-  { href: '/wishlist', label: 'المفضلة', icon: Heart, badge: 'wishlist' },
-  { href: '/cart', label: 'السلة', icon: ShoppingCart, badge: 'cart' },
-];
 
 export default function MainNav() {
   const pathname = usePathname();

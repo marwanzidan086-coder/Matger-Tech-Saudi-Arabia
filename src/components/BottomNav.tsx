@@ -2,20 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, PackageSearch, Heart, ShoppingCart, Store } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { useOrder } from '@/contexts/OrderContext';
 import { cn } from '@/lib/utils';
 import { useIsMounted } from '@/hooks/use-is-mounted';
-
-const navItems = [
-  { href: '/', label: 'الرئيسية', icon: Home },
-  { href: '/all-products', label: 'الكل', icon: Store },
-  { href: '/orders', label: 'طلباتي', icon: PackageSearch, badge: 'orders' },
-  { href: '/wishlist', label: 'المفضلة', icon: Heart, badge: 'wishlist' },
-  { href: '/cart', label: 'السلة', icon: ShoppingCart, badge: 'cart' },
-];
+import { bottomNavItems } from '@/config/nav';
 
 export default function BottomNav() {
   const pathname = usePathname();
@@ -40,7 +32,7 @@ export default function BottomNav() {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/95 border-t backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex items-center justify-around h-16">
-        {navItems.map((item) => {
+        {bottomNavItems.map((item) => {
           const isActive = pathname === item.href;
           const badgeCount = getBadgeCount(item.badge);
           return (
