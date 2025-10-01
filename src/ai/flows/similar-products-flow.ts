@@ -62,20 +62,26 @@ const similarProductsFlow = ai.defineFlow(
     outputSchema: SimilarProductsOutputSchema,
   },
   async (input) => {
-    // Filter out the current product from the full list
-    const otherProducts = products.filter(p => p.id !== input.productId);
-    
-    // Prepare the product catalog string for the AI
-    const productCatalog = otherProducts
-      .map(p => `- ID: ${p.id}\n  Slug: ${p.slug}\n  Name: ${p.name}\n  Description: ${p.description}`)
-      .join('\n\n');
+    try {
+      // Filter out the current product from the full list
+      const otherProducts = products.filter(p => p.id !== input.productId);
       
-    // Call the AI with the filtered list
-    const { output } = await prompt({
-        ...input,
-        productCatalog: productCatalog,
-    });
+      // Prepare the product catalog string for the AI
+      const productCatalog = otherProducts
+        .map(p => `- ID: ${p.id}\n  Slug: ${p.slug}\n  Name: ${p.name}\n  Description: ${p.description}`)
+        .join('\n\n');
+        
+      // Call the AI with the filtered list
+      const { output } = await prompt({
+          ...input,
+          productCatalog: productCatalog,
+      });
 
-    return output || { recommendations: [] };
+      return output || { recommendations: [] };
+    } catch (error) {
+      console.error('Error in similarProductsFlow:', error);
+      // Return an empty list on any error to allow fallback to work gracefully.
+      return { recommendations: [] };
+    }
   }
 );
