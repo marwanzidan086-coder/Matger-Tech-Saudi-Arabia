@@ -1,34 +1,31 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect, useTransition } from 'react';
 import { usePathname } from 'next/navigation';
 import LoadingOverlay from '@/components/LoadingOverlay';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 
-const LoadingContext = createContext<undefined>(undefined);
+type LoadingContextType = {
+  isTransitioning: boolean;
+  startTransition: React.TransitionStartFunction;
+};
 
+const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
 
-// This is a client component that will handle the router events.
 function NavigationEvents() {
   const pathname = usePathname();
   const isMounted = useIsMounted();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // This effect runs when the new page content has been rendered and the path changes.
-    // We use this to hide the loader.
     setIsLoading(false);
   }, [pathname]);
-
 
   useEffect(() => {
     if (!isMounted) return;
 
-    // This is a workaround to detect link clicks and show the loader,
-    // as App Router doesn't have a stable `routeChangeStart` event yet.
     const handleLinkClick = (event: MouseEvent) => {
       let target = event.target as HTMLElement;
-      // Traverse up the DOM tree to find an anchor tag
       while (target && target.tagName !== 'A') {
         target = target.parentElement as HTMLElement;
       }
@@ -37,15 +34,13 @@ function NavigationEvents() {
         const a = target as HTMLAnchorElement;
         const href = a.getAttribute('href');
 
-        // Check if it's an internal link and not a link to the same page
         if (href && href.startsWith('/') && href !== window.location.pathname) {
-           // Also check for aria-disabled, which is used on product cards during navigation
-           if (a.getAttribute('aria-disabled') !== 'true') {
-             // **NEW LOGIC**: Do not show loader for product pages
-             if (!href.startsWith('/products/')) {
-                setIsLoading(true);
-             }
-           }
+          const isProductLink = href.startsWith('/products/');
+          const isProductCardLink = a.closest('[data-product-card-link]') !== null;
+          
+          if (!isProductLink || !isProductCardLink) {
+             setIsLoading(true);
+          }
         }
       }
     };
@@ -58,16 +53,30 @@ function NavigationEvents() {
 
   }, [isMounted, pathname]);
 
-  // Render the loading overlay if loading is true
   return isLoading ? <LoadingOverlay /> : null;
 }
 
-
 export const LoadingProvider = ({ children }: { children: ReactNode }) => {
+  const [isPending, startTransition] = useTransition();
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const startGlobalTransition: React.TransitionStartFunction = (callback) => {
+    setIsTransitioning(true);
+    startTransition(() => {
+      callback();
+    });
+  };
+  
+  useEffect(() => {
+    if (!isPending) {
+        setIsTransitioning(false);
+    }
+  }, [isPending]);
+
+
   return (
-    <LoadingContext.Provider value={undefined}>
+    <LoadingContext.Provider value={{ isTransitioning, startTransition: startGlobalTransition }}>
       {children}
-      {/* Suspense is required to make usePathname work correctly during navigation */}
       <React.Suspense fallback={null}>
         <NavigationEvents />
       </React.Suspense>
@@ -75,7 +84,10 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// This hook is no longer needed to trigger the loader, but we keep it for consistency.
 export const useLoading = () => {
-  return {};
+  const context = useContext(LoadingContext);
+  if (context === undefined) {
+    throw new Error('useLoading must be used within a LoadingProvider');
+  }
+  return context;
 };

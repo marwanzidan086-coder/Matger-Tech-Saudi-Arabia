@@ -11,7 +11,9 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
-import React, { useState, useEffect, useTransition } from 'react';
+import React, { useState } from 'react';
+import { useLoading } from '@/contexts/LoadingContext';
+
 
 const productCardVariants = cva(
   "group relative flex flex-col overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md",
@@ -37,16 +39,21 @@ export default function ProductCard({
   size,
  }: ProductCardProps) {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const { isTransitioning, startTransition } = useLoading();
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
+      if (isTransitioning) return;
+
+      setIsClicked(true);
       startTransition(() => {
         router.push(`/products/${product.slug}`);
       });
   };
 
-  const isCardLoading = isPending;
+  const isCardLoading = isClicked && isTransitioning;
+  const isAnyCardLoading = !isClicked && isTransitioning;
 
   if (isCardLoading) {
     return (
@@ -85,8 +92,17 @@ export default function ProductCard({
   }
 
   return (
-    <div className={cn(productCardVariants({ size }))}>
-      <Link href={`/products/${product.slug}`} onClick={handleClick} className="block cursor-pointer" aria-disabled={isPending}>
+    <div className={cn(
+      productCardVariants({ size }),
+      isAnyCardLoading && "opacity-50 pointer-events-none"
+    )}>
+      <Link 
+        href={`/products/${product.slug}`} 
+        onClick={handleClick} 
+        className="block cursor-pointer"
+        aria-disabled={isTransitioning}
+        data-product-card-link
+      >
         <div className="relative aspect-square w-full bg-muted overflow-hidden">
           <Image
             src={(product.images && product.images.length > 0) ? product.images[0] : `https://picsum.photos/seed/${product.id}/600/600`}
@@ -99,7 +115,13 @@ export default function ProductCard({
       </Link>
       <div className={cn("flex flex-1 flex-col", size === 'small' ? 'p-2' : 'p-3')}>
         <h3 className={cn("font-semibold", size === 'small' ? 'text-sm h-10' : 'text-base h-12 overflow-hidden')}>
-          <Link href={`/products/${product.slug}`} onClick={handleClick} className="cursor-pointer" aria-disabled={isPending}>{product.name}</Link>
+          <Link 
+            href={`/products/${product.slug}`} 
+            onClick={handleClick} 
+            className="cursor-pointer" 
+            aria-disabled={isTransitioning}
+            data-product-card-link
+           >{product.name}</Link>
         </h3>
         <p className={cn("mt-1 font-bold text-primary", size === 'small' ? 'text-base' : 'text-lg')}>
           {product.price.toFixed(2)} ر.س
