@@ -11,7 +11,7 @@ import { useIsMounted } from '@/hooks/use-is-mounted';
 
 const navItems = [
   { href: '/', label: 'الرئيسية', icon: Home },
-  { href: '/all-products', label: 'المتجر', icon: Store },
+  { href: '/all-products', label: 'الكل', icon: Store },
   { href: '/orders', label: 'طلباتي', icon: PackageSearch, badge: 'orders' },
   { href: '/wishlist', label: 'المفضلة', icon: Heart, badge: 'wishlist' },
   { href: '/cart', label: 'السلة', icon: ShoppingCart, badge: 'cart' },
