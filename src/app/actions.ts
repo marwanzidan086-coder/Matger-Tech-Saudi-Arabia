@@ -111,7 +111,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
         console.error('Twilio API Error:', responseData);
         let userMessage = `خطأ من Twilio: ${responseData.message}`;
 
-        if (responseData.code === 21211 || responseData.message.includes("From address")) { 
+        if (responseData.code === 21211) { 
              userMessage = 'رقم Twilio الذي تحاول الإرسال منه غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.';
         } else if (responseData.code === 21614) {
             userMessage = 'رقم المستلم غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.';
