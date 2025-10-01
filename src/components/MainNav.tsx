@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 
 const navItems = [
-  { href: '/', label: 'المتجر', icon: Home },
+  { href: '/', label: 'الرئيسية', icon: Home },
   { href: '/all-products', label: 'المنتجات', icon: Store },
   { href: '/categories', label: 'الأقسام', icon: LayoutGrid },
   { href: '/orders', label: 'طلباتي', icon: PackageSearch, badge: 'orders' },

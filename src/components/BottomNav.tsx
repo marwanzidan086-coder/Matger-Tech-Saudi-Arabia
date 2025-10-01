@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 
 const navItems = [
-  { href: '/', label: 'المتجر', icon: Home },
+  { href: '/', label: 'الرئيسية', icon: Home },
   { href: '/all-products', label: 'الكل', icon: Store },
   { href: '/orders', label: 'طلباتي', icon: PackageSearch, badge: 'orders' },
   { href: '/wishlist', label: 'المفضلة', icon: Heart, badge: 'wishlist' },
