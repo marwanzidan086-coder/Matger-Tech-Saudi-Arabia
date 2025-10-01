@@ -25,7 +25,6 @@ const product: Product = {
     "https://i.ibb.co/prn9QfBC/image-5.jpg"
   ],
   category: 'electronics',
-  model3d: 'https://modelviewer.dev/shared-assets/models/gameboy.glb'
 };
 
 export default product;

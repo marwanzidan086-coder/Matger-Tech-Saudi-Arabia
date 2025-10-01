@@ -23,7 +23,6 @@ const product: Product = {
   ],
   category: 'electronics',
   warranty: '5 سنين',
-  model3d: 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Television/glTF-Binary/Television.glb'
 };
 
 export default product;

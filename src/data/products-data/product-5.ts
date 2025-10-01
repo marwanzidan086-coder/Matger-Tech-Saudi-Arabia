@@ -24,7 +24,6 @@ const product: Product = {
   ],
   category: 'electronics',
   warranty: 'عامين',
-  model3d: 'https://modelviewer.dev/shared-assets/models/powerbank.glb'
 };
 
 export default product;

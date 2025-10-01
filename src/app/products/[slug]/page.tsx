@@ -17,7 +17,6 @@ import ProductFaq from '@/components/ProductFaq';
 import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
 import ProductStory from '@/components/ProductStory';
-import TryInAR from '@/components/TryInAR';
 
 
 function ParsedDescription({ description }: { description: string }) {
@@ -158,9 +157,6 @@ export default function ProductPage() {
                 <AddToWishlistButton product={product} />
                 <AddToCompareButton product={product} />
             </div>
-             {product.model3d && (
-                <TryInAR product={product} />
-             )}
           </div>
         </div>
       </div>
