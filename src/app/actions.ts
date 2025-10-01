@@ -86,9 +86,10 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     });
 
     for (const to of siteConfig.whatsappNumbers) {
-      // Ensure numbers are in the correct E.164 format: whatsapp:+[number]
+      // Ensure 'To' number is in E.164 format: whatsapp:+[number]
       const formattedTo = `whatsapp:${to.startsWith('+') ? to : `+${to}`}`;
-      const formattedFrom = `whatsapp:${FROM.startsWith('+') ? FROM : `+${FROM}`}`;
+      // Ensure 'From' number is whatsapp:[number] (without '+')
+      const formattedFrom = `whatsapp:${FROM.replace(/\+/g, '')}`;
       
       const requestBody = {
         To: formattedTo,
@@ -112,7 +113,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
         let userMessage = `خطأ من Twilio: ${responseData.message}`;
 
         if (responseData.code === 21211) { 
-             userMessage = 'رقم Twilio الذي تحاول الإرسال منه غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.';
+             userMessage = "رقم Twilio الذي تحاول الإرسال منه غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.";
         } else if (responseData.code === 21614) {
             userMessage = 'رقم المستلم غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.';
         } else if (responseData.code === 63018) {
