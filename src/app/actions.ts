@@ -70,7 +70,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const TOKEN = process.env.TWILIO_AUTH_TOKEN;
   const FROM = process.env.TWILIO_PHONE_NUMBER;
 
-  if (!SID || !TOKEN || !FROM || SID === 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' || TOKEN === 'your_auth_token') {
+  if (!SID || !TOKEN || !FROM || SID.startsWith('ACxxx') || TOKEN.startsWith('your_auth_token')) {
     console.error('Twilio credentials are not configured correctly in .env file.');
     return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر لتكوين الإعدادات.' };
   }
