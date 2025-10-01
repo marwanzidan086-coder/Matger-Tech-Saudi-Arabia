@@ -12,6 +12,7 @@ export type Product = {
     faq?: { question: string; answer: string }[];
     story?: string;
     reviews?: { author: string; rating: number; comment: string }[]; // Added back reviews
+    model3d?: string; // Add 3D model property
 };
   
 export type CartItem = Product & {
@@ -50,4 +51,3 @@ export type ComparisonResult = {
     }[];
     summary: string;
 };
-    

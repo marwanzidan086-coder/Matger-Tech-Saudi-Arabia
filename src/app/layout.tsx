@@ -10,6 +10,8 @@ import BottomNav from '@/components/BottomNav';
 import CompareBar from '@/components/CompareBar';
 import { Playfair_Display, PT_Sans } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import Script from 'next/script';
+
 
 const ptSans = PT_Sans({
   subsets: ['latin'],
@@ -38,6 +40,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
+       <head>
+          {/* This script is for the 3D model viewer */}
+          <Script src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" type="module" strategy="beforeInteractive" />
+      </head>
       <body className={cn("font-body antialiased min-h-screen bg-background text-foreground", ptSans.variable, playfairDisplay.variable)}>
         <Providers>
           <div className="relative flex min-h-dvh flex-col">
