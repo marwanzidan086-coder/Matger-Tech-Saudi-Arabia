@@ -12,7 +12,7 @@ import {
   DialogFooter,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Cube } from 'lucide-react';
+import { BoxSelect } from 'lucide-react';
 
 // You need to declare the `model-viewer` tag to JSX
 // to make it available for use with proper typings.
@@ -47,7 +47,7 @@ export default function TryInAR({ product }: { product: Product }) {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline" className="w-full text-lg border-dashed border-2 border-primary/40 bg-primary/5 text-primary hover:bg-primary/10">
-          <Cube className="me-2 h-5 w-5" />
+          <BoxSelect className="me-2 h-5 w-5" />
           شاهد المنتج في غرفتك (AR)
         </Button>
       </DialogTrigger>
