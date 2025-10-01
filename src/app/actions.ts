@@ -59,7 +59,6 @@ ${productLines}
 }
 
 export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
-  // Next.js automatically loads environment variables. No need for dotenv.
   const validation = orderSchema.safeParse(data);
 
   if (!validation.success) {
@@ -71,9 +70,9 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const TOKEN = process.env.TWILIO_AUTH_TOKEN;
   const FROM = process.env.TWILIO_PHONE_NUMBER;
 
-  if (!SID || !TOKEN || !FROM) {
-    console.error('Twilio credentials are not configured in .env file.');
-    return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر.' };
+  if (!SID || !TOKEN || !FROM || SID === 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' || TOKEN === 'your_auth_token') {
+    console.error('Twilio credentials are not configured correctly in .env file.');
+    return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر لتكوين الإعدادات.' };
   }
   
   const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${SID}/Messages.json`;
@@ -101,22 +100,21 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
         },
       });
 
+      const responseData = await response.json();
+
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Twilio API Error:', errorData);
+        console.error('Twilio API Error:', responseData);
+        let userMessage = `خطأ من Twilio: ${responseData.message}`;
 
-        if (errorData.code === 21211) { 
-             return { success: false, message: 'رقم Twilio الذي تحاول الإرسال إليه غير صالح.' };
-        }
-        if (errorData.code === 63018) {
-            return { success: false, message: 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي.' };
-        }
-        // Generic error for auth and other issues
-        if (errorData.status === 401) {
-            return { success: false, message: 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN) في ملف .env.' };
+        if (responseData.code === 21211) { 
+             userMessage = 'رقم Twilio الذي تحاول الإرسال إليه غير صالح. تحقق من الرقم في siteConfig.';
+        } else if (responseData.code === 63018) {
+            userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي.';
+        } else if (responseData.status === 401) {
+            userMessage = 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN) في ملف .env.';
         }
 
-        return { success: false, message: `خطأ من Twilio: ${errorData.message}` };
+        return { success: false, message: userMessage };
       }
     }
 
