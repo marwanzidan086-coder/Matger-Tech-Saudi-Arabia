@@ -88,7 +88,9 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
 
     for (const to of siteConfig.whatsappNumbers) {
       const form = new URLSearchParams();
-      form.append('To', `whatsapp:${to}`);
+      // Important: Twilio often requires the number without the leading '+'
+      const sanitizedTo = to.startsWith('+') ? to.substring(1) : to;
+      form.append('To', `whatsapp:${sanitizedTo}`);
       form.append('From', `whatsapp:${FROM}`);
       form.append('Body', messageBody);
       
@@ -109,7 +111,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
         if (responseData.code === 21211) { 
              userMessage = 'رقم Twilio الذي تحاول الإرسال إليه غير صالح. تحقق من الرقم في siteConfig.';
         } else if (responseData.code === 63018) {
-            userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي.';
+            userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي بإرسال كلمة الانضمام المخصصة.';
         } else if (responseData.status === 401) {
             userMessage = 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN) في ملف .env.';
         }
