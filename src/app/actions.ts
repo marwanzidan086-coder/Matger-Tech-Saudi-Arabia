@@ -2,6 +2,7 @@
 
 import { z } from 'zod';
 import { siteConfig } from '@/config/site';
+import twilio from 'twilio';
 
 const orderSchema = z.object({
   name: z.string().min(1, 'الاسم مطلوب'),
@@ -74,7 +75,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر لتكوين الإعدادات.' };
   }
   
-  const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${SID}/Messages.json`;
+  const client = twilio(SID, TOKEN);
 
   try {
     const orderNumber = generateOrderNumber();
@@ -86,50 +87,39 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     });
 
     for (const to of siteConfig.whatsappNumbers) {
-      // Ensure 'To' number is in E.164 format: whatsapp:+[number]
       const formattedTo = `whatsapp:${to.startsWith('+') ? to : `+${to}`}`;
-      // Ensure 'From' number is whatsapp:[number] (without '+')
-      const formattedFrom = `whatsapp:${FROM.replace(/\+/g, '')}`;
+      const formattedFrom = `whatsapp:${FROM.startsWith('+') ? FROM : `+${FROM}`}`;
       
-      const requestBody = {
-        To: formattedTo,
-        From: formattedFrom,
-        Body: messageBody
-      };
-
-      const response = await fetch(twilioUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Basic ' + Buffer.from(`${SID}:${TOKEN}`).toString('base64'),
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams(requestBody)
+      await client.messages.create({
+        body: messageBody,
+        from: formattedFrom,
+        to: formattedTo
       });
-
-      const responseData = await response.json();
-
-      if (!response.ok) {
-        console.error('Twilio API Error:', responseData);
-        let userMessage = `خطأ من Twilio: ${responseData.message}`;
-
-        if (responseData.code === 21211) { 
-             userMessage = "رقم Twilio الذي تحاول الإرسال منه غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.";
-        } else if (responseData.code === 21614) {
-            userMessage = 'رقم المستلم غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.';
-        } else if (responseData.code === 63018) {
-            userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي بإرسال كلمة الانضمام المخصصة.';
-        } else if (responseData.status === 401) {
-            userMessage = 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN) في ملف .env.';
-        }
-
-        return { success: false, message: userMessage };
-      }
     }
 
     return { success: true, orderNumber, orderDate };
-  } catch (err) {
-    console.error('Unexpected error in sendOrderViaWhatsApp:', err);
-    const errorMessage = (err as Error).message;
-    return { success: false, message: `حدث خطأ غير متوقع أثناء إرسال الطلب: ${errorMessage}` };
+
+  } catch (err: any) {
+    console.error('Twilio API Error:', err);
+    
+    let userMessage = `خطأ من Twilio: ${err.message}`;
+    if (err.code) {
+        switch (err.code) {
+            case 21211:
+                userMessage = "رقم Twilio الذي تحاول الإرسال منه غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.";
+                break;
+            case 21614:
+                userMessage = 'رقم المستلم غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.';
+                break;
+            case 63018:
+                userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي بإرسال كلمة الانضمام المخصصة.';
+                break;
+        }
+    }
+     if (err.status === 401) {
+        userMessage = 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN) في ملف .env.';
+    }
+
+    return { success: false, message: userMessage };
   }
 }
