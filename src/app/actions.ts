@@ -23,7 +23,6 @@ function generateOrderNumber() {
 function buildOrderMessage(
   orderData: z.infer<typeof orderSchema> & { orderNumber: string; orderDate: string }
 ) {
-  // Correctly calculate subTotal by summing item prices, instead of subtracting shipping.
   const subTotal = orderData.cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
   const productLines = orderData.cartItems
@@ -70,7 +69,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const TOKEN = process.env.TWILIO_AUTH_TOKEN;
   const FROM = process.env.TWILIO_PHONE_NUMBER;
 
-  if (!SID || !TOKEN || !FROM || SID.startsWith('ACxxx') || TOKEN.startsWith('your_auth_token')) {
+  if (!SID || !TOKEN || !FROM || SID.startsWith('ACxxx')) {
     console.error('Twilio credentials are not configured correctly in .env file.');
     return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر لتكوين الإعدادات.' };
   }
@@ -87,23 +86,23 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     });
 
     for (const to of siteConfig.whatsappNumbers) {
-      const form = new URLSearchParams();
-      
       // Ensure numbers are in the correct E.164 format: whatsapp:+[number]
-      // Twilio requires the '+' sign.
-      const formattedTo = to.startsWith('+') ? to : `+${to}`;
-      const formattedFrom = FROM.startsWith('+') ? FROM : `+${FROM}`;
-
-      form.append('To', `whatsapp:${formattedTo}`);
-      form.append('From', `whatsapp:${formattedFrom}`);
-      form.append('Body', messageBody);
+      const formattedTo = `whatsapp:${to.startsWith('+') ? to : `+${to}`}`;
+      const formattedFrom = `whatsapp:${FROM.startsWith('+') ? FROM : `+${FROM}`}`;
       
+      const requestBody = {
+        To: formattedTo,
+        From: formattedFrom,
+        Body: messageBody
+      };
+
       const response = await fetch(twilioUrl, {
         method: 'POST',
-        body: form,
         headers: {
-          Authorization: 'Basic ' + Buffer.from(`${SID}:${TOKEN}`).toString('base64'),
+          'Authorization': 'Basic ' + Buffer.from(`${SID}:${TOKEN}`).toString('base64'),
+          'Content-Type': 'application/x-www-form-urlencoded'
         },
+        body: new URLSearchParams(requestBody)
       });
 
       const responseData = await response.json();
