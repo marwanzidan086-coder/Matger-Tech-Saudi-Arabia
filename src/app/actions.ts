@@ -17,47 +17,6 @@ const orderSchema = z.object({
   shippingCost: z.number(),
 });
 
-function generateOrderNumber() {
-  return `MATG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
-}
-
-function buildOrderMessage(
-  orderData: z.infer<typeof orderSchema> & { orderNumber: string; orderDate: string }
-) {
-  const subTotal = orderData.cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-
-  const productLines = orderData.cartItems
-    .map(
-      (item) =>
-        `- ${item.name} (الكمية: ${item.quantity}) - السعر: ${item.price.toFixed(2)}`
-    )
-    .join('\n');
-
-  const fullAddress = `${orderData.address}, ${orderData.city}, ${orderData.governorate}`;
-
-  return `
-طلب جديد من *${siteConfig.name}*
-
-*رقم الطلب:* ${orderData.orderNumber}
-*تاريخ الطلب:* ${orderData.orderDate}
-
-*بيانات العميل:*
-*الاسم:* ${orderData.name}
-*الجوال الأساسي:* ${orderData.phone}
-*جوال إضافي:* ${orderData.phone2 || 'لا يوجد'}
-*العنوان:* ${fullAddress}
-*تفاصيل إضافية:* ${orderData.notes || 'لا يوجد'}
-
-*المنتجات:*
-${productLines}
-
-*إجمالي المنتجات:* ${subTotal.toFixed(2)}
-*سعر الشحن:* ${orderData.shippingCost.toFixed(2)}
---------------------
-*الإجمالي النهائي:* ${orderData.total.toFixed(2)}
-  `.trim();
-}
-
 export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const validation = orderSchema.safeParse(data);
 
@@ -66,6 +25,19 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     return { success: false, message: 'بيانات الطلب غير صالحة أو ناقصة.' };
   }
 
+  const {
+    name,
+    phone,
+    phone2,
+    governorate,
+    city,
+    address,
+    notes,
+    cartItems,
+    total,
+    shippingCost,
+  } = validation.data;
+  
   const SID = process.env.TWILIO_ACCOUNT_SID;
   const TOKEN = process.env.TWILIO_AUTH_TOKEN;
   const FROM = process.env.TWILIO_PHONE_NUMBER;
@@ -78,13 +50,41 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const client = twilio(SID, TOKEN);
 
   try {
-    const orderNumber = generateOrderNumber();
+    const orderNumber = `MATG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
     const orderDate = new Date().toLocaleDateString('en-CA');
-    const messageBody = buildOrderMessage({
-        ...validation.data,
-        orderNumber,
-        orderDate,
-    });
+
+    const subTotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+    const productLines = cartItems
+      .map(
+        (item) =>
+          `- ${item.name} (الكمية: ${item.quantity}) - السعر: ${item.price.toFixed(2)}`
+      )
+      .join('\n');
+  
+    const fullAddress = `${address}, ${city}, ${governorate}`;
+  
+    const messageBody = `
+طلب جديد من *${siteConfig.name}*
+
+*رقم الطلب:* ${orderNumber}
+*تاريخ الطلب:* ${orderDate}
+
+*بيانات العميل:*
+*الاسم:* ${name}
+*الجوال الأساسي:* ${phone}
+*جوال إضافي:* ${phone2 || 'لا يوجد'}
+*العنوان:* ${fullAddress}
+*تفاصيل إضافية:* ${notes || 'لا يوجد'}
+
+*المنتجات:*
+${productLines}
+
+*إجمالي المنتجات:* ${subTotal.toFixed(2)}
+*سعر الشحن:* ${shippingCost.toFixed(2)}
+--------------------
+*الإجمالي النهائي:* ${total.toFixed(2)}
+    `.trim();
 
     for (const to of siteConfig.whatsappNumbers) {
       const formattedTo = `whatsapp:${to.startsWith('+') ? to : `+${to}`}`;
