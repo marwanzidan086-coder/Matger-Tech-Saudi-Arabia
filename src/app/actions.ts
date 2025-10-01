@@ -91,6 +91,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   try {
     for (const toNumber of siteConfig.whatsappNumbers) {
       const body = new URLSearchParams();
+      // Format `To` and `From` numbers exactly as Twilio expects for WhatsApp
       body.append('To', `whatsapp:${toNumber.startsWith('+') ? toNumber : `+${toNumber}`}`);
       body.append('From', `whatsapp:${twilioPhoneNumber.startsWith('+') ? twilioPhoneNumber : `+${twilioPhoneNumber}`}`);
       body.append('Body', messageBody);
