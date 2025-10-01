@@ -89,12 +89,13 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
     for (const to of siteConfig.whatsappNumbers) {
       const form = new URLSearchParams();
       
-      // Sanitize both FROM and TO numbers to remove the leading '+'
-      const sanitizedTo = to.startsWith('+') ? to.substring(1) : to;
-      const sanitizedFrom = FROM.startsWith('+') ? FROM.substring(1) : FROM;
+      // Ensure numbers are in the correct format: whatsapp:+[number]
+      // Twilio requires the '+' sign.
+      const formattedTo = to.startsWith('+') ? to : `+${to}`;
+      const formattedFrom = FROM.startsWith('+') ? FROM : `+${FROM}`;
 
-      form.append('To', `whatsapp:${sanitizedTo}`);
-      form.append('From', `whatsapp:${sanitizedFrom}`);
+      form.append('To', `whatsapp:${formattedTo}`);
+      form.append('From', `whatsapp:${formattedFrom}`);
       form.append('Body', messageBody);
       
       const response = await fetch(twilioUrl, {
@@ -113,6 +114,8 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
 
         if (responseData.code === 21211) { 
              userMessage = 'رقم Twilio الذي تحاول الإرسال إليه غير صالح. تحقق من الرقم في siteConfig.';
+        } else if (responseData.code === 21614) {
+            userMessage = 'رقم المستلم غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.';
         } else if (responseData.code === 63018) {
             userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي بإرسال كلمة الانضمام المخصصة.';
         } else if (responseData.status === 401) {
