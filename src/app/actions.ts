@@ -88,10 +88,13 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
 
     for (const to of siteConfig.whatsappNumbers) {
       const form = new URLSearchParams();
-      // Important: Twilio often requires the number without the leading '+'
+      
+      // Sanitize both FROM and TO numbers to remove the leading '+'
       const sanitizedTo = to.startsWith('+') ? to.substring(1) : to;
+      const sanitizedFrom = FROM.startsWith('+') ? FROM.substring(1) : FROM;
+
       form.append('To', `whatsapp:${sanitizedTo}`);
-      form.append('From', `whatsapp:${FROM}`);
+      form.append('From', `whatsapp:${sanitizedFrom}`);
       form.append('Body', messageBody);
       
       const response = await fetch(twilioUrl, {
