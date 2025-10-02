@@ -1,6 +1,7 @@
 
 
 
+
 export type Review = {
     id: string; // Added ID for unique identification
     author: string;
@@ -14,6 +15,7 @@ export type Product = {
     name: string;
     slug: string;
     description: string;
+    rawDescription?: string; // Add raw description
     price: number;
     images: string[];
     category: string;
@@ -59,3 +61,4 @@ export type ComparisonResult = {
     }[];
     summary: string;
 };
+
