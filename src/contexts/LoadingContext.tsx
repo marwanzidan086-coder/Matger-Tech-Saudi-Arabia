@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { createContext, useContext, useState, ReactNode, useEffect, useTransition } from 'react';
@@ -7,7 +8,7 @@ import { useIsMounted } from '@/hooks/use-is-mounted';
 
 type LoadingContextType = {
   isTransitioning: boolean;
-  startTransition: React.TransitionStartFunction;
+  startTransition: (callback: () => void) => void;
 };
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
@@ -58,24 +59,9 @@ function NavigationEvents() {
 
 export const LoadingProvider = ({ children }: { children: ReactNode }) => {
   const [isPending, startTransition] = useTransition();
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const startGlobalTransition: React.TransitionStartFunction = (callback) => {
-    setIsTransitioning(true);
-    startTransition(() => {
-      callback();
-    });
-  };
-  
-  useEffect(() => {
-    if (!isPending) {
-        setIsTransitioning(false);
-    }
-  }, [isPending]);
-
 
   return (
-    <LoadingContext.Provider value={{ isTransitioning, startTransition: startGlobalTransition }}>
+    <LoadingContext.Provider value={{ isTransitioning: isPending, startTransition }}>
       {children}
       <React.Suspense fallback={null}>
         <NavigationEvents />
