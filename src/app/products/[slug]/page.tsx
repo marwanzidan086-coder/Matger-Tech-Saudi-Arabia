@@ -12,84 +12,11 @@ import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
 import { ShieldCheck, Truck, Clock, Check } from 'lucide-react';
-import { useMemo } from 'react';
 import ProductFaq from '@/components/ProductFaq';
 import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
 import ProductStory from '@/components/ProductStory';
 import ProductReviews from '@/components/ProductReviews';
-
-
-function ParsedDescription({ description }: { description: string }) {
-    const intro = useMemo(() => {
-        const parts = description.split(/###(FEATURES|DETAILS|CONTENTS|USAGE)###/);
-        return parts[0] || '';
-    }, [description]);
-
-    return (
-        <div>
-            <p className="text-base leading-relaxed text-foreground/80">
-                {intro.trim()}
-            </p>
-        </div>
-    );
-}
-
-function ProductFeatures({ description }: { description: string }) {
-    const { features, details } = useMemo(() => {
-        const parts = description.split(/###(FEATURES|DETAILS|CONTENTS|USAGE)###/);
-        
-        const featuresIndex = description.includes('###FEATURES###') ? parts.findIndex(p => p === 'FEATURES') + 1 : -1;
-        const featuresList = featuresIndex !== -1 
-          ? parts[featuresIndex].trim().split('\n').map(f => f.replace(/^- /, '')).filter(f => f) 
-          : [];
-
-        const detailsIndex = description.includes('###DETAILS###') ? parts.findIndex(p => p === 'DETAILS') + 1 : -1;
-        const detailsList = detailsIndex !==-1
-          ? parts[detailsIndex].trim().split('\n').map(d => {
-              const [key, ...valueParts] = d.replace(/^- /, '').split(':');
-              return { key: key.trim(), value: valueParts.join(':').trim() };
-            }).filter(d => d.key && d.value)
-          : [];
-          
-        return { features: featuresList, details: detailsList };
-    }, [description]);
-
-    if (features.length === 0 && details.length === 0) {
-        return null;
-    }
-
-    return (
-        <div className="space-y-6">
-            {features.length > 0 && (
-                <div>
-                    <h3 className="text-xl font-bold mb-3">أبرز المميزات</h3>
-                    <ul className="space-y-2 text-foreground/80">
-                        {features.map((feature, index) => (
-                            <li key={index} className="flex items-start gap-2">
-                                <Check className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                                <span>{feature}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-            {details.length > 0 && (
-                 <div>
-                    <h3 className="text-xl font-bold mb-3">المواصفات الفنية</h3>
-                    <ul className="space-y-2 text-foreground/80">
-                        {details.map((detail, index) => (
-                            <li key={index} className="flex justify-between border-b pb-2">
-                                <span className="font-semibold">{detail.key}</span>
-                                <span>{detail.value}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-        </div>
-    );
-}
 
 
 // --- Main Product Page Component ---
@@ -121,11 +48,11 @@ export default function ProductPage() {
 
           <Card className="bg-muted/40 border-dashed">
             <CardContent className="p-6">
-              <ParsedDescription description={product.description} />
+              <div className="whitespace-pre-wrap text-base leading-relaxed text-foreground/80">
+                {product.description}
+              </div>
             </CardContent>
           </Card>
-          
-          <ProductFeatures description={product.description} />
 
           <ProductReviews product={product} />
           
