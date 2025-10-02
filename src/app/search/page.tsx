@@ -12,6 +12,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Fuse from 'fuse.js';
+import ProductCard from '@/components/ProductCard';
 
 type SortOption = 'relevance' | 'newest' | 'price-asc' | 'price-desc';
 
@@ -31,6 +32,24 @@ const fuse = new Fuse(products, {
   includeScore: true,
   threshold: 0.3,
 });
+
+const getProductBySlug = (slug: string): Product | undefined => {
+  return products.find(p => p.slug === slug);
+};
+
+const popularProductSlugs = [
+    'smart-health-monitoring-ring',
+    'dlc-multi-use-lantern-power-bank',
+    '4k-gaming-console-with-controllers',
+    'smart-portable-cinema-projector',
+    'electronic-tasbeeh-ring',
+    '3-camera-dash-cam-1080p',
+    'dlc-camping-stove',
+    'denx-large-solar-spotlight',
+];
+
+const popularProducts = popularProductSlugs.map(slug => getProductBySlug(slug)).filter((p): p is Product => !!p);
+
 
 function SearchResults() {
   const searchParams = useSearchParams();
@@ -172,22 +191,30 @@ function SearchResults() {
           )}
 
           {noResultsFound && (
-            <div className="flex flex-col items-center justify-center min-h-[40vh] gap-8">
-                <Alert className="max-w-md text-center border-dashed">
+            <div className="text-center py-10">
+                <Alert className="max-w-md mx-auto text-center border-dashed mb-10">
                     <div className="mx-auto w-fit mb-2">
                         <Search className="h-8 w-8"/>
                     </div>
                     <AlertTitle className="font-bold">لا توجد نتائج بحث</AlertTitle>
                     <AlertDescription>
-                        لم نتمكن من العثور على منتجات تطابق بحثك. حاول استخدام كلمات مختلفة أو استخدم المساعدة الذكية.
+                        لم نتمكن من العثور على منتجات تطابق بحثك.
                     </AlertDescription>
                 </Alert>
+                <div className="mt-8">
+                    <h3 className="text-2xl font-headline font-bold mb-6">ربما تعجبك هذه المنتجات</h3>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
+                        {popularProducts.map((product) => (
+                            <ProductCard key={product.id} product={product} />
+                        ))}
+                    </div>
+                </div>
             </div>
           )}
         </>
       )}
 
-      {query && !isLoading && (
+      {query && !isLoading && !noResultsFound && (
         <div className="text-center mt-12">
             <Button 
               onClick={handleAiSuggestion} 

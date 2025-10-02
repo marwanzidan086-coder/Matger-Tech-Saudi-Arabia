@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useMemo, useTransition } from 'react';
@@ -7,11 +8,18 @@ import { type Product } from '@/lib/types';
 import { Command, CommandInput, CommandList, CommandEmpty, CommandItem, CommandSeparator, CommandGroup } from '@/components/ui/command';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from './ui/button';
-import { SearchIcon, X, Loader2, Sparkles } from 'lucide-react';
+import { SearchIcon, X, Loader2, Sparkles, Mic } from 'lucide-react';
 import Image from 'next/image';
 import { searchProducts } from '@/ai/flows/product-search-flow';
 import Link from 'next/link';
 import Fuse from 'fuse.js';
+
+declare global {
+  interface Window {
+    SpeechRecognition: any;
+    webkitSpeechRecognition: any;
+  }
+}
 
 export default function Search() {
   const [open, setOpen] = useState(false);
@@ -19,6 +27,7 @@ export default function Search() {
   const [localResults, setLocalResults] = useState<Product[]>([]);
   const [aiResults, setAiResults] = useState<Product[]>([]);
   const [isAiSearchLoading, setIsAiSearchLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -46,7 +55,6 @@ export default function Search() {
   }, [searchParams]);
 
   useEffect(() => {
-    // Reset AI results when query changes
     setAiResults([]);
     setIsAiSearchLoading(false);
 
@@ -59,6 +67,39 @@ export default function Search() {
     setLocalResults(results);
 
   }, [query, fuse]);
+
+  const handleVoiceSearch = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert('متصفحك لا يدعم ميزة البحث الصوتي.');
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'ar-SA';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.onresult = (event: any) => {
+      const speechResult = event.results[0][0].transcript;
+      setQuery(speechResult);
+    };
+    
+    recognition.onerror = (event: any) => {
+        console.error('Speech recognition error', event.error);
+        setIsListening(false);
+    };
+
+    recognition.start();
+  };
   
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && query) {
@@ -81,7 +122,7 @@ export default function Search() {
       setAiResults(foundProducts);
     } catch (error) {
       console.error("AI Search failed:", error);
-      setAiResults([]); // Or show an error message
+      setAiResults([]);
     } finally {
       setIsAiSearchLoading(false);
     }
@@ -115,9 +156,12 @@ export default function Search() {
                     value={query}
                     onValueChange={setQuery}
                     onKeyDown={handleKeyDown}
-                    placeholder="ابحث عن منتج..."
+                    placeholder={isListening ? "جاري الاستماع..." : "ابحث عن منتج..."}
                     className="h-11"
                   />
+                   <Button type="button" variant="ghost" size="icon" onClick={handleVoiceSearch} className="h-8 w-8 text-muted-foreground">
+                      {isListening ? <Loader2 className="h-4 w-4 animate-spin"/> : <Mic className="h-4 w-4" />}
+                  </Button>
                    <Button type="button" variant="ghost" size="icon" onClick={() => setOpen(false)} className="h-8 w-8">
                       <X className="h-4 w-4" />
                   </Button>

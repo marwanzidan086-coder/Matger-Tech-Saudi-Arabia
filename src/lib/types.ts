@@ -1,5 +1,11 @@
 
 
+export type Review = {
+    author: string;
+    rating: number;
+    comment: string;
+};
+
 export type Product = {
     id: string;
     name: string;
@@ -11,7 +17,7 @@ export type Product = {
     warranty?: string; // Optional warranty field
     faq?: { question: string; answer: string }[];
     story?: string;
-    reviews?: { author: string; rating: number; comment: string }[]; // Added back reviews
+    reviews?: Review[];
 };
   
 export type CartItem = Product & {

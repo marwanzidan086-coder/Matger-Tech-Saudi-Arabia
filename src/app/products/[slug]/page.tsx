@@ -17,6 +17,7 @@ import ProductFaq from '@/components/ProductFaq';
 import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
 import ProductStory from '@/components/ProductStory';
+import ProductReviews from '@/components/ProductReviews';
 
 
 function ParsedDescription({ description }: { description: string }) {
@@ -44,7 +45,7 @@ function ProductFeatures({ description }: { description: string }) {
           : [];
 
         const detailsIndex = description.includes('###DETAILS###') ? parts.findIndex(p => p === 'DETAILS') + 1 : -1;
-        const detailsList = detailsIndex !== -1
+        const detailsList = detailsIndex !==-1
           ? parts[detailsIndex].trim().split('\n').map(d => {
               const [key, ...valueParts] = d.replace(/^- /, '').split(':');
               return { key: key.trim(), value: valueParts.join(':').trim() };
@@ -123,9 +124,10 @@ export default function ProductPage() {
               <ParsedDescription description={product.description} />
             </CardContent>
           </Card>
-
           
           <ProductFeatures description={product.description} />
+
+          <ProductReviews product={product} />
           
           <ProductFaq product={product} />
 
