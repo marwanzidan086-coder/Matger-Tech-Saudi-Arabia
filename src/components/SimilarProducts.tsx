@@ -6,39 +6,46 @@ import { Product } from '@/lib/types';
 import ProductCard from './ProductCard';
 import { Loader2 } from 'lucide-react';
 
-// This is the new static recommendation function.
+// New, more intelligent static recommendation function
 function getStaticRecommendations(currentProduct: Product): Product[] {
-  // 1. Filter for products in the same category, excluding the current one.
-  const similarCategoryProducts = products.filter(p => 
-    p.category === currentProduct.category && p.id !== currentProduct.id
+  const allOtherProducts = products.filter(p => p.id !== currentProduct.id);
+
+  // --- Step 1: Find products with very similar names (keyword matching) ---
+  const currentProductNameWords = currentProduct.name.toLowerCase().split(' ');
+  // Use significant words from the name, ignoring common short words.
+  const keywords = currentProductNameWords.filter(word => word.length > 3);
+
+  const similarByName: Product[] = [];
+  if (keywords.length > 0) {
+    for (const p of allOtherProducts) {
+      const pNameLower = p.name.toLowerCase();
+      // If any keyword from the current product is in the other product's name
+      if (keywords.some(keyword => pNameLower.includes(keyword))) {
+        similarByName.push(p);
+      }
+    }
+  }
+
+  // --- Step 2: Get other products from the same category ---
+  const similarByCategory = allOtherProducts.filter(p => p.category === currentProduct.category);
+
+  // --- Step 3: Combine and de-duplicate the lists ---
+  // Start with name-based matches, then add category matches until we have enough.
+  const combined = [...similarByName, ...similarByCategory];
+  const uniqueRecommendations = combined.filter(
+    (product, index, self) => index === self.findIndex((p) => p.id === product.id)
   );
-  
-  // 2. Create a "shuffled" but consistent list based on the product ID.
-  // This ensures the same "random" products appear every time for the same product.
-  const shuffled = [...similarCategoryProducts].sort((a, b) => {
-    // A simple seeding mechanism using product IDs
-    const idA = parseInt(a.id.replace('product-', ''), 10);
-    const idB = parseInt(b.id.replace('product-', ''), 10);
-    const seed = parseInt(currentProduct.id.replace('product-', ''), 10);
-    
-    // This creates a pseudo-random but deterministic order
-    const valA = (idA * seed) % 100;
-    const valB = (idB * seed) % 100;
 
-    return valA - valB;
-  });
-
-  // 3. Return the first 4 products from the shuffled list.
-  return shuffled.slice(0, 4);
+  // 4. Return the first 4 products from the combined list.
+  return uniqueRecommendations.slice(0, 4);
 }
+
 
 export default function SimilarProducts({ currentProduct }: { currentProduct: Product }) {
   const [recommendations, setRecommendations] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // We keep the loading state briefly to ensure a smooth UI experience
-    // but the logic is now instantaneous.
     setIsLoading(true);
     const staticRecs = getStaticRecommendations(currentProduct);
     setRecommendations(staticRecs);
