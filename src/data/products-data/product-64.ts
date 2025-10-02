@@ -15,7 +15,7 @@ const product: Product = {
 - الأبعاد: 43*39*129 سم
 - حجم الشفرة: 16 بوصة
 - يأتي معها ريموت كنترول ولوح طاقة شمسية`,
-  price: 389.99,
+  price: 299,
   images: [
     'https://i.ibb.co/N6QYycpV/image-1.jpg',
     'https://i.ibb.co/KCP1HPv/image-2.jpg',

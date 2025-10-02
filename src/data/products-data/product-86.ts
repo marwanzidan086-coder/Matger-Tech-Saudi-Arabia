@@ -13,7 +13,7 @@ const product: Product = {
 - الخامة: خشب + فولاذ مقاوم للصدأ
 - عدد الأدوات: 19 أداة
 - الأبعاد: 142 × 82 مم`,
-  price: 99.99,
+  price: 60,
   images: [
     'https://i.ibb.co/Nnp41bGK/image-1.jpg',
     'https://i.ibb.co/sdz9mY5K/image-2.jpg',

@@ -14,7 +14,7 @@ const product: Product = {
 - الجهد: 16.8 فولت
 - البطارية: 2000mAh (بطاريتان)
 - مدة العمل: من 3 إلى 6 ساعات`,
-  price: 299.99,
+  price: 178,
   images: [
     'https://i.ibb.co/938fWYdF/image-1.jpg',
     'https://i.ibb.co/Zp5bFZ1r/image-2.jpg',

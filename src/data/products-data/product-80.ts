@@ -13,7 +13,7 @@ const product: Product = {
 - سعة البطارية: 1300 ميلي أمبير
 - السرعة: 0-1450 دورة في الدقيقة
 - أقصى قطر للمقبض: 10 مم`,
-  price: 349.99,
+  price: 215,
   images: [
     'https://i.ibb.co/ks5dcjMz/image-1.jpg',
     'https://i.ibb.co/XxTdjK8f/image-2.jpg',

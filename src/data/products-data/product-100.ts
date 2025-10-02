@@ -12,7 +12,7 @@ const product: Product = {
 - مقاسان مختلفان لتناسب الثقوب الصغيرة والكبيرة.###DETAILS###- العدد: 10 قطع (5 صغيرة + 5 كبيرة)
 - المقاسات: تصلح لثقوب 0.1mm – 5mm
 - المادة: مطاط عالي الجودة`,
-  price: 39.99,
+  price: 60,
   images: [
     'https://i.ibb.co/ZQsbKND/image-1.jpg',
     'https://i.ibb.co/JRdC95zv/image-2.jpg',

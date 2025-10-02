@@ -13,7 +13,7 @@ const product: Product = {
 - قوة المحرك: 40 واط
 - سعة الخزان: 16 لترًا
 - مصدر الطاقة: موصل ولاعة السجائر`,
-  price: 199.99,
+  price: 132,
   images: [
     'https://i.ibb.co/LzzvV51Z/image-1.png',
     'https://i.ibb.co/Fkh1cHn1/image-2.png',

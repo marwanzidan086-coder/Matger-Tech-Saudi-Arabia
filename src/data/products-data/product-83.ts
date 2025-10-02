@@ -12,7 +12,7 @@ const product: Product = {
 - مصنوع من فولاذ كربوني قوي.###DETAILS###- القوة: من 0 إلى 80 كجم
 - المواد: فولاذ كربوني + بلاستيك
 - اللون: أسود`,
-  price: 139.99,
+  price: 120,
   images: [
     'https://i.ibb.co/VhhqM9r/image-1.jpg',
     'https://i.ibb.co/qM8K4Ly4/image-2.jpg',

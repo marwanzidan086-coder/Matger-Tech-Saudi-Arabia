@@ -10,14 +10,13 @@ const product: Product = {
 - يحسن الرؤية أثناء المطر.
 - سهل الاستخدام.###DETAILS###- النوع: منظف زجاج
 - الاستخدام: زجاج السيارات والمرايا`,
-  price: 49.99,
+  price: 100,
   images: [
     'https://i.ibb.co/dw8KKy2B/image-1.webp',
     'https://i.ibb.co/GQfNR5JC/image-2.webp',
     'https://i.ibb.co/n8MsB2Nd/image-4.jpg'
   ],
   category: 'misc',
-  warranty: 'لا يوجد',
 };
 
 export default product;

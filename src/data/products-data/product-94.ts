@@ -13,7 +13,7 @@ const product: Product = {
 - عدد القطع: 19 قطعة
 - البطارية: 1300mAh
 - السرعة: 2800-5500 دورة بالدقيقة`,
-  price: 329.99,
+  price: 190,
   images: [
     'https://i.ibb.co/jvqvZnvW/image-1.jpg',
     'https://i.ibb.co/NgtgGQJp/image-2.jpg',

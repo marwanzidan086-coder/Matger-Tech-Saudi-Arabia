@@ -9,10 +9,9 @@ const product: Product = {
 - متعدد الاستخدامات.
 - قوة تثبيت عالية.
 - سهل الاستخدام.###DETAILS###- الحجم: 60 جرام`,
-  price: 29.99,
+  price: 70,
   images: [ 'https://i.ibb.co/jkJfwdpL/image-1.jpg', 'https://i.ibb.co/b5y3GdVj/image-2.jpg', 'https://i.ibb.co/b5NbjZNg/image-3.jpg' ],
   category: 'home',
-  warranty: 'لا يوجد',
 };
 
 export default product;

@@ -12,7 +12,7 @@ const product: Product = {
 - يعمل بضغط عالي لإزالة الأوساخ بسهولة.###DETAILS###- النوع: رشاش ماء عالي الضغط
 - المادة: معدن متين مع وصلة PVC
 - الطول: 17 سم`,
-  price: 59.99,
+  price: 65,
   images: [
     'https://i.ibb.co/y76FHqV/image-1.png',
     'https://i.ibb.co/tMyWx5ZD/image-2.png',

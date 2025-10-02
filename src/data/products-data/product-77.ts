@@ -14,7 +14,7 @@ const product: Product = {
 - المادة: ABS
 - الأبعاد: 32 × 27.5 × 3.5 سم
 - البطارية: بطارية ليثيوم 500mAh (قابلة للشحن)`,
-  price: 249.99,
+  price: 150,
   images: [
     'https://i.ibb.co/W41FMnRn/image-1.jpg',
     'https://i.ibb.co/Q7dK4FZZ/image-2.jpg',

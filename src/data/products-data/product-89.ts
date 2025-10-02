@@ -15,7 +15,7 @@ const product: Product = {
 - القوة: 6 واط
 - نوع الشحن: تايب C
 - نوع البطارية: بطارية قابلة لإعادة الشحن`,
-  price: 119.99,
+  price: 95,
   images: [
     'https://i.ibb.co/gMZCqx9r/image-1.jpg',
     'https://i.ibb.co/3mt9MjZ3/image-2.jpg',

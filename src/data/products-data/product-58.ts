@@ -15,7 +15,7 @@ const product: Product = {
 - البطارية: 21 فولت / 3000 مل أمبير (بطاريتان)
 - سرعة الدوران: 0-3800 دورة في الدقيقة
 - الإضاءة: مصباح LED مدمج`,
-  price: 499.99,
+  price: 210,
   images: [
     'https://i.ibb.co/1JByfHmL/image-1.jpg',
     'https://i.ibb.co/Pv8xMD5h/image-2.jpg',

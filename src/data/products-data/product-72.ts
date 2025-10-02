@@ -14,7 +14,7 @@ const product: Product = {
 - الخامة: بلاستيك
 - الفئة العمرية: 6 سنوات وما فوق
 - البطارية: قابلة للشحن`,
-  price: 149.99,
+  price: 115,
   images: [
     'https://i.ibb.co/9J0PmVH/image-1.jpg',
     'https://i.ibb.co/rf0tZRSn/image-2.jpg',

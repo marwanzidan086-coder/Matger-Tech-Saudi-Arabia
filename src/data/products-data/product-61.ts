@@ -15,7 +15,7 @@ const product: Product = {
 - زاوية الرؤية: أمامية 170°
 - دعم كارت ذاكرة: حتى 128GB (غير مشمول)
 - البطارية: 150mAh`,
-  price: 279.99,
+  price: 172,
   images: [
     'https://i.ibb.co/Xkz3Z900/image-1.jpg',
     'https://i.ibb.co/hx0C5Cz0/image-2.jpg',
