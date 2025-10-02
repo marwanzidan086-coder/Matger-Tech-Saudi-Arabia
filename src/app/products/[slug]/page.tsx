@@ -1,7 +1,7 @@
 
 
 'use client';
-
+import { Suspense } from 'react';
 import { products } from '@/data/products';
 import { notFound, useParams } from 'next/navigation';
 import { AddToCartButton } from '@/components/AddToCartButton';
@@ -11,7 +11,7 @@ import { OrderNowButton } from '@/components/OrderNowButton';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, Truck, Clock, Check, List, Settings } from 'lucide-react';
+import { ShieldCheck, Truck, Clock, Check, List, Settings, Loader2 } from 'lucide-react';
 import ProductFaq from '@/components/ProductFaq';
 import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
@@ -20,7 +20,7 @@ import ProductReviews from '@/components/ProductReviews';
 
 
 // --- Main Product Page Component ---
-export default function ProductPage() {
+function ProductPageContent() {
   const params = useParams();
   const slug = typeof params.slug === 'string' ? params.slug : '';
   const product = products.find((p) => p.slug === slug);
@@ -132,4 +132,17 @@ export default function ProductPage() {
       <SimilarProducts currentProduct={product} />
     </div>
   );
+}
+
+export default function ProductPage() {
+    return (
+        <Suspense fallback={
+            <div className="flex flex-col items-center justify-center min-h-[80vh]">
+              <Loader2 className="h-12 w-12 animate-spin text-primary" />
+              <p className="mt-4 text-muted-foreground">جاري تحميل المنتج...</p>
+            </div>
+        }>
+            <ProductPageContent />
+        </Suspense>
+    )
 }
