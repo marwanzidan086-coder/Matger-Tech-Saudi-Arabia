@@ -149,7 +149,6 @@ import product151 from './products-data/product-151';
 import product152 from './products-data/product-152';
 import product153 from './products-data/product-153';
 import product154 from './products-data/product-154';
-import product155 from './products-data/product-155';
 
 // This is the master list of all products in the store.
 export const products: Product[] = [
@@ -168,5 +167,5 @@ export const products: Product[] = [
     product124, product125, product126, product127, product128, product129, product130, product131, product132, product133, 
     product134, product135, product136, product137, product138, product139, product140, product141, product142, product143, 
     product144, product145, product146, product147, product148, product149, product150, product151, product152, product153, 
-    product154, product155
+    product154
 ];
