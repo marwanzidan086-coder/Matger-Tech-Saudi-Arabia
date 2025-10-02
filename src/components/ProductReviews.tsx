@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Star, MessageSquare, User, Send } from 'lucide-react';
+import { Star, MessageSquare, Trash2, Send } from 'lucide-react';
 import { type Product, type Review } from '@/lib/types';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { Button } from './ui/button';
@@ -28,10 +28,13 @@ function StarRating({ rating, setRating, interactive = false }: { rating: number
 
 export default function ProductReviews({ product }: { product: Product }) {
   const [reviews, setReviews] = useLocalStorage<Review[]>(`reviews_${product.id}`, product.reviews || []);
+  const [userReviewIds, setUserReviewIds] = useLocalStorage<string[]>(`user_review_ids_${product.id}`, []);
+  
   const [newRating, setNewRating] = useState(0);
   const [newComment, setNewComment] = useState('');
   const [newAuthor, setNewAuthor] = useState('');
   const [showForm, setShowForm] = useState(false);
+  const [showAllReviews, setShowAllReviews] = useState(false);
 
   const averageRating = useMemo(() => {
     if (reviews.length === 0) return 0;
@@ -41,18 +44,29 @@ export default function ProductReviews({ product }: { product: Product }) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (newRating > 0 && newComment.trim() !== '' && newAuthor.trim() !== '') {
+      const newReviewId = `review_${Date.now()}_${Math.random()}`;
       const newReview: Review = {
+        id: newReviewId,
         author: newAuthor,
         rating: newRating,
         comment: newComment,
       };
-      setReviews([...reviews, newReview]);
+      setReviews(prev => [newReview, ...prev]);
+      setUserReviewIds(prev => [...prev, newReviewId]);
+      
       setNewRating(0);
       setNewComment('');
       setNewAuthor('');
       setShowForm(false);
     }
   };
+
+  const handleDelete = (reviewId: string) => {
+    setReviews(prev => prev.filter(r => r.id !== reviewId));
+    setUserReviewIds(prev => prev.filter(id => id !== reviewId));
+  }
+
+  const reviewsToShow = showAllReviews ? reviews : reviews.slice(0, 1);
   
   return (
     <div className="space-y-6">
@@ -61,17 +75,19 @@ export default function ProductReviews({ product }: { product: Product }) {
         مراجعات العملاء
       </h3>
 
-      <div className="flex flex-col items-center gap-2">
-        <StarRating rating={averageRating} />
-        <p className="text-sm text-muted-foreground">
-          متوسط التقييم {averageRating.toFixed(1)} من {reviews.length} مراجعة
-        </p>
-      </div>
+      {reviews.length > 0 && (
+        <div className="flex flex-col items-center gap-2">
+          <StarRating rating={averageRating} />
+          <p className="text-sm text-muted-foreground">
+            متوسط التقييم {averageRating.toFixed(1)} من {reviews.length} مراجعة
+          </p>
+        </div>
+      )}
       
-      <div className="space-y-4 max-h-72 overflow-y-auto pr-2">
+      <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
         {reviews.length > 0 ? (
-          reviews.map((review, index) => (
-            <div key={index} className="p-4 border rounded-lg bg-muted/30">
+          reviewsToShow.map((review) => (
+            <div key={review.id} className="p-4 border rounded-lg bg-muted/30 relative">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <Avatar className="h-8 w-8">
@@ -81,17 +97,33 @@ export default function ProductReviews({ product }: { product: Product }) {
                 </div>
                 <StarRating rating={review.rating} />
               </div>
-              <p className="text-foreground/80">{review.comment}</p>
+              <p className="text-foreground/80 pr-2">{review.comment}</p>
+              {userReviewIds.includes(review.id) && (
+                 <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="absolute top-1 left-1 h-7 w-7 text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                    onClick={() => handleDelete(review.id)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                 </Button>
+              )}
             </div>
           ))
         ) : (
           <p className="text-center text-muted-foreground py-4">لا توجد مراجعات لهذا المنتج حتى الآن. كن أول من يكتب مراجعة!</p>
         )}
       </div>
+
+      {reviews.length > 1 && !showAllReviews && (
+        <div className="text-center">
+            <Button onClick={() => setShowAllReviews(true)} variant="outline">عرض المزيد من المراجعات</Button>
+        </div>
+      )}
       
       {!showForm && (
         <div className="text-center">
-            <Button onClick={() => setShowForm(true)} variant="outline">أضف مراجعتك</Button>
+            <Button onClick={() => setShowForm(true)}>أضف مراجعتك</Button>
         </div>
       )}
 
