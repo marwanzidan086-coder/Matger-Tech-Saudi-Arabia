@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -5,39 +6,27 @@ import { products } from '@/data/products';
 import { Product } from '@/lib/types';
 import ProductCard from './ProductCard';
 import { Loader2 } from 'lucide-react';
+import { similarProductsMap } from '@/data/similar-products-map';
 
-// New, more intelligent static recommendation function
+// This function now uses the manually curated map for recommendations.
 function getStaticRecommendations(currentProduct: Product): Product[] {
-  const allOtherProducts = products.filter(p => p.id !== currentProduct.id);
+  // 1. Look for the current product's ID in our manual map.
+  const recommendedIds = similarProductsMap[currentProduct.id];
 
-  // --- Step 1: Find products with very similar names (keyword matching) ---
-  const currentProductNameWords = currentProduct.name.toLowerCase().split(' ');
-  // Use significant words from the name, ignoring common short words.
-  const keywords = currentProductNameWords.filter(word => word.length > 3);
-
-  const similarByName: Product[] = [];
-  if (keywords.length > 0) {
-    for (const p of allOtherProducts) {
-      const pNameLower = p.name.toLowerCase();
-      // If any keyword from the current product is in the other product's name
-      if (keywords.some(keyword => pNameLower.includes(keyword))) {
-        similarByName.push(p);
-      }
-    }
+  // 2. If no specific recommendations are found, fall back to a simple category-based logic.
+  if (!recommendedIds || recommendedIds.length === 0) {
+    const fallbackRecs = products
+      .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
+      .slice(0, 4);
+    return fallbackRecs;
   }
+  
+  // 3. Map the recommended IDs back to the full product objects.
+  const recommendedProducts = recommendedIds
+    .map(id => products.find(p => p.id === id))
+    .filter((p): p is Product => !!p); // Filter out any undefined products just in case
 
-  // --- Step 2: Get other products from the same category ---
-  const similarByCategory = allOtherProducts.filter(p => p.category === currentProduct.category);
-
-  // --- Step 3: Combine and de-duplicate the lists ---
-  // Start with name-based matches, then add category matches until we have enough.
-  const combined = [...similarByName, ...similarByCategory];
-  const uniqueRecommendations = combined.filter(
-    (product, index, self) => index === self.findIndex((p) => p.id === product.id)
-  );
-
-  // 4. Return the first 4 products from the combined list.
-  return uniqueRecommendations.slice(0, 4);
+  return recommendedProducts;
 }
 
 
@@ -47,6 +36,7 @@ export default function SimilarProducts({ currentProduct }: { currentProduct: Pr
 
   useEffect(() => {
     setIsLoading(true);
+    // The recommendations are now fetched from our highly accurate manual mapping.
     const staticRecs = getStaticRecommendations(currentProduct);
     setRecommendations(staticRecs);
     setIsLoading(false);
@@ -76,3 +66,4 @@ export default function SimilarProducts({ currentProduct }: { currentProduct: Pr
     </div>
   );
 }
+
