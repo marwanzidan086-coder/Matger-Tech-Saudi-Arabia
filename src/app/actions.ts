@@ -86,10 +86,15 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
 
-  if (!accountSid || !authToken || !twilioPhoneNumber || !accountSid.startsWith('AC')) {
+  if (!accountSid || !authToken || !twilioPhoneNumber) {
     console.error('Twilio credentials are not configured correctly in .env file.');
     return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر لتكوين الإعدادات.' };
   }
+  
+  if (!accountSid.startsWith('AC')) {
+    return { success: false, message: 'خطأ في إعدادات Twilio: يبدو أن "Account SID" غير صحيح. يرجى التحقق منه في ملف .env.' };
+  }
+
 
   const { messageBody, orderNumber, orderDate } = buildOrderMessage(validation.data);
   const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
@@ -116,15 +121,19 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
       if (!response.ok) {
         console.error('Twilio API Error:', responseData);
         let userMessage = `خطأ من Twilio: ${responseData.message || 'حدث خطأ غير معروف.'}`;
-        if (responseData.code === 21211) {
-            userMessage = "رقم Twilio الذي تحاول الإرسال منه غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.";
-        } else if (responseData.code === 21614) {
-            userMessage = 'رقم المستلم غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.';
-        } else if (responseData.code === 63018) {
+
+        if (responseData.code === 20003) { // Authentication Error
+             userMessage = 'فشل المصادقة: تحقق من بيانات Twilio (ACCOUNT_SID / AUTH_TOKEN) في ملف .env.';
+        } else if (responseData.code === 21211) { // Invalid 'From' number
+            userMessage = `رقم Twilio الذي تحاول الإرسال منه (${twilioPhoneNumber}) غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.`;
+        } else if (responseData.code === 21614) { // 'To' number is not a valid WhatsApp user
+            userMessage = `رقم المستلم (${toNumber}) غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.ts.`;
+        } else if (responseData.code === 63018) { // Sandbox message failure
             userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي بإرسال كلمة الانضمام المخصصة.';
-        } else if (response.status === 401) {
-            userMessage = 'فشل المصادقة: تحقق من بيانات Twilio (SID / AUTH TOKEN) في ملف .env.';
+        } else if (responseData.message && responseData.message.includes('find a Channel with the specified From address')) {
+            userMessage = `خطأ في قناة الإرسال: تأكد من أن رقم Twilio (${twilioPhoneNumber}) مهيأ لإرسال رسائل واتساب. إذا كنت تستخدم Sandbox، تأكد من إتمام خطوات الربط.`;
         }
+
         return { success: false, message: userMessage };
       }
     }

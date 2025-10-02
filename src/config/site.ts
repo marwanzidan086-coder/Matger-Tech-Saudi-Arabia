@@ -1,3 +1,4 @@
+
 export const siteConfig = {
     name: 'Matger.tech',
     description: 'متجر إلكتروني متكامل لبيع أحدث المنتجات التقنية.',
