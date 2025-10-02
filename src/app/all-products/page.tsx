@@ -5,10 +5,17 @@ import { useState, useMemo } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
-import { ArrowUpDown, Clock, Search } from 'lucide-react';
+import { ArrowUpDown, Clock, Search, Mic, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
 import Fuse from 'fuse.js';
+
+declare global {
+  interface Window {
+    SpeechRecognition: any;
+    webkitSpeechRecognition: any;
+  }
+}
 
 type SortOption = 'newest' | 'price-asc' | 'price-desc';
 
@@ -20,6 +27,7 @@ const fuse = new Fuse(products, {
 export default function AllProductsPage() {
   const [sortOption, setSortOption] = useState<SortOption>('newest');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isListening, setIsListening] = useState(false);
 
   const filteredAndSortedProducts = useMemo(() => {
     let productsToShow = products;
@@ -44,6 +52,40 @@ export default function AllProductsPage() {
     }
     return sorted;
   }, [searchQuery, sortOption]);
+  
+  const handleVoiceSearch = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert('متصفحك لا يدعم ميزة البحث الصوتي.');
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'ar-SA';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.onresult = (event: any) => {
+      const speechResult = event.results[0][0].transcript;
+      setSearchQuery(speechResult);
+    };
+    
+    recognition.onerror = (event: any) => {
+        console.error('Speech recognition error', event.error);
+        setIsListening(false);
+    };
+
+    recognition.start();
+  };
+
 
   const sortButtons: { label: string; value: SortOption, icon: React.ElementType }[] = [
     { label: 'الأحدث', value: 'newest', icon: Clock },
@@ -66,11 +108,21 @@ export default function AllProductsPage() {
         <div className="relative w-full md:w-1/3">
            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
            <Input 
-             placeholder="ابحث بالاسم..."
+             placeholder={isListening ? "جاري الاستماع..." : "ابحث بالاسم..."}
              value={searchQuery}
              onChange={(e) => setSearchQuery(e.target.value)}
-             className="pl-10"
+             className="pl-10 pr-10"
            />
+           <Button 
+            type="button" 
+            variant="ghost" 
+            size="icon" 
+            onClick={handleVoiceSearch} 
+            className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 text-muted-foreground"
+            aria-label="بحث صوتي"
+            >
+              {isListening ? <Loader2 className="h-5 w-5 animate-spin"/> : <Mic className="h-5 w-5" />}
+          </Button>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">
             <p className="font-semibold hidden sm:block">ترتيب حسب:</p>
