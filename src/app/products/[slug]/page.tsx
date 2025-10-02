@@ -49,7 +49,7 @@ export default function ProductPage() {
           <Card className="bg-muted/40 border-dashed">
             <CardContent className="p-6">
               <div className="whitespace-pre-wrap text-base leading-relaxed text-foreground/80">
-                {product.rawDescription || product.description}
+                {product.description}
               </div>
             </CardContent>
           </Card>
