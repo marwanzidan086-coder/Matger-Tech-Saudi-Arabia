@@ -11,7 +11,7 @@ import { OrderNowButton } from '@/components/OrderNowButton';
 import SimilarProducts from '@/components/SimilarProducts';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, Truck, Clock, Check } from 'lucide-react';
+import { ShieldCheck, Truck, Clock, Check, List, Settings } from 'lucide-react';
 import ProductFaq from '@/components/ProductFaq';
 import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
@@ -28,6 +28,14 @@ export default function ProductPage() {
   if (!product) {
     notFound();
   }
+
+  // Parse description
+  const [mainDesc, featuresAndDetails] = product.description.split('###FEATURES###');
+  const [features, details] = featuresAndDetails ? featuresAndDetails.split('###DETAILS###') : ['', ''];
+
+  const featuresList = features ? features.split('\n').map(f => f.trim()).filter(f => f.startsWith('-')).map(f => f.substring(1).trim()) : [];
+  const detailsList = details ? details.split('\n').map(d => d.trim()).filter(d => d.startsWith('-')).map(d => d.substring(1).trim()) : [];
+
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -47,10 +55,39 @@ export default function ProductPage() {
           <ProductStory story={product.story || ''} />
 
           <Card className="bg-muted/40 border-dashed">
-            <CardContent className="p-6">
-              <div className="whitespace-pre-wrap text-base leading-relaxed text-foreground/80">
-                {product.description}
-              </div>
+             <CardContent className="p-6 space-y-6">
+              <p className="whitespace-pre-wrap text-base leading-relaxed text-foreground/80">
+                {mainDesc.trim()}
+              </p>
+
+              {featuresList.length > 0 && (
+                <div>
+                  <h3 className="font-bold text-lg mb-3 flex items-center gap-2"><List className="h-5 w-5 text-primary"/>أهم المميزات:</h3>
+                  <ul className="space-y-2 pr-4">
+                    {featuresList.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <Check className="h-5 w-5 text-green-500 mt-1 shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {detailsList.length > 0 && (
+                 <div>
+                  <h3 className="font-bold text-lg mb-3 flex items-center gap-2"><Settings className="h-5 w-5 text-primary"/>تفاصيل سريعة:</h3>
+                  <ul className="space-y-2 pr-4">
+                    {detailsList.map((detail, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                         <ShieldCheck className="h-5 w-5 text-blue-500 mt-1 shrink-0" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
             </CardContent>
           </Card>
 
