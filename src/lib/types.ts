@@ -1,10 +1,12 @@
 
 
+
 export type Review = {
     id: string; // Added ID for unique identification
     author: string;
     rating: number;
     comment: string;
+    createdAt?: Date;
 };
 
 export type Product = {

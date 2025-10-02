@@ -3,6 +3,12 @@
 
 import { z } from 'zod';
 import { siteConfig } from '@/config/site';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import type { Review } from '@/lib/types';
+
+
+// --- Order Actions ---
 
 const orderSchema = z.object({
   name: z.string().min(1, 'الاسم مطلوب'),
@@ -128,5 +134,33 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   } catch (err: any) {
     console.error('Fetch Error:', err);
     return { success: false, message: `حدث خطأ أثناء محاولة الاتصال بـ Twilio: ${err.message}` };
+  }
+}
+
+
+// --- Review Actions ---
+
+const reviewSchema = z.object({
+  productId: z.string().min(1),
+  author: z.string().min(2, 'الاسم مطلوب'),
+  rating: z.number().min(1).max(5),
+  comment: z.string().min(10, 'يجب أن يحتوي التعليق على 10 أحرف على الأقل'),
+});
+
+export async function addReview(data: Omit<Review, 'id' | 'createdAt'> & { productId: string }) {
+  const validation = reviewSchema.safeParse(data);
+  if (!validation.success) {
+    return { success: false, message: 'بيانات المراجعة غير صالحة.' };
+  }
+  try {
+    const { productId, ...reviewData } = validation.data;
+    const docRef = await addDoc(collection(db, 'products', productId, 'reviews'), {
+      ...reviewData,
+      createdAt: serverTimestamp(),
+    });
+    return { success: true, reviewId: docRef.id };
+  } catch (error) {
+    console.error('Error adding review to Firestore: ', error);
+    return { success: false, message: 'حدث خطأ أثناء إضافة المراجعة.' };
   }
 }

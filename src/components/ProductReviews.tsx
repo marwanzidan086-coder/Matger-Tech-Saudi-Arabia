@@ -1,14 +1,18 @@
 
 'use client';
 
-import { useState, useMemo } from 'react';
-import { Star, MessageSquare, Trash2, Send } from 'lucide-react';
+import { useState, useMemo, useEffect } from 'react';
+import { Star, MessageSquare, Trash2, Send, Loader2 } from 'lucide-react';
 import { type Product, type Review } from '@/lib/types';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Input } from './ui/input';
 import { useLocalStorage } from '@/hooks/use-local-storage';
+import { addReview } from '@/app/actions';
+import { db } from '@/lib/firebase';
+import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { useToast } from '@/hooks/use-toast';
 
 function StarRating({ rating, setRating, interactive = false }: { rating: number; setRating?: (rating: number) => void; interactive?: boolean; }) {
   return (
@@ -27,7 +31,7 @@ function StarRating({ rating, setRating, interactive = false }: { rating: number
 }
 
 export default function ProductReviews({ product }: { product: Product }) {
-  const [reviews, setReviews] = useLocalStorage<Review[]>(`reviews_${product.id}`, product.reviews || []);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [userReviewIds, setUserReviewIds] = useLocalStorage<string[]>(`user_review_ids_${product.id}`, []);
   
   const [newRating, setNewRating] = useState(0);
@@ -35,36 +39,78 @@ export default function ProductReviews({ product }: { product: Product }) {
   const [newAuthor, setNewAuthor] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
+  useEffect(() => {
+    setIsLoading(true);
+    const q = query(collection(db, 'products', product.id, 'reviews'), orderBy('createdAt', 'desc'));
+    
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const fetchedReviews: Review[] = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        fetchedReviews.push({
+          id: doc.id,
+          author: data.author,
+          rating: data.rating,
+          comment: data.comment,
+          createdAt: data.createdAt?.toDate(),
+        });
+      });
+      setReviews(fetchedReviews);
+      setIsLoading(false);
+    }, (error) => {
+      console.error("Error fetching reviews:", error);
+      setIsLoading(false);
+      toast({
+        title: 'خطأ',
+        description: 'لم نتمكن من تحميل المراجعات.',
+        variant: 'destructive'
+      });
+    });
+
+    return () => unsubscribe();
+  }, [product.id, toast]);
+  
   const averageRating = useMemo(() => {
     if (reviews.length === 0) return 0;
     return reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
   }, [reviews]);
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (newRating > 0 && newComment.trim() !== '' && newAuthor.trim() !== '') {
-      const newReviewId = `review_${Date.now()}_${Math.random()}`;
-      const newReview: Review = {
-        id: newReviewId,
+      setIsSubmitting(true);
+      const result = await addReview({
+        productId: product.id,
         author: newAuthor,
         rating: newRating,
         comment: newComment,
-      };
-      setReviews(prev => [newReview, ...prev]);
-      setUserReviewIds(prev => [...prev, newReviewId]);
-      
-      setNewRating(0);
-      setNewComment('');
-      setNewAuthor('');
-      setShowForm(false);
+      });
+
+      if (result.success && result.reviewId) {
+        setUserReviewIds(prev => [...prev, result.reviewId!]);
+        setNewRating(0);
+        setNewComment('');
+        setNewAuthor('');
+        setShowForm(false);
+        toast({
+          title: 'شكراً لك!',
+          description: 'تمت إضافة مراجعتك بنجاح.',
+          variant: 'success'
+        });
+      } else {
+        toast({
+          title: 'خطأ',
+          description: result.message || 'لم نتمكن من إضافة مراجعتك.',
+          variant: 'destructive'
+        });
+      }
+      setIsSubmitting(false);
     }
   };
-
-  const handleDelete = (reviewId: string) => {
-    setReviews(prev => prev.filter(r => r.id !== reviewId));
-    setUserReviewIds(prev => prev.filter(id => id !== reviewId));
-  }
 
   const reviewsToShow = showAllReviews ? reviews : reviews.slice(0, 1);
   
@@ -84,36 +130,38 @@ export default function ProductReviews({ product }: { product: Product }) {
         </div>
       )}
       
-      <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
-        {reviews.length > 0 ? (
-          reviewsToShow.map((review) => (
-            <div key={review.id} className="p-4 border rounded-lg bg-muted/30 relative">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <Avatar className="h-8 w-8">
-                    <AvatarFallback>{review.author.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <span className="font-semibold">{review.author}</span>
+      {isLoading ? (
+        <div className="flex justify-center items-center h-24">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      ) : (
+        <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
+          {reviews.length > 0 ? (
+            reviewsToShow.map((review) => (
+              <div key={review.id} className="p-4 border rounded-lg bg-muted/30 relative">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="h-8 w-8">
+                      <AvatarFallback>{review.author.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <span className="font-semibold">{review.author}</span>
+                  </div>
+                  <StarRating rating={review.rating} />
                 </div>
-                <StarRating rating={review.rating} />
+                <p className="text-foreground/80 pr-2">{review.comment}</p>
+                {userReviewIds.includes(review.id) && (
+                   <div className="absolute top-1 left-1">
+                      {/* Placeholder for delete button if needed in future */}
+                   </div>
+                )}
               </div>
-              <p className="text-foreground/80 pr-2">{review.comment}</p>
-              {userReviewIds.includes(review.id) && (
-                 <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="absolute top-1 left-1 h-7 w-7 text-muted-foreground hover:text-destructive hover:bg-destructive/10"
-                    onClick={() => handleDelete(review.id)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                 </Button>
-              )}
-            </div>
-          ))
-        ) : (
-          <p className="text-center text-muted-foreground py-4">لا توجد مراجعات لهذا المنتج حتى الآن. كن أول من يكتب مراجعة!</p>
-        )}
-      </div>
+            ))
+          ) : (
+            <p className="text-center text-muted-foreground py-4">لا توجد مراجعات لهذا المنتج حتى الآن. كن أول من يكتب مراجعة!</p>
+          )}
+        </div>
+      )}
+
 
       {reviews.length > 1 && !showAllReviews && (
         <div className="text-center">
@@ -152,10 +200,10 @@ export default function ProductReviews({ product }: { product: Product }) {
             />
           </div>
           <div className="flex justify-end gap-2">
-            <Button type="button" variant="ghost" onClick={() => setShowForm(false)}>إلغاء</Button>
-            <Button type="submit">
-                <Send className="me-2 h-4 w-4"/>
-                إرسال المراجعة
+            <Button type="button" variant="ghost" onClick={() => setShowForm(false)} disabled={isSubmitting}>إلغاء</Button>
+            <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? <Loader2 className="me-2 h-4 w-4 animate-spin"/> : <Send className="me-2 h-4 w-4"/>}
+                {isSubmitting ? 'جاري الإرسال...' : 'إرسال المراجعة'}
             </Button>
           </div>
         </form>
