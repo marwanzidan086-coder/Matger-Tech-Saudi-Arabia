@@ -18,4 +18,14 @@ const product: Product = {
 - القوة: 625 واط
 - الاستخدام: مناسب للدهان الداخلي والخارجي`,
   price: 141,
-  images
+  images: [
+    'https://i.ibb.co/h9rS6YJ/image-1.jpg',
+    'https://i.ibb.co/Bq8p4g4/image-2.jpg',
+    'https://i.ibb.co/n67G7xM/image-3.jpg',
+    'https://i.ibb.co/mH5PZc9/image-4.jpg'
+  ],
+  category: 'home',
+  warranty: '14 يوم',
+};
+
+export default product;

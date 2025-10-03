@@ -1,3 +1,4 @@
+
 import { type Product } from '@/lib/types';
 
 const product: Product = {

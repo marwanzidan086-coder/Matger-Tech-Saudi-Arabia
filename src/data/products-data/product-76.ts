@@ -22,5 +22,10 @@ const product: Product = {
     'https://i.ibb.co/v4bDXSSP/image-3.jpg',
     'https://i.ibb.co/YBy6LLmw/image-4.jpg',
     'https://i.ibb.co/tTCygHR9/image-5.jpg',
-    'https://i.ibb.co/0yy4HzJr/image-6.jpg',
-    'https://i.ibb.
+    'https://i.ibb.co/0yy4HzJr/image-6.jpg'
+  ],
+  category: 'electronics',
+  warranty: '14 يوم',
+};
+
+export default product;
