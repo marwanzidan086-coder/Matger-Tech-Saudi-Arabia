@@ -12,10 +12,10 @@ const product: Product = {
 - السعة (الخلاط): كبير`,
   price: 220,
   images: [
-    'https://i.ibb.co/bKscDq2/image-1.jpg',
-    'https://i.ibb.co/Rk05M1dn/image-2.jpg',
-    'https://i.ibb.co/m5HB6YhC/image-3.jpg',
-    'https://i.ibb.co/yc8hHyzk/image-4.jpg'
+    'https://i.ibb.co/MkXd2Kj/image.jpg', // Link from user: https://ibb.co/MkXd2Kjm
+    'https://i.ibb.co/q39Pvvf/image.jpg', // Link from user: https://ibb.co/q39Pvvf9
+    'https://i.ibb.co/5gBQgkZ/image.jpg', // Link from user: https://ibb.co/5gBQgkZb
+    'https://i.ibb.co/NgkWcCj/image.jpg'  // Link from user: https://ibb.co/NgkWcCjy
   ],
   category: 'home',
   warranty: 'متعدد',
