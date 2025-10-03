@@ -12,6 +12,7 @@ const product: Product = {
 - السعة (الخلاط): كبير`,
   price: 220,
   images: [
+    'https://i.ibb.co/bKscDq2/image-1.jpg',
     'https://i.ibb.co/Rk05M1dn/image-2.jpg',
     'https://i.ibb.co/m5HB6YhC/image-3.jpg',
     'https://i.ibb.co/yc8hHyzk/image-4.jpg'
