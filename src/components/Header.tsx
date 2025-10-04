@@ -3,7 +3,8 @@ import { Truck } from 'lucide-react';
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
 import MainNav from './MainNav';
-import Search from './Search';
+import SearchWrapper from './SearchWrapper';
+import { Suspense } from 'react';
 
 export default function Header() {
   return (
@@ -26,7 +27,9 @@ export default function Header() {
         {/* Right side: Search and Main Nav */}
         <div className="flex items-center gap-2">
             <div className="flex">
-              <Search />
+              <Suspense>
+                <SearchWrapper />
+              </Suspense>
             </div>
             <div className="hidden md:flex">
                 <MainNav />
