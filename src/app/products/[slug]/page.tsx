@@ -32,11 +32,7 @@ function ProductPageContent() {
     if (foundProduct) {
       setProduct(foundProduct);
     } else {
-      // In a client component, we can't use notFound() directly in this way after hooks.
-      // A better approach is to handle the not-found state within the component's render logic.
-      // However, since the page is client-rendered, we can let it return null and handle it.
-      // For simplicity and to resolve the build error, we ensure a product is eventually found or we show loading.
-      // In a real-world scenario, you might redirect or show a "not found" component state.
+      notFound();
     }
   }, [slug]);
 
@@ -50,7 +46,6 @@ function ProductPageContent() {
     );
   }
   
-  // JSON-LD for Script tag
   const averageRating = product.reviews && product.reviews.length > 0 
     ? product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length
     : 0;
@@ -85,7 +80,6 @@ function ProductPageContent() {
     }),
   };
 
-  // Parse description
   const [mainDesc, featuresAndDetails] = product.description.split('###FEATURES###');
   const [features, details] = featuresAndDetails ? featuresAndDetails.split('###DETAILS###') : ['', ''];
 
@@ -106,7 +100,6 @@ function ProductPageContent() {
         
         <ProductImageGallery images={product.images} productName={product.name} />
 
-        {/* Product Details */}
         <div className="flex flex-col space-y-6">
           <div className="space-y-3">
             <h1 className="text-3xl md:text-4xl font-headline font-bold">{product.name}</h1>
