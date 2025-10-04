@@ -1,6 +1,4 @@
 
-
-'use client';
 import { Suspense } from 'react';
 import { products } from '@/data/products';
 import { notFound, useParams } from 'next/navigation';
@@ -17,6 +15,51 @@ import ProductQnA from '@/components/ProductQnA';
 import ProductImageGallery from '@/components/ProductImageGallery';
 import ProductStory from '@/components/ProductStory';
 import ProductReviews from '@/components/ProductReviews';
+import { Metadata, ResolvingMetadata } from 'next';
+import { siteConfig } from '@/config/site';
+
+type Props = {
+  params: { slug: string }
+}
+
+// --- SEO Metadata Generation ---
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = params.slug;
+  const product = products.find((p) => p.slug === slug);
+
+  if (!product) {
+    return {
+      title: 'المنتج غير موجود',
+    }
+  }
+  
+  // Extract a concise description for SEO, avoiding technical markers
+  const seoDescription = product.description.split('###FEATURES###')[0].trim();
+
+  return {
+    title: product.name,
+    description: `${seoDescription.substring(0, 160)}...`,
+    openGraph: {
+      title: product.name,
+      description: seoDescription,
+      url: `/products/${slug}`,
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: product.images[0],
+          width: 800,
+          height: 800,
+          alt: product.name,
+        },
+      ],
+      locale: 'ar_SA',
+      type: 'website',
+    },
+  }
+}
 
 
 // --- Main Product Page Component ---
