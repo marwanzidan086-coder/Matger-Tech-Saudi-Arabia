@@ -145,7 +145,6 @@ import product147 from './products-data/product-147';
 import product148 from './products-data/product-148';
 import product149 from './products-data/product-149';
 import product150 from './products-data/product-150';
-import product151 from './products-data/product-151';
 import product152 from './products-data/product-152';
 import product153 from './products-data/product-153';
 import product154 from './products-data/product-154';
@@ -162,10 +161,10 @@ export const products: Product[] = [
     product71, product72, product73, product74, product75, product76, product77, product78, product79, product80,
     product81, product82, product83, product84, product85, product86, product87, product88, product89, product90,
     product91, product92, product93, product94, product95, product96, product97, product98, product99, product100,
-    product101, product102, product103, product104, product105, product106, product107, product109, product110, product111, 
-    product112, product114, product115, product117, product118, product119, product120, product121, product122, product123, 
-    product124, product125, product126, product127, product128, product129, product130, product131, product132, product133, 
-    product134, product135, product136, product137, product138, product139, product140, product141, product142, product143, 
-    product144, product145, product146, product147, product148, product149, product150, product151, product152, product153, 
-    product154
+    product101, product102, product103, product104, product105, product106, product107, product109, product110, product111,
+    product112, product114, product115, product117, product118, product119, product120, product121, product122, product123,
+    product124, product125, product126, product127, product128, product129, product130, product131, product132, product133,
+    product134, product135, product136, product137, product138, product139, product140, product141, product142, product143,
+    product144, product145, product146, product147, product148, product149, product150, product152, product153,
+  product154
 ];
