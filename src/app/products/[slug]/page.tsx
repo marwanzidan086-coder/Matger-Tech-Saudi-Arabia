@@ -3,7 +3,7 @@
 
 import { Suspense, useEffect, useState } from 'react'; 
 import { products } from '@/data/products';
-import { notFound, useParams } from 'next/navigation';
+import { notFound, useParams, useSearchParams } from 'next/navigation';
 import { AddToCartButton } from '@/components/AddToCartButton';
 import { AddToWishlistButton } from '@/components/AddToWishlistButton';
 import { AddToCompareButton } from '@/components/AddToCompareButton';
@@ -24,6 +24,8 @@ import Head from 'next/head';
 // --- Main Product Page Component ---
 function ProductPageContent() {
   const params = useParams();
+  // useSearchParams is a client-side hook, which is why we need Suspense
+  const searchParams = useSearchParams(); 
   const slug = typeof params.slug === 'string' ? params.slug : '';
   const [product, setProduct] = useState<(typeof products)[0] | null>(null);
   
