@@ -57,6 +57,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
        <head>
+        <meta name="google-site-verification" content="TZGEB-X2Om2OPDI_KLxqmmH-9-OyWEDyzcjV6btlS6I" />
       </head>
       <body className={cn("font-body antialiased min-h-screen bg-background text-foreground", ptSans.variable, playfairDisplay.variable)}>
         <Providers>
