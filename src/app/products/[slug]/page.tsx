@@ -1,7 +1,7 @@
 
-'use client'; // Add this directive to make it a Client Component
+'use client'; 
 
-import { Suspense, useEffect, useState } from 'react'; // Import useEffect and useState
+import { Suspense, useEffect, useState } from 'react'; 
 import { products } from '@/data/products';
 import { notFound, useParams } from 'next/navigation';
 import { AddToCartButton } from '@/components/AddToCartButton';
@@ -18,16 +18,14 @@ import ProductImageGallery from '@/components/ProductImageGallery';
 import ProductStory from '@/components/ProductStory';
 import ProductReviews from '@/components/ProductReviews';
 import { siteConfig } from '@/config/site';
+import Head from 'next/head';
 
-// Metadata generation should be in a separate file if we use 'use client',
-// or we can handle document head properties differently.
-// For now, let's focus on fixing the build error. We will handle Metadata later if needed.
 
 // --- Main Product Page Component ---
 function ProductPageContent() {
   const params = useParams();
   const slug = typeof params.slug === 'string' ? params.slug : '';
-  const [product, setProduct] = useState<typeof products[0] | null>(null);
+  const [product, setProduct] = useState<(typeof products)[0] | null>(null);
   
   useEffect(() => {
     const foundProduct = products.find((p) => p.slug === slug);
@@ -93,10 +91,12 @@ function ProductPageContent() {
 
   return (
     <>
-    <script
+    <Head>
+       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
+    </Head>
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         
