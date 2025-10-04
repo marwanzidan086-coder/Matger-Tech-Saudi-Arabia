@@ -32,7 +32,9 @@ function ProductPageContent() {
     if (foundProduct) {
       setProduct(foundProduct);
     } else {
-      notFound();
+      // Delay notFound to allow Suspense to work
+      const timer = setTimeout(() => notFound(), 0);
+      return () => clearTimeout(timer);
     }
   }, [slug]);
 
@@ -193,12 +195,7 @@ function ProductPageContent() {
 
 export default function ProductPage() {
     return (
-        <Suspense fallback={
-            <div className="flex flex-col items-center justify-center min-h-[80vh]">
-              <Loader2 className="h-12 w-12 animate-spin text-primary" />
-              <p className="mt-4 text-muted-foreground">جاري تحميل المنتج...</p>
-            </div>
-        }>
+        <Suspense>
             <ProductPageContent />
         </Suspense>
     )
