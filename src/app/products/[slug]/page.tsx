@@ -22,6 +22,9 @@ type Props = {
   params: { slug: string }
 }
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://matger.tech';
+
+
 // --- SEO Metadata Generation ---
 export async function generateMetadata(
   { params }: Props,
@@ -38,8 +41,43 @@ export async function generateMetadata(
   
   // Extract a concise description for SEO, avoiding technical markers
   const seoDescription = product.description.split('###FEATURES###')[0].trim();
+  
+  const averageRating = product.reviews && product.reviews.length > 0 
+    ? product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length
+    : 0;
+  const reviewCount = product.reviews ? product.reviews.length : 0;
+
+  // JSON-LD Structured Data for Rich Snippets in Google
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    image: product.images[0],
+    description: seoDescription,
+    sku: product.id,
+    brand: {
+      '@type': 'Brand',
+      name: siteConfig.name,
+    },
+    offers: {
+      '@type': 'Offer',
+      url: `${siteUrl}/products/${slug}`,
+      priceCurrency: 'SAR',
+      price: product.price.toFixed(2),
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+    },
+    ...(reviewCount > 0 && {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: averageRating.toFixed(1),
+        reviewCount: reviewCount,
+      },
+    }),
+  };
 
   return {
+    metadataBase: new URL(siteUrl),
     title: product.name,
     description: `${seoDescription.substring(0, 160)}...`,
     openGraph: {
@@ -58,6 +96,12 @@ export async function generateMetadata(
       locale: 'ar_SA',
       type: 'website',
     },
+    alternates: {
+      canonical: `/products/${slug}`,
+    },
+    other: {
+      'json-ld': JSON.stringify(jsonLd),
+    }
   }
 }
 
@@ -71,6 +115,40 @@ function ProductPageContent() {
   if (!product) {
     notFound();
   }
+  
+  // JSON-LD for Script tag
+  const averageRating = product.reviews && product.reviews.length > 0 
+    ? product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length
+    : 0;
+  const reviewCount = product.reviews ? product.reviews.length : 0;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    image: product.images[0],
+    description: product.description.split('###FEATURES###')[0].trim(),
+    sku: product.id,
+    brand: {
+      '@type': 'Brand',
+      name: siteConfig.name,
+    },
+    offers: {
+      '@type': 'Offer',
+      url: `${siteUrl}/products/${slug}`,
+      priceCurrency: 'SAR',
+      price: product.price.toFixed(2),
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+    },
+    ...(reviewCount > 0 && {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: averageRating.toFixed(1),
+        reviewCount: reviewCount,
+      },
+    }),
+  };
 
   // Parse description
   const [mainDesc, featuresAndDetails] = product.description.split('###FEATURES###');
@@ -81,6 +159,11 @@ function ProductPageContent() {
 
 
   return (
+    <>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         
@@ -174,6 +257,7 @@ function ProductPageContent() {
       
       <SimilarProducts currentProduct={product} />
     </div>
+    </>
   );
 }
 
