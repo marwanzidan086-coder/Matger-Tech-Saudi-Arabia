@@ -50,9 +50,8 @@ function buildOrderMessage(data: z.infer<typeof orderSchema>) {
   
     // **CRITICAL CHANGE FOR TWILIO SANDBOX**
     // The Sandbox only allows pre-approved template messages. We will use a simple one.
-    // The original detailed message is commented out below.
-    // To use the detailed message, you need a full Twilio account, not the sandbox.
-    const messageBody = `Your appointment for ${orderNumber} is confirmed.`;
+    // To use a full Twilio account and custom messages, this body should be changed.
+    const messageBody = `Your order ${orderNumber} has been received.`;
 
     /*
     const originalMessageBody = `
