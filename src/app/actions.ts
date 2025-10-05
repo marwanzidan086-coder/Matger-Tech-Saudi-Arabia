@@ -94,12 +94,16 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
 
   if (!accountSid || !authToken || !twilioPhoneNumber) {
+    let missingVars = [];
+    if (!accountSid) missingVars.push('TWILIO_ACCOUNT_SID');
+    if (!authToken) missingVars.push('TWILIO_AUTH_TOKEN');
+    if (!twilioPhoneNumber) missingVars.push('TWILIO_PHONE_NUMBER');
     console.error('Twilio credentials are not configured correctly in .env file.');
-    return { success: false, message: 'خدمة إرسال الطلبات غير مهيأة. يرجى مراجعة صاحب المتجر لتكوين الإعدادات.' };
+    return { success: false, message: `متغيرات البيئة التالية مفقودة في إعدادات Vercel: ${missingVars.join(', ')}` };
   }
   
   if (!accountSid.startsWith('AC')) {
-    return { success: false, message: 'خطأ في إعدادات Twilio: يبدو أن "Account SID" غير صحيح. يرجى التحقق منه في ملف .env.' };
+    return { success: false, message: 'خطأ في إعدادات Twilio: يبدو أن "TWILIO_ACCOUNT_SID" غير صحيح. يرجى التحقق منه في Vercel.' };
   }
 
 
@@ -130,9 +134,9 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
         let userMessage = `خطأ من Twilio: ${responseData.message || 'حدث خطأ غير معروف.'}`;
 
         if (responseData.code === 20003) { // Authentication Error
-             userMessage = 'فشل المصادقة: تحقق من بيانات Twilio (ACCOUNT_SID / AUTH_TOKEN) في ملف .env.';
+             userMessage = 'فشل المصادقة: تحقق من قيم TWILIO_ACCOUNT_SID و TWILIO_AUTH_TOKEN في إعدادات Vercel.';
         } else if (responseData.code === 21211) { // Invalid 'From' number
-            userMessage = `رقم Twilio الذي تحاول الإرسال منه (${twilioPhoneNumber}) غير صالح أو غير مهيأ. تحقق من الرقم في ملف .env أو في حساب Twilio.`;
+            userMessage = `خطأ في قناة الإرسال: تأكد من أن رقم Twilio (${twilioPhoneNumber}) مهيأ لإرسال رسائل واتساب. إذا كنت تستخدم Sandbox، تأكد من إتمام خطوات الربط.`;
         } else if (responseData.code === 21614) { // 'To' number is not a valid WhatsApp user
             userMessage = `رقم المستلم (${toNumber}) غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.ts.`;
         } else if (responseData.code === 63018) { // Sandbox message failure
