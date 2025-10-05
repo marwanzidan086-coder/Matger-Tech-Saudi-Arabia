@@ -48,34 +48,27 @@ function buildOrderMessage(data: z.infer<typeof orderSchema>) {
       .join('\n');
     const fullAddress = `${address}, ${city}, ${governorate}`;
   
-    // **CRITICAL CHANGE FOR TWILIO SANDBOX**
-    // The Sandbox only allows pre-approved template messages. We will use a simple one.
-    // To use a full Twilio account and custom messages, this body should be changed.
-    const messageBody = `Your order ${orderNumber} has been received.`;
-
-    /*
-    const originalMessageBody = `
-طلب جديد من *${siteConfig.name}*
+    const messageBody = `
+🛍️ طلب جديد من *${siteConfig.name}* 🛍️
 
 *رقم الطلب:* ${orderNumber}
 *تاريخ الطلب:* ${orderDate}
 
-*بيانات العميل:*
+👤 *بيانات العميل:*
 *الاسم:* ${name}
 *الجوال الأساسي:* ${phone}
 *جوال إضافي:* ${phone2 || 'لا يوجد'}
 *العنوان:* ${fullAddress}
 *تفاصيل إضافية:* ${notes || 'لا يوجد'}
 
-*المنتجات:*
+📦 *المنتجات:*
 ${productLines}
 
-*إجمالي المنتجات:* ${subTotal.toFixed(2)}
-*سعر الشحن:* ${shippingCost.toFixed(2)}
+*إجمالي المنتجات:* ${subTotal.toFixed(2)} ر.س
+*سعر الشحن:* ${shippingCost.toFixed(2)} ر.س
 --------------------
-*الإجمالي النهائي:* ${total.toFixed(2)}
+*💰 الإجمالي النهائي:* ${total.toFixed(2)} ر.س
     `.trim();
-    */
 
     return { messageBody, orderNumber, orderDate };
 }
@@ -113,7 +106,6 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
   try {
     for (const toNumber of siteConfig.whatsappNumbers) {
       const body = new URLSearchParams();
-      // Format `To` and `From` numbers exactly as Twilio expects for WhatsApp
       body.append('To', `whatsapp:${toNumber.startsWith('+') ? toNumber : `+${toNumber}`}`);
       body.append('From', `whatsapp:${twilioPhoneNumber.startsWith('+') ? twilioPhoneNumber : `+${twilioPhoneNumber}`}`);
       body.append('Body', messageBody);
@@ -140,7 +132,7 @@ export async function sendOrderViaWhatsApp(data: z.infer<typeof orderSchema>) {
         } else if (responseData.code === 21614) { // 'To' number is not a valid WhatsApp user
             userMessage = `رقم المستلم (${toNumber}) غير صحيح أو غير مسجل في واتساب. تأكد من صحة الرقم في ملف siteConfig.ts.`;
         } else if (responseData.code === 63018) { // Sandbox message failure
-            userMessage = 'فشل إرسال رسالة Sandbox. يرجى التأكد من تفعيل Sandbox لرقم المتجر والانضمام إليه من رقمك الشخصي بإرسال كلمة الانضمام المخصصة.';
+            userMessage = 'فشل إرسال رسالة Sandbox. يتطلب الحساب التجريبي إرسال قوالب معتمدة فقط. لرسائل مخصصة، يرجى ترقية حساب Twilio الخاص بك.';
         } else if (responseData.message && responseData.message.includes('find a Channel with the specified From address')) {
             userMessage = `خطأ في قناة الإرسال: تأكد من أن رقم Twilio (${twilioPhoneNumber}) مهيأ لإرسال رسائل واتساب. إذا كنت تستخدم Sandbox، تأكد من إتمام خطوات الربط.`;
         }
