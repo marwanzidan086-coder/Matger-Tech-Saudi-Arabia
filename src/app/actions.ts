@@ -48,7 +48,14 @@ function buildOrderMessage(data: z.infer<typeof orderSchema>) {
       .join('\n');
     const fullAddress = `${address}, ${city}, ${governorate}`;
   
-    const messageBody = `
+    // **CRITICAL CHANGE FOR TWILIO SANDBOX**
+    // The Sandbox only allows pre-approved template messages. We will use a simple one.
+    // The original detailed message is commented out below.
+    // To use the detailed message, you need a full Twilio account, not the sandbox.
+    const messageBody = `Your appointment for ${orderNumber} is confirmed.`;
+
+    /*
+    const originalMessageBody = `
 طلب جديد من *${siteConfig.name}*
 
 *رقم الطلب:* ${orderNumber}
@@ -69,6 +76,7 @@ ${productLines}
 --------------------
 *الإجمالي النهائي:* ${total.toFixed(2)}
     `.trim();
+    */
 
     return { messageBody, orderNumber, orderDate };
 }
